@@ -615,16 +615,13 @@ height="0" width="0" class="gtm-noscript"></iframe></noscript>
         </div>
       </div>
 
-      <!-- Formulario -->
-      <form class="contact-form" id="contactForm" action="https://formspree.io/f/mlgvwqkq" method="POST">
-        <!-- Honeypot anti-bot: invisible para humanos, los bots lo llenan -->
-        <input type="text" name="_gotcha" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <!-- Formulario (Netlify Forms) -->
+      <form class="contact-form" id="contactForm" name="contacto" method="POST" action="/gracias.html" data-netlify="true" netlify-honeypot="bot-field">
+        <!-- Requerido por Netlify Forms para detectar el form en HTML estatico -->
+        <input type="hidden" name="form-name" value="contacto">
 
-        <!-- _next: Formspree redirige al usuario a esta URL tras procesar el envío.
-             El valor absoluto se setea en app.js al cargar la página. -->
-        <input type="hidden" name="_next" id="formNext" value="https://marianocalandra.com/gracias.html">
-        <!-- _subject: asunto del email que llega desde Formspree -->
-        <input type="hidden" name="_subject" value="Nuevo lead desde marianocalandra.com">
+        <!-- Honeypot anti-bot: invisible para humanos, los bots lo llenan -->
+        <input type="text" name="bot-field" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
 
         <div class="form-row">
           <div class="form-group">

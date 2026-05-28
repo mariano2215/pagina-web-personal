@@ -349,20 +349,6 @@ document.querySelectorAll('.card, .project-block, .highlight-box, .chip, .timeli
 });
 
 // ============================================
-// Form post-submit redirect
-// Setea el _next del form a la URL absoluta de la página de gracias.
-// Formspree usa este valor para redirigir al usuario después de procesar el envío.
-// ============================================
-const THANK_YOU_PATH = '/gracias.html';
-
-(function initFormRedirect() {
-  const formNext = document.getElementById('formNext');
-  if (formNext) {
-    formNext.value = window.location.origin + THANK_YOU_PATH;
-  }
-})();
-
-// ============================================
 // Header shadow al scrollear (toggle de clase, no inline style)
 // ============================================
 const header = document.querySelector('.header');
