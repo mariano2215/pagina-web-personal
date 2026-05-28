@@ -33,7 +33,7 @@ const translations = {
 
     // Hero
     'hero-eyebrow': 'Clear marketing · Real growth',
-    'hero-headline': 'Stop burning cash on ads.<br><span>Sell with a system.</span>',
+    'hero-headline': 'Turn your marketing into a <span>sales autopilot.</span>',
     'hero-subtitle': 'I empower <strong>SMBs, ecommerce and companies across Argentina and LATAM</strong> to organize their marketing, stop improvising and turn ads into real sales. Strategy, paid media and consulting — focused on what moves the needle.',
     'hero-btn-primary': "Let's talk about your business →",
     'hero-btn-secondary': 'Request a free audit →',
@@ -48,7 +48,7 @@ const translations = {
 
     // Áreas
     'areas-title': 'How you benefit from working with me',
-    'areas-subtitle': 'I work with companies, SMBs, entrepreneurs, ecommerce, personal brands, agencies and digital projects that need to organize their strategy, generate demand and sell better.',
+    'areas-subtitle': 'I work with companies, SMBs, entrepreneurs, ecommerce, personal brands, agencies and digital projects that need to <strong>organize their strategy, generate demand and sell better.</strong>',
     'areas-card1-title': 'Digital advertising (Paid Media)',
     'areas-card1-desc': 'Planning, implementation and optimization of campaigns on Meta Ads, Google Ads and TikTok Ads, focused on measurable results and data-driven decisions.',
     'areas-card2-title': 'Consulting & Commercial strategy',
@@ -99,8 +99,7 @@ const translations = {
     'testi-2-company': 'Argentine securities brokerage (ALYC) · Capital markets',
     'testi-3-tag': 'Instagram · Organic growth',
     'testi-3-metric-label': 'Views on social media',
-    'testi-3-secondary-label': 'Instagram followers',
-    'testi-3-quote': '"We started from zero and in just a few months built a huge community. Over 1 million views and more than 100,000 Instagram followers, with content that truly connects with the audience and positioned the blog as a reference."',
+    'testi-3-quote': '"We started from zero and over the past year built a huge community. Over 1 million views and more than 110,000 Instagram followers, with content that truly connects with the audience and positioned the blog as a reference."',
     'testi-3-role': 'Co-Founder',
     'testi-3-company': 'Psychology blog',
     'testi-4-tag': 'Consulting + AI · Web development',

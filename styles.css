@@ -491,6 +491,25 @@ img {
   transform: scaleX(1);
 }
 
+.card-image {
+  margin: -40px -40px 24px -40px;
+  height: 180px;
+  overflow: hidden;
+  background: var(--bg-primary);
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.card:hover .card-image img {
+  transform: scale(1.05);
+}
+
 .card-icon {
   width: 56px;
   height: 56px;
