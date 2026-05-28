@@ -1,0 +1,5 @@
+# Bloquear archivos de backup que no deberían ser públicos
+/index.html.bak    /  404!
+/index.html.bak2   /  404!
+/index.html.bak3   /  404!
+/*.bak             /  404!

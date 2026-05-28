@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Gracias por tu consulta. Pronto te respondo.">
+<title>Gracias · Mariano Calandra</title>
+
+<!-- Google Tag Manager -->
+<script src="gtm.js?v=__BUST__"></script>
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="img/favicon16x16.png">
+<link rel="apple-touch-icon" href="img/favicon16x16.png">
+<meta name="theme-color" content="#0B0B0B">
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="styles.css?v=__BUST__">
+
+<style>
+  /* Layout específico de la página de agradecimiento */
+  .thanks-hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 140px 0 80px;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+  }
+  .thanks-hero::before {
+    content: '';
+    position: absolute;
+    top: -200px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle, rgba(53, 212, 174, 0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .thanks-content {
+    position: relative;
+    z-index: 2;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  .thanks-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--accent-soft);
+    border: 1px solid var(--accent-border);
+    color: var(--accent);
+    padding: 10px 20px;
+    border-radius: var(--radius-pill);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+  }
+  .thanks-badge::before {
+    content: '✓';
+    width: 22px;
+    height: 22px;
+    background: var(--accent);
+    color: var(--bg-primary);
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    font-size: 14px;
+  }
+  .thanks-headline {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(40px, 6vw, 72px);
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    margin-bottom: 24px;
+  }
+  .thanks-headline span {
+    color: var(--accent);
+  }
+  .thanks-subtitle {
+    font-size: 18px;
+    color: var(--text-gray);
+    line-height: 1.7;
+    margin-bottom: 40px;
+  }
+  .thanks-subtitle strong {
+    color: var(--text-white);
+    font-weight: 600;
+  }
+  .thanks-actions {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 32px;
+  }
+  .thanks-microcopy {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+  .thanks-microcopy a {
+    color: var(--accent);
+  }
+</style>
+</head>
+<body>
+
+<!-- GTM noscript -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WF2DG4B7"
+height="0" width="0" class="gtm-noscript"></iframe></noscript>
+
+<!-- HEADER simplificado -->
+<header class="header">
+  <div class="container">
+    <div class="header-inner">
+      <a href="index.html" class="logo" aria-label="Mariano Calandra — Inicio">
+        <img src="img/favicon16x16.png" alt="MC monograma">
+        <span class="logo-text">Mariano <span>Calandra</span></span>
+      </a>
+      <nav>
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="index.html#home">Home</a></li>
+          <li><a href="index.html#quien-soy">Quién soy</a></li>
+          <li><a href="index.html#proyectos">Mis proyectos</a></li>
+          <li><a href="recursos.html">Recursos</a></li>
+          <li><a href="index.html#contacto" class="btn btn-primary nav-cta">Hablemos →</a></li>
+        </ul>
+      </nav>
+      <button class="menu-toggle" id="menuToggle" aria-label="Menú">☰</button>
+    </div>
+  </div>
+</header>
+
+<!-- THANK YOU SECTION -->
+<section class="thanks-hero">
+  <div class="thanks-content">
+    <span class="thanks-badge">Recibido</span>
+
+    <h1 class="thanks-headline">
+      ¡Gracias por escribirme!<br>
+      <span>Pronto te respondo.</span>
+    </h1>
+
+    <p class="thanks-subtitle">
+      Voy a leer tu consulta en las próximas horas y te contesto al <strong>mail</strong> o <strong>WhatsApp</strong> que dejaste. Mientras tanto, podés seguir explorando el sitio.
+    </p>
+
+    <div class="thanks-actions">
+      <a href="index.html" class="btn btn-primary">
+        Volver al inicio →
+      </a>
+      <a href="index.html#proyectos" class="btn btn-secondary">
+        Ver mis proyectos
+      </a>
+    </div>
+
+    <p class="thanks-microcopy">
+      ¿Es urgente? Escribime directo a <a href="mailto:mariano.calandra7@gmail.com">mariano.calandra7@gmail.com</a> o por <a href="https://wa.me/+5493416397137" target="_blank" rel="noopener noreferrer">WhatsApp</a>.
+    </p>
+  </div>
+</section>
+
+<!-- FOOTER simplificado -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-bottom">
+      © 2026 Mariano Calandra. Todos los derechos reservados.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

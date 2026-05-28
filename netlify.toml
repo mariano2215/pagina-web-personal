@@ -1,0 +1,9 @@
+# Configuración de build de Netlify para este sitio estático.
+# El comando ejecuta bust.py antes de publicar, reemplazando __BUST__
+# en los HTML por un timestamp único para invalidar el cache del browser.
+
+[build]
+  publish = "."
+  command = "python3 bust.py"
+
+# Headers y redirects siguen viniendo de los archivos _headers y _redirects.
