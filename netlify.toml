@@ -6,4 +6,35 @@
   publish = "."
   command = "python3 bust.py"
 
-# Headers y redirects siguen viniendo de los archivos _headers y _redirects.
+# Headers y redirects de seguridad siguen viniendo de los archivos
+# _headers y _redirects. Los redirects de abajo protegen los PDFs.
+
+# ============================================
+# Protección de PDFs: descarga directa solo desde el sitio.
+# Si alguien entra al PDF con un Referer externo (o sin Referer),
+# se lo manda a la landing de captura. Las descargas internas
+# desde /gracias/ traen Referer del propio dominio y pasan directo.
+# force = true es obligatorio: como el PDF existe como archivo,
+# sin force el archivo siempre gana y el redirect nunca dispara.
+# ============================================
+
+[[redirects]]
+  from = "/descargables/auditoria_consultoria_marketing_express_campanas_mc.pdf"
+  to = "/recursos/auditoria-marketing-express.html"
+  status = 302
+  force = true
+  conditions = {Referer = ["!https://marianocalandra.com/*", "!https://www.marianocalandra.com/*"]}
+
+[[redirects]]
+  from = "/descargables/manual_gtm_ga4_mc_descarga_gratis.pdf"
+  to = "/recursos/manual-gtm-ga4.html"
+  status = 302
+  force = true
+  conditions = {Referer = ["!https://marianocalandra.com/*", "!https://www.marianocalandra.com/*"]}
+
+[[redirects]]
+  from = "/descargables/guia_inicial_paid_media_mc_descarga_gratis.pdf"
+  to = "/recursos/guia-paid-media.html"
+  status = 302
+  force = true
+  conditions = {Referer = ["!https://marianocalandra.com/*", "!https://www.marianocalandra.com/*"]}
