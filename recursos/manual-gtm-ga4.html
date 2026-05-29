@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Manual práctico de Google Tag Manager y GA4 en PDF: instalación, configuración de eventos y conversiones explicado paso a paso. Descarga gratuita.">
+<meta name="robots" content="index, follow">
+<title>Manual GTM + GA4 · Recurso gratuito — Mariano Calandra</title>
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="Manual GTM + GA4 · Recurso gratuito">
+<meta property="og:description" content="Instalá y configurá GTM y GA4 sin vueltas. Descarga gratuita.">
+<meta property="og:url" content="https://marianocalandra.com/recursos/manual-gtm-ga4.html">
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WF2DG4B7');</script>
+
+<link rel="icon" type="image/png" href="/img/favicon16x16.png">
+<link rel="apple-touch-icon" href="/img/favicon16x16.png">
+<meta name="theme-color" content="#0B0B0B">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/styles.css">
+
+<style>
+  .lm-page { min-height: 100vh; padding: 80px 0 40px; }
+  .lm-wrap { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 64px; align-items: start; }
+  .lm-eyebrow { color: var(--accent); font-family: 'Montserrat', sans-serif; font-weight: 700;
+    font-size: 13px; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 20px; display: inline-block; }
+  .lm-title { font-size: clamp(32px, 4.5vw, 52px); line-height: 1.1; margin-bottom: 20px; }
+  .lm-title span { color: var(--accent); }
+  .lm-sub { color: var(--text-gray); font-size: 18px; margin-bottom: 32px; max-width: 540px; }
+  .lm-list { list-style: none; margin: 0 0 36px; padding: 0; }
+  .lm-list li { display: flex; gap: 12px; padding: 10px 0; color: var(--text-gray); font-size: 15.5px; }
+  .lm-list li::before { content: "✓"; color: var(--accent); font-weight: 800; flex-shrink: 0; }
+  .lm-list li strong { color: var(--text-white); font-weight: 600; }
+  .lm-trust { display: flex; gap: 24px; padding: 20px 24px; background: var(--accent-soft);
+    border: 1px solid var(--accent-border); border-radius: 16px; align-items: center; margin-top: 24px; }
+  .lm-trust-icon { font-size: 28px; }
+  .lm-trust-text { color: var(--text-gray); font-size: 14px; line-height: 1.45; }
+  .lm-trust-text strong { color: var(--text-white); }
+
+  .lm-form-card { background: var(--bg-secondary); border: 1px solid var(--accent-border);
+    border-radius: var(--radius-card); padding: 40px; position: sticky; top: 24px; }
+  .lm-form-title { font-size: 22px; margin-bottom: 8px; }
+  .lm-form-desc { color: var(--text-muted); font-size: 14px; margin-bottom: 24px; }
+  .lm-form .form-group { margin-bottom: 16px; }
+  .lm-form label { display: block; color: var(--text-gray); font-size: 13px;
+    font-weight: 600; margin-bottom: 6px; font-family: 'Montserrat', sans-serif; letter-spacing: 0.02em; }
+  .lm-form .form-input { width: 100%; padding: 14px 18px; background: var(--bg-primary);
+    border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; color: var(--text-white);
+    font-family: 'Poppins', sans-serif; font-size: 15px; transition: var(--transition); }
+  .lm-form .form-input:focus { outline: none; border-color: var(--accent); background: rgba(53,212,174,0.03); }
+  .lm-form .form-input::placeholder { color: var(--text-muted); }
+  .lm-form .btn-submit { width: 100%; padding: 16px; border-radius: var(--radius-pill);
+    background: var(--accent); color: var(--bg-primary); border: none; font-family: 'Montserrat', sans-serif;
+    font-weight: 800; font-size: 14px; letter-spacing: 0.04em; text-transform: uppercase; cursor: pointer;
+    transition: var(--transition); margin-top: 8px; }
+  .lm-form .btn-submit:hover { box-shadow: 0 0 30px rgba(53,212,174,0.4); transform: translateY(-2px); }
+  .lm-privacy { color: var(--text-muted); font-size: 12px; margin-top: 16px; line-height: 1.5; text-align: center; }
+  .lm-privacy a { color: var(--accent); }
+  .hp-field { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+
+  .lm-back { color: var(--text-muted); font-size: 14px; margin-bottom: 32px; display: inline-block; }
+  .lm-back:hover { color: var(--accent); }
+
+  .lm-foot { padding: 32px 0; border-top: 1px solid rgba(255,255,255,0.06); margin-top: 60px;
+    color: var(--text-muted); font-size: 13px; text-align: center; }
+
+  @media (max-width: 900px) {
+    .lm-wrap { grid-template-columns: 1fr; gap: 40px; }
+    .lm-form-card { position: static; padding: 28px; }
+    .lm-page { padding: 40px 0; }
+  }
+</style>
+</head>
+<body>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WF2DG4B7" height="0" width="0" class="gtm-noscript"></iframe></noscript>
+
+<main class="lm-page">
+  <div class="container">
+    <a href="/" class="lm-back">← Volver al inicio</a>
+
+    <div class="lm-wrap">
+      <div>
+        <span class="lm-eyebrow">Recurso gratuito · PDF</span>
+        <h1 class="lm-title">Manual práctico de <span>GTM + GA4</span></h1>
+        <p class="lm-sub">
+          Una guía clara para instalar Google Tag Manager y configurar GA4 sin perderte entre tutoriales en inglés.
+          Pensada para marketers, dueños de pyme y emprendedores que necesitan medir bien lo que pasa en su sitio.
+        </p>
+
+        <ul class="lm-list">
+          <li><span><strong>Cómo crear y verificar</strong> tu container de GTM desde cero.</span></li>
+          <li><span><strong>Configuración de GA4</strong> conectado vía Tag Manager (sin tocar código).</span></li>
+          <li><span><strong>Eventos clave que tenés que medir:</strong> clicks, scroll, formularios, WhatsApp, descargas.</span></li>
+          <li><span><strong>Definición de conversiones</strong> y cómo importarlas a Google Ads y Meta Ads.</span></li>
+          <li><span><strong>Errores comunes</strong> que arruinan la medición y cómo evitarlos desde el día uno.</span></li>
+        </ul>
+
+        <div class="lm-trust">
+          <span class="lm-trust-icon">📊</span>
+          <span class="lm-trust-text">
+            <strong>Ideal para vos si...</strong> ya tenés un sitio o landing pero no estás midiendo bien lo que pasa (o ni siquiera estás seguro de si está midiendo algo).
+          </span>
+        </div>
+      </div>
+
+      <aside>
+        <div class="lm-form-card">
+          <h2 class="lm-form-title">Descargá el manual gratis</h2>
+          <p class="lm-form-desc">Completá el form y recibí el PDF al instante.</p>
+
+          <form
+            class="lm-form"
+            name="lead-manual-gtm-ga4"
+            method="POST"
+            action="/gracias/manual-gtm-ga4.html"
+            data-netlify="true"
+            data-netlify-honeypot="bot-field"
+          >
+            <input type="hidden" name="form-name" value="lead-manual-gtm-ga4">
+            <input type="hidden" name="origen" value="manual-gtm-ga4">
+            <p class="hp-field">
+              <label>No completar: <input name="bot-field" tabindex="-1" autocomplete="off"></label>
+            </p>
+
+            <div class="form-group">
+              <label for="nombre">Nombre *</label>
+              <input class="form-input" type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email *</label>
+              <input class="form-input" type="email" id="email" name="email" placeholder="tu@email.com" required>
+            </div>
+
+            <div class="form-group">
+              <label for="whatsapp">WhatsApp (opcional)</label>
+              <input class="form-input" type="tel" id="whatsapp" name="whatsapp" placeholder="+54 9 341 ...">
+            </div>
+
+            <button type="submit" class="btn-submit">Descargar el manual →</button>
+
+            <p class="lm-privacy">
+              Usamos tus datos sólo para enviarte el recurso y contenidos útiles. No spam.
+            </p>
+          </form>
+        </div>
+      </aside>
+    </div>
+
+    <footer class="lm-foot">
+      © 2026 Mariano Calandra · Marketing claro. Crecimiento real.
+    </footer>
+  </div>
+</main>
+
+<script>
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    event: 'lead_magnet_view',
+    lead_magnet: 'manual-gtm-ga4'
+  });
+</script>
+</body>
+</html>
