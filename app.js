@@ -33,7 +33,7 @@ const translations = {
 
     // Hero
     'hero-eyebrow': 'Clear marketing · Real growth',
-    'hero-headline': 'Turn your marketing into a <span>sales autopilot.</span>',
+    'hero-headline': 'Transform your marketing and put your sales on <span>autopilot.</span>',
     'hero-subtitle': 'I empower <strong>SMBs, ecommerce and companies across Argentina and LATAM</strong> to organize their marketing, stop improvising and turn ads into real sales. Strategy, paid media and consulting — focused on what moves the needle.',
     'hero-btn-primary': "Let's talk about your business →",
     'hero-btn-secondary': 'Request a free audit →',
