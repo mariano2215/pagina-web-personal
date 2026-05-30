@@ -110,10 +110,10 @@ const translations = {
     'testi-4-company': 'Software development company',
 
     // Filosofía
-    'filo-title': 'Serious marketing. Real growth.',
-    'filo-p1': 'My way of working combines <strong>strategy, data, creativity and commercial vision</strong>. I don\'t see marketing as nice-looking posts or isolated campaigns. I see it as <strong>a system</strong>: a way of organizing the business, attracting better opportunities, communicating clearly and turning that attention into <strong>real growth</strong>.',
-    'filo-p2': 'I believe in looking at <strong>the whole business</strong>: the brand, the offer, the message, the ads, the content, the sale, the data and the customer experience.',
-    'filo-p3': 'Because when marketing is done with <strong>strategy, clarity and consistency</strong>, it stops being an expense and becomes a <strong>concrete tool for growth</strong>.',
+    'filo-title': 'ESCALA™ Method',
+    'filo-subtitle': 'A clear strategy to grow your business with judgment.',
+    'filo-p1': 'We don\'t believe in posting for the sake of posting, investing without measuring, or running isolated actions hoping for results.',
+    'filo-p2': 'With the <strong>ESCALA™ Method</strong>, we analyze your business, design a tailored strategy, execute the necessary actions, and optimize every decision to grow with structure, data and commercial focus.',
     'filo-highlight': 'When marketing is done with strategy, it stops being an expense and becomes a concrete tool for growth.',
 
     // Habilidades
