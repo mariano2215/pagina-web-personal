@@ -650,14 +650,42 @@ img {
 /* ============================================
    HABILIDADES
    ============================================ */
+.skills-groups {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin-bottom: 64px;
+}
+
+.skills-group {
+  padding-top: 28px;
+  border-top: 1px solid var(--accent-border);
+}
+
+.skills-groups .skills-group:first-child {
+  padding-top: 0;
+  border-top: none;
+}
+
+.skills-group-title {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 20px;
+}
+
 .skills-chips {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-  margin-bottom: 64px;
 }
 
 .chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   padding: 12px 22px;
   background: var(--bg-secondary);
   border: 1px solid var(--accent-border);
@@ -667,6 +695,15 @@ img {
   font-weight: 500;
   transition: var(--transition);
   cursor: default;
+}
+
+.chip::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
 }
 
 .chip:hover {

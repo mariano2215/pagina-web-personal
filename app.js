@@ -119,6 +119,10 @@ const translations = {
     // Habilidades
     'skills-title': 'Experience and skills',
     'skills-subtitle': '+10 years working with all these tools and developing these skills.',
+    'skills-cat-pauta': 'Ad platforms',
+    'skills-cat-medicion': 'Measurement & analytics',
+    'skills-cat-estrategia': 'Strategy & business',
+    'skills-cat-contenido': 'Content & brand',
     'chip-meta': 'Meta Ads',
     'chip-google': 'Google Ads',
     'chip-tiktok': 'TikTok Ads',
