@@ -60,8 +60,8 @@ const translations = {
 
     // Quién soy
     'quien-title': 'About me',
-    'quien-subtitle': 'I\'m <strong>Mariano Calandra</strong>, I\'m <strong>28 years old</strong> and I\'m from <strong>Rosario, Argentina</strong>.',
-    'quien-p1': 'I\'m a business strategist, consultant and specialist in <strong>Paid Media, strategic marketing, sales, digital business and AI applied to companies</strong>.',
+    'quien-subtitle': 'My name is <strong>Mariano Calandra</strong>, I\'m <strong>28 years old</strong> and I\'m from <strong>Rosario, Argentina</strong>.',
+    'quien-p1': 'My experience defines me as a <strong>business strategist, consultant and Paid Media specialist</strong>, always focused on <strong>strategic marketing, sales and commercial processes, and AI applied to companies</strong>.',
     'quien-p2': 'But before talking about campaigns, metrics, funnels or automations, my story started in a much simpler place: <strong>selling</strong>.',
     'quien-p3': 'In 2016 I started working in sales at a travel agency. That\'s where I understood something that still guides the way I see marketing today: before selling more, you have to understand better. Understand what the person wants, what problem they have, what objections come up and what they need to hear to make a decision.',
     'quien-p4': 'In 2018, while studying, I launched my first business with a friend from school: a phone-accessories store. Small in size but huge in learning. It showed me up close what it means to try to sell, communicate, differentiate and create real momentum in your own business.',
