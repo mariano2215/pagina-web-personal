@@ -78,6 +78,63 @@ img {
   margin-bottom: 24px;
 }
 
+/* ============================================
+   DIVIDER · TICKER DE MÉTRICAS
+   ============================================ */
+.epi-divider-ticker {
+  background: var(--bg-secondary);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 28px 0;
+  overflow: hidden;
+}
+.epi-ticker-track {
+  display: flex;
+  width: max-content;
+  animation: epi-ticker 32s linear infinite;
+}
+.epi-ticker-track:hover { animation-play-state: paused; }
+.epi-divider-ticker .ti {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  padding: 0 48px;
+  border-right: 1px solid rgba(255, 255, 255, 0.06);
+  white-space: nowrap;
+}
+.epi-divider-ticker .ti:first-child {
+  border-left: 1px solid rgba(255, 255, 255, 0.06);
+}
+.epi-divider-ticker .ti-num {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--accent);
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+.epi-divider-ticker .ti-lbl {
+  font-family: 'Poppins', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-muted);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+@keyframes epi-ticker {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .epi-ticker-track { animation: none; }
+}
+@media (max-width: 640px) {
+  .epi-divider-ticker { padding: 22px 0; }
+  .epi-divider-ticker .ti { padding: 0 32px; gap: 10px; }
+  .epi-divider-ticker .ti-num { font-size: 18px; }
+  .epi-divider-ticker .ti-lbl { font-size: 10px; letter-spacing: 0.1em; }
+}
+
 .eyebrow {
   display: inline-block;
   font-family: 'Montserrat', sans-serif;
