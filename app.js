@@ -351,6 +351,21 @@ document.querySelectorAll('.card, .project-block, .highlight-box, .chip, .timeli
   observer.observe(el);
 });
 
+// Activador para el divider de frase con underline animado
+(function() {
+  const quoteEls = document.querySelectorAll('.epi-divider-quote');
+  if (!quoteEls.length) return;
+  const quoteObs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('epi-visible');
+        quoteObs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.4 });
+  quoteEls.forEach(el => quoteObs.observe(el));
+})();
+
 // ============================================
 // Header shadow al scrollear (toggle de clase, no inline style)
 // ============================================
