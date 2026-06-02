@@ -995,6 +995,25 @@ img {
   transform: translateY(-2px);
 }
 
+/* Chips destacados: skills core (filled) */
+.chip.chip-primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--bg-primary);
+  font-weight: 700;
+  box-shadow: 0 0 18px rgba(53, 212, 174, 0.25);
+}
+
+.chip.chip-primary::before {
+  background: var(--bg-primary);
+}
+
+.chip.chip-primary:hover {
+  background: var(--accent);
+  color: var(--bg-primary);
+  box-shadow: 0 0 24px rgba(53, 212, 174, 0.45);
+}
+
 .business-types {
   background: var(--bg-secondary);
   border: 1px solid var(--accent-border);
