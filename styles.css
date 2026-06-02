@@ -334,6 +334,21 @@ img {
   opacity: 1;
 }
 
+/* En el hero, el secundario va como ghost: menos peso visual que el CTA primario */
+.hero-buttons .btn-secondary {
+  background: transparent;
+  color: var(--text-gray);
+  border-color: rgba(255, 255, 255, 0.18);
+  border-width: 1px;
+  font-weight: 600;
+}
+
+.hero-buttons .btn-secondary:hover {
+  color: var(--accent);
+  border-color: var(--accent-border);
+  background: transparent;
+}
+
 /* ============================================
    HEADER / NAV
    ============================================ */
