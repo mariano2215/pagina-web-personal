@@ -240,6 +240,7 @@ const translations = {
     'form-inicio-opt2': 'This month',
     'form-inicio-opt3': 'In the next 2 or 3 months',
     'form-inicio-opt4': 'Exploring options',
+    'form-optional': '(optional)',
     'form-submit': 'Send inquiry →',
     'form-microcopy': 'Reply with as much clarity as possible. The more context I have about your business, the better I\'ll understand whether I can help you and how.',
 

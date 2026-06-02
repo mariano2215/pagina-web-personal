@@ -1452,6 +1452,14 @@ img {
   color: var(--accent);
 }
 
+.form-label .optional {
+  color: var(--text-muted);
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 12px;
+}
+
 .form-input,
 .form-select,
 .form-textarea {
