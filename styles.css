@@ -722,6 +722,31 @@ img {
   line-height: 1.7;
 }
 
+/* Card como link a página dedicada */
+.card-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+.card-link:hover { opacity: 1; }
+.card-link h3 { color: var(--text-white); }
+
+.card-cta {
+  display: inline-block;
+  margin-top: 20px;
+  color: var(--accent);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: var(--transition);
+}
+
+.card-link:hover .card-cta {
+  letter-spacing: 0.1em;
+}
+
 /* ============================================
    QUIÉN SOY
    ============================================ */
@@ -1442,9 +1467,128 @@ img {
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
-  gap: 48px;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 40px;
   margin-bottom: 48px;
+}
+
+/* Banda superior: CTA + Newsletter */
+.footer-top {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 48px;
+  padding-bottom: 56px;
+  margin-bottom: 56px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  align-items: center;
+}
+
+.footer-cta h3 {
+  font-size: clamp(24px, 2.6vw, 32px);
+  margin-bottom: 12px;
+  color: var(--text-white);
+}
+
+.footer-cta p {
+  color: var(--text-gray);
+  font-size: 16px;
+  margin-bottom: 24px;
+  max-width: 460px;
+  line-height: 1.55;
+}
+
+.footer-newsletter {
+  background: linear-gradient(135deg, rgba(53,212,174,0.10) 0%, rgba(53,212,174,0.02) 100%);
+  border: 1px solid var(--accent-border);
+  border-radius: var(--radius-card);
+  padding: 32px;
+}
+
+.footer-newsletter h3 {
+  font-size: 20px;
+  margin-bottom: 8px;
+  color: var(--text-white);
+}
+
+.footer-newsletter p {
+  color: var(--text-gray);
+  font-size: 14px;
+  margin-bottom: 18px;
+  line-height: 1.55;
+}
+
+.footer-nl-form {
+  display: flex;
+  gap: 10px;
+}
+
+.footer-nl-form input {
+  flex: 1;
+  padding: 13px 16px;
+  background: var(--bg-primary);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 10px;
+  color: var(--text-white);
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  transition: var(--transition);
+}
+
+.footer-nl-form input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.footer-nl-form button {
+  padding: 13px 20px;
+  border-radius: 10px;
+  background: var(--accent);
+  color: var(--bg-primary);
+  border: none;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: var(--transition);
+  white-space: nowrap;
+}
+
+.footer-nl-form button:hover {
+  box-shadow: 0 0 24px rgba(53,212,174,0.4);
+  transform: translateY(-1px);
+}
+
+.footer-nl-tiny {
+  color: var(--text-muted);
+  font-size: 12px;
+  margin-top: 12px;
+  margin-bottom: 0;
+}
+
+.hp-field {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+@media (max-width: 900px) {
+  .footer-top {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding-bottom: 40px;
+    margin-bottom: 40px;
+  }
+  .footer-nl-form {
+    flex-direction: column;
+  }
+  .footer-newsletter {
+    padding: 24px;
+  }
 }
 
 .footer-brand h3 {
@@ -1544,15 +1688,92 @@ img {
 /* ============================================
    ANIMACIONES
    ============================================ */
+/* Solo ocultamos para animar si JS está corriendo y el usuario no pidió reducir movimiento.
+   Sin esa garantía, el contenido se ve siempre — evita pantallas negras si el observer falla. */
 .fade-up {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.7s ease, transform 0.7s ease;
 }
 
-.fade-up.visible {
+html.js-ready .fade-up {
+  opacity: 0;
+  transform: translateY(28px);
+}
+
+html.js-ready .fade-up.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.js-ready .fade-up {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* ============================================
+   MOTION GRAPHICS DE FONDO (sutiles, no invasivos)
+   ============================================ */
+.section,
+.section-secondary {
+  position: relative;
+  overflow: hidden;
+}
+
+.section::before,
+.section-secondary::before {
+  content: "";
+  position: absolute;
+  top: -20%;
+  left: -10%;
+  width: 60%;
+  height: 80%;
+  background: radial-gradient(circle at center, rgba(53, 212, 174, 0.07) 0%, transparent 60%);
+  filter: blur(60px);
+  pointer-events: none;
+  z-index: 0;
+  animation: epi-glow-drift 18s ease-in-out infinite alternate;
+}
+
+.section::after,
+.section-secondary::after {
+  content: "";
+  position: absolute;
+  bottom: -10%;
+  right: -10%;
+  width: 50%;
+  height: 60%;
+  background: radial-gradient(circle at center, rgba(53, 212, 174, 0.05) 0%, transparent 60%);
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+  animation: epi-glow-drift-2 22s ease-in-out infinite alternate;
+}
+
+.section > .container,
+.section-secondary > .container {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes epi-glow-drift {
+  0%   { transform: translate(0, 0) scale(1); opacity: 0.7; }
+  100% { transform: translate(8%, 6%) scale(1.15); opacity: 1; }
+}
+
+@keyframes epi-glow-drift-2 {
+  0%   { transform: translate(0, 0) scale(1); opacity: 0.6; }
+  100% { transform: translate(-6%, -4%) scale(1.1); opacity: 0.95; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .section::before, .section::after,
+  .section-secondary::before, .section-secondary::after {
+    animation: none;
+  }
 }
 
 /* ============================================
@@ -1581,6 +1802,11 @@ img {
 
   .footer-grid {
     grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+
+  .footer-brand {
+    grid-column: span 2;
   }
 }
 

@@ -1,12 +1,21 @@
 // ============================================
+// JS listo: habilita la animación fade-up vía CSS (.js-ready).
+// Sin esta clase, el contenido se ve siempre — protege contra zonas negras
+// si IntersectionObserver no dispara o el JS falla más abajo.
+// ============================================
+document.documentElement.classList.add('js-ready');
+
+// ============================================
 // Menú mobile
 // ============================================
 const menuToggle = document.getElementById('menuToggle');
 const navMenu = document.getElementById('navMenu');
 
-menuToggle.addEventListener('click', () => {
-  navMenu.classList.toggle('open');
-});
+if (menuToggle && navMenu) {
+  menuToggle.addEventListener('click', () => {
+    navMenu.classList.toggle('open');
+  });
+}
 
 // Cerrar menú al hacer click en un link
 document.querySelectorAll('.nav-menu a').forEach(link => {
@@ -346,9 +355,19 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, observerOptions);
 
-document.querySelectorAll('.card, .project-block, .highlight-box, .chip, .timeline-item, .contact-info-item, .business-types').forEach(el => {
+const fadeTargets = document.querySelectorAll('.card, .project-block, .highlight-box, .chip, .timeline-item, .contact-info-item, .business-types');
+fadeTargets.forEach(el => {
   el.classList.add('fade-up');
   observer.observe(el);
+});
+
+// Safety net: si por cualquier razón el observer no marcó algo como visible
+// (scroll muy rápido, anchor profundo, browser raro), forzamos visibilidad
+// después de 1.5s para evitar la "zona negra".
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    fadeTargets.forEach(el => el.classList.add('visible'));
+  }, 1500);
 });
 
 // Activador para el divider de frase con underline animado

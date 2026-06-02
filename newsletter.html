@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Newsletter de Mariano Calandra — 1 mail por semana con análisis, casos reales y tácticas concretas de paid media, estrategia comercial e IA aplicada al marketing.">
+<title>Newsletter — Mariano Calandra</title>
+
+<script src="/gtm.js?v=__BUST__"></script>
+
+<link rel="icon" type="image/png" href="/img/favicon16x16.png">
+<link rel="apple-touch-icon" href="/img/favicon16x16.png">
+<meta name="theme-color" content="#0B0B0B">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Newsletter — Mariano Calandra">
+<meta property="og:description" content="1 mail por semana con paid media, estrategia y crecimiento. Sin spam.">
+<meta property="og:url" content="https://marianocalandra.com/newsletter.html">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/styles.css?v=__BUST__">
+
+<style>
+  .nl-page { padding: 140px 0 60px; position: relative; overflow: hidden; }
+  .nl-back { color: var(--text-muted); font-size: 14px; margin-bottom: 32px; display: inline-block; }
+  .nl-back:hover { color: var(--accent); }
+
+  .nl-wrap { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 64px; align-items: start; position: relative; z-index: 1; }
+  .nl-eyebrow { color: var(--accent); font-family: 'Montserrat', sans-serif; font-weight: 700;
+    font-size: 13px; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 20px; display: inline-block; }
+  .nl-title { font-size: clamp(36px, 5vw, 56px); line-height: 1.05; margin-bottom: 20px; }
+  .nl-title span { color: var(--accent); }
+  .nl-sub { color: var(--text-gray); font-size: 18px; margin-bottom: 32px; line-height: 1.65; }
+
+  .nl-list { list-style: none; margin: 0 0 32px; padding: 0; }
+  .nl-list li { display: flex; gap: 14px; padding: 12px 0; color: var(--text-gray); font-size: 15.5px;
+    border-bottom: 1px solid rgba(255,255,255,0.05); line-height: 1.55; }
+  .nl-list li::before { content: "✓"; color: var(--accent); font-weight: 800; flex-shrink: 0; font-size: 16px; }
+  .nl-list li strong { color: var(--text-white); font-weight: 600; }
+
+  .nl-trust { display: flex; gap: 24px; padding: 22px 28px; background: var(--accent-soft);
+    border: 1px solid var(--accent-border); border-radius: 16px; align-items: center; }
+  .nl-trust-icon { font-size: 32px; flex-shrink: 0; }
+  .nl-trust-text { color: var(--text-gray); font-size: 14px; line-height: 1.5; }
+  .nl-trust-text strong { color: var(--text-white); display: block; margin-bottom: 4px; font-family: 'Montserrat', sans-serif; }
+
+  /* Form card */
+  .nl-form-card { background: var(--bg-secondary); border: 1px solid var(--accent-border);
+    border-radius: var(--radius-card); padding: 44px; position: sticky; top: 24px; }
+  .nl-form-title { font-size: 24px; margin-bottom: 8px; }
+  .nl-form-desc { color: var(--text-muted); font-size: 14px; margin-bottom: 28px; }
+  .nl-form .form-group { margin-bottom: 18px; }
+  .nl-form label { display: block; color: var(--text-gray); font-size: 13px; font-weight: 600;
+    margin-bottom: 7px; font-family: 'Montserrat', sans-serif; letter-spacing: 0.02em; }
+  .nl-form input, .nl-form select {
+    width: 100%; padding: 14px 18px; background: var(--bg-primary);
+    border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; color: var(--text-white);
+    font-family: 'Poppins', sans-serif; font-size: 15px; transition: var(--transition); }
+  .nl-form input:focus, .nl-form select:focus {
+    outline: none; border-color: var(--accent); background: rgba(53,212,174,0.03); }
+  .nl-form .required { color: var(--accent); }
+  .nl-btn-submit { width: 100%; padding: 16px; border-radius: var(--radius-pill);
+    background: var(--accent); color: var(--bg-primary); border: none;
+    font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 14px;
+    letter-spacing: 0.04em; text-transform: uppercase; cursor: pointer;
+    transition: var(--transition); margin-top: 12px; }
+  .nl-btn-submit:hover { box-shadow: 0 0 30px rgba(53,212,174,0.4); transform: translateY(-2px); }
+  .nl-privacy { color: var(--text-muted); font-size: 12px; margin-top: 18px; line-height: 1.5; text-align: center; }
+  .nl-privacy a { color: var(--accent); }
+  .hp-field { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+
+  /* Qué vas a recibir */
+  .nl-extra { padding: 80px 0; position: relative; }
+  .nl-extra h2 { font-size: clamp(28px, 3.5vw, 40px); margin-bottom: 16px; text-align: center; }
+  .nl-extra-sub { color: var(--text-gray); font-size: 17px; text-align: center; max-width: 640px; margin: 0 auto 48px; }
+  .nl-topics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; position: relative; z-index: 1; }
+  .nl-topic { background: var(--bg-secondary); border: 1px solid rgba(255,255,255,0.06);
+    border-radius: var(--radius-card); padding: 32px; transition: var(--transition); }
+  .nl-topic:hover { border-color: var(--accent-border); transform: translateY(-4px); }
+  .nl-topic-icon { width: 48px; height: 48px; border-radius: 12px; background: var(--accent-soft);
+    display: flex; align-items: center; justify-content: center; margin-bottom: 20px; color: var(--accent); }
+  .nl-topic-icon svg { width: 24px; height: 24px; }
+  .nl-topic h3 { font-size: 18px; margin-bottom: 10px; }
+  .nl-topic p { color: var(--text-gray); font-size: 14.5px; line-height: 1.6; }
+
+  @media (max-width: 900px) {
+    .nl-page { padding: 100px 0 40px; }
+    .nl-wrap { grid-template-columns: 1fr; gap: 40px; }
+    .nl-form-card { position: static; padding: 28px; }
+    .nl-topics { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WF2DG4B7" height="0" width="0" class="gtm-noscript"></iframe></noscript>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="container">
+    <div class="header-inner">
+      <a href="/" class="logo" aria-label="Mariano Calandra — Inicio">
+        <img src="/img/favicon16x16.png" alt="MC monograma">
+        <span class="logo-text">Mariano <span>Calandra</span></span>
+      </a>
+      <nav>
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="/#home">Home</a></li>
+          <li><a href="/quien-soy.html">Quién soy</a></li>
+          <li><a href="/recursos.html">Recursos</a></li>
+          <li><a href="/blog/">Blog</a></li>
+          <li><a href="/newsletter.html" class="active">Newsletter</a></li>
+          <li><a href="/#contacto" class="btn btn-primary nav-cta">Hablemos →</a></li>
+        </ul>
+      </nav>
+      <button class="menu-toggle" id="menuToggle" aria-label="Menú">☰</button>
+    </div>
+  </div>
+</header>
+
+<!-- HERO + FORM -->
+<section class="nl-page">
+  <div class="container">
+    <a href="/" class="nl-back">← Volver al inicio</a>
+
+    <div class="nl-wrap">
+
+      <!-- Izquierda: pitch de la newsletter -->
+      <div>
+        <span class="nl-eyebrow">Newsletter semanal · Gratuita</span>
+        <h1 class="nl-title">Marketing claro <span>en tu mail</span> cada semana.</h1>
+        <p class="nl-sub">1 mail por semana con análisis, casos reales y tácticas concretas de paid media, estrategia comercial e IA aplicada al marketing. Pensada para freelancers marketers, emprendimientos B2C y PYMES B2B.</p>
+
+        <ul class="nl-list">
+          <li><strong>Análisis de campañas reales</strong> — qué funcionó, qué no, y por qué.</li>
+          <li><strong>Tácticas accionables</strong> que podés aplicar el mismo día que las leés.</li>
+          <li><strong>Casos de estudio</strong> de cuentas que gestiono (anonimizados).</li>
+          <li><strong>Herramientas y workflows</strong> de IA que uso para acelerar trabajo.</li>
+          <li><strong>Errores que veo seguido</strong> en cuentas que audito.</li>
+        </ul>
+
+        <div class="nl-trust">
+          <div class="nl-trust-icon">📬</div>
+          <div class="nl-trust-text">
+            <strong>Sin spam, sin relleno.</strong>
+            Te podés dar de baja con 1 click cuando quieras. Nunca comparto tu email con nadie.
+          </div>
+        </div>
+      </div>
+
+      <!-- Derecha: formulario -->
+      <div>
+        <div class="nl-form-card">
+          <h2 class="nl-form-title">Suscribirme</h2>
+          <p class="nl-form-desc">Llenando este form vas a recibir el primer mail apenas se lance la newsletter.</p>
+
+          <form class="nl-form" name="newsletter" method="POST" action="/gracias.html" data-netlify="true" netlify-honeypot="bot-field">
+            <input type="hidden" name="form-name" value="newsletter">
+            <input type="text" name="bot-field" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+            <div class="form-group">
+              <label for="nombre">Nombre <span class="required">*</span></label>
+              <input type="text" id="nombre" name="nombre" required maxlength="100" autocomplete="given-name" placeholder="Tu nombre">
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email <span class="required">*</span></label>
+              <input type="email" id="email" name="email" required maxlength="120" autocomplete="email" placeholder="tu@email.com">
+            </div>
+
+            <div class="form-group">
+              <label for="perfil">¿Cuál es tu perfil?</label>
+              <select id="perfil" name="perfil">
+                <option value="">Seleccioná una opción</option>
+                <option>Freelancer del marketing digital</option>
+                <option>Dueño/a de un emprendimiento B2C</option>
+                <option>Marketing / dueño/a de PYME B2B</option>
+                <option>Estudiante / en formación</option>
+                <option>Otro</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="interes">¿Qué tema te interesa más?</label>
+              <select id="interes" name="interes">
+                <option value="">Seleccioná una opción</option>
+                <option>Paid Media (Meta, Google, TikTok)</option>
+                <option>Estrategia comercial</option>
+                <option>IA aplicada al marketing</option>
+                <option>Medición y analítica</option>
+                <option>Ventas y procesos comerciales</option>
+                <option>Todo me interesa</option>
+              </select>
+            </div>
+
+            <button type="submit" class="nl-btn-submit">Suscribirme gratis →</button>
+
+            <p class="nl-privacy">Al suscribirte aceptás recibir los mails de la newsletter. Podés darte de baja cuando quieras.</p>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- QUÉ VAS A RECIBIR -->
+<section class="nl-extra">
+  <div class="container">
+    <h2>Qué tipo de contenido vas a recibir</h2>
+    <p class="nl-extra-sub">Tres bloques temáticos rotativos. Cada semana toca uno distinto, para que no se vuelva monótono.</p>
+
+    <div class="nl-topics">
+      <div class="nl-topic">
+        <div class="nl-topic-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2" fill="currentColor"/></svg>
+        </div>
+        <h3>Paid Media en práctica</h3>
+        <p>Estructuras de cuenta, creativos que funcionan, KPIs que importan, escalado y errores comunes que veo cada semana.</p>
+      </div>
+
+      <div class="nl-topic">
+        <div class="nl-topic-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+        </div>
+        <h3>Estrategia y negocio</h3>
+        <p>Posicionamiento, oferta, propuesta de valor, embudos, procesos comerciales. Lo que viene antes de la pauta.</p>
+      </div>
+
+      <div class="nl-topic">
+        <div class="nl-topic-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 3l1.9 5.6L19.5 10.5l-5.6 1.9L12 18l-1.9-5.6L4.5 10.5l5.6-1.9L12 3z"/></svg>
+        </div>
+        <h3>IA aplicada</h3>
+        <p>Workflows, prompts, herramientas y casos reales de cómo uso IA para acelerar marketing, contenido y análisis.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="/img/favicon16x16.png" alt="MC monograma" class="footer-logo">
+        <h3>Mariano Calandra</h3>
+        <p>Estratega comercial, consultor y especialista en Paid Media.</p>
+        <p class="footer-tagline">Marketing claro. Crecimiento real.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Links rápidos</h4>
+        <ul>
+          <li><a href="/#home">Home</a></li>
+          <li><a href="/quien-soy.html">Quién soy</a></li>
+          <li><a href="/recursos.html">Recursos</a></li>
+          <li><a href="/blog/">Blog</a></li>
+          <li><a href="/newsletter.html">Newsletter</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="mailto:mariano.calandra7@gmail.com">Email</a></li>
+          <li><a href="https://wa.me/+5493416397137" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
+          <li><a href="https://www.linkedin.com/in/marianocalandra22/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+          <li><a href="https://www.instagram.com/mktconmarian/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2026 Mariano Calandra. Todos los derechos reservados.</div>
+  </div>
+</footer>
+
+<a href="https://wa.me/+5493416397137" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+  </svg>
+</a>
+
+<script src="/app.js?v=__BUST__" defer></script>
+</body>
+</html>

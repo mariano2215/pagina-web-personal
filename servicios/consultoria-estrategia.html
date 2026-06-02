@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Consultoría y estrategia comercial para freelancers, emprendimientos B2C y PYMES B2B. Diagnóstico, plan de crecimiento y mentoría con foco comercial.">
+<title>Consultoría y Estrategia comercial — Mariano Calandra</title>
+
+<script src="/gtm.js?v=__BUST__"></script>
+
+<link rel="icon" type="image/png" href="/img/favicon16x16.png">
+<link rel="apple-touch-icon" href="/img/favicon16x16.png">
+<meta name="theme-color" content="#0B0B0B">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/styles.css?v=__BUST__">
+
+<style>
+  .sv-hero { padding: 140px 0 60px; position: relative; overflow: hidden; }
+  .sv-back { color: var(--text-muted); font-size: 14px; margin-bottom: 32px; display: inline-block; }
+  .sv-back:hover { color: var(--accent); }
+  .sv-eyebrow { color: var(--accent); font-family: 'Montserrat', sans-serif; font-weight: 700;
+    font-size: 13px; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 20px; display: inline-block; }
+  .sv-hero h1 { font-size: clamp(36px, 5vw, 60px); line-height: 1.05; margin-bottom: 20px; max-width: 880px; }
+  .sv-hero h1 span { color: var(--accent); }
+  .sv-hero-sub { color: var(--text-gray); font-size: 19px; max-width: 720px; line-height: 1.6; }
+
+  .sv-section { padding: 60px 0; position: relative; }
+  .sv-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+  .sv-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .sv-card { background: var(--bg-secondary); border: 1px solid rgba(255,255,255,0.06);
+    border-radius: var(--radius-card); padding: 32px; transition: var(--transition); }
+  .sv-card:hover { border-color: var(--accent-border); transform: translateY(-4px); }
+  .sv-card h3 { font-size: 20px; margin-bottom: 12px; color: var(--text-white); }
+  .sv-card p { color: var(--text-gray); font-size: 15px; line-height: 1.65; }
+  .sv-card .sv-num { color: var(--accent); font-family: 'Montserrat', sans-serif;
+    font-weight: 800; font-size: 14px; letter-spacing: 0.15em; margin-bottom: 12px; display: block; }
+
+  .sv-title { font-size: clamp(28px, 3.5vw, 40px); margin-bottom: 16px; }
+  .sv-subtitle { color: var(--text-gray); font-size: 17px; margin-bottom: 40px; max-width: 720px; }
+
+  .sv-list { list-style: none; margin: 0; padding: 0; }
+  .sv-list li { display: flex; gap: 14px; padding: 14px 0; color: var(--text-gray); font-size: 16px;
+    border-bottom: 1px solid rgba(255,255,255,0.05); line-height: 1.6; }
+  .sv-list li::before { content: "→"; color: var(--accent); font-weight: 800; flex-shrink: 0; }
+  .sv-list li strong { color: var(--text-white); font-weight: 600; }
+
+  /* Modalidades */
+  .sv-modes { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 20px; }
+  .sv-mode { background: var(--bg-secondary); border: 1px solid rgba(255,255,255,0.08);
+    border-radius: var(--radius-card); padding: 40px; position: relative; transition: var(--transition); }
+  .sv-mode-featured { background: linear-gradient(135deg, rgba(53,212,174,0.10) 0%, rgba(53,212,174,0.02) 100%);
+    border-color: var(--accent-border); }
+  .sv-mode-badge { position: absolute; top: -12px; left: 32px; background: var(--accent);
+    color: var(--bg-primary); font-family: 'Montserrat', sans-serif; font-weight: 800;
+    font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 6px 14px; border-radius: var(--radius-pill); }
+  .sv-mode h3 { font-size: 24px; margin-bottom: 8px; color: var(--text-white); }
+  .sv-mode-tag { color: var(--accent); font-family: 'Montserrat', sans-serif; font-weight: 700;
+    font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 20px; display: block; }
+  .sv-mode-price { font-family: 'Montserrat', sans-serif; font-weight: 900;
+    font-size: 42px; color: var(--text-white); line-height: 1; margin-bottom: 4px; }
+  .sv-mode-price-unit { color: var(--text-gray); font-size: 14px; font-weight: 500; }
+  .sv-mode-dur { color: var(--text-muted); font-size: 13px; margin-bottom: 24px; text-transform: uppercase; letter-spacing: 0.1em; font-family: 'Montserrat', sans-serif; font-weight: 600; }
+  .sv-mode-desc { color: var(--text-gray); font-size: 15px; line-height: 1.65; margin-bottom: 24px; }
+  .sv-mode ul { list-style: none; padding: 0; margin: 0 0 28px; }
+  .sv-mode ul li { color: var(--text-gray); font-size: 14px; padding: 8px 0; display: flex; gap: 10px; line-height: 1.5; }
+  .sv-mode ul li::before { content: "✓"; color: var(--accent); font-weight: 800; flex-shrink: 0; }
+  .sv-mode .btn { width: 100%; text-align: center; display: block; }
+
+  /* Form */
+  .sv-form-section { background: var(--bg-secondary); padding: 100px 0; position: relative; }
+  .sv-form-wrap { max-width: 720px; margin: 0 auto; }
+  .sv-form { background: var(--bg-primary); border: 1px solid rgba(255,255,255,0.08);
+    border-radius: var(--radius-card); padding: 48px; }
+  .sv-form .form-group { margin-bottom: 20px; }
+  .sv-form .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .sv-form label { display: block; color: var(--text-gray); font-size: 13px; font-weight: 600;
+    margin-bottom: 8px; font-family: 'Montserrat', sans-serif; letter-spacing: 0.02em; }
+  .sv-form input, .sv-form select, .sv-form textarea {
+    width: 100%; padding: 14px 18px; background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; color: var(--text-white);
+    font-family: 'Poppins', sans-serif; font-size: 15px; transition: var(--transition); }
+  .sv-form input:focus, .sv-form select:focus, .sv-form textarea:focus {
+    outline: none; border-color: var(--accent); background: rgba(53,212,174,0.03); }
+  .sv-form textarea { min-height: 120px; resize: vertical; }
+  .sv-form .required { color: var(--accent); }
+  .sv-btn-submit { width: 100%; padding: 16px; border-radius: var(--radius-pill);
+    background: var(--accent); color: var(--bg-primary); border: none;
+    font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 14px;
+    letter-spacing: 0.04em; text-transform: uppercase; cursor: pointer;
+    transition: var(--transition); margin-top: 12px; }
+  .sv-btn-submit:hover { box-shadow: 0 0 30px rgba(53,212,174,0.4); transform: translateY(-2px); }
+  .hp-field { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+
+  @media (max-width: 900px) {
+    .sv-hero { padding: 100px 0 40px; }
+    .sv-grid-2, .sv-grid-3, .sv-modes { grid-template-columns: 1fr; }
+    .sv-form { padding: 28px; }
+    .sv-form .form-row { grid-template-columns: 1fr; }
+    .sv-mode { padding: 28px; }
+  }
+</style>
+</head>
+<body>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WF2DG4B7" height="0" width="0" class="gtm-noscript"></iframe></noscript>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="container">
+    <div class="header-inner">
+      <a href="/" class="logo" aria-label="Mariano Calandra — Inicio">
+        <img src="/img/favicon16x16.png" alt="MC monograma">
+        <span class="logo-text">Mariano <span>Calandra</span></span>
+      </a>
+      <nav>
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="/#home">Home</a></li>
+          <li><a href="/quien-soy.html">Quién soy</a></li>
+          <li><a href="/#proyectos">Mis proyectos</a></li>
+          <li><a href="/#recursos">Recursos</a></li>
+          <li><a href="/#contacto">Contacto</a></li>
+          <li><a href="/#contacto" class="btn btn-primary nav-cta">Hablemos →</a></li>
+        </ul>
+      </nav>
+      <button class="menu-toggle" id="menuToggle" aria-label="Menú">☰</button>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="sv-hero">
+  <div class="container">
+    <a href="/#areas" class="sv-back">← Volver a servicios</a>
+    <span class="sv-eyebrow">Servicio · Consultoría</span>
+    <h1>Antes de gastar en campañas, <span>ordená tu estrategia</span>.</h1>
+    <p class="sv-hero-sub">Consultoría y estrategia comercial para freelancers del marketing digital, emprendimientos B2C y PYMES B2B. Diagnóstico, posicionamiento, plan de crecimiento y mejora del proceso de venta. Marketing y comercial alineados antes de ejecutar.</p>
+  </div>
+</section>
+
+<!-- PARA QUIÉN -->
+<section class="sv-section">
+  <div class="container">
+    <h2 class="sv-title">¿Para quién es?</h2>
+    <p class="sv-subtitle">Si te identificás con alguno de estos perfiles, este servicio es para vos:</p>
+    <div class="sv-grid-3">
+      <div class="sv-card">
+        <span class="sv-num">01</span>
+        <h3>Freelancers marketers</h3>
+        <p>Necesitás un sparring estratégico que te ayude a llevar a tus clientes (o a tu propia marca personal) al próximo nivel.</p>
+      </div>
+      <div class="sv-card">
+        <span class="sv-num">02</span>
+        <h3>Emprendimientos B2C</h3>
+        <p>Tu negocio crece pero sentís que improvisás. Querés un plan claro de marketing, ventas y comunicación para los próximos 6-12 meses.</p>
+      </div>
+      <div class="sv-card">
+        <span class="sv-num">03</span>
+        <h3>PYMES B2B</h3>
+        <p>Tu propuesta no está clara, tu equipo comercial improvisa, o tu marketing no está conectado al proceso de venta. Necesitás orden.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MÉTODO ESCALA -->
+<section class="sv-section">
+  <div class="container">
+    <h2 class="sv-title">Trabajamos con el Método ESCALA™</h2>
+    <p class="sv-subtitle">Mi metodología propia para diagnosticar, diseñar e implementar estrategia comercial con criterio.</p>
+    <ul class="sv-list">
+      <li><strong>E — Entender el negocio:</strong> producto, mercado, audiencia, competencia, números actuales.</li>
+      <li><strong>S — Sintetizar el problema:</strong> qué falla, qué está bien, qué es la verdadera oportunidad.</li>
+      <li><strong>C — Construir la estrategia:</strong> posicionamiento, propuesta de valor, oferta, embudo y plan de acción.</li>
+      <li><strong>A — Activar las acciones:</strong> roadmap de implementación por trimestres, priorizado por impacto.</li>
+      <li><strong>L — Levantar datos:</strong> KPIs, medición, tablero, revisiones periódicas.</li>
+      <li><strong>A — Ajustar y escalar:</strong> iteración basada en resultados reales, no en intuición.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- MODALIDADES -->
+<section class="sv-section">
+  <div class="container">
+    <h2 class="sv-title">Dos modalidades, según en qué momento estés</h2>
+    <p class="sv-subtitle">Elegí una sola, las dos o empezá por la primera y avanzá si tiene sentido.</p>
+
+    <div class="sv-modes">
+
+      <!-- Diagnóstico -->
+      <div class="sv-mode">
+        <span class="sv-mode-tag">Modalidad 1 · Puntual</span>
+        <h3>Diagnóstico estratégico</h3>
+        <div class="sv-mode-price">USD 400</div>
+        <div class="sv-mode-dur">Duración · 2 semanas</div>
+        <p class="sv-mode-desc">Un diagnóstico profundo de tu negocio + plan estratégico documentado para que puedas ejecutarlo vos, con tu equipo o con quien quieras.</p>
+        <ul>
+          <li>2 reuniones de discovery (1.5 hs c/u)</li>
+          <li>Análisis de producto, mercado y oferta</li>
+          <li>Diagnóstico escrito (10-15 páginas)</li>
+          <li>Plan estratégico por trimestres</li>
+          <li>Roadmap de acciones priorizadas</li>
+          <li>Reunión de cierre con devolución</li>
+        </ul>
+        <a href="#contacto" class="btn btn-secondary">Quiero el diagnóstico →</a>
+      </div>
+
+      <!-- Mentoría -->
+      <div class="sv-mode sv-mode-featured">
+        <span class="sv-mode-badge">Más elegido</span>
+        <span class="sv-mode-tag">Modalidad 2 · Acompañamiento</span>
+        <h3>Mentoría estratégica</h3>
+        <div class="sv-mode-price">USD 600<span class="sv-mode-price-unit">/mes</span></div>
+        <div class="sv-mode-dur">Duración · 3 meses mínimo</div>
+        <p class="sv-mode-desc">Acompañamiento estratégico semanal para implementar y ajustar la estrategia mientras la ejecutás. Para no quedarte solo después del diagnóstico.</p>
+        <ul>
+          <li>Diagnóstico inicial incluido</li>
+          <li>1 reunión semanal de trabajo (1 hora)</li>
+          <li>Plan estratégico vivo (se ajusta cada mes)</li>
+          <li>Revisión de campañas, contenido y proceso comercial</li>
+          <li>Soporte por WhatsApp en días hábiles</li>
+          <li>Reporte de avance mensual</li>
+        </ul>
+        <a href="#contacto" class="btn btn-primary">Empezar mentoría →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- QUÉ NO INCLUYE -->
+<section class="sv-section">
+  <div class="container">
+    <h2 class="sv-title">Qué NO incluye este servicio</h2>
+    <p class="sv-subtitle">Soy claro con los límites desde el día 1 para que no haya malentendidos:</p>
+    <ul class="sv-list">
+      <li>No incluye <strong>gestión operativa de campañas</strong>. Si querés que te lleve la pauta también, sumamos el servicio de Paid Media.</li>
+      <li>No incluye <strong>producción de contenido</strong> (videos, fotos, edición). Te indico qué hace falta, vos lo producís con tu equipo.</li>
+      <li>No incluye <strong>diseño gráfico</strong>. Si necesitás, te derivo a profesionales de confianza.</li>
+      <li>No es <strong>coaching</strong>. Es consultoría con foco comercial y de marketing. Hablamos de números, ofertas y procesos, no de mindset.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- FORM -->
+<section class="sv-form-section" id="contacto">
+  <div class="container">
+    <div class="sv-form-wrap">
+      <h2 class="sv-title" style="text-align:center;">Pedí tu consulta</h2>
+      <p class="sv-subtitle" style="text-align:center; margin: 0 auto 40px;">Contame en qué etapa está tu negocio. Te respondo en 24-48hs hábiles con próximos pasos.</p>
+
+      <form class="sv-form" name="consultoria" method="POST" action="/gracias.html" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="consultoria">
+        <input type="text" name="bot-field" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="nombre">Nombre y apellido <span class="required">*</span></label>
+            <input type="text" id="nombre" name="nombre" required maxlength="100" autocomplete="name" placeholder="Tu nombre completo">
+          </div>
+          <div class="form-group">
+            <label for="email">Email <span class="required">*</span></label>
+            <input type="email" id="email" name="email" required maxlength="120" autocomplete="email" placeholder="tu@email.com">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="whatsapp">WhatsApp <span class="required">*</span></label>
+            <input type="tel" id="whatsapp" name="whatsapp" required maxlength="30" autocomplete="tel" placeholder="+54 9 341 ...">
+          </div>
+          <div class="form-group">
+            <label for="empresa">Empresa / Proyecto</label>
+            <input type="text" id="empresa" name="empresa" maxlength="120" placeholder="Nombre de tu negocio">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="perfil">¿Cuál es tu perfil? <span class="required">*</span></label>
+          <select id="perfil" name="perfil" required>
+            <option value="">Seleccioná una opción</option>
+            <option>Freelancer del marketing digital</option>
+            <option>Emprendimiento / negocio B2C</option>
+            <option>PYME B2B</option>
+            <option>Otro</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="modalidad">¿Qué modalidad te interesa? <span class="required">*</span></label>
+          <select id="modalidad" name="modalidad" required>
+            <option value="">Seleccioná una opción</option>
+            <option>Diagnóstico estratégico (USD 400 · 2 sem.)</option>
+            <option>Mentoría estratégica (USD 600/mes · 3 meses mín.)</option>
+            <option>Todavía no sé, necesito que me orientes</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="facturacion">Facturación mensual aprox.</label>
+          <select id="facturacion" name="facturacion">
+            <option value="">Seleccioná un rango</option>
+            <option>Pre-facturación / arrancando</option>
+            <option>Menos de USD 5.000/mes</option>
+            <option>USD 5.000 a 20.000/mes</option>
+            <option>USD 20.000 a 100.000/mes</option>
+            <option>Más de USD 100.000/mes</option>
+            <option>Prefiero no compartirlo todavía</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="problema">¿Cuál es tu principal desafío hoy? <span class="required">*</span></label>
+          <textarea id="problema" name="problema" required maxlength="2000" placeholder="¿Qué te trajo a buscar consultoría? ¿Qué cosa específica querés ordenar o mejorar?"></textarea>
+        </div>
+
+        <button type="submit" class="sv-btn-submit">Solicitar consulta →</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="/img/favicon16x16.png" alt="MC monograma" class="footer-logo">
+        <h3>Mariano Calandra</h3>
+        <p>Estratega comercial, consultor y especialista en Paid Media.</p>
+        <p class="footer-tagline">Marketing claro. Crecimiento real.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Links rápidos</h4>
+        <ul>
+          <li><a href="/#home">Home</a></li>
+          <li><a href="/quien-soy.html">Quién soy</a></li>
+          <li><a href="/servicios/paid-media.html">Paid Media</a></li>
+          <li><a href="/servicios/consultoria-estrategia.html">Consultoría</a></li>
+          <li><a href="/#contacto">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="mailto:mariano.calandra7@gmail.com">Email</a></li>
+          <li><a href="https://wa.me/+5493416397137" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
+          <li><a href="https://www.linkedin.com/in/marianocalandra22/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+          <li><a href="https://www.instagram.com/mktconmarian/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2026 Mariano Calandra. Todos los derechos reservados.</div>
+  </div>
+</footer>
+
+<a href="https://wa.me/+5493416397137" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+  </svg>
+</a>
+
+<script src="/app.js?v=__BUST__" defer></script>
+</body>
+</html>
