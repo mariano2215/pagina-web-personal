@@ -1575,11 +1575,11 @@ img {
   margin-bottom: 48px;
 }
 
-/* Banda superior: CTA + Newsletter */
+/* Banda superior: CTA domina, Newsletter secundario */
 .footer-top {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 48px;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 64px;
   padding-bottom: 56px;
   margin-bottom: 56px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
@@ -1587,37 +1587,40 @@ img {
 }
 
 .footer-cta h3 {
-  font-size: clamp(24px, 2.6vw, 32px);
-  margin-bottom: 12px;
+  font-size: clamp(28px, 3.2vw, 42px);
+  margin-bottom: 16px;
   color: var(--text-white);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
 }
 
 .footer-cta p {
   color: var(--text-gray);
-  font-size: 16px;
-  margin-bottom: 24px;
-  max-width: 460px;
-  line-height: 1.55;
+  font-size: 17px;
+  margin-bottom: 28px;
+  max-width: 520px;
+  line-height: 1.6;
 }
 
 .footer-newsletter {
-  background: linear-gradient(135deg, rgba(53,212,174,0.10) 0%, rgba(53,212,174,0.02) 100%);
-  border: 1px solid var(--accent-border);
+  background: linear-gradient(135deg, rgba(53,212,174,0.06) 0%, rgba(53,212,174,0.015) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: var(--radius-card);
-  padding: 32px;
+  padding: 24px;
 }
 
 .footer-newsletter h3 {
-  font-size: 20px;
-  margin-bottom: 8px;
+  font-size: 16px;
+  margin-bottom: 6px;
   color: var(--text-white);
+  font-weight: 700;
 }
 
 .footer-newsletter p {
-  color: var(--text-gray);
-  font-size: 14px;
-  margin-bottom: 18px;
-  line-height: 1.55;
+  color: var(--text-muted);
+  font-size: 13px;
+  margin-bottom: 14px;
+  line-height: 1.5;
 }
 
 .footer-nl-form {
