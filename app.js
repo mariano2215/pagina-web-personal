@@ -399,6 +399,60 @@ window.addEventListener('scroll', () => {
 }, { passive: true });
 
 // ============================================
+// Nav activo según sección visible (IntersectionObserver)
+// ============================================
+(function () {
+  const navLinks = Array.from(document.querySelectorAll('.nav-menu a[href^="#"]'))
+    .filter(a => !a.classList.contains('nav-cta'));
+  if (!navLinks.length) return;
+
+  const linkBySectionId = new Map();
+  const sections = [];
+  navLinks.forEach(link => {
+    const id = link.getAttribute('href').slice(1);
+    const section = document.getElementById(id);
+    if (section) {
+      linkBySectionId.set(id, link);
+      sections.push(section);
+    }
+  });
+  if (!sections.length) return;
+
+  const visible = new Set();
+
+  function updateActive() {
+    if (!visible.size) return;
+    // De las secciones visibles, elegimos la que tiene su tope más cerca del top del viewport
+    let bestId = null;
+    let bestTop = Infinity;
+    visible.forEach(id => {
+      const top = document.getElementById(id).getBoundingClientRect().top;
+      if (top < bestTop) {
+        bestTop = top;
+        bestId = id;
+      }
+    });
+    navLinks.forEach(l => l.classList.remove('active'));
+    const active = linkBySectionId.get(bestId);
+    if (active) active.classList.add('active');
+  }
+
+  const navObs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      const id = entry.target.id;
+      if (entry.isIntersecting) visible.add(id);
+      else visible.delete(id);
+    });
+    updateActive();
+  }, {
+    rootMargin: '-80px 0px -55% 0px',
+    threshold: 0
+  });
+
+  sections.forEach(s => navObs.observe(s));
+})();
+
+// ============================================
 // HYPEFRAME Parallax (CSS custom prop, requiere 'unsafe-inline' en style-src)
 // ============================================
 const projectBlocks = document.querySelectorAll('.project-block');
