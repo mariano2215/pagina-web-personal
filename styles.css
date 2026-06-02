@@ -931,6 +931,95 @@ img {
 }
 
 /* ============================================
+   CÓMO TRABAJO — Proceso en 4 pasos
+   ============================================ */
+.proceso-steps {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-top: 24px;
+  counter-reset: proceso;
+}
+
+.proceso-step {
+  position: relative;
+  background: var(--bg-secondary);
+  border: 1px solid var(--accent-border);
+  border-radius: var(--radius-card);
+  padding: 36px 28px 32px;
+  transition: var(--transition);
+  overflow: hidden;
+}
+
+.proceso-step::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+
+.proceso-step:hover {
+  transform: translateY(-6px);
+  border-color: var(--accent);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+}
+
+.proceso-step:hover::before {
+  transform: scaleX(1);
+}
+
+.proceso-num {
+  display: inline-block;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: 38px;
+  color: var(--accent);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+  background: linear-gradient(180deg, var(--accent) 0%, rgba(53, 212, 174, 0.6) 100%);
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.proceso-step h3 {
+  font-size: 20px;
+  margin-bottom: 12px;
+  font-weight: 700;
+  color: var(--text-white);
+}
+
+.proceso-step p {
+  color: var(--text-gray);
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+@media (max-width: 1024px) {
+  .proceso-steps {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .proceso-steps {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .proceso-step {
+    padding: 28px 24px;
+  }
+}
+
+/* ============================================
    HABILIDADES
    ============================================ */
 .skills-groups {
