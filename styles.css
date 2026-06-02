@@ -821,38 +821,118 @@ img {
 }
 
 .timeline-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: 16px;
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
   position: relative;
+  padding-top: 24px;
+}
+
+/* Línea conectora horizontal */
+.timeline-list::before {
+  content: '';
+  position: absolute;
+  top: 31px;
+  left: 8%;
+  right: 8%;
+  height: 2px;
+  background: linear-gradient(90deg,
+    rgba(53, 212, 174, 0.15) 0%,
+    var(--accent) 50%,
+    rgba(53, 212, 174, 0.15) 100%);
+  z-index: 0;
 }
 
 .timeline-item {
-  padding: 20px 16px;
-  background: var(--bg-secondary);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 16px;
+  flex: 1;
+  min-width: 0;
+  position: relative;
+  padding: 0 6px;
   text-align: center;
+  background: transparent;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   transition: var(--transition);
 }
 
-.timeline-item:hover {
-  border-color: var(--accent-border);
+/* Nodo circular sobre la línea */
+.timeline-item::before {
+  content: '';
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow:
+    0 0 0 3px var(--bg-secondary),
+    0 0 0 4px var(--accent),
+    0 0 12px rgba(53, 212, 174, 0.5);
+  position: relative;
+  z-index: 1;
+  margin-bottom: 18px;
+  transition: var(--transition);
+}
+
+.timeline-item:hover::before {
+  transform: scale(1.2);
+  box-shadow:
+    0 0 0 3px var(--bg-secondary),
+    0 0 0 4px var(--accent),
+    0 0 18px rgba(53, 212, 174, 0.8);
 }
 
 .timeline-year {
   font-family: 'Montserrat', sans-serif;
-  font-size: 22px;
+  font-size: 18px;
   font-weight: 800;
   color: var(--accent);
   display: block;
   margin-bottom: 6px;
+  letter-spacing: -0.01em;
+  line-height: 1;
 }
 
 .timeline-label {
   font-size: 12px;
   color: var(--text-gray);
-  line-height: 1.4;
+  line-height: 1.45;
+  font-weight: 500;
+}
+
+/* Mobile: timeline vertical con línea a la izquierda */
+@media (max-width: 768px) {
+  .timeline-list {
+    flex-direction: column;
+    align-items: stretch;
+    padding-top: 0;
+    padding-left: 28px;
+    gap: 24px;
+  }
+  .timeline-list::before {
+    top: 8px;
+    bottom: 8px;
+    left: 6px;
+    right: auto;
+    width: 2px;
+    height: auto;
+    background: linear-gradient(180deg,
+      rgba(53, 212, 174, 0.15) 0%,
+      var(--accent) 50%,
+      rgba(53, 212, 174, 0.15) 100%);
+  }
+  .timeline-item {
+    flex: none;
+    padding: 0;
+    text-align: left;
+    align-items: flex-start;
+  }
+  .timeline-item::before {
+    position: absolute;
+    left: -28px;
+    top: 4px;
+    margin: 0;
+  }
 }
 
 /* ============================================
