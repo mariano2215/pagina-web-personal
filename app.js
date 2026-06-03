@@ -356,7 +356,7 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, observerOptions);
 
-const fadeTargets = document.querySelectorAll('.card, .project-block, .highlight-box, .chip, .timeline-item, .contact-info-item, .business-types');
+const fadeTargets = document.querySelectorAll('.card, .project-block, .highlight-box, .chip, .timeline-item, .contact-info-item, .business-types, .product-card');
 fadeTargets.forEach(el => {
   el.classList.add('fade-up');
   observer.observe(el);

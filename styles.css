@@ -853,6 +853,8 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
+  -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
 }
 
 .about-image img {
@@ -1137,9 +1139,9 @@ img {
   gap: 8px;
   padding: 12px 22px;
   background: var(--bg-secondary);
-  border: 1px solid var(--accent-border);
+  border: 1px solid rgba(53, 212, 174, 0.55);
   border-radius: var(--radius-pill);
-  color: var(--text-gray);
+  color: rgba(255, 255, 255, 0.75);
   font-size: 14px;
   font-weight: 500;
   transition: var(--transition);
@@ -1220,14 +1222,14 @@ img {
 
 .project-block {
   display: grid;
-  grid-template-columns: 1fr 1.5fr;
-  gap: 60px;
+  grid-template-columns: 280px 1fr;
+  gap: 48px;
   align-items: center;
   background: var(--bg-secondary);
   border: 1px solid var(--accent-border);
   border-radius: var(--radius-card);
-  padding: 56px;
-  margin-bottom: 32px;
+  padding: 40px;
+  margin-bottom: 24px;
   transition: var(--transition);
 }
 
@@ -1236,29 +1238,22 @@ img {
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
 }
 
-.project-block:nth-child(even) {
-  grid-template-columns: 1.5fr 1fr;
-}
-
-.project-block:nth-child(even) .project-image {
-  order: 2;
-}
-
 .project-image {
   aspect-ratio: 1/1;
-  background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+  background: #f5f5f0;
   border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 20px;
+  border-radius: 16px;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 24px;
 }
 
 .project-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .project-image-placeholder {
@@ -1501,16 +1496,25 @@ img {
   gap: 4px;
 }
 
-.author-role {
+.author-name {
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
-  font-size: 15px;
+  font-size: 16px;
   color: var(--text-white);
+  letter-spacing: 0.01em;
+  margin-bottom: 2px;
+}
+
+.author-role {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--accent);
   letter-spacing: 0.01em;
 }
 
 .author-company {
-  font-size: 14px;
+  font-size: 13px;
   color: var(--text-muted);
   line-height: 1.5;
 }
@@ -2055,14 +2059,16 @@ html.js-ready .fade-up.visible {
   .hero-grid,
   .about-grid,
   .contact-grid,
-  .project-block,
-  .project-block:nth-child(even) {
+  .project-block {
     grid-template-columns: 1fr;
-    gap: 48px;
+    gap: 32px;
   }
 
-  .project-block:nth-child(even) .project-image {
-    order: 0;
+  .project-block .project-image {
+    width: 100%;
+    max-width: 280px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .about-image {
@@ -2446,5 +2452,191 @@ html.js-ready .fade-up.visible {
 
   .recursos-cta-bottom {
     padding: 36px 24px;
+  }
+}
+
+/* ============================================
+   PRODUCTOS DIGITALES
+   ============================================ */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 24px;
+  margin-top: 48px;
+  margin-bottom: 24px;
+}
+
+.product-card {
+  background: var(--bg-secondary);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-card);
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  transition: var(--transition);
+}
+
+.product-card:hover {
+  border-color: rgba(53, 212, 174, 0.45);
+  transform: translateY(-2px);
+}
+
+.product-card--featured {
+  border-color: rgba(53, 212, 174, 0.3);
+  background: linear-gradient(
+    135deg,
+    rgba(53, 212, 174, 0.06) 0%,
+    var(--bg-secondary) 60%
+  );
+}
+
+.product-card__header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.product-badge {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: var(--accent);
+  color: var(--bg-primary);
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+}
+
+.product-category {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.product-card__body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.product-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--text-white);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.product-tagline {
+  font-size: 15px;
+  color: var(--text-gray);
+  font-style: italic;
+}
+
+.product-description {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+.product-features {
+  list-style: none;
+  padding: 0;
+  margin: 8px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.product-features li {
+  font-size: 13px;
+  color: var(--text-gray);
+  padding-left: 22px;
+  position: relative;
+  line-height: 1.5;
+}
+
+.product-features li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.product-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  flex-wrap: wrap;
+}
+
+.product-price {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.price-amount {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--accent);
+  letter-spacing: -0.03em;
+}
+
+.price-currency {
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(53, 212, 174, 0.75);
+}
+
+.product-cta {
+  white-space: nowrap;
+  font-size: 13px;
+  padding: 12px 22px;
+}
+
+.products-footer-note {
+  font-size: 14px;
+  color: var(--text-muted);
+  text-align: center;
+  margin-top: 24px;
+}
+
+.products-footer-note a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.products-footer-note a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .product-card__footer {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .product-cta {
+    text-align: center;
   }
 }
