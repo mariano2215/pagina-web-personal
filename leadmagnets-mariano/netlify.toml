@@ -1,0 +1,69 @@
+# ============================================
+# Configuración Netlify — marianocalandra.com
+# ============================================
+
+# Headers de seguridad y caché
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+# Caché largo para PDFs (no cambian)
+[[headers]]
+  for = "/descargables/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Caché para imágenes
+[[headers]]
+  for = "/img/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Caché para CSS/JS con versión
+[[headers]]
+  for = "/styles.css"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
+# ============================================
+# Redirects para proteger PDFs de descarga directa
+# (Opcional, recomendado): si alguien intenta ir directo
+# al PDF sin pasar por la landing de captura, lo mandamos
+# a la landing correspondiente.
+#
+# Comentado por defecto: descomentar SOLO una vez que ya
+# se verificó que el flujo funciona y los emails se están
+# enviando correctamente desde las thank-you pages.
+# Mientras tanto se permite el acceso directo para tests.
+# ============================================
+
+# [[redirects]]
+#   from = "/descargables/auditoria_consultoria_marketing_express_campanas_mc.pdf"
+#   to = "/recursos/auditoria-marketing-express.html"
+#   status = 302
+#   force = false
+#   conditions = {Referer = ["!marianocalandra.com"]}
+
+# [[redirects]]
+#   from = "/descargables/manual_gtm_ga4_mc_descarga_gratis.pdf"
+#   to = "/recursos/manual-gtm-ga4.html"
+#   status = 302
+#   force = false
+#   conditions = {Referer = ["!marianocalandra.com"]}
+
+# [[redirects]]
+#   from = "/descargables/guia_inicial_paid_media_mc_descarga_gratis.pdf"
+#   to = "/recursos/guia-paid-media.html"
+#   status = 302
+#   force = false
+#   conditions = {Referer = ["!marianocalandra.com"]}
+
+# 404 fallback
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 404

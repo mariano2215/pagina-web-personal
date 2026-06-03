@@ -2448,3 +2448,195 @@ html.js-ready .fade-up.visible {
     padding: 36px 24px;
   }
 }
+
+/* ============================================
+   CONTENIDO — combinada (gratis + premium)
+   ============================================ */
+
+/* Anchors en el hero para saltar entre secciones */
+.contenido-anchors {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+.contenido-anchor {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 18px;
+  border-radius: var(--radius-pill);
+  background: var(--bg-secondary);
+  border: 1px solid var(--accent-border);
+  color: var(--text-white);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.contenido-anchor:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent);
+}
+
+.contenido-anchor-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 9px;
+  border-radius: var(--radius-pill);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 800;
+}
+
+.contenido-anchor-tag-free {
+  background: var(--accent-soft);
+  color: var(--accent);
+  border: 1px solid var(--accent-border);
+}
+
+.contenido-anchor-tag-pro {
+  background: rgba(255, 196, 76, 0.12);
+  color: #ffc44c;
+  border: 1px solid rgba(255, 196, 76, 0.35);
+}
+
+/* Eyebrow por sección (gratis vs premium) */
+.section-eyebrow {
+  display: inline-block;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: var(--accent-soft);
+  border: 1px solid var(--accent-border);
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  margin-bottom: 16px;
+}
+
+.section-eyebrow-pro {
+  color: #ffc44c;
+  background: rgba(255, 196, 76, 0.10);
+  border-color: rgba(255, 196, 76, 0.35);
+}
+
+/* Sub-secciones premium (E-Books, Prompts, Hooks…) */
+.contenido-subsection {
+  margin-top: 56px;
+}
+
+.contenido-subsection:first-of-type {
+  margin-top: 40px;
+}
+
+.contenido-subsection-title {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--text-white);
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--accent-border);
+}
+
+.contenido-subsection-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 196, 76, 0.12);
+  color: #ffc44c;
+  flex-shrink: 0;
+}
+
+.contenido-subsection-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Variante premium de la tarjeta */
+.recurso-card-pro {
+  background: linear-gradient(180deg, var(--bg-secondary) 0%, rgba(255, 196, 76, 0.04) 100%);
+  border-color: rgba(255, 196, 76, 0.25);
+}
+
+.recurso-card-pro::before {
+  background: #ffc44c;
+}
+
+.recurso-card-pro:hover {
+  border-color: #ffc44c;
+  box-shadow: 0 20px 60px rgba(255, 196, 76, 0.18);
+}
+
+.recurso-badge-pro {
+  background: rgba(255, 196, 76, 0.12);
+  color: #ffc44c;
+  border-color: rgba(255, 196, 76, 0.35);
+}
+
+.recurso-icon-pro {
+  background: rgba(255, 196, 76, 0.12);
+  color: #ffc44c;
+}
+
+/* Precio + CTA fila inferior */
+.recurso-price-row {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-top: 4px;
+}
+
+.recurso-price {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 20px;
+  color: var(--text-white);
+  letter-spacing: -0.01em;
+}
+
+.recurso-cta-pro {
+  flex-shrink: 0;
+  width: auto;
+  background: #ffc44c;
+  color: #0B0B0B;
+  border-color: #ffc44c;
+}
+
+.recurso-cta-pro:hover {
+  background: #ffd479;
+  border-color: #ffd479;
+  color: #0B0B0B;
+}
+
+@media (max-width: 768px) {
+  .contenido-subsection-title {
+    font-size: 20px;
+  }
+
+  .recurso-price-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .recurso-cta-pro {
+    width: 100%;
+    justify-content: center;
+  }
+}

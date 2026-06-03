@@ -93,7 +93,7 @@ const translations = {
 
     // Resultados / Testimonios
     'testi-title': 'Real client results',
-    'testi-subtitle': 'A few numbers from campaigns I manage at LA IDEA Creative Agency. Quotes are drafted from the results and pending validation with each client.',
+    'testi-subtitle': 'A few numbers from campaigns I manage at LA IDEA Creative Agency and EPIBRANDS. Quotes are drafted from the results and pending validation with each client.',
     'testi-1-tag': 'Google Ads · Search campaign',
     'testi-1-metric-label': 'Campaign ROAS',
     'testi-1-secondary-label': 'ARS in purchases generated',

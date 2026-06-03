@@ -3,3 +3,7 @@
 /index.html.bak2   /  404!
 /index.html.bak3   /  404!
 /*.bak             /  404!
+
+# Legacy: Recursos → Contenido (página unificada)
+/recursos.html     /contenido.html  301
+/recursos          /contenido.html  301

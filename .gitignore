@@ -23,3 +23,6 @@ dist/
 
 # Claude Code (config local)
 .claude/
+
+# Temporales de generación de PDFs
+.tmp-pdf/
