@@ -329,9 +329,6 @@ def page_portada(c):
         y = 90*mm + i * 8
         c.line(PAGE_W - MARGIN_X - 40*mm + i*5, y, PAGE_W - MARGIN_X, y)
 
-    c.setFont(FONT_SB, 7.5)
-    c.setFillColor(GRAY_MED)
-    c.drawRightString(PAGE_W - MARGIN_X, 22*mm, "EDICIÓN 2026  ·  E-BOOK GRATUITO")
 
 def page_manifiesto(c, num):
     fill_bg(c); header(c); footer(c, num)
@@ -1343,23 +1340,7 @@ def page_cierre(c, num):
          "comerciales reales. Si querés revisar cómo está hoy tu estrategia y qué se puede "
          "mejorar en las próximas semanas, hablemos.")
     y = draw_paragraph(c, p, MARGIN_X, y, CONTENT_W, size=11, leading=17)
-    y -= 10*mm
-
-    # CTAs
-    btn_w, btn_h = 78*mm, 14*mm
-    # CTA 1
-    c.setFillColor(MINT)
-    c.roundRect(MARGIN_X, y - btn_h, btn_w, btn_h, 7, fill=1, stroke=0)
-    c.setFont(FONT_XB, 11); c.setFillColor(BG)
-    c.drawString(MARGIN_X + 8*mm, y - btn_h/2 - 1*mm, "Solicitá una auditoría  →")
-    # CTA 2
-    c.setStrokeColor(MINT); c.setLineWidth(1.2)
-    c.setFillColor(BG)
-    c.roundRect(MARGIN_X + btn_w + 6*mm, y - btn_h, btn_w, btn_h, 7, fill=1, stroke=1)
-    c.setFont(FONT_XB, 11); c.setFillColor(MINT)
-    c.drawString(MARGIN_X + btn_w + 6*mm + 8*mm, y - btn_h/2 - 1*mm, "Hablemos de tu negocio  →")
-
-    y -= btn_h + 16*mm
+    y -= 16*mm
 
     c.setStrokeColor(MINT); c.setLineWidth(0.8)
     c.line(MARGIN_X, y, MARGIN_X + 18*mm, y); y -= 8*mm
