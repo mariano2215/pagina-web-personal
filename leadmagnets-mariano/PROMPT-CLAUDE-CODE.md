@@ -68,7 +68,7 @@ a) Verificar en Site settings → Forms que aparezcan los 3 forms:
    - lead-manual-gtm-ga4
    - lead-guia-paid-media
 
-b) Configurar email notifications para cada form a mariano.calandra7@gmail.com.
+b) Configurar email notifications para cada form a info@marianocalandra.com.
 
 c) Hacer un test E2E de cada uno de los 3 flujos.
 

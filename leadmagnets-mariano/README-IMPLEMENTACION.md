@@ -119,7 +119,7 @@ Si alguno tiene otro nombre o path, ajustar las thank-you pages correspondientes
 
 En el panel de Netlify → **Site settings → Forms → Form notifications**:
 
-1. Agregar **email notification** a `mariano.calandra7@gmail.com` (o el mail que prefiera Mariano) para cada uno de los 3 forms.
+1. Agregar **email notification** a `info@marianocalandra.com` para cada uno de los 3 forms.
 2. Personalizar el asunto del email, por ejemplo:
    - `[Lead Auditoría] {nombre} dejó sus datos`
    - `[Lead GTM/GA4] {nombre} dejó sus datos`
