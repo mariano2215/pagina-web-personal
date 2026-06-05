@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ============================================================
+     SEO
+     ============================================================ -->
+<title>Studio | Mariano Calandra — Marketing, Paid Media &amp; Growth Systems</title>
+<meta name="description" content="Estrategia, paid media, contenido, medición y sistemas comerciales para marcas que quieren crecer con claridad, criterio y dirección.">
+<meta name="author" content="Mariano Calandra">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#EBEBE6">
+<link rel="canonical" href="https://marianocalandra.com/epibrands/studio.html">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Studio | Mariano Calandra — Marketing, Paid Media &amp; Growth Systems">
+<meta property="og:description" content="Sistemas de marketing para marcas que quieren sentirse más grandes. Estrategia, paid media, contenido y sistemas comerciales.">
+<meta property="og:url" content="https://marianocalandra.com/epibrands/studio.html">
+<meta property="og:image" content="https://marianocalandra.com/epibrands/assets/og-epibrands.jpg">
+<meta property="og:locale" content="es_AR">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Studio | Mariano Calandra">
+<meta name="twitter:description" content="Sistemas de marketing para marcas que quieren sentirse más grandes.">
+
+<!-- Favicon (reutiliza el del sitio principal) -->
+<link rel="icon" type="image/png" href="../img/favicon16x16.png">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "EPIBRANDS — Mariano Calandra Studio",
+  "url": "https://marianocalandra.com/epibrands/studio.html",
+  "description": "Estrategia, paid media, contenido, medición y sistemas comerciales para marcas que quieren crecer con claridad y criterio.",
+  "founder": { "@type": "Person", "name": "Mariano Calandra" },
+  "email": "info@marianocalandra.com"
+}
+</script>
+
+<!-- ============================================================
+     ESTILOS — autónomos, no dependen de los estilos globales.
+     Editá las variables de :root para ajustar paleta y ritmo.
+     ============================================================ -->
+<style>
+:root{
+  /* Paleta */
+  --bg:        #EDEDE8;   /* fondo crema / gris muy claro */
+  --bg-deep:   #E4E4DE;   /* fondo bloque alterno */
+  --ink:       #1A1A18;   /* texto principal — negro carbón */
+  --ink-soft:  #5C5C57;   /* texto secundario — gris medio */
+  --ink-faint: #9A9A93;   /* numeración / detalles */
+  --line:      rgba(26,26,24,0.14);  /* líneas divisorias finas */
+  --line-soft: rgba(26,26,24,0.08);
+  --accent:    #6E7C6A;   /* verde apagado, uso mínimo */
+  --invert-bg: #16160A;   /* sección oscura del CTA */
+  --invert-ink:#EDEDE8;
+
+  --font: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+
+  --maxw: 1280px;
+  --gutter: clamp(20px, 5vw, 80px);
+  --ease: cubic-bezier(.2,.7,.2,1);
+}
+
+*{ margin:0; padding:0; box-sizing:border-box; }
+
+html{ scroll-behavior:smooth; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; }
+
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:var(--font);
+  font-weight:400;
+  line-height:1.5;
+  letter-spacing:-0.01em;
+  overflow-x:hidden;
+}
+
+a{ color:inherit; text-decoration:none; }
+
+.wrap{ max-width:var(--maxw); margin:0 auto; padding-inline:var(--gutter); }
+
+/* etiqueta pequeña tipo "Vision / Approach" */
+.eyebrow{
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:0.22em;
+  text-transform:uppercase;
+  color:var(--ink-faint);
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+}
+.eyebrow::before{
+  content:"";
+  width:24px; height:1px;
+  background:var(--ink-faint);
+  display:inline-block;
+}
+
+/* ============================================================
+   HEADER — sticky, minimalista, casi invisible
+   ============================================================ */
+.header{
+  position:fixed; inset:0 0 auto 0; z-index:100;
+  padding-block:22px;
+  background:rgba(237,237,232,0);
+  transition:background .4s var(--ease), padding .4s var(--ease), border-color .4s var(--ease);
+  border-bottom:1px solid transparent;
+}
+.header.is-scrolled{
+  background:rgba(237,237,232,0.82);
+  backdrop-filter:saturate(140%) blur(14px);
+  -webkit-backdrop-filter:saturate(140%) blur(14px);
+  padding-block:14px;
+  border-bottom:1px solid var(--line-soft);
+}
+.nav{ display:flex; align-items:center; justify-content:space-between; gap:24px; }
+.brand{
+  font-weight:700; font-size:15px; letter-spacing:0.04em;
+  display:flex; align-items:baseline; gap:8px;
+}
+.brand small{ font-weight:400; font-size:11px; letter-spacing:0.2em; color:var(--ink-faint); text-transform:uppercase; }
+.nav-links{ display:flex; gap:34px; align-items:center; }
+.nav-links a{
+  font-size:13.5px; font-weight:500; color:var(--ink-soft);
+  position:relative; transition:color .3s var(--ease);
+}
+.nav-links a::after{
+  content:""; position:absolute; left:0; bottom:-5px; width:0; height:1px;
+  background:var(--ink); transition:width .35s var(--ease);
+}
+.nav-links a:hover{ color:var(--ink); }
+.nav-links a:hover::after{ width:100%; }
+.nav-cta{
+  font-size:13px; font-weight:500; color:var(--ink);
+  border:1px solid var(--line); border-radius:999px;
+  padding:9px 18px; transition:all .35s var(--ease);
+}
+.nav-cta:hover{ background:var(--ink); color:var(--bg); border-color:var(--ink); }
+.nav-toggle{ display:none; background:none; border:0; cursor:pointer; font-size:13px; color:var(--ink); letter-spacing:0.08em; }
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero{
+  min-height:100svh;
+  display:flex; flex-direction:column; justify-content:flex-end;
+  padding-block:140px 60px;
+  position:relative;
+}
+.hero-grid{ display:grid; grid-template-columns:1fr; gap:48px; }
+.hero h1{
+  font-size:clamp(2.5rem, 6.6vw, 6rem);
+  line-height:1.0;
+  font-weight:600;
+  letter-spacing:-0.045em;
+  max-width:15ch;
+}
+.hero h1 em{ font-style:normal; color:var(--ink-soft); }
+.hero-bottom{
+  display:grid; grid-template-columns:1fr; gap:40px;
+  align-items:end;
+  border-top:1px solid var(--line);
+  padding-top:32px;
+}
+.hero-sub{ font-size:clamp(1rem,1.3vw,1.18rem); color:var(--ink-soft); max-width:44ch; font-weight:400; }
+.hero-actions{ display:flex; gap:14px; flex-wrap:wrap; }
+
+.btn{
+  display:inline-flex; align-items:center; gap:10px;
+  font-size:14px; font-weight:500; letter-spacing:0;
+  padding:14px 26px; border-radius:999px;
+  border:1px solid var(--ink); transition:all .4s var(--ease);
+}
+.btn .dot{ width:6px; height:6px; border-radius:50%; background:currentColor; transition:transform .4s var(--ease); }
+.btn-solid{ background:var(--ink); color:var(--bg); }
+.btn-solid:hover{ background:transparent; color:var(--ink); }
+.btn-ghost{ background:transparent; color:var(--ink); border-color:var(--line); }
+.btn-ghost:hover{ border-color:var(--ink); }
+.btn:hover .dot{ transform:translateX(4px); }
+
+/* índice/scroll cue */
+.hero-meta{
+  position:absolute; top:130px; right:var(--gutter);
+  font-size:11px; letter-spacing:0.16em; text-transform:uppercase;
+  color:var(--ink-faint); text-align:right; line-height:2;
+}
+
+/* ============================================================
+   SECCIÓN base
+   ============================================================ */
+.section{ padding-block:clamp(90px, 13vh, 180px); }
+.section--deep{ background:var(--bg-deep); }
+.section-head{ display:grid; grid-template-columns:1fr; gap:18px; margin-bottom:64px; }
+
+/* ============================================================
+   MANIFIESTO
+   ============================================================ */
+.manifesto{ display:grid; grid-template-columns:1fr; gap:40px; }
+.manifesto .label-col{ }
+.manifesto blockquote{
+  font-size:clamp(1.7rem, 4.2vw, 3.4rem);
+  line-height:1.12;
+  font-weight:500;
+  letter-spacing:-0.035em;
+  max-width:20ch;
+}
+.manifesto blockquote span{ color:var(--ink-faint); }
+.manifesto .foot{
+  font-size:14.5px; color:var(--ink-soft); max-width:42ch; margin-top:36px;
+}
+
+/* ============================================================
+   PRINCIPIOS
+   ============================================================ */
+.principles{ border-top:1px solid var(--line); }
+.principle{
+  display:grid; grid-template-columns:80px 1fr; gap:24px;
+  padding-block:30px; border-bottom:1px solid var(--line);
+  align-items:baseline; transition:padding-left .4s var(--ease);
+}
+.principle:hover{ padding-left:14px; }
+.principle .num{ font-size:13px; color:var(--ink-faint); font-variant-numeric:tabular-nums; font-weight:500; }
+.principle .body{ display:grid; grid-template-columns:1fr; gap:8px; }
+.principle h3{ font-size:clamp(1.3rem,2.6vw,2rem); font-weight:500; letter-spacing:-0.03em; }
+.principle p{ font-size:14.5px; color:var(--ink-soft); max-width:50ch; }
+
+/* ============================================================
+   SELECTED WORK — grilla asimétrica
+   ============================================================ */
+.work-grid{ display:grid; grid-template-columns:repeat(12,1fr); gap:clamp(24px,3vw,48px); }
+.work{ position:relative; cursor:pointer; }
+.work .visual{
+  position:relative; overflow:hidden; border-radius:4px;
+  background:var(--bg-deep); aspect-ratio:4/3;
+  border:1px solid var(--line-soft);
+}
+.work .visual::before{
+  /* visual abstracto generado por CSS — editable */
+  content:""; position:absolute; inset:0;
+  background:
+    radial-gradient(120% 80% at 20% 10%, rgba(110,124,106,0.18), transparent 60%),
+    linear-gradient(135deg, rgba(26,26,24,0.05), rgba(26,26,24,0.0));
+  transition:transform 1s var(--ease), opacity .6s var(--ease);
+}
+.work .visual::after{
+  content:""; position:absolute; inset:0;
+  background-image:linear-gradient(var(--line) 1px, transparent 1px),
+                   linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size:40px 40px; opacity:0.4;
+  transition:transform 1.1s var(--ease);
+}
+.work:hover .visual::before{ transform:scale(1.06); }
+.work:hover .visual::after{ transform:translate(-12px,-12px); }
+.work .glyph{
+  position:absolute; inset:0; display:grid; place-items:center; z-index:2;
+  font-size:clamp(2.4rem,6vw,4.6rem); font-weight:600; letter-spacing:-0.05em;
+  color:var(--ink); opacity:0.12; transition:opacity .5s var(--ease), letter-spacing .6s var(--ease);
+}
+.work:hover .glyph{ opacity:0.28; letter-spacing:-0.02em; }
+.work .meta{
+  display:flex; justify-content:space-between; align-items:baseline; gap:16px;
+  padding-top:16px; border-top:1px solid var(--line); margin-top:18px;
+}
+.work .meta h3{ font-size:18px; font-weight:600; letter-spacing:-0.02em; }
+.work .meta .cat{ font-size:12px; color:var(--ink-faint); letter-spacing:0.05em; }
+.work .meta .yr{ font-size:12px; color:var(--ink-faint); font-variant-numeric:tabular-nums; }
+.work .desc{ font-size:13.5px; color:var(--ink-soft); margin-top:10px; max-width:44ch; }
+/* posiciones asimétricas */
+.work.span-7{ grid-column:span 7; }
+.work.span-5{ grid-column:span 5; }
+.work.span-6{ grid-column:span 6; }
+.work.span-5.offset{ grid-column:4 / span 5; }
+.work.span-7.tall .visual{ aspect-ratio:16/10; }
+.work.span-5.tall .visual{ aspect-ratio:3/4; }
+
+/* ============================================================
+   MÉTODO
+   ============================================================ */
+.method-head{ display:grid; grid-template-columns:1fr; gap:18px; margin-bottom:56px; }
+.method-head h2{ font-size:clamp(2rem,5vw,3.8rem); font-weight:500; letter-spacing:-0.04em; }
+.steps{ border-top:1px solid var(--line); }
+.step{
+  display:grid; grid-template-columns:90px 1fr; gap:24px;
+  padding-block:34px; border-bottom:1px solid var(--line); align-items:start;
+}
+.step .num{ font-size:13px; color:var(--ink-faint); font-weight:600; letter-spacing:0.1em; }
+.step .st-body h3{ font-size:clamp(1.4rem,2.8vw,2.1rem); font-weight:500; letter-spacing:-0.03em; }
+.step .st-body p{ font-size:14.5px; color:var(--ink-soft); max-width:54ch; margin-top:8px; }
+
+/* ============================================================
+   SERVICIOS — lista editorial
+   ============================================================ */
+.services{ display:grid; grid-template-columns:1fr; }
+.service{
+  display:flex; align-items:baseline; justify-content:space-between; gap:24px;
+  padding-block:24px; border-bottom:1px solid var(--line);
+  transition:color .35s var(--ease);
+}
+.service:first-child{ border-top:1px solid var(--line); }
+.service h3{ font-size:clamp(1.2rem,2.6vw,1.9rem); font-weight:500; letter-spacing:-0.03em; }
+.service .tag{ font-size:12.5px; color:var(--ink-faint); letter-spacing:0.04em; text-align:right; }
+.service:hover{ color:var(--accent); }
+
+/* ============================================================
+   CTA FINAL — bloque oscuro
+   ============================================================ */
+.cta{
+  background:var(--invert-bg); color:var(--invert-ink);
+  padding-block:clamp(100px,16vh,200px);
+}
+.cta .eyebrow{ color:rgba(237,237,232,0.5); }
+.cta .eyebrow::before{ background:rgba(237,237,232,0.5); }
+.cta h2{
+  font-size:clamp(2.2rem,6.5vw,5.6rem);
+  line-height:1.02; font-weight:500; letter-spacing:-0.045em;
+  max-width:18ch; margin-block:28px 32px;
+}
+.cta p{ font-size:clamp(1rem,1.4vw,1.2rem); color:rgba(237,237,232,0.66); max-width:46ch; margin-bottom:44px; }
+.cta .btn{ border-color:var(--invert-ink); background:var(--invert-ink); color:var(--invert-bg); }
+.cta .btn:hover{ background:transparent; color:var(--invert-ink); }
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.foot-wrap{
+  padding-block:50px; border-top:1px solid var(--line);
+  display:flex; flex-wrap:wrap; gap:24px; justify-content:space-between; align-items:center;
+}
+.foot-wrap .brand{ font-size:14px; }
+.foot-links{ display:flex; gap:26px; }
+.foot-links a{ font-size:13px; color:var(--ink-soft); transition:color .3s var(--ease); }
+.foot-links a:hover{ color:var(--ink); }
+.foot-copy{ font-size:12px; color:var(--ink-faint); width:100%; }
+
+/* ============================================================
+   REVEAL al hacer scroll
+   ============================================================ */
+.reveal{ opacity:0; transform:translateY(24px); transition:opacity .9s var(--ease), transform .9s var(--ease); }
+.reveal.in{ opacity:1; transform:none; }
+.reveal.d1{ transition-delay:.08s; }
+.reveal.d2{ transition-delay:.16s; }
+.reveal.d3{ transition-delay:.24s; }
+
+@media (prefers-reduced-motion:reduce){
+  .reveal{ opacity:1; transform:none; transition:none; }
+  html{ scroll-behavior:auto; }
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (min-width:760px){
+  .hero-bottom{ grid-template-columns:1.4fr 1fr; }
+  .manifesto{ grid-template-columns:0.4fr 1fr; gap:60px; }
+  .method-head{ grid-template-columns:0.5fr 1fr; align-items:end; }
+  .section-head{ grid-template-columns:0.5fr 1fr; align-items:end; gap:40px; }
+}
+@media (max-width:1000px){
+  .work-grid{ grid-template-columns:1fr; }
+  .work.span-7, .work.span-5, .work.span-6, .work.span-5.offset{ grid-column:auto; }
+  .work.span-5.tall .visual, .work.span-7.tall .visual{ aspect-ratio:4/3; }
+}
+@media (max-width:760px){
+  .nav-links{
+    position:fixed; inset:0; background:var(--bg);
+    flex-direction:column; justify-content:center; align-items:flex-start;
+    gap:8px; padding:var(--gutter); transform:translateX(100%);
+    transition:transform .5s var(--ease); z-index:90;
+  }
+  .nav-links.open{ transform:none; }
+  .nav-links a{ font-size:30px; font-weight:500; letter-spacing:-0.02em; color:var(--ink); }
+  .nav-links a::after{ display:none; }
+  .nav-links .nav-cta{ font-size:16px; margin-top:20px; }
+  .nav-toggle{ display:block; z-index:95; }
+  .hero-meta{ display:none; }
+  .principle{ grid-template-columns:48px 1fr; gap:14px; }
+  .step{ grid-template-columns:1fr; gap:8px; }
+  .service{ flex-direction:column; gap:6px; }
+  .service .tag{ text-align:left; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ============================================================
+     HEADER
+     ============================================================ -->
+<header class="header" id="header">
+  <div class="wrap">
+    <nav class="nav">
+      <a href="#top" class="brand">EPIBRANDS <small>Studio</small></a>
+      <div class="nav-links" id="navLinks">
+        <a href="#work">Work</a>
+        <a href="#method">Method</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+        <a href="mailto:info@marianocalandra.com" class="nav-cta">Empezar proyecto</a>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">Menú</button>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ========================================================
+       HERO — editá headline / subtítulo / CTA aquí
+       ======================================================== -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <p class="hero-meta">Marketing Studio<br>Estrategia · Paid Media<br>Buenos Aires — Worldwide</p>
+      <h1 class="reveal">Sistemas de marketing para marcas que quieren <em>sentirse más grandes.</em></h1>
+      <div class="hero-bottom">
+        <p class="hero-sub reveal d1">Estrategia, paid media, contenido y sistemas comerciales para negocios listos para crecer con claridad, precisión y criterio.</p>
+        <div class="hero-actions reveal d2">
+          <a href="#method" class="btn btn-solid"><span class="dot"></span> Ver método</a>
+          <a href="mailto:info@marianocalandra.com" class="btn btn-ghost">Empezar proyecto</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       MANIFIESTO
+       ======================================================== -->
+  <section class="section">
+    <div class="wrap manifesto">
+      <div class="label-col reveal"><span class="eyebrow">Vision</span></div>
+      <div>
+        <blockquote class="reveal d1">No se trata de hacer más marketing. <span>Se trata de construir una presencia digital que se vea mejor, piense mejor y venda mejor.</span></blockquote>
+        <p class="foot reveal d2">Trabajamos con pocas marcas a la vez, con la atención y el criterio que el crecimiento real requiere. Menos ruido, más dirección.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       PRINCIPIOS — agregá / editá líneas
+       ======================================================== -->
+  <section class="section section--deep">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow reveal">Approach</span>
+        <h2 class="reveal d1" style="font-size:clamp(1.8rem,4vw,3rem);font-weight:500;letter-spacing:-0.04em;">Principios que ordenan cada decisión.</h2>
+      </div>
+      <div class="principles">
+        <div class="principle reveal"><span class="num">01</span><div class="body"><h3>Estética premium</h3><p>El cómo se ve comunica antes que el qué dice. La calidad visual es estrategia, no decoración.</p></div></div>
+        <div class="principle reveal"><span class="num">02</span><div class="body"><h3>Aire visual</h3><p>El espacio vacío jerarquiza. Lo que se quita importa tanto como lo que queda.</p></div></div>
+        <div class="principle reveal"><span class="num">03</span><div class="body"><h3>Simplicidad</h3><p>Una idea fuerte por pieza. Claridad antes que volumen.</p></div></div>
+        <div class="principle reveal"><span class="num">04</span><div class="body"><h3>Sensación internacional</h3><p>Marcas locales con estándar global. El criterio no tiene fronteras.</p></div></div>
+        <div class="principle reveal"><span class="num">05</span><div class="body"><h3>Dirección de arte limpia</h3><p>Sistema visual coherente, sostenible y reconocible en cada canal.</p></div></div>
+        <div class="principle reveal"><span class="num">06</span><div class="body"><h3>Portfolio como autoridad</h3><p>El trabajo es la prueba. Resultados visibles, no promesas.</p></div></div>
+        <div class="principle reveal"><span class="num">07</span><div class="body"><h3>Marca memorable</h3><p>Construimos presencias que la gente recuerda y no puede ignorar.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       SELECTED WORK — editá nombre, categoría, año y descripción.
+       El "glyph" es un placeholder visual abstracto (iniciales).
+       ======================================================== -->
+  <section class="section" id="work">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow reveal">Selected Work</span>
+        <h2 class="reveal d1" style="font-size:clamp(1.8rem,4vw,3rem);font-weight:500;letter-spacing:-0.04em;">Trabajo que sostiene la marca.</h2>
+      </div>
+
+      <div class="work-grid">
+        <!-- CASO 1 -->
+        <article class="work span-7 tall reveal">
+          <div class="visual"><span class="glyph">PM</span></div>
+          <div class="meta"><h3>Paid Media Growth System</h3><span class="cat">Performance</span><span class="yr">2025</span></div>
+          <p class="desc">Sistema de adquisición pagado en Meta y Google con foco en rentabilidad medible y escalado ordenado.</p>
+        </article>
+        <!-- CASO 2 -->
+        <article class="work span-5 tall reveal d1">
+          <div class="visual"><span class="glyph">BS</span></div>
+          <div class="meta"><h3>Brand Strategy Framework</h3><span class="cat">Strategy</span><span class="yr">2025</span></div>
+          <p class="desc">Plataforma de marca, posicionamiento y narrativa comercial para diferenciar con criterio.</p>
+        </article>
+        <!-- CASO 3 -->
+        <article class="work span-5 offset reveal">
+          <div class="visual"><span class="glyph">MA</span></div>
+          <div class="meta"><h3>Marketing Audit System</h3><span class="cat">Diagnosis</span><span class="yr">2024</span></div>
+          <p class="desc">Auditoría integral de embudo, tracking y rentabilidad para decidir con datos.</p>
+        </article>
+        <!-- CASO 4 -->
+        <article class="work span-7 reveal d1">
+          <div class="visual"><span class="glyph">CL</span></div>
+          <div class="meta"><h3>Conversion Landing Page</h3><span class="cat">Conversion</span><span class="yr">2024</span></div>
+          <p class="desc">Páginas diseñadas para convertir: jerarquía, copy y medición trabajando juntos.</p>
+        </article>
+        <!-- CASO 5 -->
+        <article class="work span-6 reveal">
+          <div class="visual"><span class="glyph">AI</span></div>
+          <div class="meta"><h3>AI Content Engine</h3><span class="cat">Content</span><span class="yr">2025</span></div>
+          <p class="desc">Sistema de contenido asistido por IA con criterio editorial y voz de marca consistente.</p>
+        </article>
+        <!-- CASO 6 -->
+        <article class="work span-6 reveal d1">
+          <div class="visual"><span class="glyph">CC</span></div>
+          <div class="meta"><h3>Commercial Consulting Sprint</h3><span class="cat">Consulting</span><span class="yr">2025</span></div>
+          <p class="desc">Sprint intensivo para alinear oferta, precios y proceso comercial con la estrategia.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       MÉTODO
+       ======================================================== -->
+  <section class="section section--deep" id="method">
+    <div class="wrap">
+      <div class="method-head">
+        <span class="eyebrow reveal">Process</span>
+        <h2 class="reveal d1">Method, not noise.</h2>
+      </div>
+      <div class="steps">
+        <div class="step reveal"><span class="num">01 — Diagnose</span><div class="st-body"><h3>Diagnóstico</h3><p>Entendemos negocio, oferta y números antes de tocar una sola campaña.</p></div></div>
+        <div class="step reveal"><span class="num">02 — Strategy</span><div class="st-body"><h3>Estrategia</h3><p>Definimos posicionamiento, prioridades y el plan que ordena cada inversión.</p></div></div>
+        <div class="step reveal"><span class="num">03 — Build</span><div class="st-body"><h3>Construcción</h3><p>Creativos, landings, tracking y campañas: el sistema queda armado para escalar.</p></div></div>
+        <div class="step reveal"><span class="num">04 — Measure</span><div class="st-body"><h3>Medición</h3><p>Datos limpios y atribución clara para saber qué funciona y qué no.</p></div></div>
+        <div class="step reveal"><span class="num">05 — Optimize</span><div class="st-body"><h3>Optimización</h3><p>Iteramos sobre lo que mueve la aguja. Crecimiento con dirección, no por inercia.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       SERVICIOS — lista editorial
+       ======================================================== -->
+  <section class="section" id="services">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow reveal">Capabilities</span>
+        <h2 class="reveal d1" style="font-size:clamp(1.8rem,4vw,3rem);font-weight:500;letter-spacing:-0.04em;">Strategy before scale.</h2>
+      </div>
+      <div class="services">
+        <div class="service reveal"><h3>Paid Media Strategy</h3><span class="tag">Estrategia de pauta</span></div>
+        <div class="service reveal"><h3>Meta Ads &amp; Google Ads</h3><span class="tag">Performance</span></div>
+        <div class="service reveal"><h3>Marketing Audits</h3><span class="tag">Diagnóstico</span></div>
+        <div class="service reveal"><h3>Landing Pages</h3><span class="tag">Conversión</span></div>
+        <div class="service reveal"><h3>Tracking &amp; Measurement</h3><span class="tag">Medición</span></div>
+        <div class="service reveal"><h3>AI-powered Content Systems</h3><span class="tag">Contenido</span></div>
+        <div class="service reveal"><h3>Commercial Consulting</h3><span class="tag">Consultoría</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       CTA FINAL
+       ======================================================== -->
+  <section class="cta" id="contact">
+    <div class="wrap">
+      <span class="eyebrow reveal">Let's talk</span>
+      <h2 class="reveal d1">Construyamos una marca que la gente no pueda ignorar.</h2>
+      <p class="reveal d2">Si tu negocio tiene algo valioso, tu presencia digital debería estar a la altura.</p>
+      <a href="mailto:info@marianocalandra.com" class="btn reveal d3"><span class="dot"></span> Empezar conversación</a>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer>
+  <div class="wrap foot-wrap">
+    <a href="#top" class="brand">EPIBRANDS <small>Studio</small></a>
+    <div class="foot-links">
+      <a href="../index.html">Inicio</a>
+      <a href="#work">Work</a>
+      <a href="#services">Services</a>
+      <a href="mailto:info@marianocalandra.com">info@marianocalandra.com</a>
+    </div>
+    <p class="foot-copy">© <span id="year"></span> Mariano Calandra · EPIBRANDS Marketing Studio. Marketing claro. Crecimiento real.</p>
+  </div>
+</footer>
+
+<!-- ============================================================
+     SCRIPT — header sticky, menú mobile, reveal on scroll
+     ============================================================ -->
+<script>
+(function(){
+  // año footer
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // header al hacer scroll
+  var header = document.getElementById('header');
+  var onScroll = function(){ header.classList.toggle('is-scrolled', window.scrollY > 24); };
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive:true });
+
+  // menú mobile
+  var toggle = document.getElementById('navToggle');
+  var links  = document.getElementById('navLinks');
+  toggle.addEventListener('click', function(){
+    var open = links.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open);
+    toggle.textContent = open ? 'Cerrar' : 'Menú';
+  });
+  links.addEventListener('click', function(e){
+    if(e.target.tagName === 'A'){
+      links.classList.remove('open');
+      toggle.setAttribute('aria-expanded', false);
+      toggle.textContent = 'Menú';
+    }
+  });
+
+  // reveal on scroll
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); }
+    });
+  }, { threshold:0.12, rootMargin:'0px 0px -8% 0px' });
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+})();
+</script>
+
+</body>
+</html>

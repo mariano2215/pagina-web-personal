@@ -1,0 +1,1233 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>100 Hooks que Convierten — Mariano Calandra</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap');
+
+  :root {
+    --bg: #0D1117;
+    --bg-card: #161B22;
+    --bg-card2: #1C2230;
+    --mint: #3DDC97;
+    --mint-dim: rgba(61,220,151,0.12);
+    --white: #F0F0F0;
+    --gray: #8B949E;
+    --separator: #2A2D35;
+    --page-w: 794px;
+    --page-h: 1123px;
+    --pad: 62px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #1a1a1a;
+    font-family: 'Inter', sans-serif;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  @page { size: 794px 1123px; margin: 0; }
+
+  /* ─── PAGE ─── */
+  .page {
+    width: var(--page-w);
+    height: var(--page-h);
+    background: var(--bg);
+    margin: 0 auto 4px;
+    padding: var(--pad);
+    position: relative;
+    overflow: hidden;
+    page-break-after: always;
+  }
+
+  .page-top-line {
+    position: absolute;
+    top: 28px; left: var(--pad); right: var(--pad);
+    height: 1px; background: var(--separator);
+  }
+  .page-bottom-line {
+    position: absolute;
+    bottom: 28px; left: var(--pad); right: var(--pad);
+    height: 1px; background: var(--separator);
+  }
+  .page-num {
+    position: absolute;
+    bottom: 12px; right: var(--pad);
+    font-family: 'Space Mono', monospace;
+    font-size: 10px; color: var(--gray);
+  }
+
+  /* ─── COVER ─── */
+  .cover { display: flex; flex-direction: column; justify-content: space-between; height: 1123px; overflow: hidden; }
+  .cover-deco {
+    position: absolute;
+    bottom: 80px; right: 60px;
+    display: flex; flex-direction: column; align-items: flex-end; gap: 5px;
+  }
+  .cover-deco span {
+    display: block; height: 1.5px; background: var(--mint);
+    border-radius: 1px;
+  }
+  .cover-top-line { position: absolute; top: 28px; left: 72px; right: 72px; height: 1px; background: var(--mint); opacity: 0.5; }
+
+  .cover-tag {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px; letter-spacing: 3px;
+    color: var(--mint); text-transform: uppercase;
+    margin-bottom: 40px;
+    margin-top: 60px;
+  }
+  .cover-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 52px; font-weight: 700;
+    color: var(--white); line-height: 1.1;
+    letter-spacing: -1px;
+    margin-bottom: 32px;
+  }
+  .cover-title span { color: var(--mint); }
+  .cover-subtitle {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px; font-weight: 400;
+    color: var(--gray); line-height: 1.7;
+    max-width: 520px; margin-bottom: 24px;
+  }
+  .cover-bajada {
+    font-size: 13px; color: var(--gray);
+    line-height: 1.6; max-width: 500px;
+    border-left: 2px solid var(--mint);
+    padding-left: 16px; margin-bottom: 60px;
+  }
+  .cover-author {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 20px; font-weight: 600;
+    color: var(--white); margin-bottom: 6px;
+  }
+  .cover-footer {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px; letter-spacing: 1px;
+    color: var(--mint); text-transform: uppercase;
+  }
+
+  /* ─── SECTION HEADERS ─── */
+  .section-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px; letter-spacing: 3px;
+    color: var(--mint); text-transform: uppercase;
+    margin-bottom: 16px; margin-top: 20px;
+  }
+  .section-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 30px; font-weight: 700;
+    color: var(--white); line-height: 1.2;
+    margin-bottom: 28px;
+  }
+  .section-title-sm {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 22px; font-weight: 700;
+    color: var(--white); line-height: 1.2;
+    margin-bottom: 20px;
+  }
+
+  /* ─── BODY TEXT ─── */
+  p {
+    font-size: 13.5px; color: var(--white);
+    line-height: 1.75; margin-bottom: 14px;
+  }
+  p strong { color: var(--mint); font-weight: 600; }
+
+  /* ─── HIGHLIGHT BOX ─── */
+  .box {
+    border: 1.5px solid var(--mint);
+    border-radius: 6px;
+    background: var(--bg-card);
+    padding: 20px 24px;
+    margin: 20px 0;
+  }
+  .box p { margin: 0; font-size: 13px; }
+  .box-mint { background: var(--mint); padding: 12px 24px; border-radius: 4px; margin-bottom: 0; }
+  .box-mint p { color: #0D1117; font-weight: 600; margin: 0; font-size: 13px; }
+
+  /* ─── QUOTE ─── */
+  .quote {
+    border-left: 3px solid var(--mint);
+    padding: 14px 20px;
+    background: var(--mint-dim);
+    border-radius: 0 6px 6px 0;
+    margin: 24px 0;
+  }
+  .quote p { color: var(--white); font-style: italic; font-size: 14px; margin: 0; }
+
+  /* ─── BULLETS ─── */
+  ul.styled, ol.styled { padding-left: 0; list-style: none; margin-bottom: 16px; }
+  ul.styled li, ol.styled li {
+    font-size: 13px; color: var(--white);
+    line-height: 1.65; padding: 5px 0 5px 22px;
+    position: relative;
+  }
+  ul.styled li::before {
+    content: '▸'; color: var(--mint);
+    position: absolute; left: 0; font-size: 11px; top: 7px;
+  }
+  ol.styled { counter-reset: my-counter; }
+  ol.styled li { counter-increment: my-counter; }
+  ol.styled li::before {
+    content: counter(my-counter) '.';
+    color: var(--mint); position: absolute; left: 0;
+    font-family: 'Space Mono', monospace; font-size: 11px; top: 6px;
+  }
+
+  /* ─── INDEX ─── */
+  .index-row {
+    display: flex; justify-content: space-between; align-items: center;
+    border-bottom: 1px solid var(--separator);
+    padding: 11px 0;
+  }
+  .index-row:last-child { border-bottom: none; }
+  .index-num { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--mint); margin-right: 12px; }
+  .index-label { font-size: 13px; color: var(--white); flex: 1; }
+  .index-pg { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--gray); }
+
+  /* ─── CATEGORY HEADER ─── */
+  .cat-header {
+    background: var(--mint);
+    padding: 14px 20px;
+    border-radius: 4px;
+    margin-bottom: 8px;
+    display: flex; align-items: baseline; gap: 14px;
+  }
+  .cat-num { font-family: 'Space Mono', monospace; font-size: 11px; color: rgba(13,17,23,0.6); }
+  .cat-name { font-family: 'Space Grotesk', sans-serif; font-size: 17px; font-weight: 700; color: #0D1117; }
+  .cat-when {
+    font-size: 12px; color: var(--gray);
+    line-height: 1.6; margin-bottom: 10px;
+    padding: 8px 14px;
+    background: var(--bg-card);
+    border-radius: 4px;
+    border-left: 2px solid var(--separator);
+  }
+
+  /* ─── HOOK ITEMS ─── */
+  .hook-item {
+    display: flex; gap: 14px; align-items: flex-start;
+    padding: 7px 0;
+    border-bottom: 1px solid var(--separator);
+  }
+  .hook-item:last-of-type { border-bottom: none; }
+  .hook-num {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px; color: var(--mint);
+    min-width: 28px; padding-top: 2px; font-weight: 700;
+  }
+  .hook-text {
+    font-size: 13px; color: var(--white);
+    line-height: 1.65; flex: 1;
+  }
+
+  /* ─── EXAMPLE BOX ─── */
+  .example-box {
+    border: 1.5px solid var(--mint);
+    border-radius: 6px;
+    background: var(--bg-card);
+    padding: 0; margin-top: 10px; overflow: hidden;
+  }
+  .example-header { background: var(--mint); padding: 8px 16px; }
+  .example-header span { font-family: 'Space Mono', monospace; font-size: 10px; color: #0D1117; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; }
+  .example-body { padding: 16px; }
+  .example-row { margin-bottom: 5px; }
+  .example-label { font-family: 'Space Mono', monospace; font-size: 9px; color: var(--mint); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 2px; }
+  .example-val { font-size: 12px; color: var(--white); line-height: 1.5; }
+  .example-val em { color: var(--gray); font-style: normal; }
+
+  /* ─── FORMULA ─── */
+  .formula-block { margin-bottom: 22px; }
+  .formula-num { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--mint); margin-bottom: 4px; }
+  .formula-title { font-family: 'Space Grotesk', sans-serif; font-size: 14px; font-weight: 700; color: var(--white); margin-bottom: 6px; }
+  .formula-template {
+    background: var(--bg-card);
+    border: 1px solid var(--separator);
+    border-left: 3px solid var(--mint);
+    padding: 10px 14px;
+    font-size: 12.5px; color: var(--gray);
+    border-radius: 0 4px 4px 0;
+    font-style: italic; line-height: 1.5;
+    margin-bottom: 6px;
+  }
+  .formula-example { font-size: 12px; color: var(--white); padding-left: 14px; line-height: 1.5; }
+  .formula-example::before { content: '→ '; color: var(--mint); }
+
+  /* ─── CHECKLIST ─── */
+  .check-item {
+    display: flex; gap: 12px; align-items: flex-start;
+    padding: 9px 0;
+    border-bottom: 1px solid var(--separator);
+  }
+  .check-box {
+    width: 16px; height: 16px; border: 1.5px solid var(--mint);
+    border-radius: 3px; flex-shrink: 0; margin-top: 1px;
+  }
+  .check-text { font-size: 13px; color: var(--white); line-height: 1.6; }
+
+  /* ─── TABLE ─── */
+  table { width: 100%; border-collapse: collapse; margin: 16px 0; }
+  th {
+    background: var(--mint); color: #0D1117;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 12px; font-weight: 700;
+    padding: 10px 14px; text-align: left;
+  }
+  td { padding: 9px 14px; font-size: 12px; color: var(--white); border-bottom: 1px solid var(--separator); }
+  tr:nth-child(even) td { background: var(--bg-card); }
+
+  /* ─── TWO COLS ─── */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 16px; }
+
+  /* ─── FACTOR ITEM ─── */
+  .factor { margin-bottom: 12px; }
+  .factor-name { font-family: 'Space Grotesk', sans-serif; font-size: 13px; font-weight: 600; color: var(--mint); margin-bottom: 2px; }
+  .factor-desc { font-size: 12px; color: var(--gray); line-height: 1.55; }
+
+  /* ─── SEPARATOR ─── */
+  hr { border: none; border-top: 1px solid var(--separator); margin: 24px 0; }
+
+  /* ─── BACK COVER ─── */
+  .back-cover { display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; min-height: var(--page-h); }
+  .back-cover h2 { font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; color: var(--white); margin-bottom: 16px; line-height: 1.2; }
+  .back-cover .url { font-family: 'Space Mono', monospace; font-size: 18px; color: var(--mint); margin: 20px 0; }
+  .back-cover p { font-size: 13px; color: var(--gray); max-width: 440px; }
+
+  /* ─── PRINT ─── */
+  @media print {
+    body { background: none; }
+    .page { margin: 0; page-break-after: always; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════
+     PÁGINA 1 — PORTADA
+═══════════════════════════════════════════ -->
+<div class="page cover">
+  <div class="page-top-line" style="background: var(--mint); opacity:0.6;"></div>
+
+  <div class="cover-deco">
+    <span style="width:120px;"></span>
+    <span style="width:100px;"></span>
+    <span style="width:80px;"></span>
+    <span style="width:60px;"></span>
+    <span style="width:40px;"></span>
+    <span style="width:20px;"></span>
+  </div>
+
+  <div>
+    <div class="cover-tag">Recurso Premium · Mariano Calandra</div>
+
+    <div class="cover-title">
+      100 <span>HOOKS</span><br>
+      QUE CONVIERTEN<br>
+      EN REDES SOCIALES
+    </div>
+
+    <div class="cover-subtitle">
+      Frases listas para captar atención, frenar el scroll y convertir contenido en consultas, ventas y autoridad.
+    </div>
+
+    <div class="cover-bajada">
+      Un recurso práctico para marcas, emprendedores, consultores y negocios que quieren dejar de publicar contenido invisible.
+    </div>
+  </div>
+
+  <div>
+    <div class="cover-author">Mariano Calandra</div>
+    <div class="cover-footer">Marketing · Paid Media · Estrategia Comercial · IA aplicada a negocios</div>
+  </div>
+
+  <div class="page-bottom-line"></div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════
+     PÁGINA 2 — ÍNDICE
+═══════════════════════════════════════════ -->
+<div class="page">
+  <div class="page-top-line"></div>
+  <div class="page-num">02</div>
+
+  <div class="section-label">Contenido</div>
+  <div class="section-title">Índice</div>
+
+  <div class="index-row"><span class="index-num">01</span><span class="index-label">Introducción</span><span class="index-pg">03</span></div>
+  <div class="index-row"><span class="index-num">02</span><span class="index-label">Para quién es este documento</span><span class="index-pg">04</span></div>
+  <div class="index-row"><span class="index-num">03</span><span class="index-label">Cómo usar este documento</span><span class="index-pg">05</span></div>
+  <div class="index-row"><span class="index-num">04</span><span class="index-label">Qué hace que un hook convierta</span><span class="index-pg">06</span></div>
+  <div class="index-row"><span class="index-num">05</span><span class="index-label">Categoría 1 — Hooks de dolor (01–10)</span><span class="index-pg">07</span></div>
+  <div class="index-row"><span class="index-num">06</span><span class="index-label">Categoría 2 — Hooks de deseo (11–20)</span><span class="index-pg">08</span></div>
+  <div class="index-row"><span class="index-num">07</span><span class="index-label">Categoría 3 — Hooks de error común (21–30)</span><span class="index-pg">09</span></div>
+  <div class="index-row"><span class="index-num">08</span><span class="index-label">Categoría 4 — Hooks de autoridad (31–40)</span><span class="index-pg">10</span></div>
+  <div class="index-row"><span class="index-num">09</span><span class="index-label">Categoría 5 — Hooks de controversia inteligente (41–50)</span><span class="index-pg">11</span></div>
+  <div class="index-row"><span class="index-num">10</span><span class="index-label">Categoría 6 — Hooks educativos (51–60)</span><span class="index-pg">12</span></div>
+  <div class="index-row"><span class="index-num">11</span><span class="index-label">Categoría 7 — Hooks para ventas (61–70)</span><span class="index-pg">13</span></div>
+  <div class="index-row"><span class="index-num">12</span><span class="index-label">Categoría 8 — Hooks para anuncios (71–80)</span><span class="index-pg">14</span></div>
+  <div class="index-row"><span class="index-num">13</span><span class="index-label">Categoría 9 — Hooks para marca personal (81–90)</span><span class="index-pg">15</span></div>
+  <div class="index-row"><span class="index-num">14</span><span class="index-label">Categoría 10 — IA, productividad y negocios digitales (91–100)</span><span class="index-pg">16</span></div>
+  <div class="index-row"><span class="index-num">15</span><span class="index-label">Ejemplos de uso en nichos reales</span><span class="index-pg">17</span></div>
+  <div class="index-row"><span class="index-num">16</span><span class="index-label">15 Fórmulas para crear tus propios hooks</span><span class="index-pg">20</span></div>
+  <div class="index-row"><span class="index-num">17</span><span class="index-label">Checklist: ¿tu hook es bueno?</span><span class="index-pg">23</span></div>
+  <div class="index-row"><span class="index-num">18</span><span class="index-label">Cierre y CTA</span><span class="index-pg">24</span></div>
+
+  <div class="page-bottom-line"></div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════
+     PÁGINA 3 — INTRODUCCIÓN
+═══════════════════════════════════════════ -->
+<div class="page">
+  <div class="page-top-line"></div>
+  <div class="page-num">03</div>
+
+  <div class="section-label">01 · Introducción</div>
+  <div class="section-title">La mayoría del contenido no<br>falla por falta de diseño.</div>
+
+  <p>Falla porque nadie se detiene a verlo.</p>
+  <p>Podés tener la mejor paleta de colores, el mejor fotógrafo, el mejor editor de video. Si el primer segundo no captura, todo lo demás no existe. Literalmente. El scroll continúa, el algoritmo registra la fuga, y tu contenido queda sepultado bajo miles de piezas que sí supieron arrancar.</p>
+  <p><strong>El hook es la primera barrera de conversión.</strong> No la única, pero sí la más importante. Porque sin ella, el resto del contenido nunca tiene la oportunidad de funcionar.</p>
+  <p><strong>¿Qué es un hook?</strong> Es la primera frase de un reel. El primer texto de un carrusel. El titular de un anuncio. La primera línea de un caption. El primer segundo de un video. Es lo que decide si alguien para o sigue de largo.</p>
+  <p>Y acá está la clave que este documento quiere que te lleves: <strong>un hook no solo captura atención. Selecciona a la persona correcta.</strong></p>
+  <p>Un hook bien escrito no habla para todos. Habla para alguien específico, con un dolor específico, en un momento específico. Por eso algunos contenidos generan consultas y otros solo generan likes de gente que nunca va a comprarte.</p>
+
+  <div class="quote">
+    <p>Este documento no es para que copies frases sin pensar. Es para entender ángulos, adaptar estructuras y crear contenido más fuerte.</p>
+  </div>
+
+  <p>Hay 100 hooks organizados en 10 categorías. Cada uno tiene un propósito distinto. Algunos van a resonar directamente con tu negocio. Otros van a necesitar adaptación. Todos tienen algo que podés aprender y aplicar.</p>
+  <p><strong>Publicar mejor no es publicar más.</strong> Es empezar a entender que la atención no se mendiga. Se gana con la frase correcta, en el lugar correcto, para la persona correcta.</p>
+
+  <div class="page-bottom-line"></div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════
+     PÁGINA 4 — PARA QUIÉN ES
+═══════════════════════════════════════════ -->
+<div class="page">
+  <div class="page-top-line"></div>
+  <div class="page-num">04</div>
+
+  <div class="section-label">02 · Audiencia</div>
+  <div class="section-title">Para quién es<br>este documento</div>
+
+  <div class="two-col">
+    <div>
+      <ul class="styled">
+        <li>Emprendedores que publican pero no convierten</li>
+        <li>Dueños de negocios locales</li>
+        <li>Marcas personales en construcción</li>
+        <li>Consultores y profesionales independientes</li>
+        <li>Agencias y community managers</li>
+        <li>Paid media managers</li>
+      </ul>
+    </div>
+    <div>
+      <ul class="styled">
+        <li>Creadores de contenido</li>
+        <li>E-commerce y tiendas online</li>
+        <li>Infoproductores y creadores de cursos</li>
+        <li>Negocios B2B que quieren posicionarse</li>
+        <li>Profesionales que quieren vender sin sonar a vendedores</li>
+      </ul>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="section-title-sm" style="margin-top:20px;">Este documento <span style="color:var(--gray);">NO es para vos</span> si…</div>
+
+  <div class="box" style="border-color: var(--separator);">
+    <ul class="styled">
+      <li>Querés publicar contenido genérico sin adaptarlo a tu audiencia real</li>
+      <li>Esperás copiar frases sin entender por qué funcionan</li>
+      <li>Buscás fórmulas mágicas que reemplacen la estrategia</li>
+      <li>No estás dispuesto a testear, medir ni ajustar</li>
+      <li>Creés que el contenido no tiene que vender, solo "aportar valor"</li>
+      <li>Tu objetivo es crecer en seguidores pero no en facturación</li>
+    </ul>
+  </div>
+
+  <div class="page-bottom-line"></div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════
+     PÁGINA 5 — CÓMO USAR
+═══════════════════════════════════════════ -->
+<div class="page">
+  <div class="page-top-line"></div>
+  <div class="page-num">05</div>
+
+  <div class="section-label">03 · Instrucciones</div>
+  <div class="section-title">Cómo usar<br>este documento</div>
+
+  <div class="two-col" style="margin-bottom:24px;">
+    <div>
+      <div class="factor-name" style="margin-bottom:8px;">Dónde aplicar estos hooks</div>
+      <ul class="styled">
+        <li>Reels — primera frase hablada o texto en pantalla</li>
+        <li>Carruseles — primera lámina</li>
+        <li>Posteos estáticos — texto sobre la imagen</li>
+        <li>Anuncios de Meta, TikTok o Google</li>
+        <li>Stories con texto — primer frame</li>
+      </ul>
+    </div>
+    <div>
+      <div class="factor-name" style="margin-bottom:8px;">&nbsp;</div>
+      <ul class="styled">
+        <li>Emails y newsletters — asunto o primer párrafo</li>
+        <li>Landing pages — headline principal</li>
+        <li>TikToks — primera frase del video</li>
+        <li>LinkedIn — primera línea del post</li>
+        <li>YouTube Shorts — primer segundo</li>
+      </ul>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="section-title-sm">6 pasos para usarlos bien</div>
+
+  <ol class="styled">
+    <li><strong>Elegí una categoría</strong> que se corresponda con el objetivo de tu pieza</li>
+    <li><strong>Seleccioná un hook</strong> que tenga la estructura que buscás</li>
+    <li><strong>Adaptalo a tu nicho.</strong> Reemplazá las palabras genéricas por los términos concretos de tu audiencia</li>
+    <li><strong>Cambiá el dolor genérico por el dolor específico.</strong> La especificidad convierte</li>
+    <li><strong>Probalo en distintas piezas y formatos.</strong> Testear no es improvisar: es validar con datos</li>
+    <li><strong>Medí lo correcto:</strong> guardados, consultas en DM, tiempo de reproducción, CTR, conversión</li>
+  </ol>
+
+  <div class="quote">
+    <p>Los likes no miden si un hook funciona. Medí guardados, comentarios con respuestas reales y consultas directas.</p>
+  </div>
+
+  <div class="page-bottom-line"></div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════
+     PÁGINA 6 — QUÉ HACE QUE UN HOOK CONVIERTA
+═══════════════════════════════════════════ -->
+<div class="page">
+  <div class="page-top-line"></div>
+  <div class="page-num">06</div>
+
+  <div class="section-label">04 · Estrategia</div>
+  <div class="section-title">Qué hace que un<br>hook convierta</div>
+
+  <div class="two-col">
+    <div>
+      <div class="factor"><div class="factor-name">Dolor claro</div><div class="factor-desc">Nombra algo que duele o frustra. Cuanto más específico, mayor retención.</div></div>
+      <div class="factor"><div class="factor-name">Deseo concreto</div><div class="factor-desc">Apunta a un resultado medible que la audiencia quiere: más ventas, menos tiempo.</div></div>
+      <div class="factor"><div class="factor-name">Curiosidad</div><div class="factor-desc">Abre una pregunta que solo se cierra si el lector sigue. No la respondas en el hook.</div></div>
+      <div class="factor"><div class="factor-name">Contraste</div><div class="factor-desc">Opone ideas que no deberían ir juntas. Crea disonancia y obliga a prestar atención.</div></div>
+      <div class="factor"><div class="factor-name">Promesa específica</div><div class="factor-desc">Dice exactamente qué vas a dar a cambio de la atención del lector. Sin vaguedad.</div></div>
+      <div class="factor"><div class="factor-name">Identificación</div><div class="factor-desc">Hace que la persona piense "eso me pasa a mí". El mecanismo más poderoso de retención.</div></div>
+      <div class="factor"><div class="factor-name">Tensión</div><div class="factor-desc">Genera incomodidad intencional: una verdad incómoda, un error señalado.</div></div>
+    </div>
+    <div>
+      <div class="factor"><div class="factor-name">Urgencia</div><div class="factor-desc">Sugiere algo que se pierde si no se presta atención. Usarla con cuidado.</div></div>
+      <div class="factor"><div class="factor-name">Beneficio rápido</div><div class="factor-desc">Promete algo concreto en poco tiempo o con poco esfuerzo.</div></div>
+      <div class="factor"><div class="factor-name">Ruptura de patrón</div><div class="factor-desc">Empieza de una forma que el lector no esperaba. Interrumpe el piloto automático.</div></div>
+      <div class="factor"><div class="factor-name">Objeción anticipada</div><div class="factor-desc">Menciona la excusa que el lector ya tiene en la cabeza y la desmonta.</div></div>
+      <div class="factor"><div class="factor-name">Error común</div><div class="factor-desc">Señala algo que la mayoría hace mal. Nadie quiere cometer un error sin saberlo.</div></div>
+      <div class="factor"><div class="factor-name">Resultado deseado</div><div class="factor-desc">Muestra el destino, no el proceso. Lo que el cliente quiere ver cuando todo funciona.</div></div>
+      <div class="factor"><div class="factor-name">Lenguaje del cliente</div><div class="factor-desc">Usa las mismas palabras que usa tu audiencia para describir su problema.</div></div>
+    </div>
+  </div>
+
+  <div class="quote">
+    <p>Un buen hook no solo llama la atención. Selecciona a la persona correcta.</p>
+  </div>
+
+  <div class="page-bottom-line"></div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════
+     PÁGINA 7 — CAT 1: DOLOR
+═══════════════════════════════════════════ -->
+<div class="page">
+  <div class="page-top-line"></div>
+  <div class="page-num">07</div>
+
+  <div class="section-label">05 · Los 100 Hooks</div>
+  <div class="cat-header"><span class="cat-num">CAT 01</span><span class="cat-name">Hooks de Dolor</span></div>
+  <div class="cat-when">Cuándo usarla: cuando querés generar identificación inmediata con un problema que tu audiencia ya siente pero no siempre sabe nombrar. Son los hooks con mayor poder de retención.</div>
+
+  <div class="hook-item"><span class="hook-num">01</span><span class="hook-text">Publicás todos los días y el algoritmo te penaliza igual. El problema no es la frecuencia. Es lo que estás diciendo.</span></div>
+  <div class="hook-item"><span class="hook-num">02</span><span class="hook-text">Tenés seguidores pero no tenés clientes. Eso no es un problema de alcance. Es un problema de mensaje.</span></div>
+  <div class="hook-item"><span class="hook-num">03</span><span class="hook-text">Gastaste en diseño, en fotos, en edición. Y aun así nadie para. Porque el primer segundo no convence.</span></div>
+  <div class="hook-item"><span class="hook-num">04</span><span class="hook-text">Tu competencia vende más y tiene peor producto. La diferencia no está en la calidad. Está en cómo comunica.</span></div>
+  <div class="hook-item"><span class="hook-num">05</span><span class="hook-text">Dejás de publicar una semana y nadie pregunta. Eso significa que tu contenido no está generando dependencia real.</span></div>
+  <div class="hook-item"><span class="hook-num">06</span><span class="hook-text">Conseguís likes pero no consultas. Alguien te está mirando, pero no te está creyendo lo suficiente como para escribirte.</span></div>
+  <div class="hook-item"><span class="hook-num">07</span><span class="hook-text">Explicás todo lo que hacés y aun así el cliente no entiende por qué debería elegirte a vos y no a otro.</span></div>
+  <div class="hook-item"><span class="hook-num">08</span><span class="hook-text">Tus anuncios tienen buen diseño, buen presupuesto y pésima retención. El problema empieza en la primera línea.</span></div>
+  <div class="hook-item"><span class="hook-num">09</span><span class="hook-text">Creciste en seguidores pero no en facturación. Popularidad y negocio no son lo mismo.</span></div>
+  <div class="hook-item"><span class="hook-num">10</span><span class="hook-text">Publicás contenido que vos entendés perfectamente. Pero tu cliente ideal lo ignora porque no habla su idioma.</span></div>
+
+  <div class="example-box">
+    <div class="example-header"><span>Ejemplo aplicado</span></div>
+    <div class="example-body">
+      <div class="example-row"><div class="example-label">Nicho</div><div class="example-val">Consultoría de paid media</div></div>
+      <div class="example-row"><div class="example-label">Hook elegido</div><div class="example-val">"Tus anuncios tienen buen diseño, buen presupuesto y pésima retención. El problema empieza en la primera línea."</div></div>
+      <div class="example-row"><div class="example-label">Formato</div><div class="example-val">Reel o carrusel — Hook en primer frame o primera frase hablada</div></div>
+      <div class="example-row"><div class="example-label">CTA</div><div class="example-val">Revisión de campañas / auditoría en el link de bio</div></div>
+    </div>
+  </div>
+
+  <div class="page-bottom-line"></div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════
+     PÁGINA 8 — CAT 2: DESEO
+═══════════════════════════════════════════ -->
+<div class="page">
+  <div class="page-top-line"></div>
+  <div class="page-num">08</div>
+
+  <div class="cat-header"><span class="cat-num">CAT 02</span><span class="cat-name">Hooks de Deseo</span></div>
+  <div class="cat-when">Cuándo usarla: para mostrar el resultado que tu audiencia quiere conseguir. No el proceso: el destino. Funcionan para productividad, ventas, posicionamiento y resultados.</div>
+
+  <div class="hook-item"><span class="hook-num">11</span><span class="hook-text">Qué pasaría si cada publicación que subís generara al menos una consulta nueva.</span></div>
+  <div class="hook-item"><span class="hook-num">12</span><span class="hook-text">Imaginá tener un banco de frases listas para frenar el scroll de exactamente la persona que querés atraer.</span></div>
+  <div class="hook-item"><span class="hook-num">13</span><span class="hook-text">Así se ve un perfil que convierte seguidores en clientes sin necesidad de publicar todos los días.</span></div>
+  <div class="hook-item"><span class="hook-num">14</span><span class="hook-text">Querés que la gente lea hasta el final. Empezá con una frase que haga imposible no seguir.</span></div>
+  <div class="hook-item"><span class="hook-num">15</span><span class="hook-text">Un solo hook bien escrito puede traer más consultas que 30 días de contenido genérico.</span></div>
+  <div class="hook-item"><span class="hook-num">16</span><span class="hook-text">Cuando tu primera frase habla del dolor exacto de tu cliente, el resto del contenido se lee solo.</span></div>
+  <div class="hook-item"><span class="hook-num">17</span><span class="hook-text">El contenido que más vende no es el más elaborado. Es el que arranca con la frase correcta.</span></div>
+  <div class="hook-item"><span class="hook-num">18</span><span class="hook-text">Así consiguen consultas orgánicas los consultores que nunca suenan desesperados.</span></div>
+  <div class="hook-item"><span class="hook-num">19</span><span class="hook-text">Podés tener claridad total sobre qué publicar, cómo abrirlo y qué esperar de cada pieza. Eso existe y se aprende.</span></div>
+  <div class="hook-item"><span class="hook-num">20</span><span class="hook-text">Dejá de depender del boost y empezá a crear contenido que la gente guarde, comparta y recuerde.</span></div>
+
+  <div class="example-box">
+    <div class="example-header"><span>Ejemplo aplicado</span></div>
+    <div class="example-body">
+      <div class="example-row"><div class="example-label">Nicho</div><div class="example-val">Agencia de paid media</div></div>
+      <div class="example-row"><div class="example-label">Hook elegido</div><div class="example-val">"Un solo hook bien escrito puede traer más consultas que 30 días de contenido genérico."</div></div>
+      <div class="example-row"><div class="example-label">Formato</div><div class="example-val">Carrusel — primera lámina. Desarrollar con datos reales de retención.</div></div>
+      <div class="example-row"><div class="example-label">CTA</div><div class="example-val">Conocer el servicio de gestión de campañas</div></div>
+    </div>
+  </div>
+
+  <div class="page-bottom-line"></div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════
+     PÁGINA 9 — CAT 3: ERROR COMÚN
+═══════════════════════════════════════════ -->
+<div class="page">
+  <div class="page-top-line"></div>
+  <div class="page-num">09</div>
+
+  <div class="cat-header"><span class="cat-num">CAT 03</span><span class="cat-name">Hooks de Error Común</span></div>
+  <div class="cat-when">Cuándo usarla: cuando querés señalar algo que tu audiencia está haciendo mal sin saberlo. Generan curiosidad inmediata. Muy efectivos para educación y reposicionamiento.</div>
+
+  <div class="hook-item"><span class="hook-num">21</span><span class="hook-text">El problema no es que no tenés ideas. Es que las abrís de una forma que nadie quiere seguir leyendo.</span></div>
+  <div class="hook-item"><span class="hook-num">22</span><span class="hook-text">La mayoría cree que el error está en el diseño. Pero el contenido muere mucho antes de que se vea la imagen.</span></div>
+  <div class="hook-item"><span class="hook-num">23</span><span class="hook-text">Estás usando palabras que vos entendés y tu cliente ignora. Eso se llama hablar en idioma de experto, y aleja a quien querés atraer.</span></div>
+  <div class="hook-item"><span class="hook-num">24</span><span class="hook-text">No es que tu oferta sea mala. Es que la presentás después de que ya perdiste la atención.</span></div>
+  <div class="hook-item"><span class="hook-num">25</span><span class="hook-text">Confundís publicar mucho con comunicar bien. Son dos cosas completamente distintas y los resultados lo confirman.</span></div>
+  <div class="hook-item"><span class="hook-num">26</span><span class="hook-text">El error no es pedir que te compren. El error es pedirlo antes de generar ningún tipo de confianza.</span></div>
+  <div class="hook-item"><span class="hook-num">27</span><span class="hook-text">Pensás que necesitás más seguidores. Pero con los que tenés, bien trabajados, ya podrías vender más.</span></div>
+  <div class="hook-item"><span class="hook-num">28</span><span class="hook-text">Empezás tu contenido hablando de vos. Tu cliente quiere que empieces hablando de él.</span></div>
+  <div class="hook-item"><span class="hook-num">29</span><span class="hook-text">Usás el mismo hook para todos los formatos. Pero lo que es un gancho en un reel, en un anuncio es invisible.</span></div>
+  <div class="hook-item"><span class="hook-num">30</span><span class="hook-text">La mayoría escribe el hook al final, casi como relleno. Es al revés: el hook define si el resto del contenido existe.</span></div>
+
+  <div class="example-box">
+    <div class="example-header"><span>Ejemplo aplicado</span></div>
+    <div class="example-body">
+      <div class="example-row"><div class="example-label">Nicho</div><div class="example-val">Community manager</div></div>
+      <div class="example-row"><div class="example-label">Hook elegido</div><div class="example-val">"La mayoría escribe el hook al final, casi como relleno. Es al revés: el hook define si el resto del contenido existe."</div></div>
+      <div class="example-row"><div class="example-label">Formato</div><div class="example-val">LinkedIn o carrusel de Instagram. Desarrollar el flujo correcto de producción.</div></div>
+    </div>
+  </div>
+
+  <div class="page-bottom-line"></div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════
+     PÁGINA 10 — CAT 4: AUTORIDAD
+═══════════════════════════════════════════ -->
+<div class="page">
+  <div class="page-top-line"></div>
+  <div class="page-num">10</div>
+
+  <div class="cat-header"><span class="cat-num">CAT 04</span><span class="cat-name">Hooks de Autoridad</span></div>
+  <div class="cat-when">Cuándo usarla: para posicionarte como referente sin sonar arrogante. Funcionan mejor anclados en experiencia real y observaciones concretas. Ideales para consultores, especialistas y negocios B2B.</div>
+
+  <div class="hook-item"><span class="hook-num">31</span><span class="hook-text">Después de gestionar más de [X] campañas, lo que más diferencia un contenido que convierte de uno que no es una sola cosa.</span></div>
+  <div class="hook-item"><span class="hook-num">32</span><span class="hook-text">Lo que me llevó años aprender sobre atención en redes lo puedo resumir en una idea que nadie te dice al principio.</span></div>
+  <div class="hook-item"><span class="hook-num">33</span><span class="hook-text">Trabajé con negocios de todos los tamaños. El error que más se repite no es de presupuesto. Es de mensaje.</span></div>
+  <div class="hook-item"><span class="hook-num">34</span><span class="hook-text">No necesitás ser el más conocido de tu industria. Necesitás ser el más claro. Son cosas distintas.</span></div>
+  <div class="hook-item"><span class="hook-num">35</span><span class="hook-text">Los consultores que más facturan no son los que más publican. Son los que publican con más precisión.</span></div>
+  <div class="hook-item"><span class="hook-num">36</span><span class="hook-text">Hay un patrón en los contenidos que generan consultas espontáneas. Y no tiene nada que ver con el algoritmo.</span></div>
+  <div class="hook-item"><span class="hook-num">37</span><span class="hook-text">Antes de hablar de soluciones, hay que nombrar el problema exacto. Eso es lo que separa el contenido que convierte del que solo informa.</span></div>
+  <div class="hook-item"><span class="hook-num">38</span><span class="hook-text">Lo que sé hoy sobre hooks lo aprendí analizando resultados reales de campañas. Acá está lo que importa.</span></div>
+  <div class="hook-item"><span class="hook-num">39</span><span class="hook-text">No es suerte que algunos perfiles generen consultas sin boostearse. Es estructura. Y se puede replicar.</span></div>
+  <div class="hook-item"><span class="hook-num">40</span><span class="hook-text">Hay una diferencia enorme entre el experto que explica y el experto que convence. Esto es lo que los separa.</span></div>
+
+  <div class="example-box">
+    <div class="example-header"><span>Ejemplo aplicado</span></div>
+    <div class="example-body">
+      <div class="example-row"><div class="example-label">Nicho</div><div class="example-val">Consultor B2B</div></div>
+      <div class="example-row"><div class="example-label">Hook elegido</div><div class="example-val">"No necesitás ser el más conocido de tu industria. Necesitás ser el más claro. Son cosas distintas."</div></div>
+      <div class="example-row"><div class="example-label">Formato</div><div class="example-val">LinkedIn post o reel de opinión con ejemplos de marcas con menos visibilidad pero más conversión.</div></div>
+    </div>
+  </div>
+
+  <div class="page-bottom-line"></div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════
+     PÁGINA 11 — CAT 5: CONTROVERSIA
+═══════════════════════════════════════════ -->
+<div class="page">
+  <div class="page-top-line"></div>
+  <div class="page-num">11</div>
+
+  <div class="cat-header"><span class="cat-num">CAT 05</span><span class="cat-name">Hooks de Controversia Inteligente</span></div>
+  <div class="cat-when">Cuándo usarla: para romper creencias instaladas y generar debate real. No es provocación vacía: tiene tesis clara, bien argumentada y sin insultos. Muy efectiva para diferenciación.</div>
+
+  <div class="hook-item"><span class="hook-num">41</span><span class="hook-text">Publicar todos los días es el consejo más repetido y el más inútil si no sabés qué estás diciendo.</span></div>
+  <div class="hook-item"><span class="hook-num">42</span><span class="hook-text">El contenido educativo no vende por sí solo. El contenido que genera urgencia o identificación, sí.</span></div>
+  <div class="hook-item"><span class="hook-num">43</span><span class="hook-text">Tener muchos seguidores no es un indicador de negocio. Es un indicador de visibilidad. No son lo mismo.</span></div>
+  <div class="hook-item"><span class="hook-num">44</span><span class="hook-text">No todo el mundo necesita estar en todas las redes. Eso no te lo van a decir quienes venden cursos de contenido.</span></div>
+  <div class="hook-item"><span class="hook-num">45</span><span class="hook-text">La consistencia está sobrevaluada si lo que publicás consistentemente no está funcionando.</span></div>
+  <div class="hook-item"><span class="hook-num">46</span><span class="hook-text">Las historias de vida no venden por sí solas. Venden cuando tienen un punto de conversión claro al final.</span></div>
+  <div class="hook-item"><span class="hook-num">47</span><span class="hook-text">El algoritmo no es tu enemigo. Tu falta de claridad en el mensaje, sí.</span></div>
+  <div class="hook-item"><span class="hook-num">48</span><span class="hook-text">Más diseño no compensa menos mensaje. Podés tener el post más lindo del feed y ser completamente ignorado.</span></div>
+  <div class="hook-item"><span class="hook-num">49</span><span class="hook-text">Las métricas de vanidad te hacen sentir bien y te impiden ver qué está fallando realmente en tu estrategia.</span></div>
+  <div class="hook-item"><span class="hook-num">50</span><span class="hook-text">No es que la gente no tenga tiempo de leer. Es que no les diste ninguna razón para detenerse.</span></div>
+
+  <div class="example-box">
+    <div class="example-header"><span>Ejemplo aplicado</span></div>
+    <div class="example-body">
+      <div class="example-row"><div class="example-label">Nicho</div><div class="example-val">Marca personal de marketing</div></div>
+      <div class="example-row"><div class="example-label">Hook elegido</div><div class="example-val">"La consistencia está sobrevaluada si lo que publicás consistentemente no está funcionando."</div></div>
+      <div class="example-row"><div class="example-label">Formato</div><div class="example-val">Reel de opinión. Argumentar con datos de retención vs. calidad de contenido.</div></div>
+    </div>
+  </div>
+
+  <div class="page-bottom-line"></div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════
+     PÁGINA 12 — CAT 6: EDUCATIVOS
+═══════════════════════════════════════════ -->
+<div class="page">
+  <div class="page-top-line"></div>
+  <div class="page-num">12</div>
+
+  <div class="cat-header"><span class="cat-num">CAT 06</span><span class="cat-name">Hooks Educativos</span></div>
+  <div class="cat-when">Cuándo usarla: para introducir contenido de valor de forma atractiva. Funcionan cuando prometen enseñar algo concreto y útil. Ideales para carruseles, reels explicativos y newsletters.</div>
+
+  <div class="hook-item"><span class="hook-num">51</span><span class="hook-text">Hay tres tipos de hooks que concentran el 80% de la retención en redes. Te explico cada uno.</span></div>
+  <div class="hook-item"><span class="hook-num">52</span><span class="hook-text">Esto es lo que pasa en los primeros 2 segundos cuando alguien ve tu contenido por primera vez.</span></div>
+  <div class="hook-item"><span class="hook-num">53</span><span class="hook-text">Así funciona la atención humana en un feed saturado. Y cómo usarla a favor de tu mensaje.</span></div>
+  <div class="hook-item"><span class="hook-num">54</span><span class="hook-text">Antes de escribir cualquier pieza de contenido, hacete estas tres preguntas. Cambia todo.</span></div>
+  <div class="hook-item"><span class="hook-num">55</span><span class="hook-text">La diferencia entre un hook que retiene y uno que pierde audiencia en 1 segundo es esto.</span></div>
+  <div class="hook-item"><span class="hook-num">56</span><span class="hook-text">Hay una estructura que siguen los contenidos que más se guardan en Instagram. Acá está explicada.</span></div>
+  <div class="hook-item"><span class="hook-num">57</span><span class="hook-text">Por qué algunos reels generan consultas y otros solo generan vistas. No es el tema. Es la apertura.</span></div>
+  <div class="hook-item"><span class="hook-num">58</span><span class="hook-text">Esto le pasa al cerebro de tu audiencia cuando tu primera frase habla directamente de su problema.</span></div>
+  <div class="hook-item"><span class="hook-num">59</span><span class="hook-text">Cómo identificar si tu hook está filtrando a la persona correcta o espantando a tu cliente ideal.</span></div>
+  <div class="hook-item"><span class="hook-num">60</span><span class="hook-text">El framework de tres partes que usan los creadores de contenido que más venden con orgánico.</span></div>
+
+  <div class="example-box">
+    <div class="example-header"><span>Ejemplo aplicado</span></div>
+    <div class="example-body">
+      <div class="example-row"><div class="example-label">Nicho</div><div class="example-val">Creador de contenido</div></div>
+      <div class="example-row"><div class="example-label">Hook elegido</div><div class="example-val">"Hay tres tipos de hooks que concentran el 80% de la retención en redes. Te explico cada uno."</div></div>
+      <div class="example-row"><div class="example-label">Formato</div><div class="example-val">Carrusel o reel tutorial con ejemplos reales y datos de retención.</div></div>
+    </div>
+  </div>
+
+  <div class="page-bottom-line"></div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════
+     PÁGINA 13 — CAT 7: VENTAS
+═══════════════════════════════════════════ -->
+<div class="page">
+  <div class="page-top-line"></div>
+  <div class="page-num">13</div>
+
+  <div class="cat-header"><span class="cat-num">CAT 07</span><span class="cat-name">Hooks para Ventas</span></div>
+  <div class="cat-when">Cuándo usarla: para abrir contenido que tiene como objetivo llevar a una oferta, producto o consulta. Son más directos. Funcionan mejor cuando ya hay confianza acumulada con la audiencia.</div>
+
+  <div class="hook-item"><span class="hook-num">61</span><span class="hook-text">Si llegaste hasta acá preguntándote cómo hacer que tu contenido venda más, esto es exactamente para vos.</span></div>
+  <div class="hook-item"><span class="hook-num">62</span><span class="hook-text">Esto es lo que incluye [nombre del servicio] y por qué tiene sentido para vos en este momento.</span></div>
+  <div class="hook-item"><span class="hook-num">63</span><span class="hook-text">Abrí esta publicación si querés dejar de improvisar cada vez que tenés que publicar algo.</span></div>
+  <div class="hook-item"><span class="hook-num">64</span><span class="hook-text">No es un curso genérico. No es una plantilla sin contexto. Es una herramienta que cambia cómo pensás tu contenido.</span></div>
+  <div class="hook-item"><span class="hook-num">65</span><span class="hook-text">¿Seguís publicando y esperando que alguien te escriba? Esto cambia esa dinámica de una vez.</span></div>
+  <div class="hook-item"><span class="hook-num">66</span><span class="hook-text">Lo que conseguís con esto no es más contenido. Es contenido que finalmente trabaja para tu negocio.</span></div>
+  <div class="hook-item"><span class="hook-num">67</span><span class="hook-text">Hay personas que llevan meses publicando sin resultados. Este recurso fue hecho para ellas.</span></div>
+  <div class="hook-item"><span class="hook-num">68</span><span class="hook-text">Si tu negocio necesita que la gente te conozca antes de comprarte, esto es lo que tenés que trabajar primero.</span></div>
+  <div class="hook-item"><span class="hook-num">69</span><span class="hook-text">El costo de no tener buenos hooks no es no crecer. Es seguir invirtiendo tiempo y dinero en contenido que no convierte.</span></div>
+  <div class="hook-item"><span class="hook-num">70</span><span class="hook-text">Una sola pieza de contenido bien abierta puede generar más que un mes entero de publicaciones sin estrategia.</span></div>
+
+  <div class="example-box">
+    <div class="example-header"><span>Ejemplo aplicado</span></div>
+    <div class="example-body">
+      <div class="example-row"><div class="example-label">Nicho</div><div class="example-val">Infoproductor / producto digital</div></div>
+      <div class="example-row"><div class="example-label">Hook elegido</div><div class="example-val">"Hay personas que llevan meses publicando sin resultados. Este recurso fue hecho para ellas."</div></div>
+      <div class="example-row"><div class="example-label">Formato</div><div class="example-val">Reel de venta o story de cierre. CTA directo al link de compra o DM.</div></div>
+    </div>
+  </div>
+
+  <div class="page-bottom-line"></div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════
+     PÁGINA 14 — CAT 8: ANUNCIOS
+═══════════════════════════════════════════ -->
+<div class="page">
+  <div class="page-top-line"></div>
+  <div class="page-num">14</div>
+
+  <div class="cat-header"><span class="cat-num">CAT 08</span><span class="cat-name">Hooks para Anuncios</span></div>
+  <div class="cat-when">Cuándo usarla: para Meta Ads, TikTok Ads, Google Demand Gen o anuncios en video. Más directos, más cortos. Deben funcionar en 2 segundos o menos sobre imagen o en apertura de video.</div>
+
+  <div class="hook-item"><span class="hook-num">71</span><span class="hook-text">¿Publicás todos los días y no conseguís clientes? El problema no es el algoritmo.</span></div>
+  <div class="hook-item"><span class="hook-num">72</span><span class="hook-text">Parás o seguís scrolleando. Eso lo decide lo que pasa en el próximo segundo.</span></div>
+  <div class="hook-item"><span class="hook-num">73</span><span class="hook-text">Si gestionás campañas y los resultados no cierran, empezá por acá.</span></div>
+  <div class="hook-item"><span class="hook-num">74</span><span class="hook-text">Antes de invertir más en pauta, leé esto.</span></div>
+  <div class="hook-item"><span class="hook-num">75</span><span class="hook-text">Tu anuncio tiene 2 segundos para demostrar que vale la atención. Así se usan esos 2 segundos.</span></div>
+  <div class="hook-item"><span class="hook-num">76</span><span class="hook-text">Este recurso no es para todos. Es para quien ya sabe que su mensaje no está funcionando.</span></div>
+  <div class="hook-item"><span class="hook-num">77</span><span class="hook-text">Diseño perfecto, segmentación correcta, copy que no frena el scroll. Eso es lo que falla en la mayoría de los anuncios.</span></div>
+  <div class="hook-item"><span class="hook-num">78</span><span class="hook-text">¿Tu costo por resultado sigue subiendo aunque no cambies nada? El problema está en el primer segundo.</span></div>
+  <div class="hook-item"><span class="hook-num">79</span><span class="hook-text">Nadie detiene el scroll por un diseño. Lo detiene porque algo le habló directamente.</span></div>
+  <div class="hook-item"><span class="hook-num">80</span><span class="hook-text">Lo que diferencia un anuncio rentable de uno que quema presupuesto no es el presupuesto. Es el hook.</span></div>
+
+  <div class="example-box">
+    <div class="example-header"><span>Ejemplo aplicado</span></div>
+    <div class="example-body">
+      <div class="example-row"><div class="example-label">Nicho</div><div class="example-val">Agencia de paid media</div></div>
+      <div class="example-row"><div class="example-label">Hook elegido</div><div class="example-val">"Nadie detiene el scroll por un diseño. Lo detiene porque algo le habló directamente."</div></div>
+      <div class="example-row"><div class="example-label">Formato</div><div class="example-val">Video ad de 15s. Primera frase en texto sobre imagen + narración. CTA: conocer el servicio.</div></div>
+    </div>
+  </div>
+
+  <div class="page-bottom-line"></div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════
+     PÁGINA 15 — CAT 9: MARCA PERSONAL
+═══════════════════════════════════════════ -->
+<div class="page">
+  <div class="page-top-line"></div>
+  <div class="page-num">15</div>
+
+  <div class="cat-header"><span class="cat-num">CAT 09</span><span class="cat-name">Hooks para Marca Personal</span></div>
+  <div class="cat-when">Cuándo usarla: para profesionales que construyen autoridad hablando de ideas, aprendizajes y experiencias. Funcionan en LinkedIn, Instagram y reels de opinión. El foco: perspectiva personal.</div>
+
+  <div class="hook-item"><span class="hook-num">81</span><span class="hook-text">Algo que aprendí después de años comunicando en redes y que nadie me dijo al principio.</span></div>
+  <div class="hook-item"><span class="hook-num">82</span><span class="hook-text">Una opinión que probablemente no es popular, pero que me parece necesaria decir.</span></div>
+  <div class="hook-item"><span class="hook-num">83</span><span class="hook-text">El día que entendí esto, cambió completamente cómo me mostraba en redes y los resultados que generaba.</span></div>
+  <div class="hook-item"><span class="hook-num">84</span><span class="hook-text">No siempre tuve claridad sobre lo que quería comunicar. Esto es lo que me ayudó a ordenarlo.</span></div>
+  <div class="hook-item"><span class="hook-num">85</span><span class="hook-text">Hay una versión de vos que ya sabe exactamente qué comunicar y cómo hacerlo. Este es el primer paso para llegar a ella.</span></div>
+  <div class="hook-item"><span class="hook-num">86</span><span class="hook-text">Lo que más me costó aceptar sobre cómo se construye autoridad real en redes sociales.</span></div>
+  <div class="hook-item"><span class="hook-num">87</span><span class="hook-text">Si estuviese construyendo mi marca personal desde cero hoy, esto haría diferente desde el primer día.</span></div>
+  <div class="hook-item"><span class="hook-num">88</span><span class="hook-text">Una observación que hice analizando perfiles que crecieron rápido y sin depender de virales.</span></div>
+  <div class="hook-item"><span class="hook-num">89</span><span class="hook-text">Hay un error que cometen la mayoría de los profesionales independientes cuando quieren posicionarse online. Yo también lo cometí.</span></div>
+  <div class="hook-item"><span class="hook-num">90</span><span class="hook-text">No es fácil hablar de tu trabajo sin sonar a vendedor. Esto es lo que me funciona.</span></div>
+
+  <div class="example-box">
+    <div class="example-header"><span>Ejemplo aplicado</span></div>
+    <div class="example-body">
+      <div class="example-row"><div class="example-label">Nicho</div><div class="example-val">Consultor independiente en LinkedIn</div></div>
+      <div class="example-row"><div class="example-label">Hook elegido</div><div class="example-val">"Si estuviese construyendo mi marca personal desde cero hoy, esto haría diferente desde el primer día."</div></div>
+      <div class="example-row"><div class="example-label">Formato</div><div class="example-val">Post LinkedIn + carrusel. Listar 5–7 decisiones concretas con explicación breve.</div></div>
+    </div>
+  </div>
+
+  <div class="page-bottom-line"></div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════
+     PÁGINA 16 — CAT 10: IA Y NEGOCIOS DIGITALES
+═══════════════════════════════════════════ -->
+<div class="page">
+  <div class="page-top-line"></div>
+  <div class="page-num">16</div>
+
+  <div class="cat-header"><span class="cat-num">CAT 10</span><span class="cat-name">IA, Productividad y Negocios Digitales</span></div>
+  <div class="cat-when">Cuándo usarla: para contenido sobre IA, automatización, sistemas de trabajo y negocios digitales. Clave: sin promesas de dinero fácil, sin humo. La audiencia es escéptica — el gancho debe ser concreto y honesto.</div>
+
+  <div class="hook-item"><span class="hook-num">91</span><span class="hook-text">La IA no va a reemplazar tu negocio. Pero el negocio que la use bien va a dejar al tuyo sin clientes.</span></div>
+  <div class="hook-item"><span class="hook-num">92</span><span class="hook-text">Lo que cambió en mi flujo de trabajo desde que integré IA en la creación de contenido. Sin exageraciones.</span></div>
+  <div class="hook-item"><span class="hook-num">93</span><span class="hook-text">No necesitás saber programar para automatizar las tareas que más tiempo te consumen hoy.</span></div>
+  <div class="hook-item"><span class="hook-num">94</span><span class="hook-text">Hay personas que tardan 3 horas en producir contenido. Otras tardan 30 minutos y publican mejor. La diferencia es el sistema, no la herramienta.</span></div>
+  <div class="hook-item"><span class="hook-num">95</span><span class="hook-text">Si todavía usás ChatGPT para que te escriba los captions completos, estás usando el 5% de su potencial real.</span></div>
+  <div class="hook-item"><span class="hook-num">96</span><span class="hook-text">Un producto digital bien posicionado trabaja mientras vos dormís. Esto es lo que necesita para funcionar.</span></div>
+  <div class="hook-item"><span class="hook-num">97</span><span class="hook-text">La automatización no reemplaza la estrategia. Automatizar lo incorrecto solo te da más resultados malos, más rápido.</span></div>
+  <div class="hook-item"><span class="hook-num">98</span><span class="hook-text">Así se construye un sistema de contenido que no depende de inspiración, de tiempo libre ni de suerte.</span></div>
+  <div class="hook-item"><span class="hook-num">99</span><span class="hook-text">Lo que hace diferente a un negocio digital que escala de uno que siempre está en modo apagafuegos.</span></div>
+  <div class="hook-item"><span class="hook-num">100</span><span class="hook-text">No es sobre cuántas herramientas de IA usás. Es sobre si tenés claridad en el mensaje que esas herramientas van a amplificar.</span></div>
+
+  <div class="example-box">
+    <div class="example-header"><span>Ejemplo aplicado</span></div>
+    <div class="example-body">
+      <div class="example-row"><div class="example-label">Nicho</div><div class="example-val">Creador de productos digitales</div></div>
+      <div class="example-row"><div class="example-label">Hook elegido</div><div class="example-val">"Hay personas que tardan 3 horas en producir contenido. Otras tardan 30 minutos y publican mejor. La diferencia es el sistema."</div></div>
+      <div class="example-row"><div class="example-label">Formato</div><div class="example-val">Reel o carrusel. Mostrar antes/después del flujo de trabajo. CTA a recurso o consultoría.</div></div>
+    </div>
+  </div>
+
+  <div class="page-bottom-line"></div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════
+     PÁGINA 17–19 — EJEMPLOS DE USO
+═══════════════════════════════════════════ -->
+<div class="page">
+  <div class="page-top-line"></div>
+  <div class="page-num">17</div>
+
+  <div class="section-label">06 · Aplicación práctica</div>
+  <div class="section-title">Ejemplos de uso<br>en nichos reales</div>
+
+  <div class="example-box" style="margin-bottom:16px;">
+    <div class="example-header"><span>01 — Consultor de Marketing</span></div>
+    <div class="example-body">
+      <div class="example-row"><div class="example-label">Hook</div><div class="example-val">"Trabajé con negocios de todos los tamaños. El error que más se repite no es de presupuesto. Es de mensaje."</div></div>
+      <div class="example-row"><div class="example-label">Formato</div><div class="example-val">Carrusel de Instagram o LinkedIn</div></div>
+      <div class="example-row"><div class="example-label">Contenido</div><div class="example-val">Los 3 errores de mensaje más frecuentes con ejemplos reales y la corrección aplicada.</div></div>
+      <div class="example-row"><div class="example-label">CTA</div><div class="example-val">"Si no sabés si tu mensaje está funcionando, podés pedir una auditoría rápida en el link de bio."</div></div>
+    </div>
+  </div>
+
+  <div class="example-box" style="margin-bottom:16px;">
+    <div class="example-header"><span>02 — Restaurante</span></div>
+    <div class="example-body">
+      <div class="example-row"><div class="example-label">Hook</div><div class="example-val">"Así se ve un perfil que convierte seguidores en clientes sin necesidad de publicar todos los días."</div></div>
+      <div class="example-row"><div class="example-label">Formato</div><div class="example-val">Reel detrás de escena con texto sobreimpreso</div></div>
+      <div class="example-row"><div class="example-label">Contenido</div><div class="example-val">3 tipos de contenido clave: plato del día, proceso de cocina, testimonio de cliente.</div></div>
+      <div class="example-row"><div class="example-label">CTA</div><div class="example-val">"Reservás por Instagram Direct o por el link en bio."</div></div>
+    </div>
+  </div>
+
+  <div class="example-box" style="margin-bottom:16px;">
+    <div class="example-header"><span>03 — E-commerce de Indumentaria</span></div>
+    <div class="example-body">
+      <div class="example-row"><div class="example-label">Hook</div><div class="example-val">"Conseguís likes pero no consultas. Alguien te está mirando, pero no te está creyendo lo suficiente."</div></div>
+      <div class="example-row"><div class="example-label">Formato</div><div class="example-val">Carrusel con tips de contenido para e-commerce</div></div>
+      <div class="example-row"><div class="example-label">Contenido</div><div class="example-val">5 tipos de contenido que generan confianza: prueba social, detalle de producto, política de cambio, proceso de compra, clientes reales.</div></div>
+      <div class="example-row"><div class="example-label">CTA</div><div class="example-val">"Ver la colección completa en el link de bio."</div></div>
+    </div>
+  </div>
+
+  <div class="page-bottom-line"></div>
+</div>
+
+<div class="page">
+  <div class="page-top-line"></div>
+  <div class="page-num">18</div>
+
+  <div class="section-label">06 · Aplicación práctica (continuación)</div>
+
+  <div class="example-box" style="margin-bottom:16px;">
+    <div class="example-header"><span>04 — Agencia de Viajes</span></div>
+    <div class="example-body">
+      <div class="example-row"><div class="example-label">Hook</div><div class="example-val">"Hay una estructura que siguen los contenidos que más se guardan en Instagram. Acá está explicada."</div></div>
+      <div class="example-row"><div class="example-label">Formato</div><div class="example-val">Carrusel de consejos</div></div>
+      <div class="example-row"><div class="example-label">Contenido</div><div class="example-val">Destino + dato sorprendente + imagen aspiracional + tip práctico + CTA de consulta.</div></div>
+      <div class="example-row"><div class="example-label">CTA</div><div class="example-val">"¿Tenés ganas de ir? Consultanos sin compromiso por DM."</div></div>
+    </div>
+  </div>
+
+  <div class="example-box" style="margin-bottom:16px;">
+    <div class="example-header"><span>05 — Nutricionista</span></div>
+    <div class="example-body">
+      <div class="example-row"><div class="example-label">Hook</div><div class="example-val">"Estás usando palabras que vos entendés y tu cliente ignora. Eso se llama hablar en idioma de experto."</div></div>
+      <div class="example-row"><div class="example-label">Formato</div><div class="example-val">Reel hablando a cámara</div></div>
+      <div class="example-row"><div class="example-label">Contenido</div><div class="example-val">Antes/después de cómo explica un concepto nutricional: jerga técnica vs. lenguaje cotidiano.</div></div>
+      <div class="example-row"><div class="example-label">CTA</div><div class="example-val">"¿Querés empezar con un plan personalizado? Escribime por DM."</div></div>
+    </div>
+  </div>
+
+  <div class="example-box" style="margin-bottom:16px;">
+    <div class="example-header"><span>06 — Marca Personal B2B</span></div>
+    <div class="example-body">
+      <div class="example-row"><div class="example-label">Hook</div><div class="example-val">"Los consultores que más facturan no son los que más publican. Son los que publican con más precisión."</div></div>
+      <div class="example-row"><div class="example-label">Formato</div><div class="example-val">LinkedIn post + carrusel</div></div>
+      <div class="example-row"><div class="example-label">Contenido</div><div class="example-val">Volumen vs. precisión: por qué 3 posts bien ejecutados superan a 30 sin estructura.</div></div>
+      <div class="example-row"><div class="example-label">CTA</div><div class="example-val">"Si querés claridad sobre qué publicar, podés escribirme o ver mis recursos en bio."</div></div>
+    </div>
+  </div>
+
+  <div class="example-box">
+    <div class="example-header"><span>07 — E-commerce de Decoración</span></div>
+    <div class="example-body">
+      <div class="example-row"><div class="example-label">Hook</div><div class="example-val">"Dejá de depender del boost y empezá a crear contenido que la gente guarde, comparta y recuerde."</div></div>
+      <div class="example-row"><div class="example-label">Formato</div><div class="example-val">Reel de inspiración visual con texto</div></div>
+      <div class="example-row"><div class="example-label">Contenido</div><div class="example-val">3 tipos de contenido que más se guardan: ambiente completo, before/after, detalle de producto en contexto.</div></div>
+    </div>
+  </div>
+
+  <div class="page-bottom-line"></div>
+</div>
+
+<div class="page">
+  <div class="page-top-line"></div>
+  <div class="page-num">19</div>
+
+  <div class="section-label">06 · Aplicación práctica (continuación)</div>
+
+  <div class="example-box" style="margin-bottom:16px;">
+    <div class="example-header"><span>08 — Gimnasio</span></div>
+    <div class="example-body">
+      <div class="example-row"><div class="example-label">Hook</div><div class="example-val">"Creciste en seguidores pero no en facturación. Popularidad y negocio no son lo mismo."</div></div>
+      <div class="example-row"><div class="example-label">Formato</div><div class="example-val">Carrusel de estrategia de contenido para gimnasios</div></div>
+      <div class="example-row"><div class="example-label">Contenido</div><div class="example-val">Contenido que genera likes (transformaciones) vs. contenido que genera inscripciones (testimonios, clase de prueba, oferta clara).</div></div>
+      <div class="example-row"><div class="example-label">CTA</div><div class="example-val">"Reservá tu clase de prueba en el link de bio."</div></div>
+    </div>
+  </div>
+
+  <div class="example-box" style="margin-bottom:16px;">
+    <div class="example-header"><span>09 — Producto Digital de Prompts</span></div>
+    <div class="example-body">
+      <div class="example-row"><div class="example-label">Hook</div><div class="example-val">"Si todavía usás ChatGPT para que te escriba los captions completos, estás usando el 5% de su potencial real."</div></div>
+      <div class="example-row"><div class="example-label">Formato</div><div class="example-val">Reel o carrusel educativo</div></div>
+      <div class="example-row"><div class="example-label">Contenido</div><div class="example-val">5 usos avanzados de prompts que la mayoría no conoce: estructurar ángulos, adaptar tonos, testear mensajes.</div></div>
+      <div class="example-row"><div class="example-label">CTA</div><div class="example-val">"Conseguí el pack de prompts en el link de bio."</div></div>
+    </div>
+  </div>
+
+  <div class="example-box">
+    <div class="example-header"><span>10 — Servicio de Paid Media</span></div>
+    <div class="example-body">
+      <div class="example-row"><div class="example-label">Hook</div><div class="example-val">"¿Tu costo por resultado sigue subiendo aunque no cambies nada? El problema está en el primer segundo."</div></div>
+      <div class="example-row"><div class="example-label">Formato</div><div class="example-val">Video ad de 15s + carrusel orgánico</div></div>
+      <div class="example-row"><div class="example-label">Contenido</div><div class="example-val">Cómo el hook del anuncio impacta directamente en CTR, frecuencia negativa y costo por resultado.</div></div>
+      <div class="example-row"><div class="example-label">CTA</div><div class="example-val">"Si querés que revisemos tus campañas, escribinos o entrá al sitio."</div></div>
+    </div>
+  </div>
+
+  <div class="page-bottom-line"></div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════
+     PÁGINAS 20–22 — FÓRMULAS
+═══════════════════════════════════════════ -->
+<div class="page">
+  <div class="page-top-line"></div>
+  <div class="page-num">20</div>
+
+  <div class="section-label">07 · Creación propia</div>
+  <div class="section-title">15 Fórmulas para crear<br>tus propios hooks</div>
+
+  <div class="formula-block">
+    <div class="formula-num">FÓRMULA 01 — DOLOR + CAUSA REAL</div>
+    <div class="formula-template">Si estás [haciendo X] pero no conseguís [resultado Y], el problema probablemente no es lo que creés.</div>
+    <div class="formula-example">"Si estás publicando todos los días pero no generás consultas, el problema probablemente no es la frecuencia."</div>
+  </div>
+
+  <div class="formula-block">
+    <div class="formula-num">FÓRMULA 02 — ERROR NOMBRADO</div>
+    <div class="formula-template">La mayoría de [audiencia] cree que [creencia falsa]. Y eso es exactamente lo que les impide [resultado deseado].</div>
+    <div class="formula-example">"La mayoría de los emprendedores cree que necesita más seguidores. Y eso es lo que les impide vender más con los que ya tienen."</div>
+  </div>
+
+  <div class="formula-block">
+    <div class="formula-num">FÓRMULA 03 — CONTRASTE</div>
+    <div class="formula-template">[Grupo A] tarda [tiempo largo] en [tarea]. [Grupo B] tarda [tiempo corto] y obtiene [mejor resultado]. La diferencia es [variable clave].</div>
+    <div class="formula-example">"Algunos negocios tardan semanas en conseguir una consulta. Otros la generan con un solo post. La diferencia es el primer segundo del contenido."</div>
+  </div>
+
+  <div class="formula-block">
+    <div class="formula-num">FÓRMULA 04 — PROMESA ESPECÍFICA</div>
+    <div class="formula-template">En [cantidad de tiempo/pasos], vas a entender exactamente cómo [resultado concreto].</div>
+    <div class="formula-example">"En las próximas tres láminas, vas a entender exactamente por qué tu hook está perdiendo audiencia antes de que puedan ver tu oferta."</div>
+  </div>
+
+  <div class="formula-block">
+    <div class="formula-num">FÓRMULA 05 — ANTES / DESPUÉS</div>
+    <div class="formula-template">Antes: [situación frustrante]. Después: [situación deseada]. La diferencia: [elemento clave].</div>
+    <div class="formula-example">"Antes: publicás y no pasa nada. Después: cada pieza genera una acción. La diferencia: cómo abrís cada contenido."</div>
+  </div>
+
+  <div class="formula-block">
+    <div class="formula-num">FÓRMULA 06 — MITO + VERDAD</div>
+    <div class="formula-template">[Creencia popular] es mentira. La verdad es que [dato o perspectiva contraria].</div>
+    <div class="formula-example">"Publicar todos los días es mentira como estrategia. La verdad es que publicar bien tres veces por semana supera a publicar mal todos los días."</div>
+  </div>
+
+  <div class="formula-block">
+    <div class="formula-num">FÓRMULA 07 — OBJECIÓN ANTICIPADA</div>
+    <div class="formula-template">Sé lo que estás pensando: [objeción del cliente]. Pero eso no es lo que frena los resultados. Esto sí.</div>
+    <div class="formula-example">"Sé lo que estás pensando: 'Es que mi nicho es muy específico.' Pero eso no frena los resultados. Lo que los frena es no saber cómo presentar lo que hacés."</div>
+  </div>
+
+  <div class="page-bottom-line"></div>
+</div>
+
+<div class="page">
+  <div class="page-top-line"></div>
+  <div class="page-num">21</div>
+
+  <div class="section-label">07 · Creación propia (continuación)</div>
+
+  <div class="formula-block">
+    <div class="formula-num">FÓRMULA 08 — PROMESA DIRECTA</div>
+    <div class="formula-template">Si hacés [acción concreta], vas a conseguir [resultado específico]. Así es cómo.</div>
+    <div class="formula-example">"Si cambiás la primera frase de tus posts, vas a ver un cambio inmediato en cuánta gente los termina de leer. Así es cómo."</div>
+  </div>
+
+  <div class="formula-block">
+    <div class="formula-num">FÓRMULA 09 — AUTORIDAD ANCLADA EN EXPERIENCIA</div>
+    <div class="formula-template">Después de [experiencia concreta], aprendí algo que cambió cómo [hago X]. Esto es lo que descubrí.</div>
+    <div class="formula-example">"Después de analizar más de 200 campañas, aprendí algo que cambió cómo escribo el primer segundo de cada anuncio. Esto es lo que descubrí."</div>
+  </div>
+
+  <div class="formula-block">
+    <div class="formula-num">FÓRMULA 10 — URGENCIA SIN MANIPULACIÓN</div>
+    <div class="formula-template">[Tendencia o cambio real] está pasando ahora mismo. Y la mayoría de los negocios todavía no lo adaptó a su contenido.</div>
+    <div class="formula-example">"El comportamiento del scroll cambió en el último año. Y la mayoría de los negocios todavía usa hooks de hace tres años que ya no frenan a nadie."</div>
+  </div>
+
+  <div class="formula-block">
+    <div class="formula-num">FÓRMULA 11 — CURIOSIDAD CON TENSIÓN</div>
+    <div class="formula-template">Hay algo que hacen los [perfil exitoso] que nadie les pregunta. Y tiene más impacto que cualquier otra variable.</div>
+    <div class="formula-example">"Hay algo que hacen los consultores que consiguen clientes desde Instagram sin pagar pauta. Y tiene más impacto que la frecuencia de publicación."</div>
+  </div>
+
+  <div class="formula-block">
+    <div class="formula-num">FÓRMULA 12 — DIAGNÓSTICO</div>
+    <div class="formula-template">Si [síntoma A], [síntoma B] y [síntoma C], el diagnóstico es uno solo: [causa raíz].</div>
+    <div class="formula-example">"Si tenés seguidores pero no consultas, publicás seguido pero sin resultados, y tu competencia vende más con menos contenido: tu mensaje no está funcionando."</div>
+  </div>
+
+  <div class="formula-block">
+    <div class="formula-num">FÓRMULA 13 — CHECKLIST DE IDENTIFICACIÓN</div>
+    <div class="formula-template">Marcá mentalmente cuánto de esto te pasa: [situación 1], [situación 2], [situación 3]. Si marcaste más de dos, seguí leyendo.</div>
+    <div class="formula-example">"Publicás y nadie comenta, tenés likes pero no ventas, tu competencia vende más con menos seguidores. Si marcaste más de dos, seguí leyendo."</div>
+  </div>
+
+  <div class="formula-block">
+    <div class="formula-num">FÓRMULA 14 — CASO PRÁCTICO</div>
+    <div class="formula-template">[Tipo de cliente] aplicó [acción específica] y pasó de [situación inicial] a [resultado] en [tiempo].</div>
+    <div class="formula-example">"Una consultora cambió el hook de sus posts de LinkedIn y pasó de cero consultas a cuatro en tres semanas. Sin pagar pauta."</div>
+  </div>
+
+  <div class="formula-block">
+    <div class="formula-num">FÓRMULA 15 — APERTURA DE VENTA DIRECTA</div>
+    <div class="formula-template">Esto existe. Hace [resultado concreto]. Y podés tenerlo ahora.</div>
+    <div class="formula-example">"Esto existe. Son 100 hooks listos para adaptar a tu negocio y frenar el scroll de tu audiencia. Y podés usarlos desde hoy."</div>
+  </div>
+
+  <div class="page-bottom-line"></div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════
+     PÁGINA 23 — CHECKLIST
+═══════════════════════════════════════════ -->
+<div class="page">
+  <div class="page-top-line"></div>
+  <div class="page-num">23</div>
+
+  <div class="section-label">08 · Evaluación</div>
+  <div class="section-title">Checklist: ¿tu<br>hook es bueno?</div>
+
+  <p style="margin-bottom:20px;">Antes de publicar cualquier pieza, pasá el hook por estas 10 preguntas. Rápida, directa y te ahorra publicar cosas que no funcionan.</p>
+
+  <div class="check-item"><div class="check-box"></div><div class="check-text"><strong>¿Se entiende en menos de 3 segundos?</strong> Si necesitás leerlo dos veces para entenderlo, no funciona.</div></div>
+  <div class="check-item"><div class="check-box"></div><div class="check-text"><strong>¿Habla de un problema o deseo real de tu audiencia?</strong> No de lo que vos querés decir. De lo que ellos ya sienten.</div></div>
+  <div class="check-item"><div class="check-box"></div><div class="check-text"><strong>¿Promete algo concreto?</strong> Las promesas vagas no retienen. Lo específico convierte.</div></div>
+  <div class="check-item"><div class="check-box"></div><div class="check-text"><strong>¿Genera curiosidad sin ser clickbait?</strong> El hook es honesto: lo que promete, el contenido lo cumple.</div></div>
+  <div class="check-item"><div class="check-box"></div><div class="check-text"><strong>¿Está escrito en el lenguaje de tu cliente?</strong> No en jerga técnica. En las palabras que usa tu audiencia para describir su problema.</div></div>
+  <div class="check-item"><div class="check-box"></div><div class="check-text"><strong>¿Podría ser la primera frase de un reel?</strong> Si al escucharlo en voz alta genera atención, está bien.</div></div>
+  <div class="check-item"><div class="check-box"></div><div class="check-text"><strong>¿Podría ir en la primera lámina de un carrusel?</strong> Si al verlo como imagen genera curiosidad para deslizar, está bien.</div></div>
+  <div class="check-item"><div class="check-box"></div><div class="check-text"><strong>¿Tiene tensión?</strong> ¿Hay algo irresolto que obliga a seguir leyendo o mirando?</div></div>
+  <div class="check-item"><div class="check-box"></div><div class="check-text"><strong>¿Filtra a la persona correcta?</strong> Un buen hook no es para todos. Tiene que resonar fuerte con alguien específico.</div></div>
+  <div class="check-item"><div class="check-box"></div><div class="check-text"><strong>¿Invita a seguir, no a cerrar?</strong> Si después de leerlo la reacción natural es querer continuar, pasó la prueba.</div></div>
+
+  <div style="margin-top: 24px;">
+    <table>
+      <tr>
+        <th>Puntaje</th>
+        <th>Decisión</th>
+      </tr>
+      <tr>
+        <td><strong style="color: var(--mint);">8 a 10 cumplidas</strong></td>
+        <td>Publicalo. Tiene lo que necesita.</td>
+      </tr>
+      <tr>
+        <td><strong style="color: #F0A500;">6 a 7 cumplidas</strong></td>
+        <td>Revisalo. Hay algo que mejorar antes de publicar.</td>
+      </tr>
+      <tr>
+        <td><strong style="color: #E05555;">Menos de 6</strong></td>
+        <td>Reescribilo. No está listo todavía.</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="page-bottom-line"></div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════
+     PÁGINA 24 — CIERRE
+═══════════════════════════════════════════ -->
+<div class="page">
+  <div class="page-top-line"></div>
+  <div class="page-num">24</div>
+
+  <div class="section-label">09 · Cierre</div>
+  <div class="section-title">La atención es la<br>puerta de entrada.</div>
+
+  <p>Los hooks no salvan una mala oferta.</p>
+  <p>Pero una buena oferta con malos hooks queda invisible.</p>
+  <p>La atención es la puerta de entrada a todo lo que sigue: el mensaje, la confianza, la decisión de compra. Y esa puerta se abre o se cierra en el primer segundo. No en el tercer párrafo. No en el diseño. No en el precio.</p>
+  <p><strong>En el primero.</strong></p>
+  <p>La conversión empieza antes del copy largo. Antes de la propuesta de valor. Antes de los testimonios. Empieza en la frase que decide si alguien para o sigue de largo sin verte.</p>
+  <p>Publicar mejor empieza por pensar mejor el primer impacto. Este documento es un punto de partida. Tenés 100 hooks, 15 fórmulas y una checklist. Usalos con intención. Adaptalos a tu audiencia real. Medí lo que funciona. Descartá lo que no. Y seguí iterando.</p>
+
+  <div class="quote">
+    <p>La diferencia entre el contenido que vende y el que no, la mayoría de las veces, es una sola frase bien pensada.</p>
+  </div>
+
+  <div class="box" style="text-align:center; padding: 28px 24px; margin-top:28px;">
+    <p style="font-size:12px; color:var(--gray); margin-bottom:8px;">Si querés transformar tu contenido, tus campañas y tu estrategia en un sistema más claro, medible y vendedor:</p>
+    <p style="font-family:'Space Mono', monospace; font-size:20px; color:var(--mint); margin-bottom:12px; font-weight:700;">www.marianocalandra.com</p>
+    <p style="font-size:13px; color:var(--white); font-weight:600; margin-bottom:4px;">Mariano Calandra</p>
+    <p style="font-family:'Space Mono', monospace; font-size:10px; color:var(--gray); letter-spacing:1px; margin:0;">Marketing · Paid Media · Estrategia Comercial · IA aplicada a negocios</p>
+  </div>
+
+  <div class="cover-deco">
+    <span style="width:90px;"></span>
+    <span style="width:75px;"></span>
+    <span style="width:58px;"></span>
+    <span style="width:40px;"></span>
+    <span style="width:22px;"></span>
+  </div>
+
+  <div class="page-bottom-line" style="background: var(--mint); opacity:0.4;"></div>
+</div>
+
+</body>
+</html>
