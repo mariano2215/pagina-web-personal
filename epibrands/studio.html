@@ -75,7 +75,7 @@
 
 *{ margin:0; padding:0; box-sizing:border-box; }
 
-html{ scroll-behavior:smooth; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; }
+html{ scroll-behavior:smooth; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; overflow-x:hidden; }
 
 body{
   background:var(--bg);
@@ -423,10 +423,329 @@ a{ color:inherit; text-decoration:none; }
   .service{ flex-direction:column; gap:6px; }
   .service .tag{ text-align:left; }
 }
+
+/* ============================================================
+   ============================================================
+   MOTION PREMIUM — módulos interactivos (tematizados a la
+   paleta clara EPIBRANDS: carbón sobre crema, acento verde).
+   Tokens reutilizados: --ink, --ink-soft, --ink-faint, --line,
+   --accent (#6E7C6A), --bg, --bg-deep, --invert-bg, --invert-ink.
+   ============================================================
+   ============================================================ */
+
+/* glow de acento reutilizable */
+:root{
+  --glass:       rgba(255,255,255,0.55);
+  --glass-soft:  rgba(255,255,255,0.40);
+  --accent-glow: rgba(110,124,106,0.16);
+  --accent-line: rgba(110,124,106,0.55);
+}
+
+/* ---- 1. Scroll progress bar ---- */
+.epi-scroll-progress{
+  position:fixed; top:0; left:0; height:2px; width:0%;
+  z-index:9999; pointer-events:none;
+  background:linear-gradient(90deg, var(--ink), var(--accent));
+  transform-origin:left center;
+  transition:width .08s linear;
+}
+
+/* ---- 2. Reveal global (data-reveal) ---- */
+[data-reveal]{
+  opacity:0; transform:translateY(24px); filter:blur(6px);
+  transition:opacity .7s var(--ease), transform .7s var(--ease), filter .7s var(--ease);
+  will-change:opacity, transform, filter;
+}
+[data-reveal].is-visible{ opacity:1; transform:none; filter:blur(0); }
+[data-reveal-delay="1"]{ transition-delay:.10s; }
+[data-reveal-delay="2"]{ transition-delay:.20s; }
+[data-reveal-delay="3"]{ transition-delay:.30s; }
+[data-reveal-delay="4"]{ transition-delay:.40s; }
+
+/* ---- 3. Hero orbit (chips flotantes ambientales) ---- */
+.hero{ position:relative; }
+.hero .wrap{ position:relative; z-index:2; }
+.hero-meta{ z-index:2; }
+.epi-hero-orbit{ position:absolute; inset:0; z-index:0; pointer-events:none; overflow:hidden; }
+.epi-orbit-card{
+  position:absolute; display:inline-flex; align-items:center; justify-content:center;
+  padding:.55rem .9rem; border:1px solid var(--line); border-radius:999px;
+  background:var(--glass-soft); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px);
+  color:var(--ink-soft); font-size:.78rem; font-weight:600; letter-spacing:-0.01em;
+  box-shadow:0 12px 40px rgba(26,26,24,0.06);
+  opacity:.7; animation:epiFloat 7s ease-in-out infinite;
+}
+.epi-orbit-card-1{ top:16%; left:6%; animation-delay:0s; }
+.epi-orbit-card-2{ top:24%; right:7%; animation-delay:.8s; }
+.epi-orbit-card-3{ bottom:30%; left:8%; animation-delay:1.4s; }
+.epi-orbit-card-4{ bottom:18%; right:12%; animation-delay:2s; }
+.epi-orbit-card-5{ top:48%; left:3%; animation-delay:2.6s; }
+.epi-orbit-card-6{ top:12%; right:24%; animation-delay:3.2s; }
+.epi-orbit-card-7{ bottom:42%; right:4%; animation-delay:3.8s; }
+.epi-orbit-card-8{ bottom:9%; left:30%; animation-delay:4.4s; }
+@keyframes epiFloat{
+  0%,100%{ transform:translate3d(0,0,0) rotate(0deg); }
+  50%{ transform:translate3d(0,-14px,0) rotate(1deg); }
+}
+
+/* ---- 4. Diagnóstico interactivo ---- */
+.epi-diagnostic-box{
+  width:min(100%, 760px); margin:2.4rem 0 0;
+  padding:.7rem; border:1px solid var(--line); border-radius:22px;
+  background:var(--glass);
+  backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
+  box-shadow:0 20px 60px rgba(26,26,24,0.07), inset 0 1px 0 rgba(255,255,255,0.5);
+}
+.epi-diagnostic-label{
+  display:block; margin:0 0 .6rem .3rem; color:var(--ink-faint);
+  font-size:.72rem; font-weight:700; letter-spacing:.18em; text-transform:uppercase;
+}
+.epi-diagnostic-input-wrap{ display:flex; gap:.6rem; align-items:center; }
+.epi-diagnostic-input{
+  flex:1; min-width:0; height:54px; padding:0 1.05rem;
+  border:1px solid var(--line); border-radius:14px; outline:none;
+  background:rgba(255,255,255,0.6); color:var(--ink); font-size:1rem; font-family:inherit;
+  transition:border-color .24s var(--ease), box-shadow .24s var(--ease), background .24s var(--ease);
+}
+.epi-diagnostic-input::placeholder{ color:var(--ink-faint); }
+.epi-diagnostic-input:focus{
+  border-color:var(--accent-line);
+  box-shadow:0 0 0 4px var(--accent-glow); background:rgba(255,255,255,0.85);
+}
+.epi-diagnostic-button{
+  height:54px; display:inline-flex; align-items:center; justify-content:center; gap:.5rem;
+  padding:0 1.2rem; border:0; border-radius:14px;
+  background:var(--ink); color:var(--bg);
+  font-size:.92rem; font-weight:600; letter-spacing:0; cursor:pointer; white-space:nowrap;
+  font-family:inherit;
+  transition:transform .22s var(--ease), box-shadow .22s var(--ease), opacity .22s var(--ease);
+}
+.epi-diagnostic-button:hover{ transform:translateY(-2px); box-shadow:0 14px 34px rgba(26,26,24,0.18); }
+.epi-diagnostic-button:active{ transform:translateY(0) scale(.98); }
+.epi-diagnostic-button:disabled{ opacity:.6; cursor:default; transform:none; }
+.epi-diagnostic-button span{ transition:transform .22s var(--ease); }
+.epi-diagnostic-button:hover span{ transform:translateX(4px); }
+.epi-diagnostic-status{
+  min-height:22px; margin:.8rem .3rem 0; color:var(--ink-soft); font-size:.9rem;
+}
+.epi-diagnostic-status.is-loading::after{
+  content:""; display:inline-block; width:1.1em; text-align:left;
+  animation:epiDots .9s steps(4,end) infinite;
+}
+@keyframes epiDots{ 0%{content:"";} 25%{content:".";} 50%{content:"..";} 75%,100%{content:"...";} }
+
+/* ---- 5. Marquee ---- */
+.epi-marquee-section{
+  position:relative; width:100%; padding:2.4rem 0; overflow:hidden;
+  border-block:1px solid var(--line); background:var(--bg-deep);
+}
+.epi-marquee{
+  display:flex; overflow:hidden; user-select:none;
+  -webkit-mask-image:linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+          mask-image:linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+}
+.epi-marquee + .epi-marquee{ margin-top:1rem; }
+.epi-marquee-track{
+  display:flex; align-items:center; gap:1rem; min-width:max-content;
+  animation:epiMarqueeLeft 38s linear infinite;
+}
+.epi-marquee-right .epi-marquee-track{ animation-name:epiMarqueeRight; }
+.epi-marquee:hover .epi-marquee-track{ animation-play-state:paused; }
+.epi-marquee span{
+  display:inline-flex; align-items:center; padding:.66rem 1rem;
+  border:1px solid var(--line); border-radius:999px; background:var(--glass);
+  color:var(--ink-soft); font-size:.92rem; font-weight:500; white-space:nowrap;
+}
+.epi-marquee-right span{ background:var(--accent-glow); color:var(--ink); border-color:rgba(110,124,106,0.25); }
+@keyframes epiMarqueeLeft{ from{transform:translateX(0);} to{transform:translateX(-50%);} }
+@keyframes epiMarqueeRight{ from{transform:translateX(-50%);} to{transform:translateX(0);} }
+
+/* ---- 6. Counters ---- */
+.epi-counters-section{ padding:clamp(4rem,8vw,7rem) var(--gutter); }
+.epi-counters-header{ width:min(100%,820px); margin:0 auto 2.4rem; text-align:center; }
+.epi-eyebrow{
+  margin-bottom:.75rem; color:var(--accent);
+  font-size:.78rem; font-weight:600; letter-spacing:.16em; text-transform:uppercase;
+}
+.epi-counters-header h2{
+  margin:0; font-size:clamp(1.8rem,4.6vw,3.4rem); line-height:1.0;
+  font-weight:500; letter-spacing:-0.045em;
+}
+.epi-counters-grid{
+  width:min(100%,1120px); margin:0 auto; display:grid;
+  grid-template-columns:repeat(4,1fr); gap:1rem;
+}
+.epi-counter-card{
+  min-height:180px; padding:1.4rem; border:1px solid var(--line); border-radius:20px;
+  background:var(--glass);
+  transition:transform .26s var(--ease), border-color .26s var(--ease), background .26s var(--ease);
+}
+.epi-counter-card:hover{ transform:translateY(-6px); border-color:rgba(110,124,106,0.4); }
+.epi-counter-card strong{
+  display:block; margin-bottom:.6rem; color:var(--ink);
+  font-size:clamp(2.6rem,6vw,5rem); line-height:.85; letter-spacing:-0.06em; font-weight:600;
+}
+.epi-counter-card p{ margin:0; color:var(--ink-soft); font-size:.95rem; line-height:1.35; }
+
+/* ---- 7. Método con línea animada ---- */
+.epi-method-section{ position:relative; padding:clamp(4rem,8vw,7rem) var(--gutter); overflow:hidden; }
+.epi-method-header{ width:min(100%,880px); margin:0 auto 2.6rem; text-align:center; }
+.epi-method-header h2{
+  margin:0; font-size:clamp(1.9rem,4.8vw,3.6rem); line-height:1.0;
+  font-weight:500; letter-spacing:-0.045em;
+}
+.epi-method-flow{
+  position:relative; width:min(100%,1160px); margin:0 auto;
+  display:grid; grid-template-columns:repeat(6,1fr); gap:1rem;
+}
+.epi-method-line{
+  position:absolute; top:46px; left:8%; right:8%; height:2px;
+  background:linear-gradient(90deg, transparent, var(--accent-line), transparent);
+  transform:scaleX(0); transform-origin:left center; transition:transform 1.2s var(--ease);
+}
+.epi-method-section.is-visible .epi-method-line{ transform:scaleX(1); }
+.epi-method-step{
+  position:relative; z-index:1; min-height:220px; padding:1.1rem;
+  border:1px solid var(--line); border-radius:18px; background:var(--glass);
+  transition:transform .26s var(--ease), border-color .26s var(--ease), background .26s var(--ease);
+}
+.epi-method-step:hover{ transform:translateY(-6px); border-color:rgba(110,124,106,0.42); }
+.epi-method-step > span{
+  display:inline-flex; width:44px; height:44px; margin-bottom:1.1rem;
+  align-items:center; justify-content:center; border-radius:999px;
+  background:var(--ink); color:var(--bg); font-weight:700; font-size:.84rem;
+}
+.epi-method-step h3{ margin:0 0 .6rem; color:var(--ink); font-size:1.05rem; font-weight:600; letter-spacing:-0.02em; }
+.epi-method-step p{ margin:0; color:var(--ink-soft); font-size:.9rem; line-height:1.45; }
+
+/* ---- 8. Antes / Después ---- */
+.epi-before-after-section{ padding:clamp(4rem,8vw,7rem) var(--gutter); }
+.epi-before-after-card{
+  width:min(100%,1120px); margin:0 auto; display:grid;
+  grid-template-columns:0.95fr 1.05fr; gap:1.2rem;
+  padding:clamp(1.4rem,3vw,2.2rem); border:1px solid var(--line); border-radius:28px;
+  background:
+    radial-gradient(circle at 10% 20%, var(--accent-glow), transparent 34%),
+    var(--glass);
+  box-shadow:0 24px 80px rgba(26,26,24,0.07);
+}
+.epi-before-after-content h2{
+  margin:0 0 1rem; color:var(--ink); font-size:clamp(1.8rem,4.4vw,3.4rem);
+  line-height:1.0; font-weight:500; letter-spacing:-0.045em;
+}
+.epi-before-after-content p:not(.epi-eyebrow){ margin:0; color:var(--ink-soft); font-size:1rem; line-height:1.55; }
+.epi-toggle-panel{ padding:1rem; border-radius:22px; background:rgba(255,255,255,0.4); border:1px solid var(--line); }
+.epi-toggle-buttons{ display:grid; grid-template-columns:1fr 1fr; gap:.55rem; margin-bottom:1rem; }
+.epi-toggle-button{
+  height:46px; border:1px solid var(--line); border-radius:12px;
+  background:rgba(26,26,24,0.04); color:var(--ink-soft); font-weight:600; cursor:pointer;
+  font-family:inherit; transition:background .22s var(--ease), color .22s var(--ease), transform .22s var(--ease);
+}
+.epi-toggle-button:hover{ transform:translateY(-2px); }
+.epi-toggle-button.is-active{ background:var(--ink); color:var(--bg); border-color:var(--ink); }
+.epi-toggle-list{ display:none; opacity:0; transform:translateY(10px); }
+.epi-toggle-list.is-active{ display:block; opacity:1; transform:none; animation:epiPanelIn .32s var(--ease) both; }
+.epi-toggle-list ul{ display:grid; gap:.65rem; margin:0; padding:0; list-style:none; }
+.epi-toggle-list li{
+  padding:.95rem 1rem; border-radius:14px; background:rgba(255,255,255,0.55);
+  border:1px solid var(--line); color:var(--ink-soft); font-weight:500;
+}
+@keyframes epiPanelIn{ from{opacity:0; transform:translateY(12px);} to{opacity:1; transform:none;} }
+
+/* ---- 9. Mouse-glow en cards ---- */
+.epi-motion-card{ position:relative; overflow:hidden; }
+.epi-motion-card::after{
+  content:""; position:absolute; inset:-1px; z-index:0; opacity:0;
+  background:radial-gradient(circle at var(--mouse-x,50%) var(--mouse-y,50%), var(--accent-glow), transparent 36%);
+  transition:opacity .28s var(--ease); pointer-events:none;
+}
+.epi-motion-card > *{ position:relative; z-index:1; }
+.epi-motion-card:hover::after{ opacity:1; }
+
+/* ---- 10. CTA final (excepción oscura, contraste premium) ---- */
+.epi-final-cta{
+  position:relative; width:min(100% - 2.5rem, 1160px);
+  margin:clamp(4rem,8vw,7rem) auto; padding:clamp(3rem,8vw,6rem) 1.5rem; overflow:hidden;
+  border:1px solid rgba(237,237,232,0.12); border-radius:32px;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(110,124,106,0.30), transparent 46%),
+    var(--invert-bg);
+  color:var(--invert-ink); box-shadow:0 30px 100px rgba(26,26,24,0.22); text-align:center;
+}
+.epi-final-cta .epi-eyebrow{ color:rgba(237,237,232,0.6); }
+.epi-final-system{ position:absolute; inset:0; pointer-events:none; }
+.epi-final-system span{
+  position:absolute; padding:.55rem .85rem; border:1px solid rgba(237,237,232,0.14);
+  border-radius:999px; background:rgba(237,237,232,0.06); color:rgba(237,237,232,0.6);
+  font-size:.8rem; font-weight:600; animation:epiFloat 7s ease-in-out infinite;
+}
+.epi-final-system span:nth-child(1){ top:18%; left:8%; }
+.epi-final-system span:nth-child(2){ top:14%; right:10%; animation-delay:1s; }
+.epi-final-system span:nth-child(3){ bottom:18%; left:12%; animation-delay:2s; }
+.epi-final-system span:nth-child(4){ bottom:15%; right:16%; animation-delay:3s; }
+.epi-final-system span:nth-child(5){ top:50%; right:5%; animation-delay:4s; }
+.epi-final-cta-content{ position:relative; z-index:1; width:min(100%,820px); margin:0 auto; }
+.epi-final-cta h2{
+  margin:0 0 1rem; color:var(--invert-ink); font-size:clamp(2.1rem,5.6vw,4.6rem);
+  line-height:1.0; font-weight:500; letter-spacing:-0.05em;
+}
+.epi-final-cta p:not(.epi-eyebrow){
+  margin:0 auto 1.8rem; width:min(100%,640px); color:rgba(237,237,232,0.66);
+  font-size:1.05rem; line-height:1.55;
+}
+.epi-final-cta-button{
+  display:inline-flex; align-items:center; justify-content:center; gap:.55rem;
+  min-height:54px; padding:0 1.5rem; border-radius:999px;
+  background:var(--invert-ink); color:var(--invert-bg); text-decoration:none; font-weight:600;
+  transition:transform .22s var(--ease), box-shadow .22s var(--ease);
+}
+.epi-final-cta-button:hover{ transform:translateY(-3px); box-shadow:0 18px 50px rgba(0,0,0,0.4); }
+.epi-final-cta-button span{ transition:transform .22s var(--ease); }
+.epi-final-cta-button:hover span{ transform:translateX(4px); }
+
+/* ---- Responsive de los módulos ---- */
+@media (max-width:1080px){
+  .epi-method-flow{ grid-template-columns:repeat(3,1fr); }
+  .epi-method-line{ display:none; }
+}
+@media (max-width:900px){
+  .epi-counters-grid{ grid-template-columns:repeat(2,1fr); }
+}
+@media (max-width:860px){
+  .epi-before-after-card{ grid-template-columns:1fr; }
+}
+@media (max-width:768px){
+  .epi-hero-orbit{ opacity:.5; }
+  .epi-orbit-card{ font-size:.7rem; padding:.45rem .7rem; }
+  .epi-orbit-card-5, .epi-orbit-card-7, .epi-orbit-card-8{ display:none; }
+  .epi-diagnostic-input-wrap{ flex-direction:column; }
+  .epi-diagnostic-input, .epi-diagnostic-button{ width:100%; }
+  .epi-final-system{ opacity:.4; }
+  .epi-final-system span:nth-child(3), .epi-final-system span:nth-child(5){ display:none; }
+}
+@media (max-width:700px){
+  .epi-method-flow{ grid-template-columns:1fr; }
+  .epi-method-step{ min-height:auto; }
+}
+@media (max-width:560px){
+  .epi-counters-grid{ grid-template-columns:1fr; }
+  .epi-counter-card{ min-height:150px; }
+}
+
+/* ---- 12. Reduced motion ---- */
+@media (prefers-reduced-motion:reduce){
+  .epi-orbit-card, .epi-final-system span, .epi-marquee-track{ animation:none !important; }
+  [data-reveal]{ opacity:1 !important; transform:none !important; filter:none !important; }
+  .epi-method-line{ transform:scaleX(1) !important; }
+  .epi-scroll-progress{ transition:none !important; }
+}
 </style>
 </head>
 
 <body>
+
+<!-- Barra de progreso de scroll -->
+<div class="epi-scroll-progress" aria-hidden="true"></div>
 
 <!-- ============================================================
      HEADER
@@ -453,6 +772,18 @@ a{ color:inherit; text-decoration:none; }
        HERO — editá headline / subtítulo / CTA aquí
        ======================================================== -->
   <section class="hero">
+    <!-- Chips ambientales flotantes (decorativos, detrás del texto) -->
+    <div class="epi-hero-orbit" aria-hidden="true">
+      <span class="epi-orbit-card epi-orbit-card-1">Estrategia</span>
+      <span class="epi-orbit-card epi-orbit-card-2">Contenido</span>
+      <span class="epi-orbit-card epi-orbit-card-3">Ads</span>
+      <span class="epi-orbit-card epi-orbit-card-4">Landing</span>
+      <span class="epi-orbit-card epi-orbit-card-5">CRM</span>
+      <span class="epi-orbit-card epi-orbit-card-6">IA</span>
+      <span class="epi-orbit-card epi-orbit-card-7">Medición</span>
+      <span class="epi-orbit-card epi-orbit-card-8">Ventas</span>
+    </div>
+
     <div class="wrap hero-grid">
       <p class="hero-meta">Estudio de Marketing<br>Estrategia · Paid Media<br>Buenos Aires — Global</p>
       <h1>Sistemas de marketing para marcas que quieren <em>sentirse más grandes.</em></h1>
@@ -461,6 +792,21 @@ a{ color:inherit; text-decoration:none; }
         <div class="hero-actions reveal d2">
           <a href="#method" class="btn btn-solid"><span class="dot"></span> Ver método</a>
           <a href="mailto:info@marianocalandra.com" class="btn btn-ghost">Empezar proyecto</a>
+        </div>
+      </div>
+
+      <!-- Diagnóstico rápido interactivo -->
+      <div class="epi-diagnostic-box" data-reveal data-reveal-delay="2">
+        <label class="epi-diagnostic-label" for="epiDiagnosticInput">Diagnóstico rápido</label>
+        <div class="epi-diagnostic-input-wrap">
+          <input id="epiDiagnosticInput" class="epi-diagnostic-input" type="text"
+                 placeholder="Contame qué querés mejorar de tu negocio..." autocomplete="off" />
+          <button class="epi-diagnostic-button" type="button" id="epiDiagnosticButton">
+            Diagnosticar mi marca <span aria-hidden="true">→</span>
+          </button>
+        </div>
+        <div class="epi-diagnostic-status" id="epiDiagnosticStatus" aria-live="polite">
+          Estrategia, contenido, campañas y ventas en un solo sistema.
         </div>
       </div>
     </div>
@@ -475,6 +821,48 @@ a{ color:inherit; text-decoration:none; }
       <div>
         <blockquote>No se trata de hacer más marketing. <span>Se trata de construir una presencia digital que se vea mejor, piense mejor y venda mejor.</span></blockquote>
         <p class="foot reveal d2">Trabajamos con pocas marcas a la vez, con la atención y el criterio que el crecimiento real requiere. Menos ruido, más dirección.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       MARQUEE — problemas (arriba) y soluciones (abajo)
+       ======================================================== -->
+  <section class="epi-marquee-section" aria-label="Problemas y soluciones de marketing">
+    <div class="epi-marquee epi-marquee-left">
+      <div class="epi-marquee-track">
+        <span>No sé qué publicar</span>
+        <span>Mis campañas no venden</span>
+        <span>Tengo leads malos</span>
+        <span>No mido resultados</span>
+        <span>Mi marca se ve improvisada</span>
+        <span>No tengo sistema comercial</span>
+        <span>Dependo del boca en boca</span>
+        <span>No sé qué publicar</span>
+        <span>Mis campañas no venden</span>
+        <span>Tengo leads malos</span>
+        <span>No mido resultados</span>
+        <span>Mi marca se ve improvisada</span>
+        <span>No tengo sistema comercial</span>
+        <span>Dependo del boca en boca</span>
+      </div>
+    </div>
+    <div class="epi-marquee epi-marquee-right">
+      <div class="epi-marquee-track">
+        <span>Estrategia</span>
+        <span>Contenido</span>
+        <span>Ads</span>
+        <span>Medición</span>
+        <span>Automatización</span>
+        <span>Consultoría</span>
+        <span>Ventas</span>
+        <span>Estrategia</span>
+        <span>Contenido</span>
+        <span>Ads</span>
+        <span>Medición</span>
+        <span>Automatización</span>
+        <span>Consultoría</span>
+        <span>Ventas</span>
       </div>
     </div>
   </section>
@@ -513,37 +901,37 @@ a{ color:inherit; text-decoration:none; }
 
       <div class="work-grid">
         <!-- CASO 1 -->
-        <article class="work span-7 tall reveal">
+        <article class="epi-motion-card work span-7 tall reveal">
           <div class="visual"><span class="glyph">SC</span></div>
           <div class="meta"><h3>Sistema de Crecimiento en Paid Media</h3><span class="cat">Rendimiento</span><span class="yr">2025</span></div>
           <p class="desc">Sistema de adquisición pagada en Meta y Google con foco en rentabilidad medible y escalado ordenado.</p>
         </article>
         <!-- CASO 2 -->
-        <article class="work span-5 tall reveal d1">
+        <article class="epi-motion-card work span-5 tall reveal d1">
           <div class="visual"><span class="glyph">EM</span></div>
           <div class="meta"><h3>Marco de Estrategia de Marca</h3><span class="cat">Estrategia</span><span class="yr">2025</span></div>
           <p class="desc">Plataforma de marca, posicionamiento y narrativa comercial para diferenciar con criterio.</p>
         </article>
         <!-- CASO 3 -->
-        <article class="work span-5 offset reveal">
+        <article class="epi-motion-card work span-5 offset reveal">
           <div class="visual"><span class="glyph">AM</span></div>
           <div class="meta"><h3>Sistema de Auditoría de Marketing</h3><span class="cat">Diagnóstico</span><span class="yr">2024</span></div>
           <p class="desc">Auditoría integral de embudo, medición y rentabilidad para decidir con datos.</p>
         </article>
         <!-- CASO 4 -->
-        <article class="work span-7 reveal d1">
+        <article class="epi-motion-card work span-7 reveal d1">
           <div class="visual"><span class="glyph">PC</span></div>
           <div class="meta"><h3>Página de Conversión</h3><span class="cat">Conversión</span><span class="yr">2024</span></div>
           <p class="desc">Páginas diseñadas para convertir: jerarquía, mensaje y medición trabajando juntos.</p>
         </article>
         <!-- CASO 5 -->
-        <article class="work span-6 reveal">
+        <article class="epi-motion-card work span-6 reveal">
           <div class="visual"><span class="glyph">IA</span></div>
           <div class="meta"><h3>Motor de Contenido con IA</h3><span class="cat">Contenido</span><span class="yr">2025</span></div>
           <p class="desc">Sistema de contenido asistido por IA con criterio editorial y voz de marca consistente.</p>
         </article>
         <!-- CASO 6 -->
-        <article class="work span-6 reveal d1">
+        <article class="epi-motion-card work span-6 reveal d1">
           <div class="visual"><span class="glyph">CC</span></div>
           <div class="meta"><h3>Intensivo de Consultoría Comercial</h3><span class="cat">Consultoría</span><span class="yr">2025</span></div>
           <p class="desc">Trabajo intensivo para alinear oferta, precios y proceso comercial con la estrategia.</p>
@@ -553,21 +941,39 @@ a{ color:inherit; text-decoration:none; }
   </section>
 
   <!-- ========================================================
-       MÉTODO
+       MÉTODO — flujo de 6 pasos con línea conectora animada
        ======================================================== -->
-  <section class="section section--deep" id="method">
-    <div class="wrap">
-      <div class="method-head">
-        <span class="eyebrow reveal">Proceso</span>
-        <h2>Método, no ruido.</h2>
-      </div>
-      <div class="steps">
-        <div class="step reveal"><span class="num">01</span><div class="st-body"><h3>Diagnóstico</h3><p>Entendemos negocio, oferta y números antes de tocar una sola campaña.</p></div></div>
-        <div class="step reveal"><span class="num">02</span><div class="st-body"><h3>Estrategia</h3><p>Definimos posicionamiento, prioridades y el plan que ordena cada inversión.</p></div></div>
-        <div class="step reveal"><span class="num">03</span><div class="st-body"><h3>Construcción</h3><p>Creativos, páginas, medición y campañas: el sistema queda armado para escalar.</p></div></div>
-        <div class="step reveal"><span class="num">04</span><div class="st-body"><h3>Medición</h3><p>Datos limpios y atribución clara para saber qué funciona y qué no.</p></div></div>
-        <div class="step reveal"><span class="num">05</span><div class="st-body"><h3>Optimización</h3><p>Iteramos sobre lo que mueve la aguja. Crecimiento con dirección, no por inercia.</p></div></div>
-      </div>
+  <section class="section--deep epi-method-section" id="method" data-reveal>
+    <div class="epi-method-header">
+      <p class="epi-eyebrow">Proceso</p>
+      <h2>Método, no ruido.</h2>
+    </div>
+    <div class="epi-method-flow">
+      <div class="epi-method-line" aria-hidden="true"></div>
+      <article class="epi-motion-card epi-method-step" data-reveal data-reveal-delay="1">
+        <span>01</span><h3>Diagnóstico</h3>
+        <p>Detectamos qué está frenando tu crecimiento digital y comercial.</p>
+      </article>
+      <article class="epi-motion-card epi-method-step" data-reveal data-reveal-delay="2">
+        <span>02</span><h3>Estrategia</h3>
+        <p>Definimos posicionamiento, oferta, contenido, campañas y objetivos.</p>
+      </article>
+      <article class="epi-motion-card epi-method-step" data-reveal data-reveal-delay="3">
+        <span>03</span><h3>Contenido</h3>
+        <p>Convertimos ideas en piezas claras, consistentes y orientadas a conversión.</p>
+      </article>
+      <article class="epi-motion-card epi-method-step" data-reveal data-reveal-delay="4">
+        <span>04</span><h3>Ads</h3>
+        <p>Activamos campañas para generar demanda, leads, ventas y aprendizaje.</p>
+      </article>
+      <article class="epi-motion-card epi-method-step" data-reveal data-reveal-delay="4">
+        <span>05</span><h3>Medición</h3>
+        <p>Ordenamos datos, reportes y decisiones para optimizar con criterio.</p>
+      </article>
+      <article class="epi-motion-card epi-method-step" data-reveal data-reveal-delay="4">
+        <span>06</span><h3>Escalado</h3>
+        <p>Potenciamos lo que funciona y corregimos lo que está perdiendo recursos.</p>
+      </article>
     </div>
   </section>
 
@@ -593,14 +999,88 @@ a{ color:inherit; text-decoration:none; }
   </section>
 
   <!-- ========================================================
+       COUNTERS — números animados al entrar en viewport
+       ======================================================== -->
+  <section class="epi-counters-section" data-reveal>
+    <div class="epi-counters-header">
+      <p class="epi-eyebrow">Sistema EPIBRANDS</p>
+      <h2>Marketing menos improvisado. Crecimiento más ordenado.</h2>
+    </div>
+    <div class="epi-counters-grid">
+      <div class="epi-motion-card epi-counter-card">
+        <strong><span data-counter="4">0</span></strong>
+        <p>Pilares de crecimiento</p>
+      </div>
+      <div class="epi-motion-card epi-counter-card">
+        <strong><span data-counter="90">0</span></strong>
+        <p>Días de implementación</p>
+      </div>
+      <div class="epi-motion-card epi-counter-card">
+        <strong><span data-counter="1">0</span></strong>
+        <p>Sistema comercial</p>
+      </div>
+      <div class="epi-motion-card epi-counter-card">
+        <strong><span data-counter="0">0</span></strong>
+        <p>Improvisación innecesaria</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       ANTES / DESPUÉS — toggle interactivo
+       ======================================================== -->
+  <section class="epi-before-after-section" data-reveal>
+    <div class="epi-before-after-card">
+      <div class="epi-before-after-content">
+        <p class="epi-eyebrow">Antes / Después</p>
+        <h2>El cambio no es hacer más. Es ordenar mejor.</h2>
+        <p>EPIBRANDS transforma acciones sueltas en un sistema de marketing, ventas y medición.</p>
+      </div>
+      <div class="epi-toggle-panel">
+        <div class="epi-toggle-buttons" role="tablist" aria-label="Comparación antes y después">
+          <button class="epi-toggle-button is-active" type="button" data-panel="before">Antes</button>
+          <button class="epi-toggle-button" type="button" data-panel="after">Después</button>
+        </div>
+        <div class="epi-toggle-list is-active" id="epiPanelBefore">
+          <ul>
+            <li>Contenido improvisado</li>
+            <li>Campañas sin estrategia</li>
+            <li>Leads desordenados</li>
+            <li>Sin medición clara</li>
+            <li>Decisiones por intuición</li>
+          </ul>
+        </div>
+        <div class="epi-toggle-list" id="epiPanelAfter">
+          <ul>
+            <li>Sistema de contenido</li>
+            <li>Campañas orientadas a conversión</li>
+            <li>Proceso comercial ordenado</li>
+            <li>Reportes claros</li>
+            <li>Decisiones con datos</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================
        CTA FINAL
        ======================================================== -->
-  <section class="cta" id="contact">
-    <div class="wrap">
-      <span class="eyebrow reveal">Hablemos</span>
-      <h2>Construyamos una marca que la gente no pueda ignorar.</h2>
-      <p class="reveal d2">Si tu negocio tiene algo valioso, tu presencia digital debería estar a la altura.</p>
-      <a href="mailto:info@marianocalandra.com" class="btn reveal d3"><span class="dot"></span> Empezar conversación</a>
+  <section class="epi-final-cta" id="contact" data-reveal>
+    <div class="epi-final-system" aria-hidden="true">
+      <span>Contenido</span>
+      <span>Campañas</span>
+      <span>Leads</span>
+      <span>Ventas</span>
+      <span>Reportes</span>
+    </div>
+    <div class="epi-final-cta-content">
+      <p class="epi-eyebrow">EPIBRANDS Estudio</p>
+      <h2>Tu marketing no necesita más piezas sueltas. Necesita sistema.</h2>
+      <p>Estrategia, contenido, campañas, medición y consultoría para ordenar el crecimiento de tu negocio.</p>
+      <a href="mailto:info@marianocalandra.com" class="epi-final-cta-button">
+        Solicitar diagnóstico <span aria-hidden="true">→</span>
+      </a>
     </div>
   </section>
 
@@ -741,6 +1221,141 @@ a{ color:inherit; text-decoration:none; }
   window.addEventListener('resize', onScrollParallax, { passive:true });
   updateParallax();
 })();
+</script>
+
+<!-- ============================================================
+     SCRIPT 2 — módulos premium: progreso, reveal, diagnóstico,
+     counters, toggle antes/después, mouse-glow
+     ============================================================ -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* --- Scroll progress --- */
+  var progressBar = document.querySelector(".epi-scroll-progress");
+  function updateScrollProgress() {
+    if (!progressBar) return;
+    var scrollTop = window.scrollY || document.documentElement.scrollTop;
+    var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    var progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    progressBar.style.width = progress + "%";
+  }
+  updateScrollProgress();
+  window.addEventListener("scroll", updateScrollProgress, { passive: true });
+  window.addEventListener("resize", updateScrollProgress);
+
+  /* --- Reveal global (data-reveal) --- */
+  var revealElements = document.querySelectorAll("[data-reveal]");
+  if (prefersReducedMotion) {
+    revealElements.forEach(function (el) { el.classList.add("is-visible"); });
+  } else {
+    var revealObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.14, rootMargin: "0px 0px -8% 0px" });
+    revealElements.forEach(function (el) { revealObserver.observe(el); });
+  }
+
+  /* --- Diagnóstico interactivo --- */
+  var diagnosticButton = document.getElementById("epiDiagnosticButton");
+  var diagnosticInput = document.getElementById("epiDiagnosticInput");
+  var diagnosticStatus = document.getElementById("epiDiagnosticStatus");
+  if (diagnosticButton && diagnosticStatus) {
+    var diagnosticSteps = [
+      "Analizando presencia digital",
+      "Detectando oportunidades",
+      "Revisando embudo comercial",
+      "Generando plan de acción"
+    ];
+    diagnosticButton.addEventListener("click", function () {
+      if (diagnosticButton.dataset.loading === "true") return;
+      diagnosticButton.dataset.loading = "true";
+      diagnosticButton.disabled = true;
+      diagnosticStatus.classList.add("is-loading");
+      var currentStep = 0;
+      diagnosticStatus.textContent = diagnosticSteps[currentStep];
+      var interval = window.setInterval(function () {
+        currentStep += 1;
+        if (currentStep < diagnosticSteps.length) {
+          diagnosticStatus.textContent = diagnosticSteps[currentStep];
+        } else {
+          window.clearInterval(interval);
+          diagnosticStatus.classList.remove("is-loading");
+          var userText = diagnosticInput && diagnosticInput.value.trim()
+            ? " sobre: “" + diagnosticInput.value.trim() + "”"
+            : "";
+          diagnosticStatus.textContent =
+            "Listo. Podemos ayudarte a ordenar estrategia, contenido, campañas y ventas" + userText + ".";
+          diagnosticButton.disabled = false;
+          diagnosticButton.dataset.loading = "false";
+        }
+      }, 850);
+    });
+  }
+
+  /* --- Counters animados --- */
+  var counters = document.querySelectorAll("[data-counter]");
+  function animateCounter(counter) {
+    var target = Number(counter.getAttribute("data-counter"));
+    var duration = 1400;
+    var startTime = performance.now();
+    function tick(now) {
+      var elapsed = now - startTime;
+      var progress = Math.min(elapsed / duration, 1);
+      var eased = 1 - Math.pow(1 - progress, 3);
+      counter.textContent = Math.round(target * eased);
+      if (progress < 1) { requestAnimationFrame(tick); }
+      else { counter.textContent = target; }
+    }
+    requestAnimationFrame(tick);
+  }
+  if (prefersReducedMotion) {
+    counters.forEach(function (c) { c.textContent = c.getAttribute("data-counter"); });
+  } else {
+    var counterObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          animateCounter(entry.target);
+          counterObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+    counters.forEach(function (c) { counterObserver.observe(c); });
+  }
+
+  /* --- Toggle Antes / Después --- */
+  var toggleButtons = document.querySelectorAll(".epi-toggle-button");
+  var beforePanel = document.getElementById("epiPanelBefore");
+  var afterPanel = document.getElementById("epiPanelAfter");
+  toggleButtons.forEach(function (button) {
+    button.addEventListener("click", function () {
+      var selectedPanel = button.getAttribute("data-panel");
+      toggleButtons.forEach(function (item) { item.classList.remove("is-active"); });
+      button.classList.add("is-active");
+      if (beforePanel && afterPanel) {
+        beforePanel.classList.toggle("is-active", selectedPanel === "before");
+        afterPanel.classList.toggle("is-active", selectedPanel === "after");
+      }
+    });
+  });
+
+  /* --- Mouse-glow en cards --- */
+  if (!prefersReducedMotion) {
+    document.querySelectorAll(".epi-motion-card").forEach(function (card) {
+      card.addEventListener("mousemove", function (event) {
+        var rect = card.getBoundingClientRect();
+        var x = ((event.clientX - rect.left) / rect.width) * 100;
+        var y = ((event.clientY - rect.top) / rect.height) * 100;
+        card.style.setProperty("--mouse-x", x + "%");
+        card.style.setProperty("--mouse-y", y + "%");
+      });
+    });
+  }
+});
 </script>
 
 </body>
