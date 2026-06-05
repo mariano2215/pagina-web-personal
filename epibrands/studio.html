@@ -346,16 +346,46 @@ a{ color:inherit; text-decoration:none; }
 .foot-copy{ font-size:12px; color:var(--ink-faint); width:100%; }
 
 /* ============================================================
-   REVEAL al hacer scroll
+   MOTION — animaciones de entrada y salida (bidireccionales)
    ============================================================ */
-.reveal{ opacity:0; transform:translateY(24px); transition:opacity .9s var(--ease), transform .9s var(--ease); }
+
+/* Fade-up para párrafos, etiquetas y bloques de apoyo */
+.reveal{ opacity:0; transform:translateY(26px); transition:opacity 1s cubic-bezier(.19,1,.22,1), transform 1s cubic-bezier(.19,1,.22,1); }
 .reveal.in{ opacity:1; transform:none; }
-.reveal.d1{ transition-delay:.08s; }
-.reveal.d2{ transition-delay:.16s; }
-.reveal.d3{ transition-delay:.24s; }
+.reveal.d1{ transition-delay:.10s; }
+.reveal.d2{ transition-delay:.20s; }
+.reveal.d3{ transition-delay:.30s; }
+
+/* Mask reveal por palabras (títulos) — las palabras suben desde
+   detrás de una máscara recortada. Generado por JS (.mask). */
+.mask .word{
+  display:inline-block; overflow:hidden; vertical-align:top;
+  /* aire para que descendentes (g, p, y) y acentos no se recorten */
+  padding:0.12em 0 0.16em; margin:-0.12em 0 -0.16em;
+}
+.mask .word > span{
+  display:inline-block;
+  transform:translateY(115%);
+  transition:transform 1.05s cubic-bezier(.19,1,.22,1);
+  will-change:transform;
+}
+.mask.in .word > span{ transform:translateY(0); }
+
+/* Línea divisoria que se "dibuja" al entrar (anima solo la línea,
+   nunca el contenido — vía pseudo-elemento). */
+.drawline{ position:relative; border-top-color:transparent !important; }
+.drawline::before{
+  content:""; position:absolute; top:0; left:0; right:0; height:1px;
+  background:var(--line); transform:scaleX(0); transform-origin:left center;
+  transition:transform 1.2s cubic-bezier(.19,1,.22,1);
+}
+.drawline.in::before{ transform:scaleX(1); }
 
 @media (prefers-reduced-motion:reduce){
   .reveal{ opacity:1; transform:none; transition:none; }
+  .drawline{ border-top-color:var(--line) !important; }
+  .drawline::before{ display:none; }
+  .mask .word > span{ transform:none; transition:none; }
   html{ scroll-behavior:auto; }
 }
 
@@ -423,7 +453,7 @@ a{ color:inherit; text-decoration:none; }
   <section class="hero">
     <div class="wrap hero-grid">
       <p class="hero-meta">Marketing Studio<br>Estrategia · Paid Media<br>Buenos Aires — Worldwide</p>
-      <h1 class="reveal">Sistemas de marketing para marcas que quieren <em>sentirse más grandes.</em></h1>
+      <h1>Sistemas de marketing para marcas que quieren <em>sentirse más grandes.</em></h1>
       <div class="hero-bottom">
         <p class="hero-sub reveal d1">Estrategia, paid media, contenido y sistemas comerciales para negocios listos para crecer con claridad, precisión y criterio.</p>
         <div class="hero-actions reveal d2">
@@ -441,7 +471,7 @@ a{ color:inherit; text-decoration:none; }
     <div class="wrap manifesto">
       <div class="label-col reveal"><span class="eyebrow">Vision</span></div>
       <div>
-        <blockquote class="reveal d1">No se trata de hacer más marketing. <span>Se trata de construir una presencia digital que se vea mejor, piense mejor y venda mejor.</span></blockquote>
+        <blockquote>No se trata de hacer más marketing. <span>Se trata de construir una presencia digital que se vea mejor, piense mejor y venda mejor.</span></blockquote>
         <p class="foot reveal d2">Trabajamos con pocas marcas a la vez, con la atención y el criterio que el crecimiento real requiere. Menos ruido, más dirección.</p>
       </div>
     </div>
@@ -454,7 +484,7 @@ a{ color:inherit; text-decoration:none; }
     <div class="wrap">
       <div class="section-head">
         <span class="eyebrow reveal">Approach</span>
-        <h2 class="reveal d1" style="font-size:clamp(1.8rem,4vw,3rem);font-weight:500;letter-spacing:-0.04em;">Principios que ordenan cada decisión.</h2>
+        <h2 style="font-size:clamp(1.8rem,4vw,3rem);font-weight:500;letter-spacing:-0.04em;">Principios que ordenan cada decisión.</h2>
       </div>
       <div class="principles">
         <div class="principle reveal"><span class="num">01</span><div class="body"><h3>Estética premium</h3><p>El cómo se ve comunica antes que el qué dice. La calidad visual es estrategia, no decoración.</p></div></div>
@@ -476,7 +506,7 @@ a{ color:inherit; text-decoration:none; }
     <div class="wrap">
       <div class="section-head">
         <span class="eyebrow reveal">Selected Work</span>
-        <h2 class="reveal d1" style="font-size:clamp(1.8rem,4vw,3rem);font-weight:500;letter-spacing:-0.04em;">Trabajo que sostiene la marca.</h2>
+        <h2 style="font-size:clamp(1.8rem,4vw,3rem);font-weight:500;letter-spacing:-0.04em;">Trabajo que sostiene la marca.</h2>
       </div>
 
       <div class="work-grid">
@@ -527,7 +557,7 @@ a{ color:inherit; text-decoration:none; }
     <div class="wrap">
       <div class="method-head">
         <span class="eyebrow reveal">Process</span>
-        <h2 class="reveal d1">Method, not noise.</h2>
+        <h2>Method, not noise.</h2>
       </div>
       <div class="steps">
         <div class="step reveal"><span class="num">01 — Diagnose</span><div class="st-body"><h3>Diagnóstico</h3><p>Entendemos negocio, oferta y números antes de tocar una sola campaña.</p></div></div>
@@ -546,7 +576,7 @@ a{ color:inherit; text-decoration:none; }
     <div class="wrap">
       <div class="section-head">
         <span class="eyebrow reveal">Capabilities</span>
-        <h2 class="reveal d1" style="font-size:clamp(1.8rem,4vw,3rem);font-weight:500;letter-spacing:-0.04em;">Strategy before scale.</h2>
+        <h2 style="font-size:clamp(1.8rem,4vw,3rem);font-weight:500;letter-spacing:-0.04em;">Strategy before scale.</h2>
       </div>
       <div class="services">
         <div class="service reveal"><h3>Paid Media Strategy</h3><span class="tag">Estrategia de pauta</span></div>
@@ -566,7 +596,7 @@ a{ color:inherit; text-decoration:none; }
   <section class="cta" id="contact">
     <div class="wrap">
       <span class="eyebrow reveal">Let's talk</span>
-      <h2 class="reveal d1">Construyamos una marca que la gente no pueda ignorar.</h2>
+      <h2>Construyamos una marca que la gente no pueda ignorar.</h2>
       <p class="reveal d2">Si tu negocio tiene algo valioso, tu presencia digital debería estar a la altura.</p>
       <a href="mailto:info@marianocalandra.com" class="btn reveal d3"><span class="dot"></span> Empezar conversación</a>
     </div>
@@ -620,13 +650,63 @@ a{ color:inherit; text-decoration:none; }
     }
   });
 
-  // reveal on scroll
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // ---- Mask reveal por palabras -------------------------------------
+  // Envuelve cada palabra de los títulos en una máscara recortada para
+  // que aparezca/desaparezca deslizándose. Preserva <em>, <span>, etc.
+  function splitWords(el, counter){
+    var nodes = Array.prototype.slice.call(el.childNodes);
+    nodes.forEach(function(node){
+      if(node.nodeType === 3){ // nodo de texto
+        var parts = node.textContent.split(/(\s+)/);
+        var frag = document.createDocumentFragment();
+        parts.forEach(function(part){
+          if(part === '') return;
+          if(/^\s+$/.test(part)){ frag.appendChild(document.createTextNode(part)); return; }
+          var word = document.createElement('span'); word.className = 'word';
+          var inner = document.createElement('span');
+          inner.textContent = part;
+          // escalonado suave, con tope para textos largos
+          inner.style.transitionDelay = Math.min(counter.i, 18) * 0.045 + 's';
+          counter.i++;
+          word.appendChild(inner);
+          frag.appendChild(word);
+        });
+        el.replaceChild(frag, node);
+      } else if(node.nodeType === 1){
+        splitWords(node, counter); // recursa preservando el elemento
+      }
+    });
+  }
+
+  var maskSelector = '.hero h1, .manifesto blockquote, .section-head h2, ' +
+    '.method-head h2, .principle h3, .step h3, .service h3, .work .meta h3, .cta h2';
+  var masked = [];
+  if(!reduce){
+    document.querySelectorAll(maskSelector).forEach(function(el){
+      splitWords(el, { i:0 });
+      el.classList.add('mask');
+      masked.push(el);
+    });
+    // líneas divisorias que se dibujan al entrar (clase .rule en CSS)
+    document.querySelectorAll('.hero-bottom, .principles, .steps, .services .service:first-child').forEach(function(el){
+      el.classList.add('drawline');
+    });
+  }
+
+  // ---- Observer bidireccional (entrada Y salida) --------------------
+  var animated = document.querySelectorAll('.reveal, .mask, .drawline');
+  if(reduce){
+    animated.forEach(function(el){ el.classList.add('in'); });
+    return;
+  }
   var io = new IntersectionObserver(function(entries){
     entries.forEach(function(en){
-      if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); }
+      en.target.classList.toggle('in', en.isIntersecting);
     });
-  }, { threshold:0.12, rootMargin:'0px 0px -8% 0px' });
-  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+  }, { threshold:0.15, rootMargin:'-5% 0px -12% 0px' });
+  animated.forEach(function(el){ io.observe(el); });
 })();
 </script>
 
