@@ -1,0 +1,2016 @@
+<!DOCTYPE html>
+<html lang="es" class="no-js">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Sistema de Atracción y Conversión Digital — Contenido estratégico + pauta optimizada. Marketing claro. Crecimiento real. Mariano Calandra.">
+<title>Sistema de Atracción y Conversión Digital — Mariano Calandra</title>
+
+<link rel="canonical" href="https://marianocalandra.com/servicios/marketing-hibrido">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Mariano Calandra">
+<meta property="og:url" content="https://marianocalandra.com/servicios/marketing-hibrido">
+<meta property="og:title" content="Sistema de Atracción y Conversión Digital — Mariano Calandra">
+<meta property="og:description" content="Optimizamos tu contenido para retener audiencia y escalamos tus anuncios para generar ventas. Marketing claro. Crecimiento real.">
+<meta property="og:image" content="https://marianocalandra.com/img/mariano-hero.jpg">
+<meta property="og:locale" content="es_AR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sistema de Atracción y Conversión Digital — Mariano Calandra">
+<meta name="twitter:description" content="Optimizamos tu contenido para retener audiencia y escalamos tus anuncios para generar ventas.">
+<meta name="twitter:image" content="https://marianocalandra.com/img/mariano-hero.jpg">
+
+<script src="/gtm.js?v=__BUST__"></script>
+
+<link rel="icon" type="image/png" href="/img/favicon16x16.png">
+<link rel="apple-touch-icon" href="/img/favicon16x16.png">
+<meta name="theme-color" content="#080808">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   RESET & VARIABLES
+   ============================================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg-deep:     #080808;
+  --bg-base:     #0D0D0D;
+  --bg-card:     #131315;
+  --bg-surface:  #1A1A1C;
+  --bg-elevated: #222226;
+
+  --accent:        #35d4ae;
+  --accent-dim:    rgba(53, 212, 174, 0.09);
+  --accent-glow:   rgba(53, 212, 174, 0.18);
+  --accent-border: rgba(53, 212, 174, 0.22);
+
+  --white:   #F5F5F7;
+  --gray-1:  #C0C0CA;
+  --gray-2:  #868692;
+  --gray-3:  #505058;
+  --border:  rgba(255, 255, 255, 0.07);
+  --border-h: rgba(255, 255, 255, 0.13);
+
+  --fh: 'Montserrat', sans-serif;
+  --fb: 'Poppins', sans-serif;
+
+  --r-sm: 10px;
+  --r-md: 18px;
+  --r-lg: 26px;
+  --r-xl: 34px;
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --tr: 0.32s var(--ease);
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--fb);
+  background: var(--bg-deep);
+  color: var(--white);
+  line-height: 1.65;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--fh);
+  line-height: 1.13;
+  letter-spacing: -0.022em;
+}
+
+a  { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+img { max-width: 100%; height: auto; display: block; }
+
+/* no-js fallback */
+.no-js .reveal, .no-js .hanim { opacity: 1 !important; transform: none !important; }
+
+/* ============================================================
+   LAYOUT
+   ============================================================ */
+.lp-wrap {
+  max-width: 1160px;
+  margin-inline: auto;
+  padding-inline: 24px;
+}
+
+.lp-section {
+  padding-block: 108px;
+}
+
+.lp-section-alt {
+  background: var(--bg-base);
+}
+
+/* ============================================================
+   TYPOGRAPHY UTILITIES
+   ============================================================ */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 14px;
+}
+
+.badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  background: var(--accent-dim);
+  border: 1px solid var(--accent-border);
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.badge-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
+  animation: blink 2.4s ease infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.35; }
+}
+
+.sec-head {
+  margin-bottom: 64px;
+}
+
+.sec-head .eyebrow {
+  margin-bottom: 10px;
+}
+
+.sec-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  color: var(--white);
+  margin-bottom: 16px;
+}
+
+.sec-desc {
+  font-size: 1.05rem;
+  color: var(--gray-1);
+  max-width: 540px;
+  line-height: 1.7;
+}
+
+.c-accent { color: var(--accent); }
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 30px;
+  border-radius: 999px;
+  font-family: var(--fb);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: var(--tr);
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.btn-main {
+  background: var(--accent);
+  color: #080808;
+}
+
+.btn-main:hover {
+  background: #3de0bb;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 36px rgba(53, 212, 174, 0.28);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--white);
+  border: 1.5px solid var(--border-h);
+}
+
+.btn-ghost:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.btn-lg {
+  padding: 17px 38px;
+  font-size: 1.02rem;
+}
+
+.btn-xl {
+  padding: 20px 48px;
+  font-size: 1.08rem;
+}
+
+/* ============================================================
+   NAVIGATION
+   ============================================================ */
+.lp-nav {
+  position: fixed;
+  top: 0;
+  inset-inline: 0;
+  z-index: 200;
+  padding-block: 16px;
+  transition: background var(--tr), border-color var(--tr), backdrop-filter var(--tr);
+}
+
+.lp-nav.is-scrolled {
+  background: rgba(8, 8, 8, 0.88);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.nav-logo {
+  font-family: var(--fh);
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-logo img {
+  width: 26px;
+  height: 26px;
+  border-radius: 6px;
+}
+
+.nav-logo .nl-accent { color: var(--accent); }
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.nav-links a {
+  font-size: 0.87rem;
+  font-weight: 500;
+  color: var(--gray-1);
+  transition: color var(--tr);
+}
+
+.nav-links a:hover { color: var(--white); }
+
+/* ============================================================
+   SECTION 1 — HERO
+   ============================================================ */
+.lp-hero {
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  padding-top: 96px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.hero-bg-grad {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 75% 65% at 65% -5%,  rgba(53, 212, 174, 0.07) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 50% at -5% 85%,  rgba(53, 212, 174, 0.04) 0%, transparent 50%);
+}
+
+.hero-bg-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.022) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.022) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse 90% 80% at 50% 40%, black 30%, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse 90% 80% at 50% 40%, black 30%, transparent 75%);
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+.hero-badge {
+  margin-bottom: 28px;
+}
+
+.hero-title {
+  font-size: clamp(3rem, 6.5vw, 5.8rem);
+  font-weight: 900;
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+  color: var(--white);
+  margin-bottom: 24px;
+  max-width: 880px;
+}
+
+.hero-sub {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  color: var(--gray-1);
+  line-height: 1.7;
+  max-width: 600px;
+  margin-bottom: 44px;
+}
+
+.hero-ctas {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 80px;
+}
+
+.hero-stats {
+  display: flex;
+  gap: 40px;
+  padding-top: 40px;
+  border-top: 1px solid var(--border);
+  flex-wrap: wrap;
+}
+
+.hero-stat strong {
+  display: block;
+  font-family: var(--fh);
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--white);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.hero-stat span {
+  font-size: 0.78rem;
+  color: var(--gray-2);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* hero CSS animations (load, not scroll) */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.hanim {
+  opacity: 0;
+  animation: fadeUp 0.7s var(--ease) forwards;
+}
+
+.hd1 { animation-delay: 0.1s; }
+.hd2 { animation-delay: 0.28s; }
+.hd3 { animation-delay: 0.46s; }
+.hd4 { animation-delay: 0.64s; }
+.hd5 { animation-delay: 0.82s; }
+
+/* ============================================================
+   SECTION 2 — DIAGNÓSTICO
+   ============================================================ */
+.diag-grid {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 20px;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.prob-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 36px 32px;
+  transition: border-color var(--tr), transform var(--tr);
+}
+
+.prob-card:hover {
+  border-color: var(--border-h);
+  transform: translateY(-3px);
+}
+
+.prob-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--r-sm);
+  background: var(--bg-elevated);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+}
+
+.prob-card h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 10px;
+}
+
+.prob-card p {
+  font-size: 0.88rem;
+  color: var(--gray-2);
+  line-height: 1.65;
+}
+
+.vs-sep {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  padding-inline: 8px;
+}
+
+.vs-line {
+  width: 1px;
+  height: 64px;
+  background: var(--border);
+}
+
+.vs-circle {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-h);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--fh);
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: var(--gray-2);
+  letter-spacing: 0.06em;
+  flex-shrink: 0;
+}
+
+.conclusion-block {
+  background: var(--bg-card);
+  border: 1px solid var(--accent-border);
+  border-radius: var(--r-md);
+  padding: 30px 36px;
+  text-align: center;
+}
+
+.conclusion-block p {
+  font-family: var(--fh);
+  font-size: clamp(0.95rem, 2.2vw, 1.2rem);
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.55;
+}
+
+/* ============================================================
+   SECTION 3 — SOLUCIÓN / FILOSOFÍA
+   ============================================================ */
+.sol-flow {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  margin-top: 48px;
+}
+
+.sol-step {
+  flex: 1;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  padding: 32px 24px;
+  text-align: center;
+  transition: border-color var(--tr);
+}
+
+.sol-step:hover { border-color: var(--accent-border); }
+
+.sol-step-icon {
+  font-size: 2rem;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.sol-step h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 8px;
+}
+
+.sol-step p {
+  font-size: 0.82rem;
+  color: var(--gray-2);
+  line-height: 1.6;
+}
+
+.sol-arrow {
+  display: flex;
+  align-items: center;
+  padding-inline: 10px;
+  color: var(--accent);
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.sol-insight {
+  margin-top: 40px;
+  background: linear-gradient(135deg, var(--accent-dim), transparent 60%);
+  border: 1px solid var(--accent-border);
+  border-radius: var(--r-lg);
+  padding: 36px 40px;
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.sol-insight-icon {
+  font-size: 1.8rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.sol-insight h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 8px;
+}
+
+.sol-insight p {
+  font-size: 0.92rem;
+  color: var(--gray-1);
+  line-height: 1.7;
+}
+
+/* ============================================================
+   SECTION 4 — SERVICIOS
+   ============================================================ */
+.svc-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+}
+
+.svc-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-xl);
+  padding: 44px 40px;
+  position: relative;
+  overflow: hidden;
+  transition: border-color var(--tr);
+}
+
+.svc-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), transparent 70%);
+}
+
+.svc-card:hover { border-color: var(--accent-border); }
+
+.svc-pilar-num {
+  font-family: var(--fh);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.svc-pilar-num::after {
+  content: '';
+  display: block;
+  flex: 1;
+  height: 1px;
+  background: var(--accent-border);
+}
+
+.svc-card h3 {
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: var(--white);
+  margin-bottom: 12px;
+  line-height: 1.2;
+}
+
+.svc-desc {
+  font-size: 0.88rem;
+  color: var(--gray-2);
+  margin-bottom: 28px;
+  line-height: 1.65;
+}
+
+.svc-items {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.svc-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 16px;
+  background: var(--bg-elevated);
+  border-radius: var(--r-sm);
+  border: 1px solid var(--border);
+  transition: border-color var(--tr);
+}
+
+.svc-item:hover { border-color: var(--border-h); }
+
+.svc-item-icon {
+  width: 32px;
+  height: 32px;
+  background: var(--accent-dim);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+.svc-item-text h4 {
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 2px;
+}
+
+.svc-item-text p {
+  font-size: 0.78rem;
+  color: var(--gray-2);
+  line-height: 1.5;
+}
+
+.svc-connector {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding-top: 8px;
+}
+
+.svc-conn-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent-border), transparent);
+}
+
+.svc-conn-badge {
+  padding: 8px 22px;
+  background: var(--accent-dim);
+  border: 1px solid var(--accent-border);
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: 0.04em;
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* ============================================================
+   SECTION 5 — METODOLOGÍA
+   ============================================================ */
+.method-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  position: relative;
+  margin-top: 16px;
+}
+
+.method-grid::before {
+  content: '';
+  position: absolute;
+  top: 35px;
+  left: 13%;
+  right: 13%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent-border) 15%, var(--accent-border) 85%, transparent);
+  z-index: 0;
+}
+
+.mstep {
+  padding: 0 16px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.mstep-num {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: var(--bg-card);
+  border: 1.5px solid var(--accent-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-inline: auto;
+  margin-bottom: 24px;
+  font-family: var(--fh);
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--accent);
+  position: relative;
+  transition: var(--tr);
+}
+
+.mstep:hover .mstep-num {
+  background: var(--accent-dim);
+  border-color: var(--accent);
+  box-shadow: 0 0 28px var(--accent-glow);
+}
+
+.mstep-emoji {
+  position: absolute;
+  top: -8px;
+  right: -4px;
+  font-size: 0.85rem;
+  background: var(--bg-card);
+  border-radius: 50%;
+  padding: 2px;
+}
+
+.mstep h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 10px;
+}
+
+.mstep p {
+  font-size: 0.8rem;
+  color: var(--gray-2);
+  line-height: 1.6;
+}
+
+/* ============================================================
+   SECTION 6 — MÉTRICAS
+   ============================================================ */
+.metrics-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+  align-items: start;
+}
+
+.metric-hero {
+  background: var(--bg-card);
+  border: 1px solid var(--accent-border);
+  border-radius: var(--r-xl);
+  padding: 52px 44px;
+  position: relative;
+  overflow: hidden;
+}
+
+.metric-hero::after {
+  content: '';
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 220px; height: 220px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.metric-hero-lbl {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+
+.metric-hero-num {
+  font-family: var(--fh);
+  font-size: clamp(4.5rem, 8vw, 7rem);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.045em;
+  color: var(--white);
+  margin-bottom: 14px;
+  position: relative;
+  z-index: 1;
+}
+
+.metric-hero-num .c-accent { color: var(--accent); }
+
+.metric-hero-desc {
+  font-size: 0.95rem;
+  color: var(--gray-1);
+  line-height: 1.65;
+  max-width: 280px;
+  position: relative;
+  z-index: 1;
+}
+
+.metrics-sub-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.mcard {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  padding: 26px 22px;
+  transition: border-color var(--tr), transform var(--tr);
+}
+
+.mcard:hover {
+  border-color: var(--accent-border);
+  transform: translateY(-2px);
+}
+
+.mcard-num {
+  font-family: var(--fh);
+  font-size: 2.1rem;
+  font-weight: 800;
+  color: var(--white);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.mcard-num .c-accent { color: var(--accent); }
+
+.mcard-desc {
+  font-size: 0.8rem;
+  color: var(--gray-2);
+  line-height: 1.5;
+}
+
+.metrics-disclaimer {
+  grid-column: 1 / -1;
+  font-size: 0.74rem;
+  color: var(--gray-3);
+  padding-top: 8px;
+  text-align: center;
+}
+
+/* ============================================================
+   SECTION 7 — ENTREGABLES
+   ============================================================ */
+.deliverables-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-top: 8px;
+}
+
+.dlv-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  padding: 24px;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  transition: border-color var(--tr), transform var(--tr);
+}
+
+.dlv-item:hover {
+  border-color: var(--accent-border);
+  transform: translateY(-2px);
+}
+
+.dlv-check {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.dlv-check svg {
+  width: 11px;
+  height: 11px;
+  stroke: #080808;
+  stroke-width: 2.8;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.dlv-text h4 {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 4px;
+}
+
+.dlv-text p {
+  font-size: 0.78rem;
+  color: var(--gray-2);
+  line-height: 1.5;
+}
+
+/* ============================================================
+   SECTION 8 — INVERSIÓN
+   ============================================================ */
+.pricing-wrap {
+  max-width: 680px;
+  margin-inline: auto;
+}
+
+.pricing-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-xl);
+  padding: 56px 52px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.pricing-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+}
+
+.pricing-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 14px;
+  background: var(--accent-dim);
+  border-radius: 999px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 24px;
+}
+
+.pricing-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 10px;
+}
+
+.pricing-lead {
+  font-size: 0.88rem;
+  color: var(--gray-2);
+  line-height: 1.65;
+  margin-bottom: 38px;
+  max-width: 440px;
+  margin-inline: auto;
+}
+
+.pricing-amount {
+  margin-bottom: 36px;
+}
+
+.pricing-from {
+  font-size: 0.72rem;
+  color: var(--gray-2);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 4px;
+}
+
+.pricing-num {
+  font-family: var(--fh);
+  font-size: clamp(2.8rem, 6vw, 4.2rem);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  color: var(--white);
+  line-height: 1;
+}
+
+.pricing-period {
+  font-size: 0.82rem;
+  color: var(--gray-2);
+  margin-top: 8px;
+}
+
+.pricing-cta-wrap {
+  margin-bottom: 28px;
+}
+
+.pricing-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  text-align: left;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--r-sm);
+  padding: 16px 20px;
+  font-size: 0.78rem;
+  color: var(--gray-1);
+  line-height: 1.6;
+}
+
+.pricing-note-ico {
+  flex-shrink: 0;
+  font-size: 0.95rem;
+  margin-top: 1px;
+}
+
+/* ============================================================
+   SECTION 9 — FAQ
+   ============================================================ */
+.faq-list {
+  max-width: 760px;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.faq-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  overflow: hidden;
+  transition: border-color var(--tr);
+}
+
+.faq-item.is-open { border-color: var(--accent-border); }
+
+.faq-q {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 22px 28px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+}
+
+.faq-q-text {
+  font-family: var(--fh);
+  font-size: 0.93rem;
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.4;
+}
+
+.faq-ico {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid var(--border-h);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--gray-2);
+  font-size: 1.1rem;
+  line-height: 1;
+  transition: var(--tr);
+}
+
+.faq-item.is-open .faq-ico {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #080808;
+  transform: rotate(45deg);
+}
+
+.faq-ans {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s var(--ease);
+}
+
+.faq-item.is-open .faq-ans { max-height: 350px; }
+
+.faq-ans-inner {
+  padding: 0 28px 24px;
+  font-size: 0.9rem;
+  color: var(--gray-1);
+  line-height: 1.72;
+}
+
+/* ============================================================
+   SECTION 10 — CTA FINAL
+   ============================================================ */
+.cta-final {
+  padding-block: 128px;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-final::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 80% at 50% 60%, rgba(53, 212, 174, 0.06) 0%, transparent 55%);
+  pointer-events: none;
+}
+
+.cta-inner {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 680px;
+  margin-inline: auto;
+}
+
+.cta-badge { margin-inline: auto; margin-bottom: 28px; }
+
+.cta-title {
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: var(--white);
+  margin-bottom: 20px;
+}
+
+.cta-desc {
+  font-size: 1.05rem;
+  color: var(--gray-1);
+  line-height: 1.7;
+  margin-bottom: 48px;
+}
+
+.cta-btns {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.lp-footer {
+  background: var(--bg-base);
+  border-top: 1px solid var(--border);
+  padding: 36px 0;
+}
+
+.footer-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.footer-logo {
+  font-family: var(--fh);
+  font-weight: 800;
+  font-size: 0.95rem;
+  color: var(--white);
+}
+
+.footer-logo .fl-accent { color: var(--accent); }
+
+.footer-nav {
+  display: flex;
+  gap: 22px;
+}
+
+.footer-nav a {
+  font-size: 0.8rem;
+  color: var(--gray-2);
+  transition: color var(--tr);
+}
+
+.footer-nav a:hover { color: var(--white); }
+
+.footer-copy {
+  font-size: 0.74rem;
+  color: var(--gray-3);
+}
+
+/* ============================================================
+   SCROLL REVEAL
+   ============================================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 0.65s var(--ease), transform 0.65s var(--ease);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.rd1 { transition-delay: 0.08s; }
+.rd2 { transition-delay: 0.18s; }
+.rd3 { transition-delay: 0.28s; }
+.rd4 { transition-delay: 0.38s; }
+
+/* ============================================================
+   RESPONSIVE — TABLET (≤ 900px)
+   ============================================================ */
+@media (max-width: 900px) {
+  .lp-section { padding-block: 76px; }
+
+  .nav-links { display: none; }
+
+  .diag-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .vs-sep {
+    flex-direction: row;
+    padding-block: 4px;
+    padding-inline: 0;
+  }
+
+  .vs-line {
+    height: 1px;
+    width: 48px;
+  }
+
+  .sol-flow {
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .sol-arrow {
+    transform: rotate(90deg);
+    justify-content: center;
+    padding-inline: 0;
+    padding-block: 2px;
+  }
+
+  .svc-grid { grid-template-columns: 1fr; }
+
+  .method-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 36px;
+  }
+
+  .method-grid::before { display: none; }
+
+  .metrics-layout { grid-template-columns: 1fr; }
+
+  .deliverables-grid { grid-template-columns: 1fr 1fr; }
+
+  .pricing-card { padding: 44px 36px; }
+
+  .sol-insight { flex-direction: column; gap: 14px; }
+}
+
+/* ============================================================
+   RESPONSIVE — MOBILE (≤ 580px)
+   ============================================================ */
+@media (max-width: 580px) {
+  .lp-wrap { padding-inline: 16px; }
+  .lp-section { padding-block: 60px; }
+
+  .lp-hero { padding-top: 80px; }
+
+  .hero-ctas { flex-direction: column; align-items: stretch; }
+  .hero-ctas .btn { justify-content: center; }
+  .hero-stats { gap: 22px; }
+
+  .diag-grid { gap: 14px; }
+  .prob-card { padding: 24px 20px; }
+  .conclusion-block { padding: 22px 20px; }
+
+  .sol-insight { padding: 24px 20px; }
+
+  .svc-card { padding: 30px 24px; }
+
+  .method-grid { grid-template-columns: 1fr; }
+
+  .metrics-sub-grid { grid-template-columns: 1fr; }
+
+  .deliverables-grid { grid-template-columns: 1fr; }
+
+  .pricing-card { padding: 36px 24px; }
+
+  .faq-q { padding: 18px 20px; }
+  .faq-ans-inner { padding: 0 20px 20px; }
+
+  .cta-final { padding-block: 80px; }
+  .cta-btns { flex-direction: column; }
+  .cta-btns .btn { width: 100%; justify-content: center; }
+
+  .footer-row { flex-direction: column; text-align: center; }
+  .footer-nav { flex-wrap: wrap; justify-content: center; }
+
+  .sec-head { margin-bottom: 44px; }
+}
+</style>
+</head>
+<body>
+
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WF2DG4B7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<!-- ============================================================
+     NAVEGACIÓN
+     ============================================================ -->
+<nav class="lp-nav" id="lpNav" aria-label="Navegación principal">
+  <div class="lp-wrap">
+    <div class="nav-row">
+      <a href="https://marianocalandra.com" class="nav-logo" aria-label="Volver al inicio — Mariano Calandra">
+        <img src="/img/favicon16x16.png" alt="MC" width="26" height="26">
+        Mariano&nbsp;<span class="nl-accent">Calandra</span>
+      </a>
+      <div class="nav-links" role="navigation">
+        <a href="#diagnostico">El problema</a>
+        <a href="#solucion">La solución</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#metodologia">Metodología</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      <a href="#cta-final" class="btn btn-main">Agendar sesión →</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============================================================
+     SECCIÓN 1 — HERO / PORTADA
+     ============================================================ -->
+<section class="lp-hero" id="home" aria-labelledby="hero-heading">
+  <div class="hero-bg" aria-hidden="true">
+    <div class="hero-bg-grad"></div>
+    <div class="hero-bg-grid"></div>
+  </div>
+
+  <div class="lp-wrap">
+    <div class="hero-inner">
+
+      <div class="hero-badge hanim hd1">
+        <div class="badge-pill">
+          <span class="badge-dot" aria-hidden="true"></span>
+          Enfoque Híbrido de Marketing Digital
+        </div>
+      </div>
+
+      <h1 class="hero-title hanim hd2" id="hero-heading">
+        Sistema de <span class="c-accent">Atracción</span><br>y Conversión Digital
+      </h1>
+
+      <p class="hero-sub hanim hd3">
+        Marketing claro. Crecimiento real. Optimizamos tu contenido para retener audiencia y escalamos tus anuncios para generar ventas.
+      </p>
+
+      <div class="hero-ctas hanim hd4">
+        <a href="#cta-final" class="btn btn-main btn-lg">Agendar Sesión de Diagnóstico →</a>
+        <a href="#servicios" class="btn btn-ghost btn-lg">Ver servicios</a>
+      </div>
+
+      <div class="hero-stats hanim hd5" aria-label="Métricas de impacto">
+        <div class="hero-stat">
+          <strong>−35%</strong>
+          <span>Reducción en CPC</span>
+        </div>
+        <div class="hero-stat">
+          <strong>+2.8×</strong>
+          <span>ROAS promedio</span>
+        </div>
+        <div class="hero-stat">
+          <strong>−40%</strong>
+          <span>Costo de adquisición</span>
+        </div>
+        <div class="hero-stat">
+          <strong>+65%</strong>
+          <span>Retención de video</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     SECCIÓN 2 — DIAGNÓSTICO / EL PROBLEMA
+     ============================================================ -->
+<section class="lp-section lp-section-alt" id="diagnostico" aria-labelledby="diag-heading">
+  <div class="lp-wrap">
+
+    <div class="sec-head reveal">
+      <p class="eyebrow">El diagnóstico</p>
+      <h2 class="sec-title" id="diag-heading">¿Te suena familiar?</h2>
+      <p class="sec-desc">La mayoría de los negocios cae en uno de estos dos errores. A veces, en los dos al mismo tiempo.</p>
+    </div>
+
+    <div class="diag-grid">
+
+      <div class="prob-card reveal">
+        <div class="prob-icon" aria-hidden="true">📹</div>
+        <h3>El creador sin impacto</h3>
+        <p>Invertís horas en producción de videos orgánicos de alto valor… y el algoritmo simplemente los ignora. El contenido es bueno, pero nadie lo ve más allá de tu círculo.</p>
+      </div>
+
+      <div class="vs-sep" aria-hidden="true">
+        <div class="vs-line"></div>
+        <div class="vs-circle">VS</div>
+        <div class="vs-line"></div>
+      </div>
+
+      <div class="prob-card reveal rd2">
+        <div class="prob-icon" aria-hidden="true">📉</div>
+        <h3>El anunciante que pierde plata</h3>
+        <p>Pagás anuncios pero el creativo es aburrido: la gente lo pasa en los primeros 2 segundos. El presupuesto se consume sin generar resultados que puedas defender.</p>
+      </div>
+
+    </div>
+
+    <div class="conclusion-block reveal">
+      <p>
+        <span class="c-accent">El contenido sin pauta es invisible.</span>
+        &ensp;La pauta sin contenido estratégico es cara.
+        &ensp;Ninguno de los dos funciona solo.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     SECCIÓN 3 — LA SOLUCIÓN / FILOSOFÍA
+     ============================================================ -->
+<section class="lp-section" id="solucion" aria-labelledby="sol-heading">
+  <div class="lp-wrap">
+
+    <div class="sec-head reveal">
+      <p class="eyebrow">La filosofía</p>
+      <h2 class="sec-title" id="sol-heading">El Enfoque Híbrido</h2>
+      <p class="sec-desc">No separamos contenido de pauta. Los hacemos trabajar en sinergía para que cada peso invertido multiplique su impacto.</p>
+    </div>
+
+    <div class="sol-flow reveal">
+      <div class="sol-step">
+        <span class="sol-step-icon" aria-hidden="true">🎯</span>
+        <h3>Contenido de Alto Valor</h3>
+        <p>Guiones estratégicos con hooks de retención y edición dinámica que engancha desde el primer segundo.</p>
+      </div>
+      <div class="sol-arrow" aria-hidden="true">→</div>
+      <div class="sol-step">
+        <span class="sol-step-icon" aria-hidden="true">⚡</span>
+        <h3>Piezas de Alto Rendimiento</h3>
+        <p>Identificamos cuáles piezas orgánicas generan mayor retención real y engagement de calidad.</p>
+      </div>
+      <div class="sol-arrow" aria-hidden="true">→</div>
+      <div class="sol-step">
+        <span class="sol-step-icon" aria-hidden="true">💰</span>
+        <h3>Anuncios más Rentables</h3>
+        <p>Las transformamos en anuncios pagos que convierten porque ya probaron funcionar orgánicamente.</p>
+      </div>
+    </div>
+
+    <div class="sol-insight reveal">
+      <div class="sol-insight-icon" aria-hidden="true">💡</div>
+      <div>
+        <h3>¿Por qué baja el CAC?</h3>
+        <p>
+          Cuando pagas pauta con contenido que ya demostró retención orgánica, el algoritmo lo premia con menor costo por resultado. Mejor calidad de audiencia, más conversiones al mismo presupuesto. El Costo de Adquisición de Cliente (CAC) baja porque el creativo hace el trabajo pesado <em>antes</em> de que gastes el presupuesto de pauta.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     SECCIÓN 4 — SERVICIOS / LA OFERTA UNIFICADA
+     ============================================================ -->
+<section class="lp-section lp-section-alt" id="servicios" aria-labelledby="svc-heading">
+  <div class="lp-wrap">
+
+    <div class="sec-head reveal">
+      <p class="eyebrow">La oferta</p>
+      <h2 class="sec-title" id="svc-heading">Dos pilares. Un sistema.</h2>
+      <p class="sec-desc">Cada servicio potencia al otro. No vendemos piezas sueltas; entregamos un sistema de crecimiento integrado.</p>
+    </div>
+
+    <div class="svc-grid">
+
+      <!-- PILAR 1 -->
+      <div class="svc-card reveal">
+        <div class="svc-pilar-num">Pilar 01</div>
+        <h3>Estrategia de Contenido y Retención</h3>
+        <p class="svc-desc">Producción estratégica orientada a retener audiencia y construir autoridad de marca con contenido que funciona.</p>
+        <div class="svc-items">
+          <div class="svc-item">
+            <div class="svc-item-icon" aria-hidden="true">✂️</div>
+            <div class="svc-item-text">
+              <h4>Curación Editorial</h4>
+              <p>Temas, formatos y frecuencia calibrados según tu audiencia, nicho y etapa del negocio.</p>
+            </div>
+          </div>
+          <div class="svc-item">
+            <div class="svc-item-icon" aria-hidden="true">📝</div>
+            <div class="svc-item-text">
+              <h4>Guiones con Hooks de 3 Segundos</h4>
+              <p>Estructura narrativa probada que detiene el scroll en el instante crítico del primer contacto.</p>
+            </div>
+          </div>
+          <div class="svc-item">
+            <div class="svc-item-icon" aria-hidden="true">🎬</div>
+            <div class="svc-item-text">
+              <h4>Edición Dinámica</h4>
+              <p>Corte rítmico, captions animados y postproducción que maximiza el tiempo de retención.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PILAR 2 -->
+      <div class="svc-card reveal rd2">
+        <div class="svc-pilar-num">Pilar 02</div>
+        <h3>Optimización de Pauta y Performance</h3>
+        <p class="svc-desc">Gestión estratégica de anuncios pagos con foco en métricas reales: ROI, CPC, ROAS y conversión efectiva.</p>
+        <div class="svc-items">
+          <div class="svc-item">
+            <div class="svc-item-icon" aria-hidden="true">📊</div>
+            <div class="svc-item-text">
+              <h4>Montaje en Meta y Google Ads</h4>
+              <p>Configuración, estructura y lanzamiento de campañas donde está tu cliente ideal.</p>
+            </div>
+          </div>
+          <div class="svc-item">
+            <div class="svc-item-icon" aria-hidden="true">🔄</div>
+            <div class="svc-item-text">
+              <h4>Estrategias de Retargeting</h4>
+              <p>Recuperamos audiencias calientes y las llevamos por el funnel hasta la conversión.</p>
+            </div>
+          </div>
+          <div class="svc-item">
+            <div class="svc-item-icon" aria-hidden="true">📈</div>
+            <div class="svc-item-text">
+              <h4>Optimización Diaria de ROI</h4>
+              <p>Monitoreo constante, ajustes de puja y creativos para que cada peso trabaje al máximo.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Conector entre pilares -->
+      <div class="svc-connector" aria-hidden="true">
+        <div class="svc-conn-line"></div>
+        <div class="svc-conn-badge">El contenido nutre a la pauta · La pauta amplifica el contenido</div>
+        <div class="svc-conn-line"></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     SECCIÓN 5 — METODOLOGÍA DE TRABAJO
+     ============================================================ -->
+<section class="lp-section" id="metodologia" aria-labelledby="meto-heading">
+  <div class="lp-wrap">
+
+    <div class="sec-head reveal">
+      <p class="eyebrow">Cómo trabajamos</p>
+      <h2 class="sec-title" id="meto-heading">Metodología paso a paso</h2>
+      <p class="sec-desc">Un proceso claro, predecible y diseñado para que veas resultados desde el primer mes de trabajo conjunto.</p>
+    </div>
+
+    <div class="method-grid" role="list">
+
+      <div class="mstep reveal" role="listitem">
+        <div class="mstep-num" aria-hidden="true">
+          01
+          <span class="mstep-emoji">🔍</span>
+        </div>
+        <h3>Auditoría e Identidad</h3>
+        <p>Analizamos tu negocio, audiencia, canales actuales y competencia para encontrar las palancas reales de crecimiento.</p>
+      </div>
+
+      <div class="mstep reveal rd1" role="listitem">
+        <div class="mstep-num" aria-hidden="true">
+          02
+          <span class="mstep-emoji">🎥</span>
+        </div>
+        <h3>Producción Estratégica</h3>
+        <p>Vos grabás. Nosotros editamos. Armamos los guiones para que grabar sea simple y el resultado sea poderoso.</p>
+      </div>
+
+      <div class="mstep reveal rd2" role="listitem">
+        <div class="mstep-num" aria-hidden="true">
+          03
+          <span class="mstep-emoji">🚀</span>
+        </div>
+        <h3>Distribución y Pauta</h3>
+        <p>Publicamos el contenido, lanzamos las campañas y llevamos las mejores piezas al público objetivo con inversión inteligente.</p>
+      </div>
+
+      <div class="mstep reveal rd3" role="listitem">
+        <div class="mstep-num" aria-hidden="true">
+          04
+          <span class="mstep-emoji">📊</span>
+        </div>
+        <h3>Métricas y Crecimiento</h3>
+        <p>Dashboard de resultados, optimización continua y reunión mensual para revisar, aprender y escalar lo que funciona.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     SECCIÓN 6 — CASOS DE ÉXITO / MÉTRICAS DE IMPACTO
+     ============================================================ -->
+<section class="lp-section lp-section-alt" id="resultados" aria-labelledby="metrics-heading">
+  <div class="lp-wrap">
+
+    <div class="sec-head reveal">
+      <p class="eyebrow">Resultados reales</p>
+      <h2 class="sec-title" id="metrics-heading">Métricas de impacto</h2>
+      <p class="sec-desc">Números concretos obtenidos con clientes reales aplicando el enfoque híbrido de contenido + pauta.</p>
+    </div>
+
+    <div class="metrics-layout">
+
+      <div class="metric-hero reveal">
+        <p class="metric-hero-lbl">Caso destacado — CPC optimizado</p>
+        <p class="metric-hero-num"><span class="c-accent">−</span>35%</p>
+        <p class="metric-hero-desc">
+          Reducción del costo por clic optimizando los ganchos de retención en el creativo de anuncios. Mismo presupuesto, más resultados.
+        </p>
+      </div>
+
+      <div>
+        <div class="metrics-sub-grid">
+          <div class="mcard reveal">
+            <p class="mcard-num"><span class="c-accent">+</span>2.8<span class="c-accent">×</span></p>
+            <p class="mcard-desc">ROAS promedio en campañas de performance con creativos de retención</p>
+          </div>
+          <div class="mcard reveal rd1">
+            <p class="mcard-num"><span class="c-accent">−</span>40<span class="c-accent">%</span></p>
+            <p class="mcard-desc">Reducción del Costo de Adquisición de Cliente en los primeros 90 días</p>
+          </div>
+          <div class="mcard reveal rd2">
+            <p class="mcard-num"><span class="c-accent">+</span>65<span class="c-accent">%</span></p>
+            <p class="mcard-desc">Aumento en retención media de video aplicando hooks de 3 segundos</p>
+          </div>
+          <div class="mcard reveal rd3">
+            <p class="mcard-num">×<span class="c-accent">3</span></p>
+            <p class="mcard-desc">Multiplicación de alcance orgánico al publicar con estrategia editorial definida</p>
+          </div>
+        </div>
+        <p class="metrics-disclaimer">* Los resultados varían según industria, presupuesto de pauta y punto de partida de cada cliente.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     SECCIÓN 7 — ENTREGABLES MENSUALES
+     ============================================================ -->
+<section class="lp-section" id="entregables" aria-labelledby="dlv-heading">
+  <div class="lp-wrap">
+
+    <div class="sec-head reveal">
+      <p class="eyebrow">Qué recibís cada mes</p>
+      <h2 class="sec-title" id="dlv-heading">Entregables mensuales</h2>
+      <p class="sec-desc">Todo lo que incluye el fee mensual. Sin sorpresas, sin letra chica, sin excusas.</p>
+    </div>
+
+    <div class="deliverables-grid">
+
+      <div class="dlv-item reveal">
+        <div class="dlv-check" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <div class="dlv-text">
+          <h4>8 Videos cortos editados</h4>
+          <p>Postproducción dinámica, captions animados y formato optimizado por plataforma.</p>
+        </div>
+      </div>
+
+      <div class="dlv-item reveal rd1">
+        <div class="dlv-check" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <div class="dlv-text">
+          <h4>8 Guiones estructurados con hooks</h4>
+          <p>Estructura narrativa, hook de 3 segundos y CTA integrado en cada pieza.</p>
+        </div>
+      </div>
+
+      <div class="dlv-item reveal rd2">
+        <div class="dlv-check" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <div class="dlv-text">
+          <h4>Gestión constante de anuncios</h4>
+          <p>Monitoreo diario de Meta Ads y/o Google Ads con optimizaciones en tiempo real.</p>
+        </div>
+      </div>
+
+      <div class="dlv-item reveal">
+        <div class="dlv-check" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <div class="dlv-text">
+          <h4>Dashboard de métricas mensual</h4>
+          <p>Reporte completo de KPIs: alcance, retención, CPC, ROAS y conversiones. Sin humo.</p>
+        </div>
+      </div>
+
+      <div class="dlv-item reveal rd1">
+        <div class="dlv-check" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <div class="dlv-text">
+          <h4>Reunión mensual de revisión</h4>
+          <p>Análisis de resultados, ajuste de estrategia y prioridades para el próximo mes.</p>
+        </div>
+      </div>
+
+      <div class="dlv-item reveal rd2">
+        <div class="dlv-check" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <div class="dlv-text">
+          <h4>Canal de comunicación directa</h4>
+          <p>Acceso para consultas, ajustes urgentes y revisión de copies durante el mes.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     SECCIÓN 8 — INVERSIÓN Y TÉRMINOS
+     ============================================================ -->
+<section class="lp-section lp-section-alt" id="inversion" aria-labelledby="price-heading">
+  <div class="lp-wrap">
+
+    <div class="sec-head reveal" style="text-align:center;">
+      <p class="eyebrow" style="justify-content:center;">Inversión</p>
+      <h2 class="sec-title" id="price-heading">Transparencia total</h2>
+      <p class="sec-desc" style="margin-inline:auto;">Sin paquetes confusos ni costos ocultos. Una inversión clara que escala junto con tus resultados.</p>
+    </div>
+
+    <div class="pricing-wrap reveal">
+      <div class="pricing-card">
+        <div class="pricing-tag">Fee mensual</div>
+        <p class="pricing-name">Sistema de Atracción y Conversión Digital</p>
+        <p class="pricing-lead">
+          Incluye los dos pilares de manera integrada: Estrategia de Contenido + Optimización de Pauta. Trabajo en conjunto, no servicios separados.
+        </p>
+
+        <div class="pricing-amount">
+          <p class="pricing-from">Desde</p>
+          <p class="pricing-num">USD&thinsp;[Consultar]</p>
+          <p class="pricing-period">por mes · IVA no incluido</p>
+        </div>
+
+        <div class="pricing-cta-wrap">
+          <a href="#cta-final" class="btn btn-main btn-lg">Agendar sesión para cotizar →</a>
+        </div>
+
+        <div class="pricing-note">
+          <span class="pricing-note-ico" aria-hidden="true">ℹ️</span>
+          <span>
+            <strong>Nota sobre presupuesto publicitario:</strong> El monto destinado a pauta en Meta Ads y/o Google Ads se define bajo recomendación estratégica según el negocio y corre íntegramente por cuenta del cliente. No forma parte del fee de gestión mensual.
+          </span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     SECCIÓN 9 — FAQ ACCORDION
+     ============================================================ -->
+<section class="lp-section" id="faq" aria-labelledby="faq-heading">
+  <div class="lp-wrap">
+
+    <div class="sec-head reveal" style="text-align:center;">
+      <p class="eyebrow" style="justify-content:center;">FAQ</p>
+      <h2 class="sec-title" id="faq-heading">Preguntas frecuentes</h2>
+      <p class="sec-desc" style="margin-inline:auto;">Las dudas más comunes antes de tomar la decisión.</p>
+    </div>
+
+    <div class="faq-list">
+
+      <div class="faq-item reveal">
+        <button class="faq-q" aria-expanded="false" aria-controls="faq-ans-1">
+          <span class="faq-q-text">¿Tengo que aparecer en cámara?</span>
+          <span class="faq-ico" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-ans" id="faq-ans-1" role="region">
+          <div class="faq-ans-inner">
+            Sí, y es por una razón estratégica: la autenticidad humana genera confianza y ventas a una escala que ningún avatar o texto puede replicar. Lo que hacemos es armar los guiones para que grabar sea lo más simple posible. Sabés exactamente qué decir, cómo empezar y cuánto tiempo filmar. Sin improvisar, sin actuar. Solo ser vos con una estructura clara que funciona.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item reveal rd1">
+        <button class="faq-q" aria-expanded="false" aria-controls="faq-ans-2">
+          <span class="faq-q-text">¿Cuánto es lo mínimo que debo invertir en anuncios?</span>
+          <span class="faq-ico" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-ans" id="faq-ans-2" role="region">
+          <div class="faq-ans-inner">
+            Sugerimos un mínimo de USD 500 por mes para testear con solidez y obtener datos estadísticamente relevantes. Con menos presupuesto el algoritmo tarda más en aprender y los resultados son menos confiables para tomar decisiones. Este monto corre directamente en tu cuenta publicitaria y es completamente independiente del fee de gestión mensual.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item reveal rd2">
+        <button class="faq-q" aria-expanded="false" aria-controls="faq-ans-3">
+          <span class="faq-q-text">¿Cuánto tiempo lleva ver resultados concretos?</span>
+          <span class="faq-ico" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-ans" id="faq-ans-3" role="region">
+          <div class="faq-ans-inner">
+            Las primeras métricas de contenido (retención, alcance orgánico) se ven desde la primera semana. Los resultados de pauta se estabilizan entre la semana 3 y 6, mientras el algoritmo aprende y optimiza. Los meses 2 y 3 suelen ser donde se registra el salto más significativo en ROAS y costo de adquisición.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item reveal rd3">
+        <button class="faq-q" aria-expanded="false" aria-controls="faq-ans-4">
+          <span class="faq-q-text">¿Puedo contratar solo uno de los dos pilares?</span>
+          <span class="faq-ico" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-ans" id="faq-ans-4" role="region">
+          <div class="faq-ans-inner">
+            El sistema está diseñado para funcionar de manera integrada y es donde se obtienen los mejores resultados. Sin embargo, según el estado actual de tu negocio, podemos evaluar un punto de entrada específico. Eso lo definimos en la sesión de diagnóstico inicial, sin costo ni compromiso.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     SECCIÓN 10 — CTA FINAL
+     ============================================================ -->
+<section class="cta-final" id="cta-final" aria-labelledby="cta-heading">
+  <div class="lp-wrap">
+    <div class="cta-inner">
+
+      <div class="badge-pill cta-badge reveal" style="margin-bottom:28px;">
+        <span class="badge-dot" aria-hidden="true"></span>
+        Próximo paso
+      </div>
+
+      <h2 class="cta-title reveal">
+        ¿Listo para unificar tu comunicación y
+        <span class="c-accent">acelerar tus ventas?</span>
+      </h2>
+
+      <p class="cta-desc reveal">
+        Agendá una sesión de diagnóstico sin costo. Analizamos tu negocio, identificamos las oportunidades reales y te explicamos exactamente cómo trabajaríamos juntos.
+      </p>
+
+      <div class="cta-btns reveal">
+        <a href="#calendly" class="btn btn-main btn-xl">Agendar Sesión de Diagnóstico →</a>
+        <a href="mailto:mariano.calandra7@gmail.com" class="btn btn-ghost btn-xl">Escribime directamente</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="lp-footer">
+  <div class="lp-wrap">
+    <div class="footer-row">
+      <div class="footer-logo">Mariano&nbsp;<span class="fl-accent">Calandra</span></div>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="https://marianocalandra.com">Inicio</a>
+        <a href="https://marianocalandra.com/quien-soy.html">Quién soy</a>
+        <a href="https://marianocalandra.com/contenido.html">Contenido</a>
+        <a href="https://marianocalandra.com/blog/">Blog</a>
+        <a href="https://marianocalandra.com/newsletter.html">Newsletter</a>
+      </nav>
+      <p class="footer-copy">© 2026 marianocalandra.com</p>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ============================================================
+     JAVASCRIPT MÍNIMO
+     ============================================================ -->
+<script>
+  // Quitar clase no-js
+  document.documentElement.classList.replace('no-js', 'js');
+
+  // Nav scroll state
+  const nav = document.getElementById('lpNav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('is-scrolled', window.scrollY > 40);
+  }, { passive: true });
+
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('is-visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-q').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      const isOpen = item.classList.contains('is-open');
+      // Cerrar todos
+      document.querySelectorAll('.faq-item').forEach(i => {
+        i.classList.remove('is-open');
+        i.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+      });
+      // Abrir el clickeado si estaba cerrado
+      if (!isOpen) {
+        item.classList.add('is-open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
