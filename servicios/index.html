@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Servicios de marketing digital de Mariano Calandra: Estrategia Híbrida, Consultoría Comercial y Paid Media. Elegí el que mejor se adapta a tu negocio.">
+<title>Servicios — Mariano Calandra</title>
+
+<link rel="canonical" href="https://marianocalandra.com/servicios/">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Servicios — Mariano Calandra">
+<meta property="og:description" content="Tres servicios de marketing digital diseñados para distintas etapas y necesidades. Estrategia Híbrida, Consultoría y Paid Media.">
+<meta property="og:url" content="https://marianocalandra.com/servicios/">
+<meta property="og:image" content="https://marianocalandra.com/img/mariano-hero.jpg">
+<meta property="og:locale" content="es_AR">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Servicios — Mariano Calandra">
+<meta name="twitter:description" content="Estrategia Híbrida, Consultoría Comercial y Paid Media. Elegí el servicio que mejor se adapta a tu negocio.">
+
+<script src="/gtm.js?v=__BUST__"></script>
+
+<link rel="icon" type="image/png" href="/img/favicon16x16.png">
+<link rel="apple-touch-icon" href="/img/favicon16x16.png">
+<meta name="theme-color" content="#0B0B0B">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/styles.css?v=__BUST__">
+
+<style>
+/* ================================================================
+   SERVICIOS HUB — Estilos de página
+   ================================================================ */
+
+/* Padding para compensar el header fijo */
+.sh-page {
+  padding-top: 136px;
+  padding-bottom: 100px;
+}
+
+/* Breadcrumb / back link */
+.sh-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-muted);
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 44px;
+  transition: var(--transition);
+}
+.sh-back:hover { color: var(--accent); }
+
+/* Encabezado de sección */
+.sh-eyebrow {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+  display: block;
+  margin-bottom: 14px;
+}
+
+.sh-hero-title {
+  font-size: clamp(36px, 5vw, 58px);
+  font-weight: 900;
+  line-height: 1.06;
+  margin-bottom: 18px;
+  max-width: 680px;
+  letter-spacing: -0.025em;
+}
+
+.sh-hero-title span { color: var(--accent); }
+
+.sh-hero-sub {
+  font-size: 17px;
+  color: var(--text-gray);
+  max-width: 580px;
+  line-height: 1.7;
+  margin-bottom: 0;
+}
+
+/* ── Grid de tarjetas ── */
+.sh-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  margin-top: 72px;
+  align-items: start;
+}
+
+/* Tarjeta base */
+.sh-card {
+  background: var(--bg-secondary);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: var(--radius-card);
+  padding: 34px 30px 30px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  transition: var(--transition);
+}
+
+.sh-card:hover {
+  border-color: rgba(255, 255, 255, 0.14);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25);
+}
+
+/* Línea decorativa superior */
+.sh-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.06);
+  transition: var(--transition);
+}
+
+/* Tarjeta destacada */
+.sh-card.is-featured {
+  background: linear-gradient(150deg,
+    rgba(53, 212, 174, 0.1) 0%,
+    rgba(53, 212, 174, 0.03) 50%,
+    var(--bg-secondary) 100%
+  );
+  border-color: var(--accent-border);
+}
+
+.sh-card.is-featured::before {
+  background: linear-gradient(90deg, var(--accent), transparent 70%);
+}
+
+.sh-card.is-featured:hover {
+  border-color: rgba(53, 212, 174, 0.5);
+  box-shadow: 0 16px 48px rgba(53, 212, 174, 0.12);
+}
+
+/* Badge + ícono */
+.sh-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 22px;
+}
+
+.sh-badge {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: var(--accent-soft);
+  border: 1px solid var(--accent-border);
+  border-radius: var(--radius-pill);
+  padding: 4px 11px;
+}
+
+.sh-card-icon {
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+/* Título y descripción */
+.sh-card-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 19px;
+  font-weight: 800;
+  color: var(--text-white);
+  margin-bottom: 12px;
+  line-height: 1.22;
+  letter-spacing: -0.01em;
+}
+
+.sh-card-desc {
+  font-size: 14px;
+  color: var(--text-gray);
+  line-height: 1.68;
+  margin-bottom: 22px;
+}
+
+/* Lista de features */
+.sh-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.sh-features li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--text-gray);
+  line-height: 1.55;
+}
+
+.sh-features li::before {
+  content: "✓";
+  color: var(--accent);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 11px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* Separador */
+.sh-sep {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.06);
+  margin-bottom: 22px;
+}
+
+/* Precio */
+.sh-price-block {
+  margin-bottom: 24px;
+}
+
+.sh-price-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+.sh-price-value {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 28px;
+  font-weight: 900;
+  color: var(--text-white);
+  line-height: 1;
+  margin-bottom: 4px;
+  letter-spacing: -0.02em;
+}
+
+.sh-price-note {
+  font-size: 11px;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* Botones */
+.sh-ctas {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: auto;
+}
+
+.sh-ctas .btn {
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+  font-size: 14px;
+}
+
+.sh-btn-primary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 13px 20px;
+  background: var(--accent);
+  color: #111111;
+  border-radius: var(--radius-pill);
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: var(--transition);
+  border: none;
+  cursor: pointer;
+}
+
+.sh-btn-primary:hover {
+  background: #3de0bb;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(53, 212, 174, 0.25);
+}
+
+.sh-btn-secondary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 20px;
+  background: transparent;
+  color: var(--text-gray);
+  border: 1.5px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-pill);
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.sh-btn-secondary:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* ── Bloque de cierre ── */
+.sh-footer-cta {
+  margin-top: 72px;
+  background: var(--bg-secondary);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: var(--radius-card);
+  padding: 52px 40px;
+  text-align: center;
+}
+
+.sh-footer-cta h2 {
+  font-size: clamp(22px, 3vw, 30px);
+  font-weight: 800;
+  color: var(--text-white);
+  margin-bottom: 12px;
+}
+
+.sh-footer-cta p {
+  font-size: 15px;
+  color: var(--text-gray);
+  line-height: 1.65;
+  max-width: 520px;
+  margin-inline: auto;
+  margin-bottom: 30px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1000px) {
+  .sh-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* La card featured ocupa las dos columnas para destacar */
+  .sh-card.is-featured {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 680px) {
+  .sh-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sh-card.is-featured {
+    grid-column: auto;
+  }
+
+  .sh-page { padding-top: 110px; padding-bottom: 72px; }
+  .sh-hero-title { font-size: 30px; }
+  .sh-footer-cta { padding: 36px 24px; }
+  .sh-card { padding: 26px 22px; }
+}
+</style>
+</head>
+<body>
+
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WF2DG4B7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<!-- ================================================================
+     HEADER / NAV
+     ================================================================ -->
+<header class="header" id="siteHeader">
+  <div class="container">
+    <div class="header-inner">
+
+      <a href="/" class="logo" aria-label="Mariano Calandra — Inicio">
+        <img src="/img/favicon16x16.png" alt="MC monograma" width="28" height="28">
+        <span class="logo-text">Mariano <span>Calandra</span></span>
+      </a>
+
+      <nav aria-label="Navegación principal">
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="/">Home</a></li>
+          <li><a href="/quien-soy.html">Quién soy</a></li>
+          <li><a href="/servicios/" style="color:var(--accent);">Servicios</a></li>
+          <li><a href="/contenido.html">Contenido</a></li>
+          <li><a href="/blog/">Blog</a></li>
+          <li><a href="/newsletter.html">Newsletter</a></li>
+          <li><a href="/#contacto" class="btn btn-primary nav-cta">Hablemos →</a></li>
+        </ul>
+      </nav>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Menú" aria-expanded="false">☰</button>
+
+    </div>
+  </div>
+</header>
+
+<!-- ================================================================
+     CONTENIDO PRINCIPAL
+     ================================================================ -->
+<main>
+<div class="container sh-page">
+
+  <!-- Breadcrumb -->
+  <a href="/" class="sh-back">← Volver al inicio</a>
+
+  <!-- Hero -->
+  <span class="sh-eyebrow">Servicios</span>
+  <h1 class="sh-hero-title">Todo lo que necesitás para <span>crecer</span>.</h1>
+  <p class="sh-hero-sub">
+    Tres servicios diseñados para distintas etapas y necesidades. Elegí el que se adapta a tu momento, o combiná los que necesitás.
+  </p>
+
+  <!-- ===== GRID DE SERVICIOS ===== -->
+  <div class="sh-grid">
+
+    <!-- ────────────────────────────────────────
+         TARJETA 1: ESTRATEGIA HÍBRIDA (featured)
+         ──────────────────────────────────────── -->
+    <article class="sh-card is-featured" aria-label="Servicio: Sistema de Atracción y Conversión Digital">
+
+      <div class="sh-card-top">
+        <span class="sh-badge">⭐ El más completo</span>
+        <span class="sh-card-icon" aria-hidden="true">⚡</span>
+      </div>
+
+      <h2 class="sh-card-title">Sistema de Atracción y Conversión Digital</h2>
+
+      <p class="sh-card-desc">
+        Marketing híbrido que fusiona contenido estratégico con pauta optimizada. El contenido nutre a los anuncios; los anuncios bajan el CAC y escalan las ventas.
+      </p>
+
+      <ul class="sh-features" aria-label="Qué incluye">
+        <li>8 videos cortos editados con edición dinámica / mes</li>
+        <li>8 guiones estructurados con hooks de 3 segundos</li>
+        <li>Gestión diaria de Meta Ads y/o Google Ads</li>
+        <li>Dashboard de métricas mensual (sin humo)</li>
+        <li>Reunión mensual de revisión y ajuste estratégico</li>
+      </ul>
+
+      <div class="sh-sep"></div>
+
+      <div class="sh-price-block">
+        <p class="sh-price-label">Fee mensual desde</p>
+        <p class="sh-price-value">USD [Consultar]</p>
+        <p class="sh-price-note">El presupuesto de pauta corre por cuenta del cliente.</p>
+      </div>
+
+      <div class="sh-ctas">
+        <a href="#calendly" class="sh-btn-primary">Contratar →</a>
+        <a href="/servicios/marketing-hibrido.html" class="sh-btn-secondary">Quiero más información</a>
+      </div>
+
+    </article>
+
+    <!-- ────────────────────────────────────────
+         TARJETA 2: CONSULTORÍA Y ESTRATEGIA
+         ──────────────────────────────────────── -->
+    <article class="sh-card" aria-label="Servicio: Consultoría y Estrategia Comercial">
+
+      <div class="sh-card-top">
+        <span class="sh-badge">Por proyecto</span>
+        <span class="sh-card-icon" aria-hidden="true">🧭</span>
+      </div>
+
+      <h2 class="sh-card-title">Consultoría y Estrategia Comercial</h2>
+
+      <p class="sh-card-desc">
+        Diagnóstico profundo de tu negocio y un plan de crecimiento claro y accionable. Para cuando necesitás claridad antes de escalar.
+      </p>
+
+      <ul class="sh-features" aria-label="Qué incluye">
+        <li>Auditoría comercial completa de tu negocio</li>
+        <li>Propuesta de valor y posicionamiento definidos</li>
+        <li>Plan de acción priorizado con métricas</li>
+        <li>Sesión de seguimiento post-diagnóstico</li>
+      </ul>
+
+      <div class="sh-sep"></div>
+
+      <div class="sh-price-block">
+        <p class="sh-price-label">Inversión desde</p>
+        <p class="sh-price-value">USD [Consultar]</p>
+        <p class="sh-price-note">Por sesión o proyecto según alcance.</p>
+      </div>
+
+      <div class="sh-ctas">
+        <a href="#calendly" class="sh-btn-primary">Contratar →</a>
+        <a href="/servicios/consultoria-estrategia.html" class="sh-btn-secondary">Quiero más información</a>
+      </div>
+
+    </article>
+
+    <!-- ────────────────────────────────────────
+         TARJETA 3: PAID MEDIA
+         ──────────────────────────────────────── -->
+    <article class="sh-card" aria-label="Servicio: Gestión de Paid Media">
+
+      <div class="sh-card-top">
+        <span class="sh-badge">Fee mensual</span>
+        <span class="sh-card-icon" aria-hidden="true">📊</span>
+      </div>
+
+      <h2 class="sh-card-title">Gestión de Publicidad Digital (Paid Media)</h2>
+
+      <p class="sh-card-desc">
+        Gestión profesional de campañas en Meta Ads y Google Ads con foco en ROI. Estructura, optimización y decisiones basadas en datos reales.
+      </p>
+
+      <ul class="sh-features" aria-label="Qué incluye">
+        <li>Estructura y lanzamiento de campañas</li>
+        <li>Optimización diaria de presupuesto y creativos</li>
+        <li>Estrategias de retargeting y funnels</li>
+        <li>Reporte mensual de resultados</li>
+      </ul>
+
+      <div class="sh-sep"></div>
+
+      <div class="sh-price-block">
+        <p class="sh-price-label">Fee de gestión desde</p>
+        <p class="sh-price-value">USD [Consultar]</p>
+        <p class="sh-price-note">El presupuesto de pauta corre por cuenta del cliente.</p>
+      </div>
+
+      <div class="sh-ctas">
+        <a href="#calendly" class="sh-btn-primary">Contratar →</a>
+        <a href="/servicios/paid-media.html" class="sh-btn-secondary">Quiero más información</a>
+      </div>
+
+    </article>
+
+  </div><!-- /sh-grid -->
+
+  <!-- ── CTA final ── -->
+  <div class="sh-footer-cta">
+    <h2>¿No sabés por cuál empezar?</h2>
+    <p>Agendá una sesión de diagnóstico gratuita y lo definimos juntos según tu negocio, tu etapa y tus objetivos concretos.</p>
+    <a href="#calendly" class="btn btn-primary" style="display:inline-flex;align-items:center;gap:8px;padding:16px 36px;font-size:15px;">
+      Agendar sesión de diagnóstico →
+    </a>
+  </div>
+
+</div>
+</main>
+
+<!-- Footer -->
+<footer style="background:var(--bg-secondary);border-top:1px solid rgba(255,255,255,0.06);padding:32px 0;">
+  <div class="container" style="display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;">
+    <a href="/" class="logo" aria-label="Inicio">
+      <img src="/img/favicon16x16.png" alt="MC" width="20" height="20">
+      <span class="logo-text" style="font-size:0.9rem;">Mariano <span>Calandra</span></span>
+    </a>
+    <nav aria-label="Footer" style="display:flex;gap:20px;flex-wrap:wrap;">
+      <a href="/" style="font-size:13px;color:var(--text-muted);transition:var(--transition);">Inicio</a>
+      <a href="/quien-soy.html" style="font-size:13px;color:var(--text-muted);transition:var(--transition);">Quién soy</a>
+      <a href="/contenido.html" style="font-size:13px;color:var(--text-muted);transition:var(--transition);">Contenido</a>
+      <a href="/blog/" style="font-size:13px;color:var(--text-muted);transition:var(--transition);">Blog</a>
+      <a href="/newsletter.html" style="font-size:13px;color:var(--text-muted);transition:var(--transition);">Newsletter</a>
+    </nav>
+    <p style="font-size:12px;color:var(--text-muted);">© 2026 marianocalandra.com</p>
+  </div>
+</footer>
+
+<script>
+  // Header scroll
+  const hdr = document.getElementById('siteHeader');
+  window.addEventListener('scroll', () => {
+    hdr.classList.toggle('scrolled', window.scrollY > 40);
+  }, { passive: true });
+
+  // Mobile menu toggle
+  const toggleBtn = document.getElementById('menuToggle');
+  const navMenu   = document.getElementById('navMenu');
+  if (toggleBtn && navMenu) {
+    toggleBtn.addEventListener('click', () => {
+      const isOpen = navMenu.classList.toggle('open');
+      toggleBtn.setAttribute('aria-expanded', isOpen);
+      toggleBtn.textContent = isOpen ? '✕' : '☰';
+    });
+  }
+</script>
+
+</body>
+</html>
