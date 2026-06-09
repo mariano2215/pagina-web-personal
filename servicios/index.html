@@ -339,8 +339,177 @@
   margin-bottom: 30px;
 }
 
+/* ── Servicios Individuales ── */
+.si-section {
+  margin-top: 88px;
+}
+
+.si-header {
+  margin-bottom: 40px;
+}
+
+.si-eyebrow {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  display: block;
+  margin-bottom: 10px;
+}
+
+.si-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(24px, 3vw, 34px);
+  font-weight: 800;
+  color: var(--text-white);
+  margin-bottom: 10px;
+  letter-spacing: -0.02em;
+}
+
+.si-desc {
+  font-size: 15px;
+  color: var(--text-gray);
+  line-height: 1.65;
+  max-width: 560px;
+}
+
+.si-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.si-card {
+  background: var(--bg-secondary);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: var(--radius-card);
+  padding: 28px 26px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  transition: var(--transition);
+}
+
+.si-card:hover {
+  border-color: rgba(255, 255, 255, 0.14);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+}
+
+.si-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.si-badge {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: var(--radius-pill);
+  padding: 3px 10px;
+}
+
+.si-icon {
+  font-size: 1.4rem;
+  line-height: 1;
+}
+
+.si-card-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--text-white);
+  margin-bottom: 10px;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+
+.si-card-desc {
+  font-size: 13px;
+  color: var(--text-gray);
+  line-height: 1.65;
+  margin-bottom: 20px;
+  flex: 1;
+}
+
+.si-sep {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.06);
+  margin-bottom: 18px;
+}
+
+.si-price {
+  margin-bottom: 20px;
+}
+
+.si-price-main {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+  font-weight: 900;
+  color: var(--text-white);
+  line-height: 1;
+  margin-bottom: 4px;
+  letter-spacing: -0.02em;
+}
+
+.si-price-type {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+}
+
+.si-price-extra {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 5px;
+  line-height: 1.5;
+}
+
+.si-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 16px;
+  background: transparent;
+  color: var(--accent);
+  border: 1.5px solid var(--accent-border);
+  border-radius: var(--radius-pill);
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: var(--transition);
+  margin-top: auto;
+  gap: 6px;
+}
+
+.si-cta:hover {
+  background: var(--accent);
+  color: #111111;
+  border-color: var(--accent);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(53, 212, 174, 0.2);
+}
+
 /* ── Responsive ── */
 @media (max-width: 1000px) {
+  .si-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
   .sh-grid {
     grid-template-columns: 1fr 1fr;
   }
@@ -352,6 +521,10 @@
 }
 
 @media (max-width: 680px) {
+  .si-grid {
+    grid-template-columns: 1fr;
+  }
+
   .sh-grid {
     grid-template-columns: 1fr;
   }
@@ -536,6 +709,93 @@
     </article>
 
   </div><!-- /sh-grid -->
+
+  <!-- ===== SERVICIOS INDIVIDUALES ===== -->
+  <div class="si-section">
+
+    <div class="si-header">
+      <span class="si-eyebrow">También disponibles</span>
+      <h2 class="si-title">Servicios individuales</h2>
+      <p class="si-desc">Soluciones puntuales para necesidades específicas. Sin contratos largos ni paquetes atados.</p>
+    </div>
+
+    <div class="si-grid">
+
+      <!-- Sitio web -->
+      <article class="si-card" aria-label="Creación de sitio web">
+        <div class="si-card-top">
+          <span class="si-badge">Pago único</span>
+          <span class="si-icon" aria-hidden="true">🌐</span>
+        </div>
+        <h3 class="si-card-title">Creación de Sitio Web</h3>
+        <p class="si-card-desc">Sitio profesional, rápido y responsive. Diseño a medida, optimizado para conversión y listo para escalar.</p>
+        <div class="si-sep"></div>
+        <div class="si-price">
+          <p class="si-price-main">USD 500</p>
+          <p class="si-price-type">Pago único</p>
+        </div>
+        <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0ia82BAbDyGthqzolde_NV2XPid5bfoAH0WuXI1NgmCFZyf5DvB7wPZBZAt2nrZRumUXYQJATZ?gv=true" class="si-cta" target="_blank" rel="noopener">
+          Agendar una llamada →
+        </a>
+      </article>
+
+      <!-- Landing Page -->
+      <article class="si-card" aria-label="Creación de landing page">
+        <div class="si-card-top">
+          <span class="si-badge">Pago único</span>
+          <span class="si-icon" aria-hidden="true">🎯</span>
+        </div>
+        <h3 class="si-card-title">Creación de Landing Page</h3>
+        <p class="si-card-desc">Landing de alta conversión diseñada para capturar leads o vender un servicio o producto específico.</p>
+        <div class="si-sep"></div>
+        <div class="si-price">
+          <p class="si-price-main">USD 300</p>
+          <p class="si-price-type">Pago único</p>
+        </div>
+        <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0ia82BAbDyGthqzolde_NV2XPid5bfoAH0WuXI1NgmCFZyf5DvB7wPZBZAt2nrZRumUXYQJATZ?gv=true" class="si-cta" target="_blank" rel="noopener">
+          Agendar una llamada →
+        </a>
+      </article>
+
+      <!-- Email Marketing -->
+      <article class="si-card" aria-label="Email Marketing">
+        <div class="si-card-top">
+          <span class="si-badge">Setup + mensual</span>
+          <span class="si-icon" aria-hidden="true">📧</span>
+        </div>
+        <h3 class="si-card-title">Email Marketing</h3>
+        <p class="si-card-desc">Configuración completa de tu plataforma, automatizaciones y estrategia de campañas mensuales para tu lista.</p>
+        <div class="si-sep"></div>
+        <div class="si-price">
+          <p class="si-price-main">USD 500</p>
+          <p class="si-price-type">Setup + cuenta</p>
+          <p class="si-price-extra">+ USD 150 / mes (fee de gestión)</p>
+        </div>
+        <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0ia82BAbDyGthqzolde_NV2XPid5bfoAH0WuXI1NgmCFZyf5DvB7wPZBZAt2nrZRumUXYQJATZ?gv=true" class="si-cta" target="_blank" rel="noopener">
+          Agendar una llamada →
+        </a>
+      </article>
+
+      <!-- SEO / GEO -->
+      <article class="si-card" aria-label="Posicionamiento SEO y GEO">
+        <div class="si-card-top">
+          <span class="si-badge">Mensual</span>
+          <span class="si-icon" aria-hidden="true">📍</span>
+        </div>
+        <h3 class="si-card-title">Posicionamiento SEO / GEO</h3>
+        <p class="si-card-desc">Estrategia de posicionamiento orgánico en Google y mapas para que te encuentren quienes ya buscan lo que ofrecés.</p>
+        <div class="si-sep"></div>
+        <div class="si-price">
+          <p class="si-price-main">USD 400</p>
+          <p class="si-price-type">Por mes</p>
+        </div>
+        <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0ia82BAbDyGthqzolde_NV2XPid5bfoAH0WuXI1NgmCFZyf5DvB7wPZBZAt2nrZRumUXYQJATZ?gv=true" class="si-cta" target="_blank" rel="noopener">
+          Agendar una llamada →
+        </a>
+      </article>
+
+    </div>
+  </div><!-- /si-section -->
 
   <!-- ── CTA final ── -->
   <div class="sh-footer-cta">
