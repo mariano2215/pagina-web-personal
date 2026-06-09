@@ -49,7 +49,7 @@
   .sv-list li strong { color: var(--text-white); font-weight: 600; }
 
   /* Modalidades */
-  .sv-modes { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 20px; }
+  .sv-modes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 20px; align-items: start; }
   .sv-mode { background: var(--bg-secondary); border: 1px solid rgba(255,255,255,0.08);
     border-radius: var(--radius-card); padding: 40px; position: relative; transition: var(--transition); }
   .sv-mode-featured { background: linear-gradient(135deg, rgba(53,212,174,0.10) 0%, rgba(53,212,174,0.02) 100%);
@@ -185,63 +185,64 @@
 <!-- MODALIDADES -->
 <section class="sv-section">
   <div class="container">
-    <h2 class="sv-title">Dos modalidades, según en qué momento estés</h2>
-    <p class="sv-subtitle">Elegí una sola, las dos o empezá por la primera y avanzá si tiene sentido.</p>
+    <h2 class="sv-title">Elegí cómo querés empezar</h2>
+    <p class="sv-subtitle">Desde un primer diagnóstico sin costo hasta un acompañamiento integral de tu empresa.</p>
 
     <div class="sv-modes">
 
-      <!-- Diagnóstico -->
+      <!-- Diagnóstico gratuito -->
       <div class="sv-mode">
-        <span class="sv-mode-tag">Modalidad 1 · Puntual</span>
-        <h3>Diagnóstico estratégico</h3>
-        <div class="sv-mode-price">USD 400</div>
-        <div class="sv-mode-dur">Duración · 2 semanas</div>
-        <p class="sv-mode-desc">Un diagnóstico profundo de tu negocio + plan estratégico documentado para que puedas ejecutarlo vos, con tu equipo o con quien quieras.</p>
+        <span class="sv-mode-tag">Para arrancar</span>
+        <h3>Diagnóstico gratuito</h3>
+        <div class="sv-mode-price">Gratis</div>
+        <div class="sv-mode-dur">Llamada · 30-45 min</div>
+        <p class="sv-mode-desc">Una primera llamada para entender tu negocio, detectar la oportunidad más clara y definir juntos por dónde conviene empezar.</p>
         <ul>
-          <li>2 reuniones de discovery (1.5 hs c/u)</li>
-          <li>Análisis de producto, mercado y oferta</li>
-          <li>Diagnóstico escrito (10-15 páginas)</li>
-          <li>Plan estratégico por trimestres</li>
-          <li>Roadmap de acciones priorizadas</li>
-          <li>Reunión de cierre con devolución</li>
+          <li>Llamada 1 a 1 con Mariano</li>
+          <li>Diagnóstico inicial de tu situación</li>
+          <li>Detección de la principal oportunidad</li>
+          <li>Recomendación de próximos pasos</li>
+          <li>Sin compromiso</li>
         </ul>
-        <a href="#contacto" class="btn btn-secondary">Quiero el diagnóstico →</a>
+        <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0ia82BAbDyGthqzolde_NV2XPid5bfoAH0WuXI1NgmCFZyf5DvB7wPZBZAt2nrZRumUXYQJATZ?gv=true" class="btn btn-secondary" target="_blank" rel="noopener">Agendá una llamada →</a>
       </div>
 
-      <!-- Mentoría -->
-      <div class="sv-mode sv-mode-featured">
-        <span class="sv-mode-badge">Más elegido</span>
-        <span class="sv-mode-tag">Modalidad 2 · Acompañamiento</span>
-        <h3>Mentoría estratégica</h3>
-        <div class="sv-mode-price">USD 600<span class="sv-mode-price-unit">/mes</span></div>
-        <div class="sv-mode-dur">Duración · 3 meses mínimo</div>
-        <p class="sv-mode-desc">Acompañamiento estratégico semanal para implementar y ajustar la estrategia mientras la ejecutás. Para no quedarte solo después del diagnóstico.</p>
+      <!-- Diagnóstico 3 meses -->
+      <div class="sv-mode">
+        <span class="sv-mode-tag">Diagnóstico continuo</span>
+        <h3>Diagnóstico 3 meses</h3>
+        <div class="sv-mode-price">USD 300<span class="sv-mode-price-unit">/mes</span></div>
+        <div class="sv-mode-dur">Duración · 3 meses</div>
+        <p class="sv-mode-desc">Diagnóstico profundo de tu negocio con insights accionables y una reunión mensual para revisar avances y ajustar el rumbo.</p>
         <ul>
-          <li>Diagnóstico inicial incluido</li>
-          <li>1 reunión semanal de trabajo (1 hora)</li>
-          <li>Plan estratégico vivo (se ajusta cada mes)</li>
-          <li>Revisión de campañas, contenido y proceso comercial</li>
-          <li>Soporte por WhatsApp en días hábiles</li>
-          <li>Reporte de avance mensual</li>
+          <li>Diagnóstico estratégico durante 3 meses</li>
+          <li>Insights y recomendaciones accionables</li>
+          <li>1 reunión por mes (seguimiento)</li>
+          <li>Plan de acción priorizado</li>
+          <li>Revisión de métricas y oportunidades</li>
         </ul>
-        <a href="#contacto" class="btn btn-primary">Empezar mentoría →</a>
+        <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0ia82BAbDyGthqzolde_NV2XPid5bfoAH0WuXI1NgmCFZyf5DvB7wPZBZAt2nrZRumUXYQJATZ?gv=true" class="btn btn-secondary" target="_blank" rel="noopener">Agendá una llamada →</a>
+      </div>
+
+      <!-- Mentoría estratégica -->
+      <div class="sv-mode sv-mode-featured">
+        <span class="sv-mode-badge">Más completo</span>
+        <span class="sv-mode-tag">Acompañamiento integral</span>
+        <h3>Mentoría estratégica</h3>
+        <div class="sv-mode-price">USD 1000<span class="sv-mode-price-unit">/mes</span></div>
+        <div class="sv-mode-dur">Acompañamiento mensual</div>
+        <p class="sv-mode-desc">Acompañamiento estratégico de todos los sectores de tu empresa, con cuatro reuniones por mes y un bonus de capacitación a elección.</p>
+        <ul>
+          <li>Estrategia de todos los sectores de la empresa</li>
+          <li>4 reuniones por mes</li>
+          <li>Plan estratégico vivo, ajustado cada mes</li>
+          <li>Revisión integral: marketing, ventas y procesos</li>
+          <li><strong>Bonus:</strong> curso de liderazgo, capacitación en procesos de IA para empresas o capacitación en ventas</li>
+        </ul>
+        <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0ia82BAbDyGthqzolde_NV2XPid5bfoAH0WuXI1NgmCFZyf5DvB7wPZBZAt2nrZRumUXYQJATZ?gv=true" class="btn btn-primary" target="_blank" rel="noopener">Agendá una llamada →</a>
       </div>
 
     </div>
-  </div>
-</section>
-
-<!-- QUÉ NO INCLUYE -->
-<section class="sv-section">
-  <div class="container">
-    <h2 class="sv-title">Qué NO incluye este servicio</h2>
-    <p class="sv-subtitle">Soy claro con los límites desde el día 1 para que no haya malentendidos:</p>
-    <ul class="sv-list">
-      <li>No incluye <strong>gestión operativa de campañas</strong>. Si querés que te lleve la pauta también, sumamos el servicio de Paid Media.</li>
-      <li>No incluye <strong>producción de contenido</strong> (videos, fotos, edición). Te indico qué hace falta, vos lo producís con tu equipo.</li>
-      <li>No incluye <strong>diseño gráfico</strong>. Si necesitás, te derivo a profesionales de confianza.</li>
-      <li>No es <strong>coaching</strong>. Es consultoría con foco comercial y de marketing. Hablamos de números, ofertas y procesos, no de mindset.</li>
-    </ul>
   </div>
 </section>
 
@@ -293,8 +294,9 @@
           <label for="modalidad">¿Qué modalidad te interesa? <span class="required">*</span></label>
           <select id="modalidad" name="modalidad" required>
             <option value="">Seleccioná una opción</option>
-            <option>Diagnóstico estratégico (USD 400 · 2 sem.)</option>
-            <option>Mentoría estratégica (USD 600/mes · 3 meses mín.)</option>
+            <option>Diagnóstico gratuito (llamada inicial)</option>
+            <option>Diagnóstico 3 meses (USD 300/mes)</option>
+            <option>Mentoría estratégica (USD 1000/mes)</option>
             <option>Todavía no sé, necesito que me orientes</option>
           </select>
         </div>
