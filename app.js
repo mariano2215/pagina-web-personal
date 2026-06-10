@@ -36,9 +36,8 @@ const translations = {
     // Nav
     'nav-home': 'Home',
     'nav-quien': 'About me',
-    'nav-proyectos': 'My projects',
+    'nav-proyectos': 'EPIGROUP',
     'nav-contacto': 'Contact',
-    'nav-hablemos': "Let's talk →",
 
     // Hero
     'hero-eyebrow': 'Clear marketing · Real growth',
@@ -152,7 +151,7 @@ const translations = {
     'chip-opt': 'Campaign optimization',
 
     // Proyectos
-    'proj-title': 'My projects',
+    'proj-title': 'EPIGROUP',
     'proj-subtitle': 'An ecosystem built from practice.',
     'proj-intro1': 'My projects all come from the same idea: <strong>doing marketing from real experience</strong>. Not just from theory, but from the process of building brands, selling products, growing communities, launching services and turning knowledge into systems that can help other businesses.',
     'proj-intro2': 'Each project represents a different part of my journey: graphic communication, integrated marketing and digital education.',
@@ -253,7 +252,7 @@ const translations = {
     'footer-col2-title': 'Contact',
     'footer-link-home': 'Home',
     'footer-link-quien': 'About me',
-    'footer-link-proyectos': 'My projects',
+    'footer-link-proyectos': 'EPIGROUP',
     'footer-link-contacto': 'Contact',
     'footer-link-email': 'Email',
     'footer-link-whatsapp': 'WhatsApp',
