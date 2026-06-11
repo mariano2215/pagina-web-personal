@@ -1,0 +1,639 @@
+Perfecto. Te dejo un prompt maestro para analizar sitios web de forma exhaustiva, con mirada de marketing, conversión, contenido, UX, branding, SEO, copywriting y estrategia comercial.
+
+Podés copiarlo y pegarlo cada vez que quieras analizar una web.
+
+⸻
+
+PROMPT MAESTRO PARA ANÁLISIS EXHAUSTIVO DE SITIOS WEB
+
+Actúa como un consultor senior de marketing digital, CRO, UX, branding, copywriting, SEO, paid media y estrategia comercial.
+
+Necesito que analices exhaustivamente el siguiente sitio web:
+
+Sitio web a analizar:
+[Pegar URL aquí]
+
+Tu objetivo es detectar lo mejor, lo peor, lo mejorable y lo más estratégico de la web, identificando insights útiles para marketing, ventas, comunicación, posicionamiento y conversión.
+
+Quiero que hagas un análisis profundo, detallado y accionable, no superficial.
+
+⸻
+
+1. Resumen ejecutivo del sitio
+
+Primero, dame una síntesis clara de:
+
+* Qué vende u ofrece la marca.
+* A quién parece dirigirse.
+* Qué problema resuelve.
+* Qué promesa principal comunica.
+* Qué tan clara es la propuesta de valor.
+* Qué impresión general transmite la web.
+* Qué tan preparada parece estar para convertir visitas en consultas, leads o ventas.
+
+Cerrá esta sección con un diagnóstico general en una frase:
+
+“Esta web hoy funciona principalmente como…”
+
+Ejemplo:
+“Esta web hoy funciona principalmente como una vidriera institucional, pero todavía no como una máquina de conversión.”
+
+⸻
+
+2. Propuesta de valor
+
+Analizá si la web responde rápido y claramente estas preguntas:
+
+* ¿Qué hace la empresa?
+* ¿Para quién lo hace?
+* ¿Qué beneficio concreto promete?
+* ¿Por qué debería elegirla frente a otras opciones?
+* ¿Qué diferencial real comunica?
+* ¿La propuesta es genérica o específica?
+* ¿Se entiende en menos de 5 segundos?
+
+Después, proponé una versión mejorada de la propuesta de valor en 3 opciones:
+
+1. Opción clara y directa.
+2. Opción más emocional.
+3. Opción más orientada a conversión.
+
+⸻
+
+3. Análisis del hero section
+
+Analizá la primera pantalla de la web, especialmente:
+
+* Título principal.
+* Subtítulo.
+* Imagen o recurso visual.
+* Botones de llamada a la acción.
+* Jerarquía visual.
+* Claridad del mensaje.
+* Nivel de impacto.
+* Promesa.
+* Fricción o confusión.
+
+Evaluá si el hero logra responder:
+
+* Qué es.
+* Para quién es.
+* Qué beneficio genera.
+* Qué acción debería tomar el usuario.
+
+Después, proponé una versión mejorada del hero con:
+
+* Headline.
+* Subheadline.
+* CTA principal.
+* CTA secundario.
+* Recomendación visual.
+
+⸻
+
+4. Ganchos de marketing detectados
+
+Identificá todos los ganchos interesantes de la web.
+
+Buscá elementos como:
+
+* Frases potentes.
+* Promesas claras.
+* Beneficios concretos.
+* Mensajes emocionales.
+* Pruebas sociales.
+* Urgencia.
+* Escasez.
+* Autoridad.
+* Garantías.
+* Comparaciones.
+* Diferenciales.
+* Historias.
+* Datos llamativos.
+* Objeciones bien resueltas.
+
+Separalos en una tabla:
+
+Gancho detectado	Dónde aparece	Por qué funciona	Cómo podría potenciarse
+
+⸻
+
+5. Lugares de retención y permanencia
+
+Analizá qué elementos de la web pueden hacer que el usuario se quede más tiempo navegando.
+
+Identificá:
+
+* Secciones interesantes.
+* Recursos visuales.
+* Videos.
+* Carruseles.
+* Casos de éxito.
+* Testimonios.
+* Comparativas.
+* Preguntas frecuentes.
+* Calculadoras.
+* Antes/después.
+* Galerías.
+* Contenido educativo.
+* Storytelling.
+* Elementos interactivos.
+* Recursos descargables.
+
+Luego evaluá:
+
+* Qué secciones retienen mejor.
+* Qué secciones pueden generar abandono.
+* Qué partes deberían moverse más arriba.
+* Qué contenido falta para aumentar permanencia.
+* Qué elementos podrían convertir mejor si estuvieran mejor ubicados.
+
+⸻
+
+6. Análisis de copywriting
+
+Analizá el texto de la web con mirada de copywriting estratégico.
+
+Evaluá:
+
+* Claridad.
+* Especificidad.
+* Nivel de persuasión.
+* Tono de voz.
+* Uso de beneficios vs características.
+* Uso de dolor/problema.
+* Uso de deseos/aspiraciones.
+* Uso de prueba social.
+* Uso de autoridad.
+* Uso de objeciones.
+* Uso de CTA.
+* Ritmo de lectura.
+* Frases memorables.
+* Frases genéricas o débiles.
+
+Después, armá una tabla:
+
+Texto actual	Problema o virtud	Versión mejorada
+
+Incluí al menos 10 mejoras de copy si el sitio tiene suficiente contenido.
+
+⸻
+
+7. Palabras clave y posicionamiento SEO
+
+Detectá las principales palabras clave que aparecen o deberían aparecer en la web.
+
+Separalas en:
+
+Palabras clave actuales
+
+* Keywords principales.
+* Keywords secundarias.
+* Keywords de marca.
+* Keywords transaccionales.
+* Keywords informativas.
+
+Palabras clave faltantes
+
+Proponé palabras clave que la web debería incorporar para mejorar posicionamiento orgánico.
+
+Clasificalas así:
+
+Keyword sugerida	Intención de búsqueda	Página o sección ideal	Prioridad
+
+También analizá:
+
+* Títulos H1, H2, H3.
+* Meta title potencial.
+* Meta description potencial.
+* Estructura semántica.
+* Oportunidades de blog o contenido educativo.
+* Oportunidades para páginas de servicio específicas.
+
+⸻
+
+8. Análisis de conversión / CRO
+
+Analizá qué tan bien convierte la web.
+
+Revisá:
+
+* Cantidad y calidad de CTAs.
+* Ubicación de botones.
+* Formularios.
+* WhatsApp.
+* Links de contacto.
+* Fricción en el proceso.
+* Claridad de la acción siguiente.
+* Incentivos para consultar.
+* Confianza antes del CTA.
+* Objeciones antes de la conversión.
+* Prueba social cerca del CTA.
+* Velocidad percibida.
+* Mobile-first.
+* Recorrido lógico del usuario.
+
+Respondé:
+
+* ¿Cuál parece ser la acción principal esperada?
+* ¿Está clara?
+* ¿Hay demasiadas acciones compitiendo?
+* ¿Dónde se pierden oportunidades de conversión?
+* ¿Qué cambios podrían aumentar consultas o ventas?
+
+Luego proponé:
+
+* 5 mejoras rápidas de conversión.
+* 5 mejoras estratégicas.
+* 5 experimentos A/B para testear.
+
+⸻
+
+9. Análisis visual, UX y diseño
+
+Evaluá:
+
+* Identidad visual.
+* Paleta de colores.
+* Tipografías.
+* Uso de imágenes.
+* Uso de íconos.
+* Espaciado.
+* Jerarquía.
+* Legibilidad.
+* Orden.
+* Profesionalismo.
+* Confianza visual.
+* Experiencia mobile.
+* Coherencia estética.
+* Consistencia de marca.
+* Calidad percibida.
+
+Después indicá:
+
+* Qué elementos visuales ayudan a vender.
+* Qué elementos visuales distraen.
+* Qué secciones se ven más fuertes.
+* Qué secciones se ven más débiles.
+* Qué podría mejorar la percepción de valor.
+
+⸻
+
+10. Análisis de autoridad y confianza
+
+Detectá si la web usa correctamente elementos de confianza como:
+
+* Testimonios.
+* Clientes.
+* Logos.
+* Casos de éxito.
+* Resultados.
+* Años de experiencia.
+* Certificaciones.
+* Medios donde apareció.
+* Garantías.
+* Equipo.
+* Fotos reales.
+* Reseñas.
+* Datos concretos.
+* Proceso de trabajo.
+* Preguntas frecuentes.
+* Políticas claras.
+
+Luego respondé:
+
+* ¿La marca parece confiable?
+* ¿Qué pruebas faltan?
+* ¿Qué objeciones del cliente no están resueltas?
+* ¿Qué elementos deberían agregarse para aumentar credibilidad?
+
+⸻
+
+11. Análisis del embudo de marketing
+
+Interpretá la web según el embudo:
+
+TOFU — Reconocimiento
+
+* ¿La web educa?
+* ¿Atrae usuarios que todavía no están listos para comprar?
+* ¿Tiene contenido útil?
+
+MOFU — Consideración
+
+* ¿Explica bien los servicios/productos?
+* ¿Compara opciones?
+* ¿Resuelve dudas?
+* ¿Muestra diferenciales?
+
+BOFU — Conversión
+
+* ¿Tiene CTAs claros?
+* ¿Muestra prueba social?
+* ¿Reduce riesgo?
+* ¿Hace fácil consultar/comprar?
+
+Luego indicá:
+
+* En qué etapa del embudo está más fuerte.
+* En qué etapa está más débil.
+* Qué contenidos faltan para cada etapa.
+
+⸻
+
+12. Análisis comercial
+
+Analizá la web como herramienta de ventas.
+
+Respondé:
+
+* ¿La oferta está bien presentada?
+* ¿Se entiende el valor?
+* ¿Hay paquetes, planes o precios?
+* ¿Hay un camino claro hacia la compra?
+* ¿El usuario sabe qué pasa después de consultar?
+* ¿La web califica clientes?
+* ¿La web ayuda al equipo comercial?
+* ¿Está pensada para vender o solo para informar?
+
+Después proponé mejoras para:
+
+* Aumentar consultas.
+* Mejorar calidad de leads.
+* Reducir dudas comerciales.
+* Acelerar decisiones.
+* Mejorar percepción de valor.
+
+⸻
+
+13. Análisis de secciones
+
+Revisá cada sección de la web y armá una tabla:
+
+Sección	Objetivo aparente	Qué funciona bien	Qué falla o podría mejorar	Recomendación
+
+Incluí todas las secciones relevantes:
+
+* Home.
+* Servicios/productos.
+* Nosotros.
+* Casos.
+* Blog.
+* Contacto.
+* Formularios.
+* Footer.
+* Menú.
+* Páginas internas relevantes.
+
+⸻
+
+14. Insights importantes detectados
+
+Extraé los insights más valiosos del sitio.
+
+Quiero insights del tipo:
+
+* “La web tiene una buena promesa, pero no la baja a beneficios concretos.”
+* “Hay señales de autoridad, pero están demasiado abajo.”
+* “El CTA aparece antes de construir suficiente confianza.”
+* “El sitio tiene buen diseño, pero poco argumento comercial.”
+* “La marca parece profesional, pero no diferencia claramente su oferta.”
+* “Hay buen contenido, pero no está conectado con un embudo de conversión.”
+
+Separalos en:
+
+Insights de marketing
+
+Insights de conversión
+
+Insights de comunicación
+
+Insights de UX
+
+Insights de SEO
+
+Insights de branding
+
+Insights comerciales
+
+⸻
+
+15. Puntos fuertes de la web
+
+Enumerá todo lo que la web hace bien.
+
+Dividilo en:
+
+* Buen marketing.
+* Buen diseño.
+* Buen copy.
+* Buena estructura.
+* Buenos CTAs.
+* Buena propuesta.
+* Buena retención.
+* Buena confianza.
+* Buen SEO.
+* Buen enfoque comercial.
+
+No seas genérico. Explicá por qué cada punto es fuerte.
+
+⸻
+
+16. Puntos débiles y oportunidades de mejora
+
+Enumerá los principales problemas encontrados.
+
+Para cada uno, indicá:
+
+Problema	Impacto en negocio	Prioridad	Solución recomendada
+
+Usá prioridades:
+
+* Alta.
+* Media.
+* Baja.
+
+⸻
+
+17. Qué copiaría o tomaría como inspiración
+
+Extraé lo mejor de la web para usar como referencia.
+
+Indicá:
+
+* Frases que valen la pena.
+* Secciones bien pensadas.
+* Recursos visuales útiles.
+* Ideas de estructura.
+* Ganchos replicables.
+* Formas de presentar la oferta.
+* Elementos de confianza.
+* CTAs interesantes.
+* Recursos para retención.
+
+⸻
+
+18. Qué eliminaría, cambiaría o movería
+
+Indicá claramente:
+
+Eliminaría
+
+Elementos innecesarios, repetidos, confusos o débiles.
+
+Cambiaría
+
+Mensajes, secciones, CTAs, estructura o diseño.
+
+Movería
+
+Secciones que deberían estar más arriba o más abajo.
+
+Explicá el motivo de cada decisión.
+
+⸻
+
+19. Recomendaciones accionables
+
+Dame un plan de mejora dividido en:
+
+Acciones inmediatas — 24 a 48 hs
+
+Cambios simples que pueden hacerse rápido.
+
+Acciones de corto plazo — 7 días
+
+Mejoras que requieren algo más de trabajo.
+
+Acciones estratégicas — 30 días
+
+Cambios más profundos de posicionamiento, contenido, SEO, UX o conversión.
+
+⸻
+
+20. Score general del sitio
+
+Calificá la web del 1 al 10 en cada área:
+
+Área	Puntaje	Justificación
+Claridad de propuesta	/10	
+Copywriting	/10	
+Diseño visual	/10	
+UX	/10	
+Conversión	/10	
+SEO	/10	
+Confianza	/10	
+Retención	/10	
+Posicionamiento	/10	
+Potencial comercial	/10	
+
+Después, dame un promedio general y una conclusión:
+
+“El sitio tiene alto/medio/bajo potencial porque…”
+
+⸻
+
+21. Conclusión final
+
+Cerrá con una conclusión clara y estratégica:
+
+* Qué es lo más valioso de la web.
+* Qué es lo más urgente a mejorar.
+* Qué oportunidad de marketing tiene.
+* Qué oportunidad de conversión tiene.
+* Qué insight principal debería llevarme de este análisis.
+
+Terminá con esta frase:
+
+“La mayor oportunidad de esta web está en…”
+
+⸻
+
+Instrucciones extra para el análisis
+
+No quiero un análisis genérico.
+
+Quiero que prestes atención a:
+
+* Frases que llaman la atención.
+* Detalles visuales.
+* Microcopy.
+* Botones.
+* Orden de las secciones.
+* Promesas.
+* Objeciones.
+* Señales de confianza.
+* Errores de claridad.
+* Oportunidades de posicionamiento.
+* Potenciales anuncios derivados de la web.
+* Ideas de contenido que surgen de la web.
+* Palabras que se repiten.
+* Mensajes que podrían transformarse en campañas.
+* Diferenciales ocultos.
+* Partes que funcionan bien aunque sean pequeñas.
+* Partes que podrían confundir al usuario.
+* Lugares donde el usuario podría abandonar.
+* Lugares donde el usuario podría convertirse.
+
+Usá criterio profesional y pensá como alguien que quiere sacar lo mejor de cada web para aprender, mejorar, vender más y construir mejores campañas.
+
+⸻
+
+Formato de entrega esperado
+
+Entregá el análisis con esta estructura:
+
+1. Resumen ejecutivo.
+2. Diagnóstico general.
+3. Propuesta de valor.
+4. Hero section.
+5. Ganchos de marketing.
+6. Lugares de retención.
+7. Copywriting.
+8. SEO y palabras clave.
+9. Conversión / CRO.
+10. UX y diseño.
+11. Autoridad y confianza.
+12. Embudo de marketing.
+13. Análisis comercial.
+14. Análisis por secciones.
+15. Insights importantes.
+16. Puntos fuertes.
+17. Puntos débiles.
+18. Qué copiaría como inspiración.
+19. Qué cambiaría.
+20. Recomendaciones accionables.
+21. Score final.
+22. Conclusión estratégica.
+
+⸻
+
+Versión corta para usar rápido
+
+Analizá exhaustivamente esta web: [URL].
+
+Actuá como consultor senior de marketing, UX, CRO, SEO, copywriting, paid media y estrategia comercial.
+
+Quiero que detectes:
+
+* Qué vende.
+* A quién se dirige.
+* Propuesta de valor.
+* Ganchos de marketing.
+* Frases potentes.
+* Lugares de retención.
+* CTAs.
+* Puntos fuertes.
+* Puntos débiles.
+* Palabras clave.
+* Oportunidades SEO.
+* Diseño y UX.
+* Conversión.
+* Confianza.
+* Objeciones no resueltas.
+* Qué copiaría como inspiración.
+* Qué cambiaría.
+* Qué insights importantes deja la web.
+* Qué campañas, contenidos o anuncios podrían salir de ese sitio.
+
+Dame un análisis profundo, con tablas, recomendaciones accionables y un score final del 1 al 10 por área.
