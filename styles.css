@@ -63,7 +63,7 @@ img {
 }
 
 .section {
-  padding: 120px 0;
+  padding: 80px 0;
 }
 
 .section-secondary {
@@ -75,7 +75,7 @@ img {
   height: 3px;
   background: var(--accent);
   border-radius: 999px;
-  margin-bottom: 24px;
+  margin-bottom: 16px;
 }
 
 /* ============================================
@@ -578,17 +578,17 @@ img {
    POSICIONAMIENTO
    ============================================ */
 .section-title {
-  font-size: clamp(32px, 5vw, 52px);
-  margin-bottom: 32px;
+  font-size: clamp(28px, 5vw, 48px);
+  margin-bottom: 16px;
   max-width: 900px;
   line-height: 1.15;
 }
 
 .section-subtitle {
-  font-size: 18px;
+  font-size: 17px;
   color: var(--text-gray);
   max-width: 760px;
-  margin-bottom: 56px;
+  margin-bottom: 40px;
   line-height: 1.7;
 }
 
@@ -1259,6 +1259,91 @@ img {
 
 .projects-closing p strong {
   color: var(--text-white);
+}
+
+/* ============================================
+   EPIGROUP — GRID COMPACTO
+   ============================================ */
+.epigroup-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.epigroup-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--accent-border);
+  border-radius: var(--radius-card);
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition);
+}
+
+.epigroup-card:hover {
+  border-color: var(--accent);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.35);
+  transform: translateY(-4px);
+}
+
+.epigroup-card--featured {
+  border-color: rgba(53, 212, 174, 0.5);
+}
+
+.epigroup-img {
+  width: 68px;
+  height: 68px;
+  border-radius: 14px;
+  overflow: hidden;
+  margin-bottom: 18px;
+  background: #111;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  flex-shrink: 0;
+}
+
+.epigroup-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.epigroup-name {
+  font-size: 22px;
+  font-weight: 900;
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
+}
+
+.epigroup-tagline {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 14px;
+}
+
+.epigroup-desc {
+  font-size: 14px;
+  color: var(--text-gray);
+  line-height: 1.7;
+  margin-bottom: 22px;
+  flex: 1;
+}
+
+.epigroup-badge {
+  display: inline-block;
+  align-self: flex-start;
+  background: rgba(53, 212, 174, 0.08);
+  color: var(--accent);
+  border: 1px solid rgba(53, 212, 174, 0.25);
+  border-radius: var(--radius-pill);
+  padding: 7px 18px;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 0.04em;
 }
 
 /* ============================================
@@ -2007,7 +2092,7 @@ html.js-ready .fade-up.visible {
 
 @media (max-width: 768px) {
   .section {
-    padding: 72px 0;
+    padding: 56px 0;
   }
 
   .menu-toggle {
@@ -2038,6 +2123,10 @@ html.js-ready .fade-up.visible {
   }
 
   .cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .epigroup-grid {
     grid-template-columns: 1fr;
   }
 
