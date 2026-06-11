@@ -55,16 +55,17 @@ const translations = {
     'pos-highlight': "Marketing doesn't start with a campaign. It starts with a clear strategy.",
 
     // Áreas
-    'areas-title': 'How you benefit from working with me',
+    'areas-title': 'What improves your business',
     'areas-subtitle': 'I work with companies, SMBs, entrepreneurs, ecommerce, personal brands, agencies and digital projects that need to <strong>organize their strategy, generate demand and sell better.</strong>',
-    'areas-card1-title': 'Digital advertising (Paid Media)',
-    'areas-card1-desc': 'Planning, implementation and optimization of campaigns on Meta Ads, Google Ads and TikTok Ads, focused on measurable results and data-driven decisions.',
-    'areas-card2-title': 'Consulting & Commercial strategy',
-    'areas-card2-desc': 'Diagnosis, positioning, value proposition, growth planning and sales-process improvement — connecting marketing, communication and sales with clarity before executing.',
-    'areas-card3-title': 'Visual & graphic communication (with purpose)',
-    'areas-card3-desc': 'Design, identity and graphic materials with strategic focus. Visual communication that reinforces the brand, conveys the value proposition and supports the sale.',
-    'areas-card4-title': 'AI applied to marketing',
-    'areas-card4-desc': 'Automation, analysis, content, workflows and AI-assisted decision making to speed up processes without losing strategic judgment.',
+    'areas-card1-title': 'Digital Marketing Services',
+    'areas-card1-desc': 'Performance marketing, content creation, video production, websites, landing pages, email marketing and SEO. Everything you need to attract, convert and scale.',
+    'areas-card1-cta': 'See services →',
+    'areas-card2-title': 'Business Consulting',
+    'areas-card2-desc': 'In-depth diagnosis, positioning, value proposition and a clear, actionable growth plan. Marketing, communication and sales aligned with clarity before you scale.',
+    'areas-card2-cta': 'See details →',
+    'areas-card3-title': 'Automation & AI for businesses',
+    'areas-card3-desc': 'Automation of social media, CRM, workflows and chatbots with artificial intelligence. Systems that work for you, save time and organize your business processes.',
+    'areas-card3-cta': 'See details →',
 
     // Quién soy
     'quien-title': 'About me',
