@@ -46,6 +46,62 @@
 <link rel="stylesheet" href="styles.css?v=__BUST__">
 <!-- Meta Pixel + CAPI -->
 <script src="/meta-pixel.js?v=__BUST__" defer></script>
+
+<!-- Datos estructurados (JSON-LD) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://marianocalandra.com/#person",
+      "name": "Mariano Calandra",
+      "jobTitle": "Estratega comercial y especialista en Paid Media",
+      "url": "https://marianocalandra.com/",
+      "image": "https://marianocalandra.com/img/mariano-hero.jpg",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Rosario",
+        "addressRegion": "Santa Fe",
+        "addressCountry": "AR"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/in/marianocalandra22/",
+        "https://www.instagram.com/mktconmarian/"
+      ]
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://marianocalandra.com/#service",
+      "name": "Mariano Calandra — Consultoría y Paid Media",
+      "url": "https://marianocalandra.com/",
+      "image": "https://marianocalandra.com/img/mariano-hero.jpg",
+      "founder": { "@id": "https://marianocalandra.com/#person" },
+      "areaServed": ["Argentina", "LATAM"],
+      "serviceType": [
+        "Marketing Digital y Paid Media",
+        "Consultoría y Estrategia comercial",
+        "Automatizaciones e IA para empresas"
+      ],
+      "email": "info@marianocalandra.com",
+      "telephone": "+5493416397137",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Rosario",
+        "addressRegion": "Santa Fe",
+        "addressCountry": "AR"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://marianocalandra.com/#website",
+      "url": "https://marianocalandra.com/",
+      "name": "Mariano Calandra",
+      "publisher": { "@id": "https://marianocalandra.com/#person" }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 

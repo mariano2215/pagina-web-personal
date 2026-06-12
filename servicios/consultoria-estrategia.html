@@ -106,6 +106,55 @@
 </style>
 <!-- Meta Pixel + CAPI -->
 <script src="/meta-pixel.js?v=__BUST__" defer></script>
+
+<!-- Datos estructurados (JSON-LD) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "Consultoría y Estrategia comercial",
+      "url": "https://marianocalandra.com/servicios/consultoria-estrategia.html",
+      "description": "Consultoría y estrategia comercial para freelancers, emprendimientos B2C y PYMES B2B. Diagnóstico, plan de crecimiento y mentoría con foco comercial.",
+      "serviceType": "Consultoría y estrategia comercial",
+      "areaServed": [
+        "Argentina",
+        "LATAM"
+      ],
+      "provider": {
+        "@type": "Person",
+        "@id": "https://marianocalandra.com/#person",
+        "name": "Mariano Calandra",
+        "url": "https://marianocalandra.com/"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inicio",
+          "item": "https://marianocalandra.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Servicios",
+          "item": "https://marianocalandra.com/servicios/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Consultoría y Estrategia",
+          "item": "https://marianocalandra.com/servicios/consultoria-estrategia.html"
+        }
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body>
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WF2DG4B7" height="0" width="0" class="gtm-noscript"></iframe></noscript>
