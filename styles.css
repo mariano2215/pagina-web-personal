@@ -795,7 +795,7 @@ img {
 .timeline-title {
   font-size: 14px;
   color: var(--accent);
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: 0.15em;
   text-transform: uppercase;
   margin-bottom: 28px;
@@ -1089,7 +1089,7 @@ img {
   background: var(--accent);
   border-color: var(--accent);
   color: var(--bg-primary);
-  font-weight: 700;
+  font-weight: 600;
   box-shadow: 0 0 18px rgba(53, 212, 174, 0.25);
 }
 
@@ -1200,7 +1200,7 @@ img {
 
 .project-tagline {
   font-family: 'Montserrat', sans-serif;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 15px;
   color: var(--accent);
   letter-spacing: 0.05em;
@@ -1317,7 +1317,7 @@ img {
 .epigroup-tagline {
   font-family: 'Montserrat', sans-serif;
   font-size: 12px;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--accent);
   text-transform: uppercase;
   letter-spacing: 0.06em;
@@ -1341,7 +1341,7 @@ img {
   border-radius: var(--radius-pill);
   padding: 7px 18px;
   font-size: 13px;
-  font-weight: 600;
+  font-weight: 700;
   font-family: 'Montserrat', sans-serif;
   letter-spacing: 0.04em;
 }
@@ -1615,7 +1615,7 @@ img {
 .form-label {
   display: block;
   font-size: 13px;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--text-white);
   margin-bottom: 8px;
   font-family: 'Montserrat', sans-serif;
@@ -1705,7 +1705,7 @@ img {
 
 .form-audit-note strong {
   color: var(--text-white);
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .form-microcopy {
@@ -2483,7 +2483,7 @@ html.js-ready .fade-up.visible {
   border: 1px solid var(--accent-border);
   color: var(--text-white);
   font-family: 'Montserrat', sans-serif;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 14px;
   text-decoration: none;
   transition: var(--transition);
@@ -2502,7 +2502,7 @@ html.js-ready .fade-up.visible {
   font-size: 10px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  font-weight: 800;
+  font-weight: 600;
 }
 
 .contenido-anchor-tag-free {
