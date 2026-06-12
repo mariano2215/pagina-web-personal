@@ -83,4 +83,66 @@
 
   // PageView automatico en cada carga
   window.mcTrack('PageView');
+
+  // ---------- Auto-tracking de eventos comunes ----------
+  // Cubre todas las paginas con un solo bloque (delegacion en document).
+  function onReady(fn) {
+    if (document.readyState !== 'loading') fn();
+    else document.addEventListener('DOMContentLoaded', fn);
+  }
+
+  onReady(function () {
+    // 1) Schedule — clicks a Google Calendar / Calendly / Cal.com
+    var scheduleSelector =
+      'a[href*="calendar.google.com/calendar"], a[href*="calendly.com"], a[href*="cal.com"]';
+    document.addEventListener(
+      'click',
+      function (e) {
+        var link = e.target.closest && e.target.closest(scheduleSelector);
+        if (!link) return;
+        window.mcTrack('Schedule', {
+          content_name: 'auditoria-gratuita',
+          content_category: 'schedule'
+        });
+      },
+      { capture: true }
+    );
+
+    // 2) Contact — clicks a WhatsApp
+    var waSelector = 'a[href*="wa.me"], a[href*="api.whatsapp.com"], a[href*="whatsapp.com/send"]';
+    document.addEventListener(
+      'click',
+      function (e) {
+        var link = e.target.closest && e.target.closest(waSelector);
+        if (!link) return;
+        window.mcTrack('Contact', {
+          content_name: 'whatsapp',
+          content_category: 'contact'
+        });
+      },
+      { capture: true }
+    );
+
+    // 3) Subscribe — submit de forms de newsletter
+    document.addEventListener(
+      'submit',
+      function (e) {
+        var form = e.target;
+        if (!form || form.tagName !== 'FORM') return;
+        var name = (form.getAttribute('name') || '').toLowerCase();
+        if (name !== 'newsletter' && name !== 'newsletter-footer') return;
+        var email = (form.querySelector('input[name="email"]') || {}).value || '';
+        var nombre = (form.querySelector('input[name="nombre"]') || {}).value || '';
+        var parts = nombre.trim().split(/\s+/);
+        var fn = parts.shift() || '';
+        var ln = parts.join(' ');
+        window.mcTrack(
+          'Subscribe',
+          { content_name: name, content_category: 'newsletter' },
+          { email: email, first_name: fn, last_name: ln }
+        );
+      },
+      { capture: true }
+    );
+  });
 })();

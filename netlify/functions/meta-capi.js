@@ -28,7 +28,8 @@ const ALLOWED_EVENTS = new Set([
   'Lead',
   'Contact',
   'CompleteRegistration',
-  'Subscribe'
+  'Subscribe',
+  'Schedule'
 ]);
 
 function sha256(value) {
