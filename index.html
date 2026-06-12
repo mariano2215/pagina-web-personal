@@ -64,7 +64,7 @@ src="https://www.facebook.com/tr?id=1460516722431287&ev=PageView&noscript=1"/></
   <div class="container">
     <div class="header-inner">
       <a href="#home" class="logo" aria-label="Mariano Calandra — Inicio">
-        <img src="img/favicon16x16.png" alt="MC monograma">
+        <img src="img/favicon16x16.png" alt="MC monograma" width="32" height="32">
         <span class="logo-text">Mariano <span>Calandra</span></span>
       </a>
 
@@ -110,7 +110,12 @@ src="https://www.facebook.com/tr?id=1460516722431287&ev=PageView&noscript=1"/></
       </div>
 
       <div class="hero-image">
-        <img src="/img/Mariano-hero.png" alt="Mariano Calandra — Estratega comercial y Paid Media" data-i18n-attr-alt="hero-img-alt" fetchpriority="high" decoding="async">
+        <picture>
+          <source type="image/webp"
+                  srcset="/img/Mariano-hero-480.webp 480w, /img/Mariano-hero-900.webp 900w"
+                  sizes="(max-width: 768px) 90vw, 480px">
+          <img src="/img/Mariano-hero.png" alt="Mariano Calandra — Estratega comercial y Paid Media" data-i18n-attr-alt="hero-img-alt" width="941" height="1672" fetchpriority="high" decoding="async">
+        </picture>
       </div>
     </div>
   </div>
@@ -256,7 +261,12 @@ src="https://www.facebook.com/tr?id=1460516722431287&ev=PageView&noscript=1"/></
       </div>
 
       <div class="about-image">
-        <img src="/img/Mariano-quien-soy2.png" alt="Mariano Calandra" loading="lazy" decoding="async">
+        <picture>
+          <source type="image/webp"
+                  srcset="/img/Mariano-quien-soy2-480.webp 480w, /img/Mariano-quien-soy2-900.webp 900w"
+                  sizes="(max-width: 768px) 90vw, 480px">
+          <img src="/img/Mariano-quien-soy2.png" alt="Mariano Calandra" width="941" height="1672" loading="lazy" decoding="async">
+        </picture>
       </div>
     </div>
   </div>
@@ -501,7 +511,7 @@ src="https://www.facebook.com/tr?id=1460516722431287&ev=PageView&noscript=1"/></
       <!-- EPICALCOS -->
       <div class="epigroup-card">
         <div class="epigroup-img">
-          <img src="/img/epicalcos.png" alt="EPICALCOS" loading="lazy" decoding="async">
+          <img src="/img/epicalcos.png" alt="EPICALCOS" width="709" height="709" loading="lazy" decoding="async">
         </div>
         <h3 class="epigroup-name">EPICALCOS</h3>
         <p class="epigroup-tagline" data-i18n="proj1-tagline">Comunicación gráfica, personalización y cultura visual</p>
@@ -512,7 +522,7 @@ src="https://www.facebook.com/tr?id=1460516722431287&ev=PageView&noscript=1"/></
       <!-- EPIBRANDS -->
       <div class="epigroup-card epigroup-card--featured">
         <div class="epigroup-img">
-          <img src="/img/epibrands.png" alt="EPIBRANDS Marketing Studio" loading="lazy" decoding="async">
+          <img src="/img/epibrands.png" alt="EPIBRANDS Marketing Studio" width="709" height="709" loading="lazy" decoding="async">
         </div>
         <h3 class="epigroup-name">EPIBRANDS</h3>
         <p class="epigroup-tagline" data-i18n="proj2-tagline">Marketing integral para empresas que quieren crecer</p>
@@ -523,7 +533,7 @@ src="https://www.facebook.com/tr?id=1460516722431287&ev=PageView&noscript=1"/></
       <!-- EPICADEMY -->
       <div class="epigroup-card">
         <div class="epigroup-img">
-          <img src="/img/epicademy.png" alt="EPICADEMY" loading="lazy" decoding="async">
+          <img src="/img/epicademy.png" alt="EPICADEMY" width="709" height="709" loading="lazy" decoding="async">
         </div>
         <h3 class="epigroup-name">EPICADEMY</h3>
         <p class="epigroup-tagline" data-i18n="proj3-tagline">Educación digital para aprender marketing, IA y negocios</p>
@@ -827,7 +837,7 @@ src="https://www.facebook.com/tr?id=1460516722431287&ev=PageView&noscript=1"/></
 
     <div class="footer-grid">
       <div class="footer-brand">
-        <img src="img/favicon16x16.png" alt="MC monograma" class="footer-logo" loading="lazy" decoding="async">
+        <img src="img/favicon16x16.png" alt="MC monograma" width="36" height="36" class="footer-logo" loading="lazy" decoding="async">
         <h3>Mariano Calandra</h3>
         <p data-i18n="footer-brand-desc">Estratega comercial, consultor y especialista en Paid Media.</p>
         <p class="footer-tagline" data-i18n="footer-tagline">Marketing claro. Crecimiento real.</p>

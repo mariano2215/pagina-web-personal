@@ -101,7 +101,7 @@ src="https://www.facebook.com/tr?id=1460516722431287&ev=PageView&noscript=1"/></
   <div class="container">
     <div class="header-inner">
       <a href="/" class="logo" aria-label="Mariano Calandra — Inicio">
-        <img src="img/favicon16x16.png" alt="MC monograma">
+        <img src="img/favicon16x16.png" alt="MC monograma" width="32" height="32">
         <span class="logo-text">Mariano <span>Calandra</span></span>
       </a>
       <nav>
@@ -138,7 +138,12 @@ src="https://www.facebook.com/tr?id=1460516722431287&ev=PageView&noscript=1"/></
     <div class="qs-story-inner">
 
       <figure class="qs-photo">
-        <img src="/img/Mariano-quien-soy2.png" alt="Mariano Calandra" loading="lazy">
+        <picture>
+          <source type="image/webp"
+                  srcset="/img/Mariano-quien-soy2-480.webp 480w, /img/Mariano-quien-soy2-900.webp 900w"
+                  sizes="(max-width: 768px) 72vw, 300px">
+          <img src="/img/Mariano-quien-soy2.png" alt="Mariano Calandra" width="941" height="1672" loading="lazy" decoding="async">
+        </picture>
       </figure>
 
       <p>Mi experiencia me define como <strong>estratega comercial, consultor y especialista en Paid Media</strong>, siempre orientado al <strong>marketing estratégico, las ventas y procesos comerciales, e IA aplicada a empresas</strong>.</p>
@@ -195,7 +200,7 @@ src="https://www.facebook.com/tr?id=1460516722431287&ev=PageView&noscript=1"/></
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <img src="img/favicon16x16.png" alt="MC monograma" class="footer-logo">
+        <img src="img/favicon16x16.png" alt="MC monograma" width="36" height="36" class="footer-logo">
         <h3>Mariano Calandra</h3>
         <p>Estratega comercial, consultor y especialista en Paid Media.</p>
         <p class="footer-tagline">Marketing claro. Crecimiento real.</p>
