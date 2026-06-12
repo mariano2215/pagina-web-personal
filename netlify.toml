@@ -6,6 +6,11 @@
   publish = "."
   command = "python3 bust.py"
 
+# Netlify Functions (Meta Conversions API server-side)
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+
 # Headers y redirects de seguridad siguen viniendo de los archivos
 # _headers y _redirects. Los redirects de abajo protegen los PDFs.
 

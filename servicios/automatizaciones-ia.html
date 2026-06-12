@@ -539,10 +539,15 @@
   .sh-card { padding: 26px 22px; }
 }
 </style>
+<!-- Meta Pixel + CAPI -->
+<script src="/meta-pixel.js?v=__BUST__" defer></script>
 </head>
 <body>
 
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WF2DG4B7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- Meta Pixel noscript -->
+<noscript><img height="1" width="1" style="display:none" alt=""
+src="https://www.facebook.com/tr?id=1460516722431287&ev=PageView&noscript=1"/></noscript>
 
 <!-- ================================================================
      HEADER / NAV
@@ -679,5 +684,11 @@
   }
 </script>
 
+<!-- Meta CAPI eventos custom de pagina -->
+<script>/* MCAPI-PAGE-EVENTS */
+document.addEventListener("DOMContentLoaded", function(){
+  if (window.mcTrack) window.mcTrack("ViewContent", {"content_name": "automatizaciones-ia", "content_category": "servicios"});
+});
+</script>
 </body>
 </html>

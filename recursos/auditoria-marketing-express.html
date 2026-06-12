@@ -86,9 +86,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .lm-page { padding: 40px 0; }
   }
 </style>
+<!-- Meta Pixel + CAPI -->
+<script src="/meta-pixel.js?v=__BUST__" defer></script>
 </head>
 <body>
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WF2DG4B7" height="0" width="0" class="gtm-noscript"></iframe></noscript>
+<!-- Meta Pixel noscript -->
+<noscript><img height="1" width="1" style="display:none" alt=""
+src="https://www.facebook.com/tr?id=1460516722431287&ev=PageView&noscript=1"/></noscript>
 
 <main class="lm-page">
   <div class="container">
@@ -179,6 +184,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     event: 'lead_magnet_view',
     lead_magnet: 'auditoria-marketing-express'
   });
+</script>
+<!-- Meta CAPI eventos custom de pagina -->
+<script>/* MCAPI-PAGE-EVENTS */
+document.addEventListener("DOMContentLoaded", function(){
+  if (window.mcTrack) window.mcTrack("ViewContent", {"content_name": "auditoria-marketing-express", "content_category": "lead-magnet"});
+});
 </script>
 </body>
 </html>
