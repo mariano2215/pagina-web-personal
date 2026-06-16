@@ -599,6 +599,9 @@ img {
   height: 100%;
   object-fit: cover;
   object-position: center top;
+  /* Baja la foto dentro del marco para dar aire sobre la cabeza (el fondo del
+     estudio es blanco, así que no aparece banda oscura arriba) */
+  transform: translateY(7%);
 }
 
 .hero-image-placeholder {
