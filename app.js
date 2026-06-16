@@ -276,8 +276,14 @@ const translations = {
   }
 };
 
-const DEFAULT_TITLE = 'Mariano Calandra — Marketing claro. Crecimiento real.';
-const DEFAULT_DESCRIPTION = 'Mariano Calandra — Estratega comercial, consultor y especialista en Paid Media. Marketing claro. Crecimiento real.';
+// Título/descripción base = los propios de cada página (capturados antes de
+// cualquier traducción). Antes se forzaba el título del home en todas las
+// subpáginas que cargan app.js. Solo la home (con selector de idioma) aplica
+// las traducciones de meta del diccionario.
+const DEFAULT_TITLE = document.title;
+const _metaDescEl = document.querySelector('meta[name="description"]');
+const DEFAULT_DESCRIPTION = _metaDescEl ? (_metaDescEl.getAttribute('content') || '') : '';
+const IS_TRANSLATABLE_PAGE = !!document.querySelector('.language-toggle');
 
 let currentLang = localStorage.getItem('language') || 'es';
 
@@ -328,11 +334,12 @@ function setLanguage(lang) {
     }
   });
 
-  // <title> y meta description
-  document.title = (lang !== 'es' && dict['meta-title']) ? dict['meta-title'] : DEFAULT_TITLE;
+  // <title> y meta description: solo se traducen en la home; el resto de las
+  // páginas conservan siempre los suyos.
+  document.title = (IS_TRANSLATABLE_PAGE && lang !== 'es' && dict['meta-title']) ? dict['meta-title'] : DEFAULT_TITLE;
   const metaDesc = document.querySelector('meta[name="description"]');
   if (metaDesc) {
-    metaDesc.setAttribute('content', (lang !== 'es' && dict['meta-description']) ? dict['meta-description'] : DEFAULT_DESCRIPTION);
+    metaDesc.setAttribute('content', (IS_TRANSLATABLE_PAGE && lang !== 'es' && dict['meta-description']) ? dict['meta-description'] : DEFAULT_DESCRIPTION);
   }
 
   // Active button
