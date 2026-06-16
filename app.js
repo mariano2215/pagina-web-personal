@@ -332,6 +332,9 @@ function setLanguage(lang) {
 
   document.documentElement.lang = lang;
   localStorage.setItem('language', lang);
+
+  // Refrescar el texto rotativo del hero si ya está inicializado (Tarea 1.4)
+  if (window._heroRotatorRender) window._heroRotatorRender();
 }
 
 document.querySelectorAll('.lang-option').forEach(btn => {
@@ -475,3 +478,119 @@ if (projectBlocks.length > 0) {
     });
   }, { passive: true });
 }
+
+// ============================================
+// Contador animado de métricas (Tarea 1.1)
+// Count-up al entrar en viewport, una sola vez. Formato AR (miles con punto,
+// decimales con coma). Respeta prefers-reduced-motion.
+// ============================================
+(function () {
+  const counters = document.querySelectorAll('.metric-value[data-count]');
+  if (!counters.length || !('IntersectionObserver' in window)) return;
+
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const DURATION = 1800;
+
+  function formatAR(value, decimals) {
+    const fixed = value.toFixed(decimals);
+    let [intPart, decPart] = fixed.split('.');
+    intPart = intPart.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+    return decimals > 0 ? intPart + ',' + decPart : intPart;
+  }
+
+  // Actualiza solo el nodo de texto inicial, preservando el <span class="metric-unit">.
+  function setText(el, str) {
+    const node = el.firstChild;
+    if (node && node.nodeType === Node.TEXT_NODE) {
+      node.nodeValue = str;
+    } else {
+      el.insertBefore(document.createTextNode(str), el.firstChild);
+    }
+  }
+
+  function animate(el) {
+    const target = parseFloat(el.dataset.count);
+    const decimals = parseInt(el.dataset.decimals || '0', 10);
+    const prefix = el.dataset.prefix || '';
+    if (isNaN(target)) return;
+
+    if (reduceMotion) {
+      setText(el, prefix + formatAR(target, decimals));
+      return;
+    }
+
+    const start = performance.now();
+    function frame(now) {
+      const t = Math.min((now - start) / DURATION, 1);
+      const eased = 1 - Math.pow(1 - t, 3); // ease-out cúbico
+      if (t < 1) {
+        setText(el, prefix + formatAR(target * eased, decimals));
+        requestAnimationFrame(frame);
+      } else {
+        setText(el, prefix + formatAR(target, decimals)); // valor exacto final
+      }
+    }
+    requestAnimationFrame(frame);
+  }
+
+  const obs = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animate(entry.target);
+        observer.unobserve(entry.target); // una sola vez por carga
+      }
+    });
+  }, { threshold: 0.4 });
+
+  counters.forEach(c => obs.observe(c));
+})();
+
+// ============================================
+// Hero: texto rotativo (Tarea 1.4)
+// Rota frases con fade. Respeta i18n (ES/EN vía currentLang) y reduced-motion.
+// ============================================
+(function () {
+  const rotator = document.getElementById('heroRotator');
+  if (!rotator) return;
+  const textEl = rotator.querySelector('.hero-rotator-text');
+  if (!textEl) return;
+
+  const phrases = {
+    es: [
+      'Convertí tu marketing en un sistema de ventas.',
+      'Ordená tus campañas con estrategia y criterio.',
+      'Dejá de improvisar. Empezá a medir lo que importa.',
+      'Escalá con Paid Media, IA y visión comercial.'
+    ],
+    en: [
+      'Turn your marketing into a sales system.',
+      'Organize your campaigns with strategy and judgment.',
+      'Stop improvising. Start measuring what matters.',
+      'Scale with Paid Media, AI and business vision.'
+    ]
+  };
+
+  function list() {
+    return phrases[currentLang] || phrases.es;
+  }
+
+  let index = 0;
+
+  function render() {
+    textEl.textContent = list()[index] || list()[0];
+  }
+  // Expuesto para que setLanguage refresque el idioma al instante.
+  window._heroRotatorRender = render;
+  render();
+
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  setInterval(() => {
+    rotator.classList.add('is-changing'); // fade-out
+    setTimeout(() => {
+      index = (index + 1) % list().length;
+      render();
+      rotator.classList.remove('is-changing'); // fade-in
+    }, 400); // coincide con la transición opacity 0.4s
+  }, 3200); // 2.8s visible + 0.4s de fade
+})();
