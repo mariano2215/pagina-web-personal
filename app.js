@@ -262,7 +262,17 @@ const translations = {
     'footer-copyright': '© 2026 Mariano Calandra. All rights reserved.',
 
     // WhatsApp float
-    'wa-text': "Let's chat — 5 min"
+    'wa-text': "Let's chat — 5 min",
+
+    // Selector "¿Cuál es tu situación?" (Bloque 2.2)
+    'sit-title': "What's your situation?",
+    'sit-subtitle': "Pick the line that fits you best and I'll show you how I'd tackle it.",
+    'sit-pill-1': "My campaigns aren't selling.",
+    'sit-pill-2': "I don't know what to measure.",
+    'sit-pill-3': "I get leads but don't close sales.",
+    'sit-pill-4': 'I want to organize my marketing strategy.',
+    'sit-pill-5': 'I want to apply AI to my business.',
+    'sit-pill-6': "My content isn't getting results."
   }
 };
 
@@ -333,8 +343,10 @@ function setLanguage(lang) {
   document.documentElement.lang = lang;
   localStorage.setItem('language', lang);
 
-  // Refrescar el texto rotativo del hero si ya está inicializado (Tarea 1.4)
-  if (window._heroRotatorRender) window._heroRotatorRender();
+  // Refrescar componentes dinámicos ya inicializados al cambiar de idioma
+  if (window._heroRotatorRender) window._heroRotatorRender(); // Tarea 1.4
+  if (window._sitRender) window._sitRender();                 // Tarea 2.2
+  if (window._stickyApplyText) window._stickyApplyText();     // Tarea 2.1
 }
 
 document.querySelectorAll('.lang-option').forEach(btn => {
@@ -593,4 +605,225 @@ if (projectBlocks.length > 0) {
       rotator.classList.remove('is-changing'); // fade-in
     }, 400); // coincide con la transición opacity 0.4s
   }, 3200); // 2.8s visible + 0.4s de fade
+})();
+
+// ============================================
+// Número de WhatsApp + helper de URL precargada (compartido Bloque 2)
+// ============================================
+const WA_NUMBER = '5493416397137';
+function waLink(msg) {
+  return 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(msg);
+}
+
+// ============================================
+// Selector "¿Cuál es tu situación?" (Tarea 2.2)
+// Pills accesibles → respuesta consultiva + CTA a WhatsApp. i18n ES/EN.
+// ============================================
+(function () {
+  const section = document.getElementById('situacion');
+  if (!section) return;
+  const pills = Array.from(section.querySelectorAll('.sit-pill'));
+  const responseEl = document.getElementById('sit-response');
+  if (!pills.length || !responseEl) return;
+
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const data = {
+    '1': {
+      body: {
+        es: 'Si tus campañas tienen tráfico pero no ventas, el problema casi siempre no es el anuncio. Es la oferta, la landing, el proceso de seguimiento o la calidad del lead. Hay que diagnosticar todo el embudo antes de optimizar la pauta.',
+        en: "If your campaigns get traffic but no sales, the problem is almost never the ad. It's the offer, the landing page, the follow-up process or the lead quality. You have to diagnose the whole funnel before optimizing the ads."
+      },
+      cta: { es: 'Revisemos tu campaña juntos →', en: "Let's review your campaign →" },
+      msg: 'Hola Mariano, mis campañas tienen tráfico pero no vendo. Quiero que lo analicemos.'
+    },
+    '2': {
+      body: {
+        es: 'Sin métricas claras, cualquier decisión es una apuesta. Lo primero es definir qué medir según tu objetivo (leads, ventas, consultas), configurar bien los eventos y entender qué número importa y cuál es ruido.',
+        en: 'Without clear metrics, every decision is a gamble. The first step is to define what to measure based on your goal (leads, sales, inquiries), set up your events properly and understand which number matters and which is just noise.'
+      },
+      cta: { es: 'Hablemos de medición →', en: "Let's talk measurement →" },
+      msg: 'Hola Mariano, no tengo clara mi medición y quiero ordenarla.'
+    },
+    '3': {
+      body: {
+        es: 'Si los leads llegan pero no se convierten, el cuello de botella es comercial, no publicitario. Tiempos de respuesta, calidad del lead, propuesta de valor, seguimiento y objeciones. Hay que revisar el proceso de venta, no solo la campaña.',
+        en: "If leads come in but don't convert, the bottleneck is commercial, not advertising. Response times, lead quality, value proposition, follow-up and objections. You have to review the sales process, not just the campaign."
+      },
+      cta: { es: 'Analizamos el proceso →', en: "Let's analyze the process →" },
+      msg: 'Hola Mariano, tengo leads pero no los convierto. Quiero entender qué está pasando.'
+    },
+    '4': {
+      body: {
+        es: 'Un negocio sin estrategia clara desperdicia presupuesto, tiempo y energía. Antes de publicar o pautar necesitás saber a quién le hablás, qué ofrecés, por qué deberían elegirte y cómo vas a cerrar.',
+        en: "A business without a clear strategy wastes budget, time and energy. Before posting or running ads you need to know who you're talking to, what you offer, why they should choose you and how you'll close."
+      },
+      cta: { es: 'Armemos tu estrategia →', en: "Let's build your strategy →" },
+      msg: 'Hola Mariano, quiero ordenar mi estrategia de marketing desde cero.'
+    },
+    '5': {
+      body: {
+        es: 'La IA no reemplaza la estrategia, la acelera. Hay formas concretas de aplicarla en generación de contenido, análisis de datos, automatización de procesos, campañas y atención al cliente. Pero primero hay que saber dónde tiene sentido usarla.',
+        en: "AI doesn't replace strategy, it accelerates it. There are concrete ways to apply it in content generation, data analysis, process automation, campaigns and customer service. But first you need to know where it actually makes sense to use it."
+      },
+      cta: { es: 'Veamos cómo aplicar IA →', en: "Let's see how to apply AI →" },
+      msg: 'Hola Mariano, quiero ver cómo aplicar IA a mi negocio o marketing.'
+    },
+    '6': {
+      body: {
+        es: 'El contenido que no convierte suele tener uno de estos problemas: le habla a todos, no tiene un objetivo claro, no está conectado a ningún embudo o no tiene distribución. El problema raramente es el contenido en sí.',
+        en: "Content that doesn't convert usually has one of these problems: it speaks to everyone, has no clear goal, isn't connected to any funnel or has no distribution. The problem is rarely the content itself."
+      },
+      cta: { es: 'Revisemos tu contenido →', en: "Let's review your content →" },
+      msg: 'Hola Mariano, genero contenido pero no me da resultados. Quiero revisarlo.'
+    }
+  };
+
+  let openId = null;
+
+  function render(id) {
+    const d = data[id];
+    if (!d) return;
+    const lang = (typeof currentLang !== 'undefined') ? currentLang : 'es';
+    responseEl.innerHTML = '';
+    const p = document.createElement('p');
+    p.textContent = d.body[lang] || d.body.es;
+    const a = document.createElement('a');
+    a.className = 'btn btn-primary sit-cta';
+    a.href = waLink(d.msg);
+    a.target = '_blank';
+    a.rel = 'noopener noreferrer';
+    a.textContent = d.cta[lang] || d.cta.es;
+    responseEl.appendChild(p);
+    responseEl.appendChild(a);
+    responseEl.hidden = false;
+    if (!reduce) {
+      responseEl.classList.remove('is-animating');
+      void responseEl.offsetWidth; // reinicia la animación
+      responseEl.classList.add('is-animating');
+    }
+  }
+
+  function openPill(id, pill) {
+    pills.forEach(p => {
+      const active = p === pill;
+      p.classList.toggle('is-active', active);
+      p.setAttribute('aria-expanded', active ? 'true' : 'false');
+    });
+    openId = id;
+    render(id);
+  }
+
+  function closeAll() {
+    pills.forEach(p => {
+      p.classList.remove('is-active');
+      p.setAttribute('aria-expanded', 'false');
+    });
+    openId = null;
+    responseEl.hidden = true;
+    responseEl.innerHTML = '';
+  }
+
+  pills.forEach(pill => {
+    pill.addEventListener('click', () => {
+      const id = pill.dataset.sit;
+      if (openId === id) closeAll();
+      else openPill(id, pill);
+    });
+  });
+
+  // Re-render de la respuesta abierta al cambiar idioma
+  window._sitRender = function () { if (openId) render(openId); };
+})();
+
+// ============================================
+// CTA sticky contextual (Tarea 2.1)
+// Aparece tras 300px de scroll, cambia texto/link por sección, se oculta en
+// contacto. Botón de cierre (sessionStorage). Oculta el float mientras está.
+// ============================================
+(function () {
+  const sticky = document.getElementById('stickyCta');
+  if (!sticky || !('IntersectionObserver' in window)) return;
+  const btn = document.getElementById('stickyCtaBtn');
+  const textEl = sticky.querySelector('.sticky-cta-text');
+  const closeBtn = document.getElementById('stickyCtaClose');
+
+  // Config por sección. ext:true → abre WhatsApp en pestaña nueva.
+  const cfg = {
+    home:       { es: 'Hablemos de tu negocio',        en: "Let's talk about your business", href: waLink('Hola Mariano, vi tu web y quiero hablar sobre mi proyecto de marketing.'), ext: true },
+    areas:      { es: 'Quiero mejorar mis campañas',    en: 'I want to improve my campaigns',  href: waLink('Hola Mariano, me interesa mejorar mis campañas de Paid Media.'), ext: true },
+    proceso:    { es: 'Quiero trabajar con Mariano',    en: 'I want to work with Mariano',     href: waLink('Hola Mariano, vengo de tu web y quiero consultarte algo.'), ext: true },
+    situacion:  { es: 'Quiero trabajar con Mariano',    en: 'I want to work with Mariano',     href: waLink('Hola Mariano, vengo de tu web y quiero consultarte algo.'), ext: true },
+    resultados: { es: 'Quiero resultados así',          en: 'I want results like these',       href: waLink('Hola Mariano, vi tus resultados y quiero ver si podés ayudarme con algo similar.'), ext: true },
+    recursos:   { es: 'Descargar auditoría gratuita',   en: 'Download free audit',             href: '/recursos/auditoria-marketing-express.html', ext: false },
+    default:    { es: 'Hablemos de tu negocio',         en: "Let's talk about your business", href: waLink('Hola Mariano, vengo de tu web y quiero consultarte algo.'), ext: true }
+  };
+
+  let dismissed = sessionStorage.getItem('stickyCtaDismissed') === '1';
+  let currentKey = 'default';
+  let currentId = 'home';
+
+  const sections = Array.from(document.querySelectorAll('section[id]'));
+  if (!sections.length) return;
+
+  // Sección actual = la última cuyo tope ya pasó debajo del header (geometría
+  // directa, sin depender de que el observer haya poblado un set).
+  function pickCurrent() {
+    let curId = sections[0].id;
+    for (let i = 0; i < sections.length; i++) {
+      if (sections[i].getBoundingClientRect().top <= 140) curId = sections[i].id;
+      else break;
+    }
+    return curId;
+  }
+
+  function applyText() {
+    const c = cfg[currentKey] || cfg.default;
+    const lang = (typeof currentLang !== 'undefined') ? currentLang : 'es';
+    textEl.textContent = c[lang] || c.es;
+    btn.href = c.href;
+    if (c.ext) {
+      btn.target = '_blank';
+      btn.rel = 'noopener noreferrer';
+    } else {
+      btn.removeAttribute('target');
+      btn.removeAttribute('rel');
+    }
+  }
+  window._stickyApplyText = function () { if (sticky.classList.contains('is-visible')) applyText(); };
+
+  function update() {
+    const id = pickCurrent();
+    currentId = id;
+    const hide = dismissed || window.scrollY <= 300 || id === 'contacto';
+    if (hide) {
+      sticky.classList.remove('is-visible');
+      sticky.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('sticky-cta-active');
+      return;
+    }
+    currentKey = cfg[id] ? id : 'default';
+    applyText();
+    sticky.classList.add('is-visible');
+    sticky.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('sticky-cta-active');
+  }
+
+  // El observer solo dispara recálculos al cruzar secciones; la decisión la
+  // toma pickCurrent() por geometría.
+  const obs = new IntersectionObserver(() => update(), { rootMargin: '-100px 0px -45% 0px', threshold: 0 });
+  sections.forEach(s => obs.observe(s));
+
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update, { passive: true });
+
+  closeBtn.addEventListener('click', () => {
+    dismissed = true;
+    sessionStorage.setItem('stickyCtaDismissed', '1');
+    sticky.classList.remove('is-visible');
+    sticky.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('sticky-cta-active');
+  });
+
+  update();
 })();

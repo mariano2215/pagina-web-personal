@@ -366,6 +366,29 @@ src="https://www.facebook.com/tr?id=1460516722431287&ev=PageView&noscript=1"/></
 </section>
 
 <!-- ============================================
+     ¿CUÁL ES TU SITUACIÓN? (selector problema → solución)
+     ============================================ -->
+<section id="situacion" class="section">
+  <div class="container">
+    <div class="divider"></div>
+    <h2 class="section-title" data-i18n="sit-title">¿Cuál es tu situación?</h2>
+    <p class="section-subtitle" data-i18n="sit-subtitle">Elegí la frase que más te representa y te muestro cómo lo encararía.</p>
+
+    <div class="sit-selector">
+      <div class="sit-pills">
+        <button class="sit-pill" type="button" data-sit="1" aria-expanded="false" aria-controls="sit-response" data-i18n="sit-pill-1">No vendo con mis campañas.</button>
+        <button class="sit-pill" type="button" data-sit="2" aria-expanded="false" aria-controls="sit-response" data-i18n="sit-pill-2">No sé qué medir ni qué analizar.</button>
+        <button class="sit-pill" type="button" data-sit="3" aria-expanded="false" aria-controls="sit-response" data-i18n="sit-pill-3">Tengo leads pero no cierro ventas.</button>
+        <button class="sit-pill" type="button" data-sit="4" aria-expanded="false" aria-controls="sit-response" data-i18n="sit-pill-4">Quiero ordenar mi estrategia de marketing.</button>
+        <button class="sit-pill" type="button" data-sit="5" aria-expanded="false" aria-controls="sit-response" data-i18n="sit-pill-5">Quiero aplicar IA a mi negocio.</button>
+        <button class="sit-pill" type="button" data-sit="6" aria-expanded="false" aria-controls="sit-response" data-i18n="sit-pill-6">Mi contenido no genera resultados.</button>
+      </div>
+      <div class="sit-response" id="sit-response" role="region" aria-live="polite" hidden></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
      RESULTADOS / TESTIMONIOS
      ============================================ -->
 <section id="resultados" class="section section-secondary">
@@ -937,6 +960,17 @@ src="https://www.facebook.com/tr?id=1460516722431287&ev=PageView&noscript=1"/></
     </div>
   </div>
 </footer>
+
+<!-- ============================================
+     CTA STICKY CONTEXTUAL (cambia según sección)
+     ============================================ -->
+<div class="sticky-cta" id="stickyCta" aria-hidden="true">
+  <a class="sticky-cta-btn" id="stickyCtaBtn" href="#contacto">
+    <span class="sticky-cta-text">Hablemos de tu negocio</span>
+    <span class="sticky-cta-arrow" aria-hidden="true">→</span>
+  </a>
+  <button class="sticky-cta-close" id="stickyCtaClose" type="button" aria-label="Cerrar">✕</button>
+</div>
 
 <!-- ============================================
      BOTÓN FLOTANTE WHATSAPP
