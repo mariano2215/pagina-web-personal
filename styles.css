@@ -389,8 +389,9 @@ img {
 
 .logo img {
   height: 32px;
-  width: auto;
+  width: 32px;
   display: block;
+  border-radius: 6px;
 }
 
 .logo span {
