@@ -103,7 +103,8 @@ exports.handler = async (event) => {
     auto_return: 'approved',
     statement_descriptor: 'MCALANDRA',
     external_reference: slug + '-' + Date.now(),
-    metadata: { producto: slug }
+    metadata: { producto: slug },
+    notification_url: SITE + '/.netlify/functions/webhook-mp'
   };
 
   try {

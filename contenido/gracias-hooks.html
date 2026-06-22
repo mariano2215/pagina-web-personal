@@ -196,13 +196,17 @@ src="https://www.facebook.com/tr?id=1460516722431287&ev=PageView&noscript=1"/></
     </p>
 
     <div class="thanks-actions">
-      <a href="100_Hooks_que_Convierten_Mariano_Calandra.pdf" download class="btn-download">
+      <a href="#" id="downloadBtn" class="btn-download">
         ↓ Descargar el PDF
       </a>
       <a href="https://wa.me/5493416397137?text=Hola%20Mariano%2C%20acabo%20de%20comprar%20100%20Hooks%20que%20Convierten%20y%20quiero%20avisarte%2Fconsultarte%20algo." class="btn-wa-cta" target="_blank" rel="noopener noreferrer">
         Escribirme por WhatsApp
       </a>
     </div>
+
+    <p class="thanks-microcopy" id="noPay" style="display:none;">
+      No pudimos verificar tu pago automáticamente. Si ya pagaste, escribime por <a href="https://wa.me/5493416397137?text=Hola%20Mariano%2C%20compr%C3%A9%20100%20Hooks%20que%20Convierten%20y%20no%20puedo%20descargarlo">WhatsApp</a> y te paso el PDF al instante.
+    </p>
 
     <p class="thanks-microcopy">
       ¿No te descargó o tenés algún problema? Escribime a <a href="mailto:info@marianocalandra.com">info@marianocalandra.com</a> o por <a href="https://wa.me/5493416397137" target="_blank" rel="noopener noreferrer">WhatsApp</a> y te lo paso enseguida.
@@ -229,7 +233,19 @@ src="https://www.facebook.com/tr?id=1460516722431287&ev=PageView&noscript=1"/></
     }
   })();
   document.addEventListener("DOMContentLoaded", function(){
-    if (window.fbq) fbq('track', 'Purchase', { value: 13999, currency: 'ARS', content_name: '100-hooks' });
+    var params = new URLSearchParams(location.search);
+    var paymentId = params.get('payment_id') || params.get('collection_id');
+    var status = params.get('status') || params.get('collection_status');
+    var btn = document.getElementById('downloadBtn');
+    var noPay = document.getElementById('noPay');
+    var pagoOk = paymentId && status !== 'rejected' && status !== 'cancelled' && status !== 'failure';
+    if (pagoOk) {
+      btn.setAttribute('href', '/.netlify/functions/descargar?payment_id=' + encodeURIComponent(paymentId));
+      if (window.fbq) fbq('track', 'Purchase', { value: 13999, currency: 'ARS', content_name: '100-hooks' });
+    } else {
+      if (btn) btn.style.display = 'none';
+      if (noPay) noPay.style.display = 'block';
+    }
   });
 </script>
 </body>

@@ -10,6 +10,9 @@
 [functions]
   directory = "netlify/functions"
   node_bundler = "esbuild"
+  # Los PDFs premium se empaquetan con las functions para que `descargar`
+  # pueda servirlos tras verificar el pago. No se acceden directo desde la web.
+  included_files = ["contenido/*.pdf"]
 
 # Headers y redirects de seguridad siguen viniendo de los archivos
 # _headers y _redirects. Los redirects de abajo protegen los PDFs.
@@ -45,10 +48,10 @@
   conditions = {Referer = ["!https://marianocalandra.com/*", "!https://www.marianocalandra.com/*"]}
 
 # ============================================
-# Contenido premium: anti hot-link de los PDFs pagos.
-# La descarga real ocurre desde /contenido/gracias-*.html (Referer del
-# propio dominio → pasa directo). El acceso externo o sin Referer rebota
-# a la página de detalle del producto.
+# Contenido premium: los PDFs pagos NO se sirven directo.
+# La descarga real pasa por /.netlify/functions/descargar, que valida el
+# pago contra Mercado Pago antes de entregar el archivo. Cualquier acceso
+# directo a la URL del PDF rebota siempre a la página de detalle del producto.
 # ============================================
 
 [[redirects]]
@@ -56,18 +59,15 @@
   to = "/contenido/100-hooks-que-convierten.html"
   status = 302
   force = true
-  conditions = {Referer = ["!https://marianocalandra.com/*", "!https://www.marianocalandra.com/*"]}
 
 [[redirects]]
   from = "/contenido/135_Prompts_Estrategia_Negocios_Mariano_Calandra.pdf"
   to = "/contenido/pack-prompts.html"
   status = 302
   force = true
-  conditions = {Referer = ["!https://marianocalandra.com/*", "!https://www.marianocalandra.com/*"]}
 
 [[redirects]]
   from = "/contenido/Paid-Media-Sin-Humo-ebook.pdf"
   to = "/contenido/ebook-paid-media-sin-humo.html"
   status = 302
   force = true
-  conditions = {Referer = ["!https://marianocalandra.com/*", "!https://www.marianocalandra.com/*"]}

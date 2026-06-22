@@ -46,20 +46,45 @@ objeto `PRODUCTOS` en ese archivo:
 | `prompts` | +135 Prompts de Estrategia | $13.999 ARS |
 | `paid-media` | Paid Media Sin Humo | $22.999 ARS |
 
-## 4. Cómo funciona el flujo
+## 4. Cómo funciona el flujo (descarga verificada)
 
 1. Cliente toca **Comprar con Mercado Pago** en la página de detalle.
 2. El browser hace `POST /.netlify/functions/crear-preferencia { producto }`.
 3. La function crea la preferencia y devuelve `init_point` (link de checkout).
 4. El browser redirige al checkout de Mercado Pago.
-5. Pago aprobado → MP redirige a `/contenido/gracias-<producto>.html`.
-6. Esa página muestra el **botón de descarga del PDF** + **botón de WhatsApp**.
+5. Pago aprobado → MP redirige a `/contenido/gracias-<producto>.html?payment_id=...`.
+6. El botón de descarga apunta a `/.netlify/functions/descargar?payment_id=...`.
+7. `descargar` **verifica el pago contra la API de Mercado Pago** (que exista,
+   esté APROBADO, sea del producto correcto y el monto coincida) y recién ahí
+   entrega el PDF. Si algo no valida, muestra un mensaje y un botón de WhatsApp.
 
-## 5. Nota sobre la descarga
+Los PDFs premium **no se sirven directo** desde la web: están empaquetados con
+las functions (`included_files` en `netlify.toml`) y cualquier acceso a la URL
+del PDF rebota a la página de detalle. La única forma de descargar es con un
+pago aprobado real. El link de descarga vale **7 días** desde la aprobación
+(se puede cambiar en `DOWNLOAD_WINDOW_MS` dentro de `descargar.js`).
 
-La descarga se entrega en la página de gracias tras el redirect de pago
-aprobado (flujo estándar para PDFs de bajo ticket). No hay verificación de
-pago server-side con webhook: alguien que comparta el link de gracias podría
-descargar sin pagar. Para el volumen y el precio de estos productos es un
-trade-off aceptable. Si en algún momento querés blindarlo del todo, se puede
-agregar un webhook de Mercado Pago + link de descarga firmado/temporal.
+## 5. Webhook (confirmación server-to-server)
+
+`crear-preferencia` ya manda `notification_url` apuntando a
+`/.netlify/functions/webhook-mp`. Conviene además registrarlo en el panel de MP:
+
+**developers → tu aplicación → Webhooks / Notificaciones**
+- URL: `https://marianocalandra.com/.netlify/functions/webhook-mp`
+- Evento: **Pagos** (`payment`)
+
+El webhook re-verifica cada pago contra la API de MP y lo registra en los logs
+de la function (Netlify → Functions → `webhook-mp`). Es la confirmación
+autoritativa y el punto donde, más adelante, se puede enchufar el envío del
+PDF por email. La seguridad de la descarga **no depende** del webhook:
+`descargar` valida el pago por su cuenta.
+
+## 6. Probar el flujo
+
+Con credenciales de **prueba** (TEST) y las tarjetas de test de Mercado Pago:
+1. Entrá a un producto → **Comprar con Mercado Pago**.
+2. Pagá con una tarjeta de prueba aprobada.
+3. Volvés a `gracias-<producto>.html` y el botón de descarga ya trae el
+   `payment_id`. Al tocarlo, baja el PDF.
+4. Probá pegar la URL del PDF directo (ej. `/contenido/...pdf`): debe rebotar
+   al detalle. Probá `descargar` sin `payment_id`: debe mostrar el error.
