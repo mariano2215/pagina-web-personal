@@ -478,6 +478,14 @@
   line-height: 1.5;
 }
 
+/* Grupo de botones (Ver detalle + Agendar) */
+.si-ctas {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  margin-top: auto;
+}
+
 .si-cta {
   display: flex;
   align-items: center;
@@ -492,7 +500,6 @@
   font-weight: 600;
   text-decoration: none;
   transition: var(--transition);
-  margin-top: auto;
   gap: 6px;
 }
 
@@ -502,6 +509,31 @@
   border-color: var(--accent);
   transform: translateY(-1px);
   box-shadow: 0 6px 20px rgba(53, 212, 174, 0.2);
+}
+
+/* Botón principal: Ver detalle */
+.si-cta-primary {
+  background: var(--accent);
+  color: #111111;
+  border-color: var(--accent);
+}
+
+.si-cta-primary:hover {
+  background: #3de0bb;
+  color: #111111;
+}
+
+/* Botón secundario: Agendar */
+.si-cta-ghost {
+  color: var(--text-gray);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.si-cta-ghost:hover {
+  background: transparent;
+  color: var(--accent);
+  border-color: var(--accent);
+  box-shadow: none;
 }
 
 /* ── Responsive ── */
@@ -641,7 +673,7 @@ src="https://www.facebook.com/tr?id=1460516722431287&ev=PageView&noscript=1"/></
   <span class="sh-eyebrow">Servicios de Marketing Digital</span>
   <h1 class="sh-hero-title">Todo para <span>atraer, convertir y escalar</span>.</h1>
   <p class="sh-hero-sub">
-    Marketing que funciona como un sistema: contenido que atrae, anuncios que convierten y piezas que sostienen el crecimiento. Contratá solo lo que necesitás, sin paquetes atados.
+    Servicios pensados para ordenar tu marketing como un sistema: campañas, contenido, sitio web, landing pages, email marketing y posicionamiento orgánico. Elegí el servicio que necesitás, revisá el detalle y avanzá con compra directa o llamada de diagnóstico.
   </p>
 
   <!-- ===== SERVICIOS DE MARKETING DIGITAL ===== -->
@@ -662,9 +694,10 @@ src="https://www.facebook.com/tr?id=1460516722431287&ev=PageView&noscript=1"/></
           <p class="si-price-type">Por mes</p>
           <p class="si-price-extra">+ inversión publicitaria (corre por cuenta del cliente)</p>
         </div>
-        <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0ia82BAbDyGthqzolde_NV2XPid5bfoAH0WuXI1NgmCFZyf5DvB7wPZBZAt2nrZRumUXYQJATZ?gv=true" class="si-cta" target="_blank" rel="noopener noreferrer">
-          Agendar una llamada →
-        </a>
+        <div class="si-ctas">
+          <a href="/servicios/marketing-digital/performance-marketing.html" class="si-cta si-cta-primary">Ver detalle →</a>
+          <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0ia82BAbDyGthqzolde_NV2XPid5bfoAH0WuXI1NgmCFZyf5DvB7wPZBZAt2nrZRumUXYQJATZ?gv=true" class="si-cta si-cta-ghost" target="_blank" rel="noopener noreferrer">Agendar una llamada</a>
+        </div>
       </article>
 
       <!-- Content Creation -->
@@ -680,9 +713,10 @@ src="https://www.facebook.com/tr?id=1460516722431287&ev=PageView&noscript=1"/></
           <p class="si-price-main">USD 450</p>
           <p class="si-price-type">Por mes</p>
         </div>
-        <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0ia82BAbDyGthqzolde_NV2XPid5bfoAH0WuXI1NgmCFZyf5DvB7wPZBZAt2nrZRumUXYQJATZ?gv=true" class="si-cta" target="_blank" rel="noopener noreferrer">
-          Agendar una llamada →
-        </a>
+        <div class="si-ctas">
+          <a href="/servicios/marketing-digital/content-creation.html" class="si-cta si-cta-primary">Ver detalle →</a>
+          <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0ia82BAbDyGthqzolde_NV2XPid5bfoAH0WuXI1NgmCFZyf5DvB7wPZBZAt2nrZRumUXYQJATZ?gv=true" class="si-cta si-cta-ghost" target="_blank" rel="noopener noreferrer">Agendar una llamada</a>
+        </div>
       </article>
 
       <!-- Realización Audiovisual -->
@@ -698,9 +732,10 @@ src="https://www.facebook.com/tr?id=1460516722431287&ev=PageView&noscript=1"/></
           <p class="si-price-main">USD 450</p>
           <p class="si-price-type">Producción mensual</p>
         </div>
-        <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0ia82BAbDyGthqzolde_NV2XPid5bfoAH0WuXI1NgmCFZyf5DvB7wPZBZAt2nrZRumUXYQJATZ?gv=true" class="si-cta" target="_blank" rel="noopener noreferrer">
-          Agendar una llamada →
-        </a>
+        <div class="si-ctas">
+          <a href="/servicios/marketing-digital/realizacion-audiovisual.html" class="si-cta si-cta-primary">Ver detalle →</a>
+          <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0ia82BAbDyGthqzolde_NV2XPid5bfoAH0WuXI1NgmCFZyf5DvB7wPZBZAt2nrZRumUXYQJATZ?gv=true" class="si-cta si-cta-ghost" target="_blank" rel="noopener noreferrer">Agendar una llamada</a>
+        </div>
       </article>
 
       <!-- Creación de sitio web -->
@@ -716,9 +751,10 @@ src="https://www.facebook.com/tr?id=1460516722431287&ev=PageView&noscript=1"/></
           <p class="si-price-main">USD 500</p>
           <p class="si-price-type">Pago único</p>
         </div>
-        <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0ia82BAbDyGthqzolde_NV2XPid5bfoAH0WuXI1NgmCFZyf5DvB7wPZBZAt2nrZRumUXYQJATZ?gv=true" class="si-cta" target="_blank" rel="noopener noreferrer">
-          Agendar una llamada →
-        </a>
+        <div class="si-ctas">
+          <a href="/servicios/marketing-digital/creacion-sitio-web.html" class="si-cta si-cta-primary">Ver detalle →</a>
+          <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0ia82BAbDyGthqzolde_NV2XPid5bfoAH0WuXI1NgmCFZyf5DvB7wPZBZAt2nrZRumUXYQJATZ?gv=true" class="si-cta si-cta-ghost" target="_blank" rel="noopener noreferrer">Agendar una llamada</a>
+        </div>
       </article>
 
       <!-- Creación de landing page -->
@@ -734,9 +770,10 @@ src="https://www.facebook.com/tr?id=1460516722431287&ev=PageView&noscript=1"/></
           <p class="si-price-main">USD 300</p>
           <p class="si-price-type">Pago único</p>
         </div>
-        <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0ia82BAbDyGthqzolde_NV2XPid5bfoAH0WuXI1NgmCFZyf5DvB7wPZBZAt2nrZRumUXYQJATZ?gv=true" class="si-cta" target="_blank" rel="noopener noreferrer">
-          Agendar una llamada →
-        </a>
+        <div class="si-ctas">
+          <a href="/servicios/marketing-digital/creacion-landing-page.html" class="si-cta si-cta-primary">Ver detalle →</a>
+          <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0ia82BAbDyGthqzolde_NV2XPid5bfoAH0WuXI1NgmCFZyf5DvB7wPZBZAt2nrZRumUXYQJATZ?gv=true" class="si-cta si-cta-ghost" target="_blank" rel="noopener noreferrer">Agendar una llamada</a>
+        </div>
       </article>
 
       <!-- Email Marketing -->
@@ -753,9 +790,10 @@ src="https://www.facebook.com/tr?id=1460516722431287&ev=PageView&noscript=1"/></
           <p class="si-price-type">Setup + cuenta</p>
           <p class="si-price-extra">+ USD 150 / mes (fee de gestión)</p>
         </div>
-        <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0ia82BAbDyGthqzolde_NV2XPid5bfoAH0WuXI1NgmCFZyf5DvB7wPZBZAt2nrZRumUXYQJATZ?gv=true" class="si-cta" target="_blank" rel="noopener noreferrer">
-          Agendar una llamada →
-        </a>
+        <div class="si-ctas">
+          <a href="/servicios/marketing-digital/email-marketing.html" class="si-cta si-cta-primary">Ver detalle →</a>
+          <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0ia82BAbDyGthqzolde_NV2XPid5bfoAH0WuXI1NgmCFZyf5DvB7wPZBZAt2nrZRumUXYQJATZ?gv=true" class="si-cta si-cta-ghost" target="_blank" rel="noopener noreferrer">Agendar una llamada</a>
+        </div>
       </article>
 
       <!-- Posicionamiento SEO y GEO -->
@@ -771,9 +809,10 @@ src="https://www.facebook.com/tr?id=1460516722431287&ev=PageView&noscript=1"/></
           <p class="si-price-main">USD 400</p>
           <p class="si-price-type">Por mes</p>
         </div>
-        <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0ia82BAbDyGthqzolde_NV2XPid5bfoAH0WuXI1NgmCFZyf5DvB7wPZBZAt2nrZRumUXYQJATZ?gv=true" class="si-cta" target="_blank" rel="noopener noreferrer">
-          Agendar una llamada →
-        </a>
+        <div class="si-ctas">
+          <a href="/servicios/marketing-digital/seo-geo.html" class="si-cta si-cta-primary">Ver detalle →</a>
+          <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0ia82BAbDyGthqzolde_NV2XPid5bfoAH0WuXI1NgmCFZyf5DvB7wPZBZAt2nrZRumUXYQJATZ?gv=true" class="si-cta si-cta-ghost" target="_blank" rel="noopener noreferrer">Agendar una llamada</a>
+        </div>
       </article>
 
     </div>

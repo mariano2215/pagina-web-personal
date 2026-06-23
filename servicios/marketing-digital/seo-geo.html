@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Estrategia de posicionamiento orgánico en Google y mapas.">
+<title>Posicionamiento SEO / GEO — Servicios de Marketing Digital | Mariano Calandra</title>
+
+<link rel="canonical" href="https://marianocalandra.com/servicios/marketing-digital/seo-geo.html">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Posicionamiento SEO / GEO — Mariano Calandra">
+<meta property="og:description" content="Estrategia de posicionamiento orgánico en Google y mapas.">
+<meta property="og:url" content="https://marianocalandra.com/servicios/marketing-digital/seo-geo.html">
+<meta property="og:image" content="https://marianocalandra.com/img/mariano-hero.jpg">
+<meta property="og:locale" content="es_AR">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Posicionamiento SEO / GEO — Mariano Calandra">
+<meta name="twitter:description" content="Estrategia de posicionamiento orgánico en Google y mapas.">
+
+<script src="/gtm.js?v=__BUST__"></script>
+
+<link rel="icon" type="image/png" href="/img/favicon-nuevo.png">
+<link rel="apple-touch-icon" href="/img/favicon-nuevo.png">
+<meta name="theme-color" content="#0B0B0B">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/styles.css?v=__BUST__">
+
+<style>
+/* ================================================================
+   SERVICE DETAIL — Sublanding de un servicio
+   ================================================================ */
+.sd-page { padding-top: 136px; padding-bottom: 0; }
+
+.sd-breadcrumb {
+  display: inline-flex; align-items: center; gap: 6px;
+  color: var(--text-muted); font-size: 13px; font-weight: 500;
+  margin-bottom: 28px; transition: var(--transition);
+}
+.sd-breadcrumb:hover { color: var(--accent); opacity: 1; }
+.sd-breadcrumb b { color: var(--text-gray); font-weight: 600; }
+
+/* ── Hero ── */
+.sd-hero { padding-bottom: 64px; border-bottom: 1px solid rgba(255,255,255,0.07); }
+
+.sd-badge {
+  display: inline-flex; width: fit-content;
+  font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--accent); background: var(--accent-soft);
+  border: 1px solid var(--accent-border); border-radius: var(--radius-pill);
+  padding: 6px 14px; margin-bottom: 22px;
+}
+
+.sd-hero h1 {
+  font-size: clamp(34px, 5.2vw, 60px); font-weight: 900;
+  line-height: 1.05; letter-spacing: -0.025em;
+  max-width: 880px; margin-bottom: 20px;
+}
+.sd-hero h1 span { color: var(--accent); }
+
+.sd-hero-desc {
+  font-size: 18px; color: var(--text-gray); line-height: 1.7;
+  max-width: 720px; margin-bottom: 34px;
+}
+
+.sd-price-box {
+  display: flex; flex-direction: column; gap: 6px; margin-bottom: 30px;
+}
+.sd-price {
+  font-family: 'Montserrat', sans-serif; font-size: clamp(34px, 5vw, 52px);
+  font-weight: 900; color: var(--text-white); line-height: 1; letter-spacing: -0.03em;
+}
+.sd-price-note { font-size: 13px; color: var(--text-muted); line-height: 1.5; }
+
+/* ── Botones ── */
+.sd-ctas { display: flex; flex-wrap: wrap; gap: 14px; }
+
+.sd-btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  min-height: 52px; padding: 0 30px; border-radius: var(--radius-pill);
+  font-family: 'Poppins', sans-serif; font-size: 15px; font-weight: 600;
+  text-decoration: none; cursor: pointer; transition: var(--transition);
+  border: 1.5px solid transparent;
+}
+.sd-btn-primary { background: var(--accent); color: #111111; }
+.sd-btn-primary:hover {
+  background: #3de0bb; transform: translateY(-2px); opacity: 1;
+  box-shadow: 0 10px 28px rgba(53, 212, 174, 0.28);
+}
+.sd-btn-secondary {
+  background: transparent; color: var(--text-gray);
+  border-color: rgba(255,255,255,0.14);
+}
+.sd-btn-secondary:hover {
+  border-color: var(--accent); color: var(--accent);
+  transform: translateY(-2px); opacity: 1;
+}
+
+/* ── Secciones ── */
+.sd-section { padding: 72px 0; border-bottom: 1px solid rgba(255,255,255,0.07); }
+
+.sd-eyebrow {
+  font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent);
+  display: block; margin-bottom: 12px;
+}
+.sd-section h2 {
+  font-size: clamp(26px, 3.6vw, 40px); font-weight: 800;
+  letter-spacing: -0.025em; line-height: 1.1; margin-bottom: 36px;
+  max-width: 760px;
+}
+
+/* Grids */
+.sd-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.sd-grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+
+.sd-card {
+  background: var(--bg-secondary); border: 1px solid rgba(255,255,255,0.07);
+  border-radius: var(--radius-card); padding: 24px 24px;
+  display: flex; align-items: flex-start; gap: 12px;
+  transition: var(--transition);
+}
+.sd-card:hover { border-color: rgba(255,255,255,0.14); transform: translateY(-3px); }
+.sd-card p { color: var(--text-gray); font-size: 14px; line-height: 1.6; margin: 0; }
+.sd-card .sd-check {
+  color: var(--accent); font-family: 'Montserrat', sans-serif; font-weight: 800;
+  font-size: 14px; flex-shrink: 0; line-height: 1.5;
+}
+.sd-card.sd-muted .sd-dot {
+  width: 7px; height: 7px; border-radius: 50%; background: var(--accent);
+  flex-shrink: 0; margin-top: 7px;
+}
+
+/* Pasos */
+.sd-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.sd-step {
+  background: var(--bg-secondary); border: 1px solid rgba(255,255,255,0.07);
+  border-radius: var(--radius-card); padding: 28px 26px;
+}
+.sd-step .sd-num {
+  font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 800;
+  color: var(--accent); display: block; margin-bottom: 14px; letter-spacing: 0.08em;
+}
+.sd-step h3 { font-size: 18px; font-weight: 800; margin-bottom: 10px; color: var(--text-white); }
+.sd-step p { font-size: 14px; color: var(--text-gray); line-height: 1.6; }
+
+/* Comparativo */
+.sd-compare { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+.sd-compare-card {
+  background: var(--bg-secondary); border: 1px solid rgba(255,255,255,0.07);
+  border-radius: var(--radius-card); padding: 30px 28px;
+}
+.sd-compare-card h3 {
+  font-size: 17px; font-weight: 800; margin-bottom: 20px;
+  display: flex; align-items: center; gap: 10px;
+}
+.sd-compare-card.sd-neg h3 { color: #ff7a7a; }
+.sd-compare-card.sd-pos {
+  border-color: var(--accent-border);
+  background: linear-gradient(150deg, rgba(53,212,174,0.08) 0%, rgba(53,212,174,0.02) 60%, var(--bg-secondary) 100%);
+}
+.sd-compare-card.sd-pos h3 { color: var(--accent); }
+.sd-compare-card ul { list-style: none; padding: 0; margin: 0; }
+.sd-compare-card li {
+  display: flex; align-items: flex-start; gap: 11px;
+  padding: 13px 0; border-bottom: 1px solid rgba(255,255,255,0.06);
+  font-size: 14px; color: var(--text-gray); line-height: 1.55;
+}
+.sd-compare-card li:last-child { border-bottom: 0; }
+.sd-compare-card li .sd-mark { flex-shrink: 0; font-weight: 800; font-size: 14px; line-height: 1.55; }
+.sd-neg li .sd-mark { color: #ff7a7a; }
+.sd-pos li .sd-mark { color: var(--accent); }
+
+/* CTA final */
+.sd-final {
+  text-align: center; padding: 80px 24px;
+  background: linear-gradient(160deg, rgba(53,212,174,0.10) 0%, rgba(53,212,174,0.02) 45%, var(--bg-secondary) 100%);
+  border: 1px solid var(--accent-border); border-radius: var(--radius-card);
+  margin: 72px 0 100px;
+}
+.sd-final h2 {
+  font-size: clamp(24px, 3.4vw, 36px); font-weight: 800;
+  letter-spacing: -0.02em; margin-bottom: 14px; max-width: 640px;
+  margin-inline: auto;
+}
+.sd-final p {
+  font-size: 16px; color: var(--text-gray); line-height: 1.65;
+  max-width: 600px; margin: 0 auto 30px;
+}
+.sd-final .sd-ctas { justify-content: center; }
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .sd-grid-3, .sd-steps, .sd-grid-2, .sd-compare { grid-template-columns: 1fr; }
+}
+@media (max-width: 680px) {
+  .sd-page { padding-top: 110px; }
+  .sd-hero { padding-bottom: 48px; }
+  .sd-section { padding: 52px 0; }
+  .sd-btn { width: 100%; }
+  .sd-final { padding: 56px 22px; margin-bottom: 72px; }
+}
+</style>
+
+<!-- Meta Pixel + CAPI -->
+<script src="/meta-pixel.js?v=__BUST__" defer></script>
+
+<!-- Datos estructurados (JSON-LD) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "Posicionamiento SEO / GEO",
+      "url": "https://marianocalandra.com/servicios/marketing-digital/seo-geo.html",
+      "description": "Estrategia de posicionamiento orgánico en Google y mapas.",
+      "serviceType": "Marketing digital",
+      "areaServed": ["Argentina", "LATAM"],
+      "provider": {
+        "@type": "Person",
+        "@id": "https://marianocalandra.com/#person",
+        "name": "Mariano Calandra",
+        "url": "https://marianocalandra.com/"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://marianocalandra.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Servicios", "item": "https://marianocalandra.com/servicios/" },
+        { "@type": "ListItem", "position": 3, "name": "Marketing Digital", "item": "https://marianocalandra.com/servicios/marketing-digital.html" },
+        { "@type": "ListItem", "position": 4, "name": "Posicionamiento SEO / GEO", "item": "https://marianocalandra.com/servicios/marketing-digital/seo-geo.html" }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WF2DG4B7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=1460516722431287&ev=PageView&noscript=1"/></noscript>
+
+<!-- HEADER / NAV -->
+<header class="header" id="siteHeader">
+  <div class="container">
+    <div class="header-inner">
+      <a href="/" class="logo" aria-label="Mariano Calandra — Inicio">
+        <img src="/img/favicon-nuevo.png" alt="MC monograma" width="28" height="28">
+        <span class="logo-text">Mariano <span>Calandra</span></span>
+      </a>
+      <nav aria-label="Navegación principal">
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="/#home">Home</a></li>
+          <li><a href="/quien-soy.html">Quién soy</a></li>
+          <li><a href="/#proyectos">EPIGROUP</a></li>
+          <li><a href="/servicios/" class="active">Servicios</a></li>
+          <li><a href="/contenido.html">Contenido</a></li>
+          <li><a href="/blog/">Blog</a></li>
+          <li><a href="/newsletter.html">Newsletter</a></li>
+        </ul>
+      </nav>
+      <button class="menu-toggle" id="menuToggle" aria-label="Menú" aria-expanded="false">☰</button>
+    </div>
+  </div>
+</header>
+
+<main>
+<div class="container sd-page">
+
+  <!-- Breadcrumb -->
+  <a href="/servicios/marketing-digital.html" class="sd-breadcrumb">
+    ← Servicios / Marketing Digital / <b>Posicionamiento SEO / GEO</b>
+  </a>
+
+  <!-- HERO -->
+  <section class="sd-hero">
+    <span class="sd-badge">Mensual</span>
+    <h1>Posicionamiento orgánico para que te encuentren cuando ya te están buscando.</h1>
+    <p class="sd-hero-desc">Estrategia SEO y GEO para mejorar la visibilidad de tu negocio en Google, búsquedas locales y mapas, conectando contenido, intención de búsqueda y conversión.</p>
+    <div class="sd-price-box">
+      <span class="sd-price">USD 400</span>
+      <span class="sd-price-note">por mes · estrategia mensual de posicionamiento orgánico</span>
+    </div>
+    <div class="sd-ctas">
+      <a href="#" class="sd-btn sd-btn-primary" data-comprar="seo-geo">Comprar →</a>
+      <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0ia82BAbDyGthqzolde_NV2XPid5bfoAH0WuXI1NgmCFZyf5DvB7wPZBZAt2nrZRumUXYQJATZ?gv=true" class="sd-btn sd-btn-secondary" target="_blank" rel="noopener noreferrer">Agendar una llamada</a>
+    </div>
+  </section>
+
+  <!-- QUÉ CONTIENE -->
+  <section class="sd-section">
+    <span class="sd-eyebrow">Qué incluye</span>
+    <h2>Qué contiene el servicio</h2>
+    <div class="sd-grid-3">
+      <article class="sd-card">
+        <span class="sd-check">✓</span>
+        <p>Diagnóstico SEO inicial del sitio.</p>
+      </article>
+      <article class="sd-card">
+        <span class="sd-check">✓</span>
+        <p>Investigación de palabras clave e intención de búsqueda.</p>
+      </article>
+      <article class="sd-card">
+        <span class="sd-check">✓</span>
+        <p>Optimización de páginas clave.</p>
+      </article>
+      <article class="sd-card">
+        <span class="sd-check">✓</span>
+        <p>Recomendaciones de estructura, contenido y enlazado interno.</p>
+      </article>
+      <article class="sd-card">
+        <span class="sd-check">✓</span>
+        <p>Optimización local si aplica.</p>
+      </article>
+      <article class="sd-card">
+        <span class="sd-check">✓</span>
+        <p>Plan de contenidos orientado a búsqueda.</p>
+      </article>
+      <article class="sd-card">
+        <span class="sd-check">✓</span>
+        <p>Seguimiento de oportunidades y mejoras mensuales.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- PARA QUIÉN ES -->
+  <section class="sd-section">
+    <span class="sd-eyebrow">Para quién es</span>
+    <h2>Pensado para vos si te identificás con esto</h2>
+    <div class="sd-grid-2">
+      <article class="sd-card sd-muted">
+        <span class="sd-dot"></span>
+        <p>Negocios locales que quieren aparecer en Google y mapas.</p>
+      </article>
+      <article class="sd-card sd-muted">
+        <span class="sd-dot"></span>
+        <p>Empresas que quieren captar demanda orgánica.</p>
+      </article>
+      <article class="sd-card sd-muted">
+        <span class="sd-dot"></span>
+        <p>Marcas que no quieren depender únicamente de pauta paga.</p>
+      </article>
+      <article class="sd-card sd-muted">
+        <span class="sd-dot"></span>
+        <p>Sitios web que necesitan mejorar visibilidad y estructura.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- CÓMO CONTRATARLO -->
+  <section class="sd-section">
+    <span class="sd-eyebrow">Cómo contratarlo</span>
+    <h2>Tres pasos simples</h2>
+    <div class="sd-steps">
+      <div class="sd-step">
+        <span class="sd-num">01</span>
+        <h3>Elegís el servicio</h3>
+        <p>Revisás si esta solución se adapta a tu etapa, objetivo y presupuesto.</p>
+      </div>
+      <div class="sd-step">
+        <span class="sd-num">02</span>
+        <h3>Comprás o agendás</h3>
+        <p>Podés avanzar directo con el checkout o coordinar una llamada previa.</p>
+      </div>
+      <div class="sd-step">
+        <span class="sd-num">03</span>
+        <h3>Arrancamos con diagnóstico</h3>
+        <p>Se revisa tu negocio, oferta, canales actuales y próximos pasos.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPARATIVO -->
+  <section class="sd-section">
+    <span class="sd-eyebrow">Pérdida vs. beneficio</span>
+    <h2>Qué cambia al tener este servicio</h2>
+    <div class="sd-compare">
+      <div class="sd-compare-card sd-neg">
+        <h3>✕ Sin este servicio</h3>
+        <ul>
+          <li><span class="sd-mark">✕</span>Baja visibilidad cuando el cliente busca soluciones.</li>
+          <li><span class="sd-mark">✕</span>Dependencia total de anuncios pagos.</li>
+          <li><span class="sd-mark">✕</span>Sitio web sin estructura para posicionar.</li>
+          <li><span class="sd-mark">✕</span>Contenido que no responde a intención de búsqueda.</li>
+          <li><span class="sd-mark">✕</span>Oportunidades orgánicas desaprovechadas.</li>
+        </ul>
+      </div>
+      <div class="sd-compare-card sd-pos">
+        <h3>✓ Con este servicio</h3>
+        <ul>
+          <li><span class="sd-mark">✓</span>Mejor visibilidad en búsquedas relevantes.</li>
+          <li><span class="sd-mark">✓</span>Captación de demanda con intención real.</li>
+          <li><span class="sd-mark">✓</span>Sitio más ordenado para Google y usuarios.</li>
+          <li><span class="sd-mark">✓</span>Menor dependencia de pauta a largo plazo.</li>
+          <li><span class="sd-mark">✓</span>Contenido conectado a búsquedas y conversión.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="sd-final">
+    <h2>Que te encuentren también es parte de vender.</h2>
+    <p>Comprá el servicio o agendá una llamada para revisar oportunidades de posicionamiento.</p>
+    <div class="sd-ctas">
+      <a href="#" class="sd-btn sd-btn-primary" data-comprar="seo-geo">Comprar →</a>
+      <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0ia82BAbDyGthqzolde_NV2XPid5bfoAH0WuXI1NgmCFZyf5DvB7wPZBZAt2nrZRumUXYQJATZ?gv=true" class="sd-btn sd-btn-secondary" target="_blank" rel="noopener noreferrer">Agendar una llamada</a>
+    </div>
+  </section>
+
+</div>
+</main>
+
+<!-- Footer -->
+<footer style="background:var(--bg-secondary);border-top:1px solid rgba(255,255,255,0.06);padding:32px 0;">
+  <div class="container" style="display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;">
+    <a href="/" class="logo" aria-label="Inicio">
+      <img src="/img/favicon-nuevo.png" alt="MC" width="20" height="20">
+      <span class="logo-text" style="font-size:0.9rem;">Mariano <span>Calandra</span></span>
+    </a>
+    <nav aria-label="Footer" style="display:flex;gap:20px;flex-wrap:wrap;">
+      <a href="/" style="font-size:13px;color:var(--text-muted);transition:var(--transition);">Inicio</a>
+      <a href="/servicios/marketing-digital.html" style="font-size:13px;color:var(--text-muted);transition:var(--transition);">Marketing Digital</a>
+      <a href="/contenido.html" style="font-size:13px;color:var(--text-muted);transition:var(--transition);">Contenido</a>
+      <a href="/newsletter.html" style="font-size:13px;color:var(--text-muted);transition:var(--transition);">Newsletter</a>
+    </nav>
+    <p style="font-size:12px;color:var(--text-muted);">© 2026 marianocalandra.com</p>
+  </div>
+</footer>
+
+<script>
+  // Header scroll
+  const hdr = document.getElementById('siteHeader');
+  window.addEventListener('scroll', () => {
+    hdr.classList.toggle('scrolled', window.scrollY > 40);
+  }, { passive: true });
+
+  // Mobile menu toggle
+  const toggleBtn = document.getElementById('menuToggle');
+  const navMenu   = document.getElementById('navMenu');
+  if (toggleBtn && navMenu) {
+    toggleBtn.addEventListener('click', () => {
+      const isOpen = navMenu.classList.toggle('open');
+      toggleBtn.setAttribute('aria-expanded', isOpen);
+      toggleBtn.textContent = isOpen ? '✕' : '☰';
+    });
+  }
+</script>
+
+<!-- Checkout Mercado Pago (servicio). Si el precio aún no está configurado
+     server-side, o falla la red, cae a "Agendar una llamada". -->
+<script>/* MP-CHECKOUT-SERVICIO */
+(function(){
+  var CALENDAR = "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0ia82BAbDyGthqzolde_NV2XPid5bfoAH0WuXI1NgmCFZyf5DvB7wPZBZAt2nrZRumUXYQJATZ?gv=true";
+  var SLUG = "seo-geo";
+  function agendaFallback(){ window.open(CALENDAR, '_blank', 'noopener'); }
+  document.querySelectorAll('[data-comprar]').forEach(function(btn){
+    btn.addEventListener('click', function(e){
+      e.preventDefault();
+      var slug = btn.getAttribute('data-comprar') || SLUG;
+      var original = btn.innerHTML;
+      btn.innerHTML = 'Generando checkout…';
+      btn.style.pointerEvents = 'none';
+      btn.style.opacity = '0.7';
+      if (window.fbq) fbq('track', 'InitiateCheckout', { currency: 'ARS', content_name: slug, content_category: 'servicio' });
+      fetch('/.netlify/functions/crear-preferencia', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ producto: slug })
+      })
+      .then(function(r){ return r.ok ? r.json() : Promise.reject(r); })
+      .then(function(res){
+        if (res && res.init_point) { window.location.href = res.init_point; }
+        else { throw new Error('sin init_point'); }
+      })
+      .catch(function(){
+        btn.innerHTML = original;
+        btn.style.pointerEvents = '';
+        btn.style.opacity = '';
+        agendaFallback();
+      });
+    });
+  });
+})();
+</script>
+
+<!-- Meta CAPI eventos custom de pagina -->
+<script>/* MCAPI-PAGE-EVENTS */
+document.addEventListener("DOMContentLoaded", function(){
+  if (window.mcTrack) window.mcTrack("ViewContent", {"content_name": "seo-geo", "content_category": "servicios-detalle"});
+});
+</script>
+</body>
+</html>

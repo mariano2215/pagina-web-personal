@@ -40,6 +40,65 @@ const PRODUCTOS = {
   }
 };
 
+// Servicios de Marketing Digital. El precio se cobra en ARS (Checkout Pro AR).
+// Mientras `price` sea null el botón "Comprar" no genera checkout: la function
+// devuelve `precio_no_configurado` y el front cae a "Agendar una llamada".
+// → REEMPLAZAR cada `price: null` por el monto en ARS (entero, sin puntos).
+//   Ej: USD 300 ⇒ price: 360000  (la conversión USD→ARS la define Mariano).
+const DET = '/servicios/marketing-digital/';
+const GRACIAS_SERVICIO = '/servicios/marketing-digital/gracias.html';
+const SERVICIOS = {
+  'performance-marketing': {
+    title: 'Performance Marketing — Mariano Calandra',
+    price: null, // REEMPLAZAR: ARS (ref. USD 300/mes)
+    gracias: GRACIAS_SERVICIO,
+    detalle: DET + 'performance-marketing.html',
+    tipo: 'servicio'
+  },
+  'content-creation': {
+    title: 'Content Creation — Mariano Calandra',
+    price: null, // REEMPLAZAR: ARS (ref. USD 450/mes)
+    gracias: GRACIAS_SERVICIO,
+    detalle: DET + 'content-creation.html',
+    tipo: 'servicio'
+  },
+  'realizacion-audiovisual': {
+    title: 'Realización Audiovisual — Mariano Calandra',
+    price: null, // REEMPLAZAR: ARS (ref. USD 450/mes)
+    gracias: GRACIAS_SERVICIO,
+    detalle: DET + 'realizacion-audiovisual.html',
+    tipo: 'servicio'
+  },
+  'creacion-sitio-web': {
+    title: 'Creación de Sitio Web — Mariano Calandra',
+    price: null, // REEMPLAZAR: ARS (ref. USD 500, pago único)
+    gracias: GRACIAS_SERVICIO,
+    detalle: DET + 'creacion-sitio-web.html',
+    tipo: 'servicio'
+  },
+  'creacion-landing-page': {
+    title: 'Creación de Landing Page — Mariano Calandra',
+    price: null, // REEMPLAZAR: ARS (ref. USD 300, pago único)
+    gracias: GRACIAS_SERVICIO,
+    detalle: DET + 'creacion-landing-page.html',
+    tipo: 'servicio'
+  },
+  'email-marketing': {
+    title: 'Email Marketing — Setup — Mariano Calandra',
+    price: null, // REEMPLAZAR: ARS (ref. USD 500 setup + USD 150/mes)
+    gracias: GRACIAS_SERVICIO,
+    detalle: DET + 'email-marketing.html',
+    tipo: 'servicio'
+  },
+  'seo-geo': {
+    title: 'Posicionamiento SEO / GEO — Mariano Calandra',
+    price: null, // REEMPLAZAR: ARS (ref. USD 400/mes)
+    gracias: GRACIAS_SERVICIO,
+    detalle: DET + 'seo-geo.html',
+    tipo: 'servicio'
+  }
+};
+
 function corsHeaders(origin) {
   const allowed = ALLOWED_ORIGINS.includes(origin) ? origin : ALLOWED_ORIGINS[0];
   return {
@@ -79,17 +138,28 @@ exports.handler = async (event) => {
   }
 
   const slug = payload.producto;
-  const producto = PRODUCTOS[slug];
+  const producto = PRODUCTOS[slug] || SERVICIOS[slug];
   if (!producto) {
     return { statusCode: 400, headers, body: JSON.stringify({ error: 'producto_invalido' }) };
   }
+
+  // Servicio sin precio ARS cargado todavía: no se puede cobrar. El front
+  // (botón Comprar) interpreta cualquier error y cae a "Agendar una llamada".
+  if (producto.price == null) {
+    return { statusCode: 409, headers, body: JSON.stringify({ error: 'precio_no_configurado' }) };
+  }
+
+  const esServicio = producto.tipo === 'servicio';
+  const descripcion = esServicio
+    ? 'Servicio de Marketing Digital · Mariano Calandra'
+    : 'Contenido premium descargable · Mariano Calandra';
 
   const preference = {
     items: [
       {
         id: slug,
         title: producto.title,
-        description: 'Contenido premium descargable · Mariano Calandra',
+        description: descripcion,
         quantity: 1,
         currency_id: 'ARS',
         unit_price: producto.price
@@ -103,7 +173,7 @@ exports.handler = async (event) => {
     auto_return: 'approved',
     statement_descriptor: 'MCALANDRA',
     external_reference: slug + '-' + Date.now(),
-    metadata: { producto: slug },
+    metadata: { producto: slug, tipo: esServicio ? 'servicio' : 'descargable' },
     notification_url: SITE + '/.netlify/functions/webhook-mp'
   };
 
