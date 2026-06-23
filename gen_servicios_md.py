@@ -246,7 +246,7 @@ SERVICES = [
         "icon": "📧",
         "modality": "Setup + mensual",
         "price": "USD 500",
-        "priceNote": "setup inicial · + USD 150 / mes de fee de gestión",
+        "priceNote": "setup inicial · + USD 150 / mes (≈ $217.500 ARS) de fee de gestión",
         "heroTitle": "Email marketing para nutrir leads, vender mejor y no depender solo de redes.",
         "heroDescription": "Configuración de plataforma, automatizaciones y estrategia de campañas mensuales para construir una lista propia y activar oportunidades comerciales.",
         "shortDescription": "Setup, automatizaciones y estrategia mensual de campañas por email.",
@@ -326,6 +326,19 @@ SERVICES = [
     },
 ]
 
+# Equivalente en ARS que se muestra al lado del precio USD (al lado del botón
+# Comprar). Conversión a 1 USD = $1450 ARS. Debe coincidir con los montos del
+# catálogo SERVICIOS en netlify/functions/crear-preferencia.js (lo que cobra MP).
+PRICE_ARS = {
+    "performance-marketing": "$435.000 ARS",
+    "content-creation": "$652.500 ARS",
+    "realizacion-audiovisual": "$652.500 ARS",
+    "creacion-sitio-web": "$725.000 ARS",
+    "creacion-landing-page": "$435.000 ARS",
+    "email-marketing": "$725.000 ARS",
+    "seo-geo": "$580.000 ARS",
+}
+
 # ---------------------------------------------------------------------------
 # CSS de la sublanding (scoped con prefijo .sd-). Usa tokens reales del sitio.
 # ---------------------------------------------------------------------------
@@ -373,6 +386,10 @@ CSS = """
 .sd-price {
   font-family: 'Montserrat', sans-serif; font-size: clamp(34px, 5vw, 52px);
   font-weight: 900; color: var(--text-white); line-height: 1; letter-spacing: -0.03em;
+}
+.sd-price-ars {
+  font-family: 'Montserrat', sans-serif; font-size: 17px; font-weight: 700;
+  color: var(--accent); letter-spacing: -0.01em;
 }
 .sd-price-note { font-size: 13px; color: var(--text-muted); line-height: 1.5; }
 
@@ -624,6 +641,7 @@ TEMPLATE = """<!DOCTYPE html>
     <p class="sd-hero-desc">@@HERO_DESC@@</p>
     <div class="sd-price-box">
       <span class="sd-price">@@PRICE@@</span>
+      <span class="sd-price-ars">≈ @@PRICE_ARS@@</span>
       <span class="sd-price-note">@@PRICE_NOTE@@</span>
     </div>
     <div class="sd-ctas">
@@ -846,6 +864,7 @@ def render(svc):
         "@@HERO_TITLE_HTML@@": hero_title_html(svc["heroTitle"]),
         "@@HERO_DESC@@": svc["heroDescription"],
         "@@PRICE@@": svc["price"],
+        "@@PRICE_ARS@@": PRICE_ARS.get(svc["slug"], ""),
         "@@PRICE_NOTE@@": svc["priceNote"],
         "@@CALENDAR@@": CALENDAR_URL,
         "@@INCLUDES@@": build_list_cards(svc["includes"]),

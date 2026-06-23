@@ -41,58 +41,59 @@ const PRODUCTOS = {
 };
 
 // Servicios de Marketing Digital. El precio se cobra en ARS (Checkout Pro AR).
-// Mientras `price` sea null el botón "Comprar" no genera checkout: la function
-// devuelve `precio_no_configurado` y el front cae a "Agendar una llamada".
-// → REEMPLAZAR cada `price: null` por el monto en ARS (entero, sin puntos).
-//   Ej: USD 300 ⇒ price: 360000  (la conversión USD→ARS la define Mariano).
+// Montos cargados a 1 USD = $1450 ARS (entero, sin puntos). Si en el futuro se
+// agrega un servicio con `price: null`, el botón "Comprar" no genera checkout:
+// la function devuelve `precio_no_configurado` y el front cae a "Agendar una
+// llamada". El equivalente ARS mostrado en las páginas (PRICE_ARS en
+// gen_servicios_md.py y las cards de marketing-digital.html) debe coincidir.
 const DET = '/servicios/marketing-digital/';
 const GRACIAS_SERVICIO = '/servicios/marketing-digital/gracias.html';
 const SERVICIOS = {
   'performance-marketing': {
     title: 'Performance Marketing — Mariano Calandra',
-    price: null, // REEMPLAZAR: ARS (ref. USD 300/mes)
+    price: 435000, // USD 300/mes × 1450
     gracias: GRACIAS_SERVICIO,
     detalle: DET + 'performance-marketing.html',
     tipo: 'servicio'
   },
   'content-creation': {
     title: 'Content Creation — Mariano Calandra',
-    price: null, // REEMPLAZAR: ARS (ref. USD 450/mes)
+    price: 652500, // USD 450/mes × 1450
     gracias: GRACIAS_SERVICIO,
     detalle: DET + 'content-creation.html',
     tipo: 'servicio'
   },
   'realizacion-audiovisual': {
     title: 'Realización Audiovisual — Mariano Calandra',
-    price: null, // REEMPLAZAR: ARS (ref. USD 450/mes)
+    price: 652500, // USD 450/mes × 1450
     gracias: GRACIAS_SERVICIO,
     detalle: DET + 'realizacion-audiovisual.html',
     tipo: 'servicio'
   },
   'creacion-sitio-web': {
     title: 'Creación de Sitio Web — Mariano Calandra',
-    price: null, // REEMPLAZAR: ARS (ref. USD 500, pago único)
+    price: 725000, // USD 500 pago único × 1450
     gracias: GRACIAS_SERVICIO,
     detalle: DET + 'creacion-sitio-web.html',
     tipo: 'servicio'
   },
   'creacion-landing-page': {
     title: 'Creación de Landing Page — Mariano Calandra',
-    price: null, // REEMPLAZAR: ARS (ref. USD 300, pago único)
+    price: 435000, // USD 300 pago único × 1450
     gracias: GRACIAS_SERVICIO,
     detalle: DET + 'creacion-landing-page.html',
     tipo: 'servicio'
   },
   'email-marketing': {
     title: 'Email Marketing — Setup — Mariano Calandra',
-    price: null, // REEMPLAZAR: ARS (ref. USD 500 setup + USD 150/mes)
+    price: 725000, // USD 500 setup × 1450 (el fee mensual se cobra aparte)
     gracias: GRACIAS_SERVICIO,
     detalle: DET + 'email-marketing.html',
     tipo: 'servicio'
   },
   'seo-geo': {
     title: 'Posicionamiento SEO / GEO — Mariano Calandra',
-    price: null, // REEMPLAZAR: ARS (ref. USD 400/mes)
+    price: 580000, // USD 400/mes × 1450
     gracias: GRACIAS_SERVICIO,
     detalle: DET + 'seo-geo.html',
     tipo: 'servicio'
