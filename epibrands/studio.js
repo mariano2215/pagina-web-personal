@@ -200,6 +200,7 @@
 
     /* --- Counters animados --- */
     var counters = document.querySelectorAll("[data-counter]");
+    function formatCounter(n) { return Math.round(n).toLocaleString("es-AR"); }
     function animateCounter(counter) {
       var target = Number(counter.getAttribute("data-counter"));
       var duration = 1400;
@@ -208,14 +209,14 @@
         var elapsed = now - startTime;
         var progress = Math.min(elapsed / duration, 1);
         var eased = 1 - Math.pow(1 - progress, 3);
-        counter.textContent = Math.round(target * eased);
+        counter.textContent = formatCounter(target * eased);
         if (progress < 1) { requestAnimationFrame(tick); }
-        else { counter.textContent = target; }
+        else { counter.textContent = formatCounter(target); }
       }
       requestAnimationFrame(tick);
     }
     if (prefersReducedMotion) {
-      counters.forEach(function (c) { c.textContent = c.getAttribute("data-counter"); });
+      counters.forEach(function (c) { c.textContent = formatCounter(Number(c.getAttribute("data-counter"))); });
     } else {
       var counterObserver = new IntersectionObserver(function (entries) {
         entries.forEach(function (entry) {
