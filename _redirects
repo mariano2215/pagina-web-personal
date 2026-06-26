@@ -7,3 +7,8 @@
 # Legacy: Recursos → Contenido (página unificada)
 /recursos.html     /contenido.html  301
 /recursos          /contenido.html  301
+
+# EPIBRANDS Studio — canonicalización a la URL limpia /epibrands/studio.
+# El "!" fuerza el redirect aunque exista el archivo físico studio.html.
+/epibrands/studio.html    /epibrands/studio    301!
+/epibrands/studio/        /epibrands/studio    301!

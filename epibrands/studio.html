@@ -12,23 +12,31 @@
 <meta name="author" content="Mariano Calandra">
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#EBEBE6">
-<link rel="canonical" href="https://marianocalandra.com/epibrands/studio.html">
+<link rel="canonical" href="https://marianocalandra.com/epibrands/studio">
 
 <!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="Estudio | Mariano Calandra — Marketing, Paid Media y Sistemas de Crecimiento">
 <meta property="og:description" content="Sistemas de marketing para marcas que quieren sentirse más grandes. Estrategia, paid media, contenido y sistemas comerciales.">
-<meta property="og:url" content="https://marianocalandra.com/epibrands/studio.html">
+<meta property="og:url" content="https://marianocalandra.com/epibrands/studio">
 <meta property="og:image" content="https://marianocalandra.com/epibrands/assets/og-epibrands.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="EPIBRANDS — Estudio de Marketing de Mariano Calandra">
 <meta property="og:locale" content="es_AR">
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Estudio | Mariano Calandra">
 <meta name="twitter:description" content="Sistemas de marketing para marcas que quieren sentirse más grandes.">
+<meta name="twitter:image" content="https://marianocalandra.com/epibrands/assets/og-epibrands.jpg">
 
 <!-- Favicon (reutiliza el del sitio principal) -->
 <link rel="icon" type="image/png" href="../img/favicon-nuevo.png">
+
+<!-- Meta Pixel + CAPI (mismo pixel y function que el resto del sitio).
+     Dispara PageView automático y expone window.mcTrack para los eventos Lead. -->
+<script src="/meta-pixel.js?v=__BUST__" defer></script>
 
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -41,10 +49,17 @@
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
   "name": "EPIBRANDS — Estudio de Mariano Calandra",
-  "url": "https://marianocalandra.com/epibrands/studio.html",
+  "url": "https://marianocalandra.com/epibrands/studio",
+  "image": "https://marianocalandra.com/epibrands/assets/og-epibrands.jpg",
   "description": "Estrategia, paid media, contenido, medición y sistemas comerciales para marcas que quieren crecer con claridad y criterio.",
   "founder": { "@type": "Person", "name": "Mariano Calandra" },
-  "email": "info@marianocalandra.com"
+  "email": "info@marianocalandra.com",
+  "telephone": "+5493416397137",
+  "areaServed": ["AR", "LATAM"],
+  "sameAs": [
+    "https://www.instagram.com/mktconmarian/",
+    "https://www.linkedin.com/in/marianocalandra22/"
+  ]
 }
 </script>
 
@@ -708,6 +723,39 @@ a{ color:inherit; text-decoration:none; }
 .epi-final-cta-button span{ transition:transform .22s var(--ease); }
 .epi-final-cta-button:hover span{ transform:translateX(4px); }
 
+/* ---- 11. Contacto: form Netlify + WhatsApp dentro del CTA oscuro ---- */
+.epi-contact-form{
+  width:min(100%,560px); margin:2rem auto 0; text-align:left;
+  display:grid; gap:.7rem;
+}
+.epi-form-row{ display:grid; grid-template-columns:1fr 1fr; gap:.7rem; }
+.epi-contact-form input,
+.epi-contact-form textarea{
+  width:100%; padding:.85rem 1rem; font-family:inherit; font-size:.95rem; color:var(--invert-ink);
+  background:rgba(237,237,232,0.06); border:1px solid rgba(237,237,232,0.16);
+  border-radius:12px; outline:none;
+  transition:border-color .22s var(--ease), background .22s var(--ease), box-shadow .22s var(--ease);
+}
+.epi-contact-form input::placeholder,
+.epi-contact-form textarea::placeholder{ color:rgba(237,237,232,0.42); }
+.epi-contact-form input:focus,
+.epi-contact-form textarea:focus{
+  border-color:var(--accent-line); background:rgba(237,237,232,0.10);
+  box-shadow:0 0 0 4px rgba(110,124,106,0.22);
+}
+.epi-contact-form textarea{ resize:vertical; min-height:96px; }
+.epi-form-submit{ width:100%; margin-top:.3rem; border:0; cursor:pointer; font-size:1rem; }
+.epi-contact-alt{ display:flex; flex-direction:column; align-items:center; gap:.8rem; margin-top:1.7rem; }
+.epi-contact-or{ color:rgba(237,237,232,0.5); font-size:.85rem; }
+.epi-whatsapp-button{
+  display:inline-flex; align-items:center; gap:.55rem; min-height:50px; padding:0 1.4rem;
+  border-radius:999px; border:1px solid rgba(237,237,232,0.28); background:transparent;
+  color:var(--invert-ink); font-weight:600; text-decoration:none;
+  transition:transform .22s var(--ease), background .22s var(--ease), border-color .22s var(--ease);
+}
+.epi-whatsapp-button:hover{ transform:translateY(-2px); background:rgba(237,237,232,0.08); border-color:rgba(237,237,232,0.5); }
+@media (max-width:560px){ .epi-form-row{ grid-template-columns:1fr; } }
+
 /* ---- Responsive de los módulos ---- */
 @media (max-width:1080px){
   .epi-method-flow{ grid-template-columns:repeat(3,1fr); }
@@ -749,6 +797,9 @@ a{ color:inherit; text-decoration:none; }
 
 <body>
 
+<!-- Meta Pixel noscript (fallback sin JS) -->
+<noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=1460516722431287&ev=PageView&noscript=1"/></noscript>
+
 <!-- Barra de progreso de scroll -->
 <div class="epi-scroll-progress" aria-hidden="true"></div>
 
@@ -766,7 +817,7 @@ a{ color:inherit; text-decoration:none; }
         <a href="#method">Método</a>
         <a href="#services">Servicios</a>
         <a href="#contact">Contacto</a>
-        <a href="mailto:info@marianocalandra.com" class="nav-cta">Empezar proyecto</a>
+        <a href="#contact" class="nav-cta">Empezar proyecto</a>
       </div>
       <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">Menú</button>
     </nav>
@@ -798,7 +849,7 @@ a{ color:inherit; text-decoration:none; }
         <p class="hero-sub reveal d1">Estrategia, paid media, contenido y sistemas comerciales para negocios listos para crecer con claridad, precisión y criterio.</p>
         <div class="hero-actions reveal d2">
           <a href="#method" class="btn btn-solid"><span class="dot"></span> Ver método</a>
-          <a href="mailto:info@marianocalandra.com" class="btn btn-ghost">Empezar proyecto</a>
+          <a href="#contact" class="btn btn-ghost">Empezar proyecto</a>
         </div>
       </div>
 
@@ -1084,10 +1135,34 @@ a{ color:inherit; text-decoration:none; }
     <div class="epi-final-cta-content">
       <p class="epi-eyebrow">EPIBRANDS Estudio</p>
       <h2>Tu marketing no necesita más piezas sueltas. Necesita sistema.</h2>
-      <p>Estrategia, contenido, campañas, medición y consultoría para ordenar el crecimiento de tu negocio.</p>
-      <a href="mailto:info@marianocalandra.com" class="epi-final-cta-button">
-        Solicitar diagnóstico <span aria-hidden="true">→</span>
-      </a>
+      <p>Dejá tus datos y te devuelvo un diagnóstico con los próximos pasos para ordenar tu marketing. Sin vueltas.</p>
+
+      <!-- Netlify Forms — la submission exitosa redirige a /epibrands/gracias.html,
+           que dispara el evento Lead (browser + CAPI) al cargar. -->
+      <form class="epi-contact-form" name="epibrands-studio" method="POST"
+            action="/epibrands/gracias.html" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="epibrands-studio">
+        <p hidden><label>No completar: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+        <div class="epi-form-row">
+          <input type="text"  name="nombre" placeholder="Tu nombre" required autocomplete="name">
+          <input type="email" name="email"  placeholder="Tu email" required autocomplete="email">
+        </div>
+        <input type="text" name="negocio" placeholder="Tu marca / negocio" autocomplete="organization">
+        <textarea name="mensaje" rows="3" placeholder="¿Qué querés ordenar en tu marketing?"></textarea>
+        <button type="submit" class="epi-final-cta-button epi-form-submit">
+          Solicitar diagnóstico <span aria-hidden="true">→</span>
+        </button>
+      </form>
+
+      <div class="epi-contact-alt">
+        <span class="epi-contact-or">o si preferís, escribime directo</span>
+        <a class="epi-whatsapp-button"
+           href="https://wa.me/5493416397137?text=Hola%20Mariano%2C%20vengo%20de%20la%20web%20de%20EPIBRANDS%20y%20quiero%20un%20diagn%C3%B3stico%20de%20mi%20marketing"
+           target="_blank" rel="noopener"
+           onclick="if(window.mcTrack)window.mcTrack('Lead',{content_name:'EPIBRANDS Studio',content_category:'whatsapp'});">
+          <span aria-hidden="true">💬</span> Escribime por WhatsApp
+        </a>
+      </div>
     </div>
   </section>
 

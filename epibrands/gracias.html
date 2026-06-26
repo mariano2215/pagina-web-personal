@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Gracias. Recibí tu consulta y te devuelvo un diagnóstico en las próximas horas.">
+<meta name="theme-color" content="#EDEDE8">
+<title>Gracias | EPIBRANDS — Estudio de Mariano Calandra</title>
+
+<!-- Favicon (reutiliza el del sitio principal) -->
+<link rel="icon" type="image/png" href="../img/favicon-nuevo.png">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- Meta Pixel + CAPI (mismo pixel y function que el resto del sitio) -->
+<script src="/meta-pixel.js?v=__BUST__" defer></script>
+
+<style>
+:root{
+  --bg:#EDEDE8; --ink:#1A1A18; --ink-soft:#5C5C57; --ink-faint:#9A9A93;
+  --line:rgba(26,26,24,0.14); --accent:#6E7C6A;
+  --font:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  --ease:cubic-bezier(.2,.7,.2,1);
+}
+*{ margin:0; padding:0; box-sizing:border-box; }
+html{ -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; }
+body{
+  background:var(--bg); color:var(--ink); font-family:var(--font);
+  line-height:1.5; letter-spacing:-0.01em; min-height:100svh;
+  display:flex; align-items:center; justify-content:center; padding:40px 24px;
+}
+.thanks{ width:min(100%,640px); text-align:center; }
+.badge{
+  display:inline-flex; align-items:center; gap:9px; margin-bottom:28px;
+  padding:8px 16px; border:1px solid var(--line); border-radius:999px;
+  font-size:12px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:var(--accent);
+}
+.badge::before{
+  content:"✓"; width:20px; height:20px; border-radius:50%;
+  background:var(--accent); color:var(--bg); display:inline-flex;
+  align-items:center; justify-content:center; font-size:12px; font-weight:800;
+}
+.thanks h1{
+  font-size:clamp(2rem,5.4vw,3.4rem); line-height:1.05; font-weight:600;
+  letter-spacing:-0.04em; margin-bottom:20px;
+}
+.thanks h1 em{ font-style:normal; color:var(--ink-soft); }
+.thanks p{ font-size:1.05rem; color:var(--ink-soft); max-width:46ch; margin:0 auto 36px; }
+.actions{ display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
+.btn{
+  display:inline-flex; align-items:center; gap:9px; font-size:14px; font-weight:500;
+  padding:14px 26px; border-radius:999px; border:1px solid var(--ink); transition:all .35s var(--ease);
+}
+.btn-solid{ background:var(--ink); color:var(--bg); }
+.btn-solid:hover{ background:transparent; color:var(--ink); }
+.btn-ghost{ background:transparent; color:var(--ink); border-color:var(--line); }
+.btn-ghost:hover{ border-color:var(--ink); }
+a.btn{ text-decoration:none; }
+.micro{ font-size:13px; color:var(--ink-faint); margin-top:30px; }
+.micro a{ color:var(--accent); }
+</style>
+</head>
+<body>
+
+<!-- Meta Pixel noscript (fallback sin JS) -->
+<noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=1460516722431287&ev=PageView&noscript=1"/></noscript>
+
+<main class="thanks">
+  <span class="badge">Recibido</span>
+  <h1>¡Gracias! <em>Tu diagnóstico está en camino.</em></h1>
+  <p>Voy a revisar lo que me contaste y te devuelvo los próximos pasos por mail o WhatsApp en las próximas horas. Sin vueltas, con criterio.</p>
+  <div class="actions">
+    <a href="/epibrands/studio" class="btn btn-solid">Volver al estudio →</a>
+    <a href="https://wa.me/5493416397137?text=Hola%20Mariano%2C%20acabo%20de%20dejar%20mis%20datos%20en%20EPIBRANDS"
+       target="_blank" rel="noopener" class="btn btn-ghost">Escribirme por WhatsApp</a>
+  </div>
+  <p class="micro">¿Es urgente? Escribime a <a href="mailto:info@marianocalandra.com">info@marianocalandra.com</a>.</p>
+</main>
+
+<!-- Meta CAPI: evento Lead del form EPIBRANDS Studio (browser + servidor, deduplicado) -->
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+  if (window.mcTrack) window.mcTrack("Lead", { content_name: "EPIBRANDS Studio", content_category: "form" });
+});
+</script>
+</body>
+</html>
