@@ -292,6 +292,13 @@ a{ color:inherit; text-decoration:none; }
   transform:translate3d(0, var(--py, 0px), 0); will-change:transform;
 }
 .work:hover .glyph{ opacity:0.28; letter-spacing:-0.02em; }
+/* video del portfolio: cubre el visual por encima de la grilla/gradiente */
+.work .visual video{
+  position:absolute; inset:0; width:100%; height:100%;
+  object-fit:cover; display:block; z-index:2;
+  transition:transform 1s var(--ease);
+}
+.work:hover .visual video{ transform:scale(1.04); }
 .work .meta{
   display:flex; justify-content:space-between; align-items:baseline; gap:16px;
   padding-top:16px; border-top:1px solid var(--line); margin-top:18px;
@@ -960,37 +967,31 @@ a{ color:inherit; text-decoration:none; }
       <div class="work-grid">
         <!-- CASO 1 -->
         <article class="epi-motion-card work span-7 tall reveal">
-          <div class="visual"><span class="glyph">SC</span></div>
+          <div class="visual"><video src="assets/work/paid-media.mp4" autoplay muted loop playsinline preload="metadata"></video></div>
           <div class="meta"><h3>Sistema de Crecimiento en Paid Media</h3><span class="cat">Rendimiento</span><span class="yr">2025</span></div>
           <p class="desc">Sistema de adquisición pagada en Meta y Google con foco en rentabilidad medible y escalado ordenado.</p>
         </article>
         <!-- CASO 2 -->
         <article class="epi-motion-card work span-5 tall reveal d1">
-          <div class="visual"><span class="glyph">EM</span></div>
+          <div class="visual"><video src="assets/work/estrategia-marca.mp4" autoplay muted loop playsinline preload="metadata"></video></div>
           <div class="meta"><h3>Marco de Estrategia de Marca</h3><span class="cat">Estrategia</span><span class="yr">2025</span></div>
           <p class="desc">Plataforma de marca, posicionamiento y narrativa comercial para diferenciar con criterio.</p>
         </article>
         <!-- CASO 3 -->
         <article class="epi-motion-card work span-5 offset reveal">
-          <div class="visual"><span class="glyph">AM</span></div>
+          <div class="visual"><video src="assets/work/auditoria.mp4" autoplay muted loop playsinline preload="metadata"></video></div>
           <div class="meta"><h3>Sistema de Auditoría de Marketing</h3><span class="cat">Diagnóstico</span><span class="yr">2024</span></div>
           <p class="desc">Auditoría integral de embudo, medición y rentabilidad para decidir con datos.</p>
         </article>
         <!-- CASO 4 -->
         <article class="epi-motion-card work span-7 reveal d1">
-          <div class="visual"><span class="glyph">PC</span></div>
+          <div class="visual"><video src="assets/work/pagina-conversion.mp4" autoplay muted loop playsinline preload="metadata"></video></div>
           <div class="meta"><h3>Página de Conversión</h3><span class="cat">Conversión</span><span class="yr">2024</span></div>
           <p class="desc">Páginas diseñadas para convertir: jerarquía, mensaje y medición trabajando juntos.</p>
         </article>
         <!-- CASO 5 -->
-        <article class="epi-motion-card work span-6 reveal">
-          <div class="visual"><span class="glyph">IA</span></div>
-          <div class="meta"><h3>Motor de Contenido con IA</h3><span class="cat">Contenido</span><span class="yr">2025</span></div>
-          <p class="desc">Sistema de contenido asistido por IA con criterio editorial y voz de marca consistente.</p>
-        </article>
-        <!-- CASO 6 -->
-        <article class="epi-motion-card work span-6 reveal d1">
-          <div class="visual"><span class="glyph">CC</span></div>
+        <article class="epi-motion-card work span-5 reveal d1">
+          <div class="visual"><video src="assets/work/consultoria.mp4" autoplay muted loop playsinline preload="metadata"></video></div>
           <div class="meta"><h3>Intensivo de Consultoría Comercial</h3><span class="cat">Consultoría</span><span class="yr">2025</span></div>
           <p class="desc">Trabajo intensivo para alinear oferta, precios y proceso comercial con la estrategia.</p>
         </article>
