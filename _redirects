@@ -9,6 +9,11 @@
 /recursos          /contenido.html  301
 
 # EPIBRANDS Studio — canonicalización a la URL limpia /epibrands/studio.
-# El "!" fuerza el redirect aunque exista el archivo físico studio.html.
-/epibrands/studio.html    /epibrands/studio    301!
-/epibrands/studio/        /epibrands/studio    301!
+# 1) Servir la URL limpia directamente como rewrite 200. Esto es CLAVE: sin
+#    esta regla, al resolver internamente studio.html el redirect forzado de
+#    abajo se vuelve a disparar y genera un loop infinito (ERR_TOO_MANY_REDIRECTS).
+/epibrands/studio         /epibrands/studio.html   200
+# 2) Forzar las variantes .html y con barra final a la URL limpia. El "!" es
+#    necesario porque el archivo físico studio.html existe y si no, gana el archivo.
+/epibrands/studio.html    /epibrands/studio        301!
+/epibrands/studio/        /epibrands/studio        301!
