@@ -229,22 +229,6 @@
       counters.forEach(function (c) { counterObserver.observe(c); });
     }
 
-    /* --- Toggle Antes / Después --- */
-    var toggleButtons = document.querySelectorAll(".epi-toggle-button");
-    var beforePanel = document.getElementById("epiPanelBefore");
-    var afterPanel = document.getElementById("epiPanelAfter");
-    toggleButtons.forEach(function (button) {
-      button.addEventListener("click", function () {
-        var selectedPanel = button.getAttribute("data-panel");
-        toggleButtons.forEach(function (item) { item.classList.remove("is-active"); });
-        button.classList.add("is-active");
-        if (beforePanel && afterPanel) {
-          beforePanel.classList.toggle("is-active", selectedPanel === "before");
-          afterPanel.classList.toggle("is-active", selectedPanel === "after");
-        }
-      });
-    });
-
     /* --- Mouse-glow en cards --- */
     if (!prefersReducedMotion) {
       document.querySelectorAll(".epi-motion-card").forEach(function (card) {
