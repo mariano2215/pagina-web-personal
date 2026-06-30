@@ -291,14 +291,8 @@
     <span class="sd-badge">Mensual</span>
     <h1>Campañas pagas con estrategia, <span>datos y foco real en ventas.</span></h1>
     <p class="sd-hero-desc">Gestión profesional de campañas en Meta Ads y Google Ads para ordenar tu inversión, mejorar el rendimiento y tomar decisiones basadas en métricas reales.</p>
-    <div class="sd-price-box">
-      <span class="sd-price">USD 300</span>
-      <span class="sd-price-ars">≈ $435.000 ARS</span>
-      <span class="sd-price-note">por mes · + inversión publicitaria, que corre por cuenta del cliente</span>
-    </div>
     <div class="sd-ctas">
-      <a href="#" class="sd-btn sd-btn-primary" data-comprar="performance-marketing">Comprar →</a>
-      <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0ia82BAbDyGthqzolde_NV2XPid5bfoAH0WuXI1NgmCFZyf5DvB7wPZBZAt2nrZRumUXYQJATZ?gv=true" class="sd-btn sd-btn-secondary" target="_blank" rel="noopener noreferrer">Agendar una llamada</a>
+      <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0ia82BAbDyGthqzolde_NV2XPid5bfoAH0WuXI1NgmCFZyf5DvB7wPZBZAt2nrZRumUXYQJATZ?gv=true" class="sd-btn sd-btn-primary" target="_blank" rel="noopener noreferrer">Agendar una llamada</a>
     </div>
   </section>
 
@@ -374,8 +368,8 @@
       </div>
       <div class="sd-step">
         <span class="sd-num">02</span>
-        <h3>Comprás o agendás</h3>
-        <p>Podés avanzar directo con el checkout o coordinar una llamada previa.</p>
+        <h3>Agendás una llamada</h3>
+        <p>Coordinás una llamada conmigo para ver si es el mejor punto de partida.</p>
       </div>
       <div class="sd-step">
         <span class="sd-num">03</span>
@@ -416,10 +410,9 @@
   <!-- CTA FINAL -->
   <section class="sd-final">
     <h2>Convertí tu inversión publicitaria en un sistema medible.</h2>
-    <p>Comprá el servicio o agendá una llamada para revisar si Performance Marketing es el punto correcto por donde empezar.</p>
+    <p>Agendá una llamada para revisar si Performance Marketing es el punto correcto por donde empezar.</p>
     <div class="sd-ctas">
-      <a href="#" class="sd-btn sd-btn-primary" data-comprar="performance-marketing">Comprar →</a>
-      <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0ia82BAbDyGthqzolde_NV2XPid5bfoAH0WuXI1NgmCFZyf5DvB7wPZBZAt2nrZRumUXYQJATZ?gv=true" class="sd-btn sd-btn-secondary" target="_blank" rel="noopener noreferrer">Agendar una llamada</a>
+      <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0ia82BAbDyGthqzolde_NV2XPid5bfoAH0WuXI1NgmCFZyf5DvB7wPZBZAt2nrZRumUXYQJATZ?gv=true" class="sd-btn sd-btn-primary" target="_blank" rel="noopener noreferrer">Agendar una llamada</a>
     </div>
   </section>
 
@@ -460,43 +453,6 @@
       toggleBtn.textContent = isOpen ? '✕' : '☰';
     });
   }
-</script>
-
-<!-- Checkout Mercado Pago (servicio). Si el precio aún no está configurado
-     server-side, o falla la red, cae a "Agendar una llamada". -->
-<script>/* MP-CHECKOUT-SERVICIO */
-(function(){
-  var CALENDAR = "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0ia82BAbDyGthqzolde_NV2XPid5bfoAH0WuXI1NgmCFZyf5DvB7wPZBZAt2nrZRumUXYQJATZ?gv=true";
-  var SLUG = "performance-marketing";
-  function agendaFallback(){ window.open(CALENDAR, '_blank', 'noopener'); }
-  document.querySelectorAll('[data-comprar]').forEach(function(btn){
-    btn.addEventListener('click', function(e){
-      e.preventDefault();
-      var slug = btn.getAttribute('data-comprar') || SLUG;
-      var original = btn.innerHTML;
-      btn.innerHTML = 'Generando checkout…';
-      btn.style.pointerEvents = 'none';
-      btn.style.opacity = '0.7';
-      if (window.fbq) fbq('track', 'InitiateCheckout', { currency: 'ARS', content_name: slug, content_category: 'servicio' });
-      fetch('/.netlify/functions/crear-preferencia', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ producto: slug })
-      })
-      .then(function(r){ return r.ok ? r.json() : Promise.reject(r); })
-      .then(function(res){
-        if (res && res.init_point) { window.location.href = res.init_point; }
-        else { throw new Error('sin init_point'); }
-      })
-      .catch(function(){
-        btn.innerHTML = original;
-        btn.style.pointerEvents = '';
-        btn.style.opacity = '';
-        agendaFallback();
-      });
-    });
-  });
-})();
 </script>
 
 <!-- Meta CAPI eventos custom de pagina -->
