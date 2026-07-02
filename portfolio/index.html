@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Portfolio profesional de Mariano Calandra. Casos reales de Paid Media en Meta y Google Ads, con inversión gestionada, stack de medición (CAPI, GTM, GA4) y resultados verificables. Complemento de CV.">
+<title>Portfolio — Mariano Calandra · Paid Media & Estrategia Comercial</title>
+
+<link rel="canonical" href="https://marianocalandra.com/portfolio/">
+
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Portfolio — Mariano Calandra · Paid Media & Estrategia">
+<meta property="og:description" content="Casos reales de Paid Media: ROAS 13,9x en Google Ads, +2.400 leads calificados en Meta. Inversión gestionada, stack de medición y resultados verificables.">
+<meta property="og:url" content="https://marianocalandra.com/portfolio/">
+<!-- TODO(Mariano): crear og-portfolio.png (1200×630) y reemplazar la imagen genérica de abajo -->
+<meta property="og:image" content="https://marianocalandra.com/img/og-mariano-calandra-v2.png">
+<meta property="og:locale" content="es_AR">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Portfolio — Mariano Calandra · Paid Media & Estrategia">
+<meta name="twitter:description" content="Casos reales de Paid Media con números, contexto y stack de medición server-side. Complemento de CV.">
+
+<script src="/gtm.js?v=__BUST__"></script>
+<!-- Microsoft Clarity -->
+<script src="/clarity.js?v=__BUST__"></script>
+
+<link rel="icon" type="image/png" href="/img/favicon-nuevo.png">
+<link rel="apple-touch-icon" href="/img/favicon-nuevo.png">
+<meta name="theme-color" content="#0B0B0B">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/styles.css?v=__BUST__">
+
+<style>
+/* ================================================================
+   PORTFOLIO — Estilos de página (prefijo pf-)
+   ================================================================ */
+
+/* Compensar el header fijo */
+.pf-hero {
+  padding-top: 160px;
+  padding-bottom: 72px;
+}
+
+.pf-eyebrow {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+  display: block;
+  margin-bottom: 14px;
+}
+
+.pf-hero-title {
+  font-size: clamp(34px, 5vw, 56px);
+  font-weight: 900;
+  line-height: 1.08;
+  margin-bottom: 20px;
+  max-width: 760px;
+  letter-spacing: -0.025em;
+  color: var(--text-white);
+}
+
+.pf-hero-title span { color: var(--accent); }
+
+.pf-hero-sub {
+  font-size: 17px;
+  color: var(--text-gray);
+  max-width: 640px;
+  line-height: 1.7;
+  margin-bottom: 34px;
+}
+
+.pf-hero-btns {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+/* ── Snapshot de scope ── */
+.pf-scope-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+}
+
+.pf-scope-card {
+  background: var(--bg-primary);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: var(--radius-card);
+  padding: 26px 22px;
+  transition: var(--transition);
+}
+
+.pf-scope-card:hover {
+  border-color: var(--accent-border);
+  transform: translateY(-3px);
+}
+
+.pf-scope-num {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(22px, 2.4vw, 30px);
+  font-weight: 800;
+  color: var(--accent);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.pf-scope-lbl {
+  font-size: 12.5px;
+  color: var(--text-gray);
+  line-height: 1.5;
+  display: block;
+}
+
+.pf-scope-period {
+  font-size: 11px;
+  color: var(--text-muted);
+  display: block;
+  margin-top: 6px;
+}
+
+/* ── Fichas de caso ── */
+.pf-cases {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  margin-top: 48px;
+}
+
+.pf-case {
+  background: var(--bg-secondary);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: var(--radius-card);
+  padding: 40px 38px;
+  transition: var(--transition);
+}
+
+.pf-case:hover {
+  border-color: var(--accent-border);
+}
+
+.pf-case-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+}
+
+.pf-tag {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: var(--accent-soft);
+  border: 1px solid var(--accent-border);
+  border-radius: var(--radius-pill);
+  padding: 4px 12px;
+}
+
+.pf-case-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(20px, 2.6vw, 27px);
+  font-weight: 800;
+  color: var(--text-white);
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+  margin-bottom: 28px;
+}
+
+.pf-block {
+  margin-bottom: 22px;
+}
+
+.pf-block-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  display: block;
+  margin-bottom: 8px;
+}
+
+.pf-block p,
+.pf-block li {
+  font-size: 14.5px;
+  color: var(--text-gray);
+  line-height: 1.7;
+}
+
+.pf-block ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pf-block ul li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.pf-block ul li::before {
+  content: "✓";
+  color: var(--accent);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 12px;
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+/* Grid de dos columnas para contexto + desafío */
+.pf-case-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 26px;
+}
+
+/* Resultados destacados */
+.pf-results {
+  background: var(--bg-primary);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  padding: 22px 24px;
+}
+
+.pf-results-grid {
+  display: flex;
+  gap: 36px;
+  flex-wrap: wrap;
+}
+
+.pf-metric-num {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(22px, 2.6vw, 30px);
+  font-weight: 800;
+  color: var(--accent);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  display: block;
+}
+
+.pf-metric-lbl {
+  font-size: 12.5px;
+  color: var(--text-gray);
+  line-height: 1.5;
+  display: block;
+  max-width: 200px;
+  margin-top: 4px;
+}
+
+.pf-attribution {
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-top: 14px;
+  font-style: italic;
+}
+
+/* Evidencia */
+.pf-evidence {
+  margin: 24px 0 0;
+}
+
+.pf-evidence img {
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  display: block;
+}
+
+.pf-evidence figcaption {
+  font-size: 11.5px;
+  color: var(--text-muted);
+  margin-top: 10px;
+  line-height: 1.5;
+}
+
+/* ── Stack técnico ── */
+.pf-stack-groups {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+  margin-top: 48px;
+}
+
+.pf-stack-group {
+  background: var(--bg-primary);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: var(--radius-card);
+  padding: 26px 26px 22px;
+}
+
+.pf-stack-group.is-featured {
+  border-color: var(--accent-border);
+  background: linear-gradient(150deg, rgba(53, 212, 174, 0.07) 0%, var(--bg-primary) 60%);
+}
+
+.pf-stack-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--text-white);
+  letter-spacing: 0.02em;
+  margin-bottom: 6px;
+}
+
+.pf-stack-note {
+  font-size: 12.5px;
+  color: var(--text-muted);
+  line-height: 1.55;
+  margin-bottom: 16px;
+}
+
+.pf-chips {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.pf-chip {
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--text-gray);
+  background: var(--accent-soft);
+  border: 1px solid var(--accent-border);
+  border-radius: var(--radius-pill);
+  padding: 7px 14px;
+  line-height: 1.3;
+}
+
+/* ── CTA doble ── */
+.pf-cta-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+  margin-top: 48px;
+}
+
+.pf-cta-card {
+  background: var(--bg-primary);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: var(--radius-card);
+  padding: 40px 34px;
+  text-align: center;
+}
+
+.pf-cta-card.is-featured {
+  border-color: var(--accent-border);
+  background: linear-gradient(150deg, rgba(53, 212, 174, 0.08) 0%, var(--bg-primary) 65%);
+}
+
+.pf-cta-card h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 19px;
+  font-weight: 800;
+  color: var(--text-white);
+  margin-bottom: 10px;
+}
+
+.pf-cta-card p {
+  font-size: 14px;
+  color: var(--text-gray);
+  line-height: 1.65;
+  margin-bottom: 24px;
+}
+
+.pf-cta-btns {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1000px) {
+  .pf-scope-grid { grid-template-columns: repeat(3, 1fr); }
+  .pf-stack-groups { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 680px) {
+  .pf-hero { padding-top: 120px; padding-bottom: 48px; }
+  .pf-scope-grid { grid-template-columns: 1fr 1fr; }
+  .pf-case-cols { grid-template-columns: 1fr; gap: 0; }
+  .pf-case { padding: 28px 22px; }
+  .pf-cta-grid { grid-template-columns: 1fr; }
+  .pf-results-grid { gap: 20px; }
+  .pf-hero-btns .btn { width: 100%; justify-content: center; text-align: center; }
+}
+</style>
+<!-- Meta Pixel + CAPI -->
+<script src="/meta-pixel.js?v=__BUST__" defer></script>
+
+<!-- Datos estructurados (JSON-LD) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://marianocalandra.com/#person",
+      "name": "Mariano Calandra",
+      "jobTitle": "Especialista en Paid Media y estrategia comercial",
+      "url": "https://marianocalandra.com/portfolio/",
+      "image": "https://marianocalandra.com/img/mariano-hero.jpg",
+      "hasOccupation": {
+        "@type": "Occupation",
+        "name": "Paid Media Specialist",
+        "skills": "Meta Ads, Google Ads, TikTok Ads, Meta Conversions API (CAPI), Google Tag Manager, GA4, Looker Studio, estrategia comercial",
+        "occupationLocation": {
+          "@type": "City",
+          "name": "Rosario, Santa Fe, Argentina"
+        }
+      },
+      "knowsAbout": [
+        "Paid Media",
+        "Meta Ads",
+        "Google Ads",
+        "TikTok Ads",
+        "Meta Conversions API (CAPI)",
+        "Google Tag Manager",
+        "GA4",
+        "Medición server-side",
+        "Estrategia comercial"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Rosario",
+        "addressRegion": "Santa Fe",
+        "addressCountry": "AR"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/in/marianocalandra22/",
+        "https://www.instagram.com/mktconmarian/"
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inicio",
+          "item": "https://marianocalandra.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Portfolio",
+          "item": "https://marianocalandra.com/portfolio/"
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WF2DG4B7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- Meta Pixel noscript -->
+<noscript><img height="1" width="1" style="display:none" alt=""
+src="https://www.facebook.com/tr?id=1460516722431287&ev=PageView&noscript=1"/></noscript>
+
+<!-- ================================================================
+     HEADER / NAV
+     ================================================================ -->
+<header class="header" id="siteHeader">
+  <div class="container">
+    <div class="header-inner">
+
+      <a href="/" class="logo" aria-label="Mariano Calandra — Inicio">
+        <img src="/img/favicon-nuevo.png" alt="MC monograma" width="28" height="28">
+        <span class="logo-text">Mariano <span>Calandra</span></span>
+      </a>
+
+      <nav aria-label="Navegación principal">
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="/#home">Home</a></li>
+          <li><a href="/quien-soy.html">Quién soy</a></li>
+          <li><a href="/#proyectos">EPIGROUP</a></li>
+          <li><a href="/servicios/">Servicios</a></li>
+          <li><a href="/portfolio/" class="active">Portfolio</a></li>
+          <li><a href="/contenido.html">Contenido</a></li>
+          <li><a href="/blog/">Blog</a></li>
+          <li><a href="/newsletter.html">Newsletter</a></li>
+        </ul>
+      </nav>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Menú" aria-expanded="false">☰</button>
+
+    </div>
+  </div>
+</header>
+
+<!-- ================================================================
+     CONTENIDO PRINCIPAL
+     ================================================================ -->
+<main>
+
+<!-- ===== SECCIÓN A — HERO ===== -->
+<section class="section pf-hero">
+  <div class="container">
+    <span class="pf-eyebrow">Portfolio profesional</span>
+    <h1 class="pf-hero-title">Paid Media que se traduce en <span>ventas</span>, no en vanity metrics.</h1>
+    <p class="pf-hero-sub">
+      Especialista en Paid Media y estrategia comercial. Gestiono inversión publicitaria en Meta y Google Ads con foco en rentabilidad y medición server-side. Acá tenés casos reales, con números y contexto.
+    </p>
+    <div class="pf-hero-btns">
+      <a href="/cv/mariano-calandra-cv.pdf" class="btn btn-primary js-cv">Descargar CV (PDF) ↓</a>
+      <a href="https://www.linkedin.com/in/marianocalandra22/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary js-linkedin">Ver en LinkedIn →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECCIÓN B — SNAPSHOT DE SCOPE ===== -->
+<section class="section section-secondary">
+  <div class="container">
+    <div class="pf-scope-grid" aria-label="Resumen de scope profesional">
+
+      <div class="pf-scope-card">
+        <span class="pf-scope-num">13,9x</span>
+        <span class="pf-scope-lbl">ROAS máximo sostenido en Google Ads (e-commerce)</span>
+        <span class="pf-scope-period">Mar–jun 2026 · ARS</span>
+      </div>
+
+      <div class="pf-scope-card">
+        <span class="pf-scope-num">+2.400</span>
+        <span class="pf-scope-lbl">leads calificados generados con Meta Ads</span>
+        <span class="pf-scope-period">Mar–jun 2026 (4 meses)</span>
+      </div>
+
+      <div class="pf-scope-card">
+        <span class="pf-scope-num">~$500</span>
+        <span class="pf-scope-lbl">costo por lead en leadgen por WhatsApp</span>
+        <span class="pf-scope-period">Mar–jun 2026 · ARS</span>
+      </div>
+
+      <div class="pf-scope-card">
+        <span class="pf-scope-num">Meta · Google · TikTok</span>
+        <span class="pf-scope-lbl">plataformas de ads operadas</span>
+      </div>
+
+      <div class="pf-scope-card">
+        <span class="pf-scope-num">CAPI · GTM · GA4</span>
+        <span class="pf-scope-lbl">stack de medición server-side implementado</span>
+      </div>
+
+    </div>
+    <!-- TODO(Mariano): si querés sumar "inversión publicitaria gestionada" agregada,
+         confirmá el monto + período antes de hardcodear (ver decisiones abiertas). -->
+  </div>
+</section>
+
+<!-- ===== SECCIÓN C — CASOS REALES ===== -->
+<section class="section">
+  <div class="container">
+    <div class="divider"></div>
+    <h2 class="section-title">Casos reales</h2>
+    <p class="section-subtitle">Clientes anonimizados por vertical. Todos los números tienen período, moneda y evidencia de la cuenta publicitaria.</p>
+
+    <div class="pf-cases">
+
+      <!-- ── CASO 1 — E-commerce · Google Ads ── -->
+      <article class="pf-case" aria-label="Caso: e-commerce con Google Ads">
+
+        <div class="pf-case-tags">
+          <span class="pf-tag">E-commerce</span>
+          <span class="pf-tag">Google Ads</span>
+          <span class="pf-tag">Mar–Jun 2026</span>
+        </div>
+
+        <h3 class="pf-case-title">13,9x ROAS en 4 meses de gestión sostenida</h3>
+
+        <div class="pf-case-cols">
+          <div class="pf-block">
+            <span class="pf-block-label">Contexto</span>
+            <p>E-commerce (retail/consumo, Argentina). Campañas de Google Ads con foco en venta directa, con compras/ventas como conversión principal.</p>
+          </div>
+          <div class="pf-block">
+            <span class="pf-block-label">Desafío</span>
+            <p>Escalar la inversión manteniendo la rentabilidad, sin que suba el costo de adquisición.</p>
+          </div>
+        </div>
+
+        <div class="pf-block">
+          <span class="pf-block-label">Qué hice</span>
+          <!-- TODO(Mariano): ajustar estos bullets con lo que hiciste realmente -->
+          <ul>
+            <li>Estructura de campañas orientada a valor de conversión (tROAS / maximizar valor).</li>
+            <li>Optimización continua de pujas y segmentación por rendimiento.</li>
+            <li>Medición precisa del valor de compra vía GTM + GA4 para alimentar el algoritmo.</li>
+          </ul>
+        </div>
+
+        <div class="pf-block">
+          <span class="pf-block-label">Resultado (mar–jun 2026, ARS)</span>
+          <div class="pf-results">
+            <div class="pf-results-grid">
+              <div>
+                <span class="pf-metric-num">13,9x</span>
+                <span class="pf-metric-lbl">ROAS — $22.700.000 en ventas sobre $1.630.000 de inversión</span>
+              </div>
+              <div>
+                <span class="pf-metric-num">12.200</span>
+                <span class="pf-metric-lbl">clics</span>
+              </div>
+              <div>
+                <span class="pf-metric-num">$134</span>
+                <span class="pf-metric-lbl">CPC promedio</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <figure class="pf-evidence">
+          <img src="/img/casos/google-ads-ecommerce-marjun26.png"
+               alt="Panel de Google Ads con los resultados de la cuenta de e-commerce: ROAS 13,9x, 12.200 clics y CPC promedio de $134 entre marzo y junio de 2026 (cuenta anonimizada)"
+               loading="lazy" decoding="async"
+               onerror="this.closest('.pf-evidence').style.display='none'">
+          <figcaption>Google Ads · 23 feb – 29 jun 2026 · datos reales, cuenta anonimizada.</figcaption>
+        </figure>
+
+      </article>
+
+      <!-- ── CASO 2 — Leadgen WhatsApp · Meta Ads ── -->
+      <article class="pf-case" aria-label="Caso: generación de leads por WhatsApp con Meta Ads">
+
+        <div class="pf-case-tags">
+          <span class="pf-tag">Leadgen</span>
+          <span class="pf-tag">Meta Ads</span>
+          <span class="pf-tag">Mar–Jun 2026</span>
+        </div>
+
+        <h3 class="pf-case-title">2.448 conversaciones calificadas a ~$500 → ~$27M en ventas</h3>
+
+        <div class="pf-case-cols">
+          <div class="pf-block">
+            <span class="pf-block-label">Contexto</span>
+            <p>Negocio con cierre comercial por WhatsApp (venta consultiva/asistida). Campañas de Meta Ads con objetivo de conversaciones.</p>
+          </div>
+          <div class="pf-block">
+            <span class="pf-block-label">Desafío</span>
+            <p>Generar volumen alto de leads calificados a costo controlado, alimentando al equipo comercial de forma constante.</p>
+          </div>
+        </div>
+
+        <div class="pf-block">
+          <span class="pf-block-label">Qué hice</span>
+          <!-- TODO(Mariano): ajustar estos bullets con lo que hiciste realmente -->
+          <ul>
+            <li>Campañas de mensajes / conversaciones con segmentación por intención.</li>
+            <li>Gestión de frecuencia y alcance para sostener el costo por resultado estable a escala.</li>
+            <li>Optimización de creativos y ángulos para bajar el costo por conversación.</li>
+          </ul>
+        </div>
+
+        <div class="pf-block">
+          <span class="pf-block-label">Resultado (mar–jun 2026, ARS)</span>
+          <div class="pf-results">
+            <div class="pf-results-grid">
+              <div>
+                <span class="pf-metric-num">2.448</span>
+                <span class="pf-metric-lbl">conversaciones (leads) — CPL ~$500 · gasto ~$1.200.000</span>
+              </div>
+              <div>
+                <span class="pf-metric-num">~$27M</span>
+                <span class="pf-metric-lbl">en ventas cerradas por el equipo comercial (~$11.000 de valor promedio por lead)</span>
+              </div>
+              <div>
+                <span class="pf-metric-num">~212.000</span>
+                <span class="pf-metric-lbl">de alcance combinado · frecuencia 1,9–2,9</span>
+              </div>
+            </div>
+            <p class="pf-attribution">Leadgen: la venta se cierra por WhatsApp, la atribución es asistida, no de último clic.</p>
+          </div>
+        </div>
+
+        <figure class="pf-evidence">
+          <img src="/img/casos/meta-ads-leadgen-marjun26.png"
+               alt="Meta Ads Manager con los conjuntos de anuncios de la campaña de leadgen: 2.448 conversaciones a un costo por lead de ~$500 entre marzo y junio de 2026 (cuenta anonimizada)"
+               loading="lazy" decoding="async"
+               onerror="this.closest('.pf-evidence').style.display='none'">
+          <figcaption>Meta Ads Manager · conjuntos de anuncios · datos reales, cuenta anonimizada.</figcaption>
+        </figure>
+
+      </article>
+
+      <!-- ════════════════════════════════════════════════════════════
+           PLACEHOLDER CASOS 3–5 (Mariano suma verticales: B2B,
+           servicios, otro e-commerce). Copiar la estructura de arriba,
+           completar y descomentar. Un portfolio fuerte necesita 3-5
+           casos con rango de verticales.
+
+      <article class="pf-case" aria-label="Caso: [vertical]">
+
+        <div class="pf-case-tags">
+          <span class="pf-tag">[VERTICAL]</span>
+          <span class="pf-tag">[PLATAFORMA]</span>
+          <span class="pf-tag">[PERÍODO]</span>
+        </div>
+
+        <h3 class="pf-case-title">[Resultado headline del caso]</h3>
+
+        <div class="pf-case-cols">
+          <div class="pf-block">
+            <span class="pf-block-label">Contexto</span>
+            <p>[Situación inicial anonimizada.]</p>
+          </div>
+          <div class="pf-block">
+            <span class="pf-block-label">Desafío</span>
+            <p>[El problema comercial.]</p>
+          </div>
+        </div>
+
+        <div class="pf-block">
+          <span class="pf-block-label">Qué hice</span>
+          <ul>
+            <li>[Estrategia + ejecución técnica.]</li>
+            <li>[Bullet 2.]</li>
+            <li>[Bullet 3.]</li>
+          </ul>
+        </div>
+
+        <div class="pf-block">
+          <span class="pf-block-label">Resultado ([período], [moneda])</span>
+          <div class="pf-results">
+            <div class="pf-results-grid">
+              <div>
+                <span class="pf-metric-num">[métrica]</span>
+                <span class="pf-metric-lbl">[label con baseline y período]</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <figure class="pf-evidence">
+          <img src="/img/casos/[screenshot].png" alt="[descripción]" loading="lazy" decoding="async"
+               onerror="this.closest('.pf-evidence').style.display='none'">
+          <figcaption>[Fuente · período · datos reales, cuenta anonimizada.]</figcaption>
+        </figure>
+
+      </article>
+      ════════════════════════════════════════════════════════════ -->
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECCIÓN D — STACK TÉCNICO ===== -->
+<section class="section section-secondary">
+  <div class="container">
+    <div class="divider"></div>
+    <h2 class="section-title">Stack técnico</h2>
+    <p class="section-subtitle">Las herramientas con las que opero, mido y reporto. La medición server-side es la base: sin datos confiables no hay optimización posible.</p>
+
+    <div class="pf-stack-groups">
+
+      <div class="pf-stack-group is-featured">
+        <h3 class="pf-stack-title">Medición</h3>
+        <p class="pf-stack-note">Implementación server-side completa: eventos que llegan aunque el browser los bloquee, con deduplicación entre Pixel y CAPI.</p>
+        <div class="pf-chips">
+          <span class="pf-chip">Meta CAPI (server-side + deduplicación)</span>
+          <span class="pf-chip">Google Tag Manager</span>
+          <span class="pf-chip">GA4</span>
+          <span class="pf-chip">Meta Pixel</span>
+        </div>
+      </div>
+
+      <div class="pf-stack-group">
+        <h3 class="pf-stack-title">Plataformas</h3>
+        <p class="pf-stack-note">Compra de medios en las tres plataformas principales de performance.</p>
+        <div class="pf-chips">
+          <span class="pf-chip">Meta Ads</span>
+          <span class="pf-chip">Google Ads (Search, PMax, Demand Gen)</span>
+          <span class="pf-chip">TikTok Ads</span>
+        </div>
+      </div>
+
+      <div class="pf-stack-group">
+        <h3 class="pf-stack-title">Analítica y reporte</h3>
+        <p class="pf-stack-note">Dashboards y comportamiento de usuario para decidir con datos, no con sensaciones.</p>
+        <div class="pf-chips">
+          <span class="pf-chip">Looker Studio</span>
+          <span class="pf-chip">Microsoft Clarity</span>
+        </div>
+      </div>
+
+      <div class="pf-stack-group">
+        <h3 class="pf-stack-title">Estrategia</h3>
+        <p class="pf-stack-note">El marco de trabajo detrás de las campañas.</p>
+        <div class="pf-chips">
+          <span class="pf-chip">Funnels TOFU/MOFU/BOFU</span>
+          <span class="pf-chip">Testing de creativos</span>
+          <span class="pf-chip">Estructuras de campaña</span>
+          <span class="pf-chip">Atribución</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════════
+     SECCIÓN E — CERTIFICACIONES + TESTIMONIOS
+     Comentada hasta que Mariano pase los assets:
+     - Badges verificables de Meta Blueprint / Google Ads (imagen + link).
+     - 2-3 testimonios FIRMADOS (quote + nombre + cargo + empresa).
+       NO usar testimonios anónimos en modo portfolio.
+     Descomentar cuando estén.
+
+<section class="section">
+  <div class="container">
+    <div class="divider"></div>
+    <h2 class="section-title">Certificaciones y testimonios</h2>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:28px;">
+
+      <div>
+        <h3 class="pf-stack-title" style="margin-bottom:16px;">Certificaciones</h3>
+        <div style="display:flex;gap:16px;flex-wrap:wrap;">
+          <a href="[LINK-VERIFICABLE-META-BLUEPRINT]" target="_blank" rel="noopener noreferrer">
+            <img src="/img/certificaciones/meta-blueprint.png" alt="Certificación Meta Blueprint — Mariano Calandra" width="120" height="120" loading="lazy">
+          </a>
+          <a href="[LINK-VERIFICABLE-GOOGLE-ADS]" target="_blank" rel="noopener noreferrer">
+            <img src="/img/certificaciones/google-ads.png" alt="Certificación Google Ads — Mariano Calandra" width="120" height="120" loading="lazy">
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="pf-stack-title" style="margin-bottom:16px;">Testimonios</h3>
+        <blockquote class="pf-block">
+          <p>"[Quote firmada]"</p>
+          <footer style="font-size:12.5px;color:var(--text-muted);margin-top:8px;">— [Nombre], [Cargo], [Empresa]</footer>
+        </blockquote>
+      </div>
+
+    </div>
+  </div>
+</section>
+════════════════════════════════════════════════════════════════ -->
+
+<!-- ===== SECCIÓN F — CTA DOBLE ===== -->
+<section class="section section-secondary">
+  <div class="container">
+    <div class="divider"></div>
+    <h2 class="section-title">¿Hablamos?</h2>
+    <p class="section-subtitle">Dos caminos, según lo que estés buscando.</p>
+
+    <div class="pf-cta-grid">
+
+      <div class="pf-cta-card is-featured">
+        <h3>Para empresas y agencias</h3>
+        <p>Si estás evaluando mi perfil para un rol in-house o de agencia, acá tenés el detalle completo de experiencia y formación.</p>
+        <div class="pf-cta-btns">
+          <a href="/cv/mariano-calandra-cv.pdf" class="btn btn-primary js-cv">Descargá mi CV ↓</a>
+          <a href="https://www.linkedin.com/in/marianocalandra22/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary js-linkedin">LinkedIn →</a>
+        </div>
+      </div>
+
+      <div class="pf-cta-card">
+        <h3>Para proyectos y freelance</h3>
+        <p>Si tenés un negocio y querés que gestione tus campañas o audite tu cuenta, empecemos por una conversación.</p>
+        <div class="pf-cta-btns">
+          <a href="/#contacto" class="btn btn-primary js-contacto">Trabajemos juntos →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- Footer -->
+<footer style="background:var(--bg-secondary);border-top:1px solid rgba(255,255,255,0.06);padding:32px 0;">
+  <div class="container" style="display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;">
+    <a href="/" class="logo" aria-label="Inicio">
+      <img src="/img/favicon-nuevo.png" alt="MC" width="20" height="20">
+      <span class="logo-text" style="font-size:0.9rem;">Mariano <span>Calandra</span></span>
+    </a>
+    <nav aria-label="Footer" style="display:flex;gap:20px;flex-wrap:wrap;">
+      <a href="/" style="font-size:13px;color:var(--text-muted);transition:var(--transition);">Inicio</a>
+      <a href="/quien-soy.html" style="font-size:13px;color:var(--text-muted);transition:var(--transition);">Quién soy</a>
+      <a href="/portfolio/" style="font-size:13px;color:var(--text-muted);transition:var(--transition);">Portfolio</a>
+      <a href="/contenido.html" style="font-size:13px;color:var(--text-muted);transition:var(--transition);">Contenido</a>
+      <a href="/newsletter.html" style="font-size:13px;color:var(--text-muted);transition:var(--transition);">Newsletter</a>
+    </nav>
+    <p style="font-size:12px;color:var(--text-muted);">© 2026 marianocalandra.com</p>
+  </div>
+</footer>
+
+<script>
+  // Header scroll
+  const hdr = document.getElementById('siteHeader');
+  window.addEventListener('scroll', () => {
+    hdr.classList.toggle('scrolled', window.scrollY > 40);
+  }, { passive: true });
+
+  // Mobile menu toggle
+  const toggleBtn = document.getElementById('menuToggle');
+  const navMenu   = document.getElementById('navMenu');
+  if (toggleBtn && navMenu) {
+    toggleBtn.addEventListener('click', () => {
+      const isOpen = navMenu.classList.toggle('open');
+      toggleBtn.setAttribute('aria-expanded', isOpen);
+      toggleBtn.textContent = isOpen ? '✕' : '☰';
+    });
+  }
+
+  // Eventos GTM en los CTAs
+  window.dataLayer = window.dataLayer || [];
+  const gtmClick = (selector, eventName) => {
+    document.querySelectorAll(selector).forEach(el => {
+      el.addEventListener('click', () => {
+        window.dataLayer.push({ event: eventName, page: 'portfolio' });
+      });
+    });
+  };
+  gtmClick('.js-cv', 'cv_download');
+  gtmClick('.js-linkedin', 'portfolio_linkedin');
+  gtmClick('.js-contacto', 'portfolio_cta_contacto');
+</script>
+
+<!-- Meta CAPI eventos custom de pagina -->
+<script>/* MCAPI-PAGE-EVENTS */
+document.addEventListener("DOMContentLoaded", function(){
+  if (window.mcTrack) window.mcTrack("ViewContent", {"content_name": "portfolio", "content_category": "portfolio"});
+});
+</script>
+</body>
+</html>
