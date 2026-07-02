@@ -292,6 +292,92 @@
   line-height: 1.5;
 }
 
+/* ── Más resultados (tarjetas compactas, sin quote) ── */
+.pf-more {
+  margin-top: 64px;
+}
+
+.pf-more-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(19px, 2.4vw, 24px);
+  font-weight: 800;
+  color: var(--text-white);
+  letter-spacing: -0.015em;
+  margin-bottom: 8px;
+}
+
+.pf-more-sub {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 26px;
+  max-width: 560px;
+}
+
+.pf-more-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.pf-more-card {
+  background: var(--bg-secondary);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: var(--radius-card);
+  padding: 26px 24px;
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition);
+}
+
+.pf-more-card:hover {
+  border-color: var(--accent-border);
+  transform: translateY(-3px);
+}
+
+.pf-more-num {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(24px, 2.6vw, 30px);
+  font-weight: 800;
+  color: var(--accent);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  display: block;
+  margin-top: 14px;
+}
+
+.pf-more-lbl {
+  font-size: 13px;
+  color: var(--text-gray);
+  line-height: 1.55;
+  display: block;
+  margin-top: 4px;
+}
+
+.pf-more-extra {
+  font-size: 12.5px;
+  color: var(--text-gray);
+  line-height: 1.5;
+  display: block;
+  margin-top: 10px;
+}
+
+.pf-more-extra strong {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  color: var(--text-white);
+}
+
+.pf-more-company {
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.5;
+  display: block;
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
 /* ── Stack técnico ── */
 .pf-stack-groups {
   display: grid;
@@ -392,6 +478,7 @@
 @media (max-width: 1000px) {
   .pf-scope-grid { grid-template-columns: repeat(3, 1fr); }
   .pf-stack-groups { grid-template-columns: 1fr; }
+  .pf-more-grid { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 680px) {
@@ -761,6 +848,41 @@ src="https://www.facebook.com/tr?id=1460516722431287&ev=PageView&noscript=1"/></
       ════════════════════════════════════════════════════════════ -->
 
     </div>
+
+    <!-- ── Más resultados (migrados de la home, sin quotes) ── -->
+    <div class="pf-more">
+      <h3 class="pf-more-title">Más resultados</h3>
+      <p class="pf-more-sub">Números de otras cuentas y proyectos que gestioné, sin la ficha completa. Clientes anonimizados por vertical.</p>
+
+      <div class="pf-more-grid">
+
+        <div class="pf-more-card">
+          <span class="pf-tag">Meta Ads · Clientes potenciales</span>
+          <span class="pf-more-num">271</span>
+          <span class="pf-more-lbl">leads generados en 1 mes</span>
+          <span class="pf-more-extra"><strong>$625</strong> ARS · CPL promedio</span>
+          <span class="pf-more-company">ALYC rosarina · Mercado de capitales</span>
+        </div>
+
+        <div class="pf-more-card">
+          <span class="pf-tag">Instagram · Crecimiento orgánico</span>
+          <span class="pf-more-num">+1.000.000</span>
+          <span class="pf-more-lbl">visualizaciones en redes en un año, desde cero</span>
+          <span class="pf-more-extra"><strong>+110k</strong> seguidores</span>
+          <span class="pf-more-company">Blog de Psicología</span>
+        </div>
+
+        <div class="pf-more-card">
+          <span class="pf-tag">Consultoría + IA · Desarrollo web</span>
+          <span class="pf-more-num">+5.000 USD</span>
+          <span class="pf-more-lbl">ahorrados en desarrollo web</span>
+          <span class="pf-more-extra"><strong>IA + consultoría</strong> aplicadas al proceso</span>
+          <span class="pf-more-company">Empresa desarrolladora de software</span>
+        </div>
+
+      </div>
+    </div>
+
   </div>
 </section>
 
