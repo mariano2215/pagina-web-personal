@@ -616,6 +616,7 @@ TEMPLATE = """<!DOCTYPE html>
           <li><a href="/quien-soy.html">Quién soy</a></li>
           <li><a href="/#proyectos">EPIGROUP</a></li>
           <li><a href="/servicios/" class="active">Servicios</a></li>
+          <li><a href="/portfolio/">Portfolio</a></li>
           <li><a href="/contenido.html">Contenido</a></li>
           <li><a href="/blog/">Blog</a></li>
           <li><a href="/newsletter.html">Newsletter</a></li>
@@ -734,6 +735,7 @@ TEMPLATE = """<!DOCTYPE html>
     <nav aria-label="Footer" style="display:flex;gap:20px;flex-wrap:wrap;">
       <a href="/" style="font-size:13px;color:var(--text-muted);transition:var(--transition);">Inicio</a>
       <a href="/servicios/marketing-digital.html" style="font-size:13px;color:var(--text-muted);transition:var(--transition);">Marketing Digital</a>
+      <a href="/portfolio/" style="font-size:13px;color:var(--text-muted);transition:var(--transition);">Portfolio</a>
       <a href="/contenido.html" style="font-size:13px;color:var(--text-muted);transition:var(--transition);">Contenido</a>
       <a href="/newsletter.html" style="font-size:13px;color:var(--text-muted);transition:var(--transition);">Newsletter</a>
     </nav>
