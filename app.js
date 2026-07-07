@@ -38,6 +38,9 @@ const translations = {
     'nav-quien': 'About me',
     'nav-proyectos': 'EPIGROUP',
     'nav-contacto': 'Contact',
+    'nav-contenido': 'Content',
+    'nav-ebooks': 'Ebooks & packs',
+    'nav-newsletter': 'Newsletter',
 
     // Hero
     'hero-eyebrow': 'Clear marketing · Real growth',
@@ -56,7 +59,7 @@ const translations = {
 
     // Áreas
     'areas-title': 'What improves your business',
-    'areas-subtitle': 'I work with companies, SMBs, entrepreneurs, ecommerce, personal brands, agencies and digital projects that need to <strong>organize their strategy, generate demand and sell better.</strong>',
+    'areas-subtitle': 'For businesses that need to <strong>organize their strategy, generate demand and sell better</strong>: from freelancers and small ventures to growing SMBs.',
     'areas-card1-title': 'Digital Marketing Services',
     'areas-card1-desc': 'Performance marketing, content creation, video production, websites, landing pages, email marketing and SEO. Everything you need to attract, convert and scale.',
     'areas-card1-cta': 'See services →',
@@ -246,7 +249,7 @@ const translations = {
     'form-submit': 'Send inquiry →',
     'form-microcopy': 'Reply with as much clarity as possible. The more context I have about your business, the better I\'ll understand whether I can help you and how.',
 
-    'contact-final': "Marketing doesn't start with a campaign.<br><span>It starts with a clear conversation.</span>",
+    'contact-final': "The first step isn't spending more.<br><span>It's having a clear conversation.</span>",
 
     // Footer
     'footer-brand-desc': 'Business strategist, consultant and Paid Media specialist.',

@@ -462,6 +462,82 @@ img {
   cursor: pointer;
 }
 
+/* Dropdown del nav: agrupa Contenido / Blog / Newsletter (Bloque 2).
+   Sin JS: abre por :hover y :focus-within (funciona con teclado y touch). */
+.nav-dropdown {
+  position: relative;
+}
+
+.nav-dropdown-toggle {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: var(--text-gray);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 0.02em;
+  transition: var(--transition);
+}
+
+.nav-dropdown-toggle::after {
+  content: ' ▾';
+  font-size: 11px;
+}
+
+.nav-dropdown:hover .nav-dropdown-toggle,
+.nav-dropdown:focus-within .nav-dropdown-toggle,
+.nav-dropdown-toggle.active {
+  color: var(--accent);
+}
+
+.nav-submenu {
+  list-style: none;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 14px;
+  padding: 14px 20px;
+  min-width: 175px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--accent-border);
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+/* Puente invisible para no perder el hover entre el botón y el panel */
+.nav-submenu::before {
+  content: '';
+  position: absolute;
+  top: -14px;
+  left: 0;
+  right: 0;
+  height: 14px;
+}
+
+.nav-dropdown:hover .nav-submenu,
+.nav-dropdown:focus-within .nav-submenu {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Foco visible unificado (a11y, Bloque 2): un solo estilo de foco de teclado
+   para links y botones en todo el sitio. Los inputs conservan su borde accent. */
+a:focus-visible,
+button:focus-visible,
+.btn:focus-visible,
+.card-link:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
 /* ============================================
    HERO
    ============================================ */
@@ -2168,13 +2244,9 @@ html.js-ready .fade-up.visible {
   .footer-brand {
     grid-column: span 2;
   }
-}
 
-@media (max-width: 768px) {
-  .section {
-    padding: 56px 0;
-  }
-
+  /* Nav colapsado a hamburguesa hasta 1024px: con 6 ítems + toggle de idioma
+     el nav desktop no entra entre 769 y ~1000px sin pisar el selector (Bloque 2) */
   .menu-toggle {
     display: block;
   }
@@ -2200,6 +2272,35 @@ html.js-ready .fade-up.visible {
 
   .nav-menu li {
     width: 100%;
+  }
+
+  /* En el panel mobile el dropdown se muestra plano (sin botón ni popup) */
+  .nav-dropdown-toggle {
+    display: none;
+  }
+
+  .nav-submenu {
+    position: static;
+    transform: none;
+    margin: 0;
+    padding: 0;
+    min-width: 0;
+    background: none;
+    border: none;
+    border-radius: 0;
+    gap: 20px;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .nav-submenu::before {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 56px 0;
   }
 
   .cards-grid {
