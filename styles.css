@@ -518,46 +518,6 @@ img {
   font-weight: 600;
 }
 
-/* Texto rotativo del hero (Tarea 1.4) — frase accent que precede al CTA */
-.hero-rotator {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  min-height: 26px;
-  margin: -8px 0 32px;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 600;
-  font-size: 16px;
-  letter-spacing: -0.01em;
-  color: var(--accent);
-}
-.hero-rotator::before {
-  content: '';
-  flex-shrink: 0;
-  width: 18px;
-  height: 2px;
-  border-radius: 999px;
-  background: var(--accent);
-}
-.hero-rotator-text {
-  display: inline-block;
-  transition: opacity 0.4s ease;
-}
-.hero-rotator.is-changing .hero-rotator-text {
-  opacity: 0;
-}
-@media (prefers-reduced-motion: reduce) {
-  .hero-rotator-text { transition: none; }
-}
-/* En mobile las frases ocupan 2 líneas: reservamos altura para evitar layout shift */
-@media (max-width: 640px) {
-  .hero-rotator {
-    min-height: 52px;
-    align-items: flex-start;
-  }
-  .hero-rotator::before { margin-top: 10px; }
-}
-
 .hero-buttons {
   display: flex;
   gap: 16px;
@@ -1576,6 +1536,71 @@ img {
   font-size: 14px;
   color: var(--text-muted);
   line-height: 1.5;
+}
+
+/* ============================================
+   SOBRE MÍ · TEASER (home → /quien-soy.html)
+   ============================================ */
+.about-teaser {
+  padding: 64px 0;
+}
+
+.about-teaser-card {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.about-teaser-card picture {
+  flex-shrink: 0;
+}
+
+.about-teaser-photo {
+  display: block;
+  width: 116px;
+  height: 116px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: top;
+  border: 2px solid var(--accent-border);
+  background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+}
+
+.about-teaser-title {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.about-teaser-text {
+  font-size: 15px;
+  color: var(--text-gray);
+  line-height: 1.7;
+  margin-bottom: 14px;
+}
+
+.about-teaser-link {
+  display: inline-block;
+  color: var(--accent);
+  text-decoration: none;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: var(--transition);
+}
+
+.about-teaser-link:hover {
+  letter-spacing: 0.1em;
+}
+
+@media (max-width: 640px) {
+  .about-teaser-card {
+    flex-direction: column;
+    text-align: center;
+  }
 }
 
 /* ============================================
