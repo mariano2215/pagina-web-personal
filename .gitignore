@@ -31,3 +31,4 @@ dist/
 # (el deploy.sh hace `git add -A`, así que conviene listarlos acá)
 /CLAUDE.md-marianocalandra.com.md
 /VIdeos - ashboard SaaS Premium para ROAS.mp4
+/marianocalandra-auditoria-frontend-plan-accion.md
