@@ -42,9 +42,9 @@ const translations = {
     // Hero
     'hero-eyebrow': 'Clear marketing · Real growth',
     'hero-headline': 'Transform your marketing and put your sales on <span>autopilot.</span>',
-    'hero-subtitle': 'I empower <strong>SMBs, ecommerce and companies across Argentina and LATAM</strong> to organize their marketing, stop improvising and turn ads into real sales. Strategy, paid media and consulting — focused on what moves the needle.',
-    'hero-btn-primary': "Let's talk about your business →",
-    'hero-btn-secondary': 'Request a free audit →',
+    'hero-subtitle': 'Strategy, paid media and consulting for <strong>digital marketing freelancers, B2C ventures and B2B SMBs</strong> that want to turn their ads into real sales.',
+    'hero-btn-primary': 'Request your free audit →',
+    'hero-btn-secondary': "Let's talk about your business →",
     'hero-microcopy': 'Rosario, Argentina · Working with clients across Argentina and LATAM',
     'hero-img-alt': 'Mariano Calandra — Business strategist and Paid Media specialist',
 
@@ -188,13 +188,15 @@ const translations = {
     'proj2-img-alt': 'EPIBRANDS Marketing Studio',
     'proj3-img-alt': 'EPICADEMY — Online marketing courses',
 
+    // Sobre mí (teaser en la home)
+    'about-teaser-title': "Who's behind this",
+    'about-teaser-text': 'I\'m Mariano Calandra, from Rosario, Argentina. In 2020 I founded my first brand, EPICALCOS, and that\'s where I fell in love with marketing: not from theory, but from selling, running ads and building a community. Today I bring that same experience to the businesses I work with.',
+    'about-teaser-link': 'Get to know my story →',
+
     // Contacto
     'contact-title': "Let's talk about your business",
     'contact-intro1': 'If you made it this far, you\'re probably looking to organize your marketing, improve your campaigns, sell more or get an outside perspective that helps you make better decisions.',
-    'contact-intro2': 'I work with companies, entrepreneurs, SMBs, ecommerce, personal brands, agencies and digital projects that need to move from improvisation to a clearer, measurable and actionable strategy.',
-    'contact-intro3': 'If you feel I can help you, write to me.',
-    'contact-intro4': 'Tell me what stage your business is in, what you\'re looking to improve and the main challenge you want to solve.',
-    'contact-intro5': 'It can be a question about campaigns, commercial strategy, integrated marketing, AI applied to processes, content, sales or general business growth.',
+    'contact-intro2': 'Tell me what stage your business is in, what you\'re looking to improve and the main challenge you want to solve. If you feel I can help you, write to me.',
 
     'contact-label-email': 'Email',
     'contact-label-whatsapp': 'WhatsApp',
@@ -351,7 +353,6 @@ function setLanguage(lang) {
   localStorage.setItem('language', lang);
 
   // Refrescar componentes dinámicos ya inicializados al cambiar de idioma
-  if (window._heroRotatorRender) window._heroRotatorRender(); // Tarea 1.4
   if (window._sitRender) window._sitRender();                 // Tarea 2.2
   if (window._stickyApplyText) window._stickyApplyText();     // Tarea 2.1
 }
@@ -562,56 +563,6 @@ if (projectBlocks.length > 0) {
   }, { threshold: 0.4 });
 
   counters.forEach(c => obs.observe(c));
-})();
-
-// ============================================
-// Hero: texto rotativo (Tarea 1.4)
-// Rota frases con fade. Respeta i18n (ES/EN vía currentLang) y reduced-motion.
-// ============================================
-(function () {
-  const rotator = document.getElementById('heroRotator');
-  if (!rotator) return;
-  const textEl = rotator.querySelector('.hero-rotator-text');
-  if (!textEl) return;
-
-  const phrases = {
-    es: [
-      'Convertí tu marketing en un sistema de ventas.',
-      'Ordená tus campañas con estrategia y criterio.',
-      'Dejá de improvisar. Empezá a medir lo que importa.',
-      'Escalá con Paid Media, IA y visión comercial.'
-    ],
-    en: [
-      'Turn your marketing into a sales system.',
-      'Organize your campaigns with strategy and judgment.',
-      'Stop improvising. Start measuring what matters.',
-      'Scale with Paid Media, AI and business vision.'
-    ]
-  };
-
-  function list() {
-    return phrases[currentLang] || phrases.es;
-  }
-
-  let index = 0;
-
-  function render() {
-    textEl.textContent = list()[index] || list()[0];
-  }
-  // Expuesto para que setLanguage refresque el idioma al instante.
-  window._heroRotatorRender = render;
-  render();
-
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
-  setInterval(() => {
-    rotator.classList.add('is-changing'); // fade-out
-    setTimeout(() => {
-      index = (index + 1) % list().length;
-      render();
-      rotator.classList.remove('is-changing'); // fade-in
-    }, 400); // coincide con la transición opacity 0.4s
-  }, 3200); // 2.8s visible + 0.4s de fade
 })();
 
 // ============================================
