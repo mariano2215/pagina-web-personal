@@ -30,5 +30,7 @@ dist/
 # Archivos de trabajo locales que NO deben publicarse en el sitio
 # (el deploy.sh hace `git add -A`, así que conviene listarlos acá)
 /CLAUDE.md-marianocalandra.com.md
+/.mcp.json
+/components.json
 /VIdeos - ashboard SaaS Premium para ROAS.mp4
 /marianocalandra-auditoria-frontend-plan-accion.md
