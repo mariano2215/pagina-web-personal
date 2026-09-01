@@ -1,11 +1,11 @@
 /* ============================================================
-   EPIBRANDS Studio — JavaScript
+   EPIBRANDS — Mentoría | JavaScript
    Externo (no inline) para cumplir la CSP del sitio:
    script-src 'self' ... (los <script> inline están bloqueados).
    ============================================================ */
 
 /* ------------------------------------------------------------
-   BLOQUE 1 — header sticky, menú mobile, mask reveal, parallax
+   BLOQUE 1 — header sticky, menú mobile, mask reveal
    ------------------------------------------------------------ */
 (function(){
   // año footer
@@ -14,31 +14,35 @@
 
   // header al hacer scroll
   var header = document.getElementById('header');
-  var onScroll = function(){ header.classList.toggle('is-scrolled', window.scrollY > 24); };
-  onScroll();
-  window.addEventListener('scroll', onScroll, { passive:true });
+  if (header) {
+    var onScroll = function(){ header.classList.toggle('is-scrolled', window.scrollY > 24); };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive:true });
+  }
 
   // menú mobile
   var toggle = document.getElementById('navToggle');
   var links  = document.getElementById('navLinks');
-  toggle.addEventListener('click', function(){
-    var open = links.classList.toggle('open');
-    toggle.setAttribute('aria-expanded', open);
-    toggle.textContent = open ? 'Cerrar' : 'Menú';
-  });
-  links.addEventListener('click', function(e){
-    if(e.target.tagName === 'A'){
-      links.classList.remove('open');
-      toggle.setAttribute('aria-expanded', false);
-      toggle.textContent = 'Menú';
-    }
-  });
+  if (toggle && links) {
+    toggle.addEventListener('click', function(){
+      var open = links.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open);
+      toggle.textContent = open ? 'Cerrar' : 'Menú';
+    });
+    links.addEventListener('click', function(e){
+      if(e.target.tagName === 'A' || e.target.closest('a')){
+        links.classList.remove('open');
+        toggle.setAttribute('aria-expanded', false);
+        toggle.textContent = 'Menú';
+      }
+    });
+  }
 
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   // ---- Mask reveal por palabras -------------------------------------
   // Envuelve cada palabra de los títulos en una máscara recortada para
-  // que aparezca/desaparezca deslizándose. Preserva <em>, <span>, etc.
+  // que aparezca deslizándose. Preserva <em>, <span>, <b>, etc.
   function splitWords(el, counter){
     var nodes = Array.prototype.slice.call(el.childNodes);
     nodes.forEach(function(node){
@@ -64,17 +68,14 @@
     });
   }
 
-  var maskSelector = '.hero h1, .manifesto blockquote, .section-head h2, ' +
-    '.method-head h2, .principle h3, .step h3, .service h3, .work .meta h3, .cta h2';
-  var masked = [];
+  var maskSelector = '.hero h1, .manifesto blockquote, .section-head h2, .principle h3';
   if(!reduce){
     document.querySelectorAll(maskSelector).forEach(function(el){
       splitWords(el, { i:0 });
       el.classList.add('mask');
-      masked.push(el);
     });
-    // líneas divisorias que se dibujan al entrar (clase .rule en CSS)
-    document.querySelectorAll('.hero-bottom, .principles, .steps, .services .service:first-child').forEach(function(el){
+    // líneas divisorias que se "dibujan" al entrar
+    document.querySelectorAll('.hero-bottom, .principles').forEach(function(el){
       el.classList.add('drawline');
     });
   }
@@ -91,42 +92,11 @@
     });
   }, { threshold:0.15, rootMargin:'0px 0px -8% 0px' });
   animated.forEach(function(el){ io.observe(el); });
-
-  // ---- Parallax de los visuales del portfolio ----------------------
-  // Cada inicial se desplaza en vertical a distinta velocidad que la
-  // tarjeta al scrollear, generando sensación de profundidad y movimiento.
-  var glyphs = Array.prototype.map.call(
-    document.querySelectorAll('.work'),
-    function(work, i){
-      return { glyph: work.querySelector('.glyph'), el: work,
-               // intensidad alterna para que no se muevan todas igual
-               amp: (i % 2 === 0) ? 38 : 24 };
-    }
-  ).filter(function(o){ return o.glyph; });
-
-  var ticking = false;
-  function updateParallax(){
-    var vh = window.innerHeight;
-    glyphs.forEach(function(o){
-      var r = o.el.getBoundingClientRect();
-      if(r.bottom < -100 || r.top > vh + 100) return; // fuera de vista: saltar
-      // progreso -1 (abajo) .. 1 (arriba) según centro respecto al viewport
-      var progress = ((r.top + r.height / 2) - vh / 2) / vh;
-      o.glyph.style.setProperty('--py', (progress * o.amp).toFixed(1) + 'px');
-    });
-    ticking = false;
-  }
-  function onScrollParallax(){
-    if(!ticking){ ticking = true; requestAnimationFrame(updateParallax); }
-  }
-  window.addEventListener('scroll', onScrollParallax, { passive:true });
-  window.addEventListener('resize', onScrollParallax, { passive:true });
-  updateParallax();
 })();
 
 /* ------------------------------------------------------------
-   BLOQUE 2 — módulos premium: progreso, reveal global,
-   diagnóstico, counters, toggle antes/después, mouse-glow
+   BLOQUE 2 — progreso de scroll, reveal global, cupos,
+   counters, mouse-glow y formulario de aplicación en pasos
    ------------------------------------------------------------ */
 (function(){
   function init(){
@@ -161,42 +131,49 @@
       revealElements.forEach(function (el) { revealObserver.observe(el); });
     }
 
-    /* --- Diagnóstico interactivo --- */
-    var diagnosticButton = document.getElementById("epiDiagnosticButton");
-    var diagnosticInput = document.getElementById("epiDiagnosticInput");
-    var diagnosticStatus = document.getElementById("epiDiagnosticStatus");
-    if (diagnosticButton && diagnosticStatus) {
-      var diagnosticSteps = [
-        "Analizando presencia digital",
-        "Detectando oportunidades",
-        "Revisando embudo comercial",
-        "Generando plan de acción"
-      ];
-      diagnosticButton.addEventListener("click", function () {
-        if (diagnosticButton.dataset.loading === "true") return;
-        diagnosticButton.dataset.loading = "true";
-        diagnosticButton.disabled = true;
-        diagnosticStatus.classList.add("is-loading");
-        var currentStep = 0;
-        diagnosticStatus.textContent = diagnosticSteps[currentStep];
-        var interval = window.setInterval(function () {
-          currentStep += 1;
-          if (currentStep < diagnosticSteps.length) {
-            diagnosticStatus.textContent = diagnosticSteps[currentStep];
-          } else {
-            window.clearInterval(interval);
-            diagnosticStatus.classList.remove("is-loading");
-            var userText = diagnosticInput && diagnosticInput.value.trim()
-              ? " sobre: “" + diagnosticInput.value.trim() + "”"
-              : "";
-            diagnosticStatus.textContent =
-              "Listo. Podemos ayudarte a ordenar estrategia, contenido, campañas y ventas" + userText + ".";
-            diagnosticButton.disabled = false;
-            diagnosticButton.dataset.loading = "false";
-          }
-        }, 850);
-      });
-    }
+    /* --- Indicador de cupos -----------------------------------------
+       Los valores salen de data-cupos-total / data-cupos-tomados en el
+       HTML. Para marcar un cupo como ocupado, subí data-cupos-tomados
+       en los tres bloques (hero, precio y aplicación).                */
+    document.querySelectorAll("[data-cupos]").forEach(function (box) {
+      var total = parseInt(box.getAttribute("data-cupos-total"), 10);
+      var taken = parseInt(box.getAttribute("data-cupos-tomados"), 10);
+      if (!(total > 0)) total = 4;
+      if (!(taken >= 0)) taken = 0;
+      if (taken > total) taken = total;
+      var left = total - taken;
+
+      var dots = box.querySelector(".epi-cupos-dots");
+      if (dots) {
+        dots.textContent = "";
+        for (var i = 0; i < total; i++) {
+          var dot = document.createElement("span");
+          dot.className = "epi-cupos-dot" + (i < taken ? " is-taken" : "");
+          dots.appendChild(dot);
+        }
+      }
+
+      var text = box.querySelector(".epi-cupos-text");
+      if (!text) return;
+      var strong = document.createElement("b");
+      var rest = "";
+      if (left === 0) {
+        strong.textContent = "Sin cupos";
+        rest = " disponibles este mes · lista de espera abierta";
+      } else if (left === 1) {
+        strong.textContent = "Queda 1 cupo";
+        rest = " disponible este mes";
+      } else if (left === total) {
+        strong.textContent = total + " cupos";
+        rest = " disponibles este mes";
+      } else {
+        strong.textContent = "Quedan " + left + " de " + total + " cupos";
+        rest = " disponibles este mes";
+      }
+      text.textContent = "";
+      text.appendChild(strong);
+      text.appendChild(document.createTextNode(rest));
+    });
 
     /* --- Counters animados --- */
     var counters = document.querySelectorAll("[data-counter]");
@@ -241,6 +218,114 @@
         });
       });
     }
+
+    /* --- Formulario de aplicación en 3 pasos -------------------------
+       Sin JS el formulario se ve completo y funciona igual: los pasos
+       solo se activan cuando esta clase se agrega.                     */
+    var form = document.getElementById("epiApplyForm");
+    if (!form) return;
+    var panels = Array.prototype.slice.call(form.querySelectorAll(".epi-step-panel"));
+    if (panels.length < 2) return;
+
+    var btnNext   = document.getElementById("epiFormNext");
+    var btnBack   = document.getElementById("epiFormBack");
+    var btnSubmit = document.getElementById("epiFormSubmit");
+    var title     = document.getElementById("epiFormTitle");
+    var count     = document.getElementById("epiFormCount");
+    var bar       = document.getElementById("epiFormBar");
+    var card      = form.closest(".epi-form-card") || form;
+
+    form.classList.add("js-steps");
+    var current = 0;
+
+    function fieldsOf(panel) {
+      return Array.prototype.slice.call(panel.querySelectorAll("input, select, textarea"));
+    }
+
+    function render(scroll) {
+      panels.forEach(function (p, i) { p.classList.toggle("is-active", i === current); });
+      if (title) title.textContent = panels[current].getAttribute("data-title") || "";
+      if (count) count.textContent = "Paso " + (current + 1) + " de " + panels.length;
+      if (bar)   bar.style.width = ((current + 1) / panels.length) * 100 + "%";
+
+      var last = current === panels.length - 1;
+      if (btnNext)   btnNext.hidden   = last;
+      if (btnSubmit) btnSubmit.hidden = !last;
+      if (btnBack)   btnBack.hidden   = current === 0;
+
+      if (scroll) {
+        var top = card.getBoundingClientRect().top;
+        if (top < 70) {
+          window.scrollTo({
+            top: window.scrollY + top - 90,
+            behavior: prefersReducedMotion ? "auto" : "smooth"
+          });
+        }
+        var first = fieldsOf(panels[current]).filter(function (f) { return f.type !== "hidden"; })[0];
+        if (first) { try { first.focus({ preventScroll: true }); } catch (e) { first.focus(); } }
+      }
+    }
+
+    // Devuelve true si el paso está completo; si no, marca el campo.
+    function validPanel(panel) {
+      var invalid = fieldsOf(panel).filter(function (f) { return !f.checkValidity(); })[0];
+      if (!invalid) return true;
+      invalid.reportValidity();
+      return false;
+    }
+
+    if (btnNext) {
+      btnNext.addEventListener("click", function () {
+        if (!validPanel(panels[current])) return;
+        if (current < panels.length - 1) { current++; render(true); }
+      });
+    }
+    if (btnBack) {
+      btnBack.addEventListener("click", function () {
+        if (current > 0) { current--; render(true); }
+      });
+    }
+
+    // Enter avanza de paso en vez de enviar el formulario incompleto.
+    form.addEventListener("keydown", function (e) {
+      if (e.key !== "Enter") return;
+      if (e.target.tagName === "TEXTAREA") return;
+      if (current < panels.length - 1) {
+        e.preventDefault();
+        if (btnNext) btnNext.click();
+      }
+    });
+
+    // Red de seguridad: la validación nativa no puede enfocar un campo que
+    // quedó en un paso oculto y el envío se bloquearía en silencio. Por eso
+    // revisamos todos los pasos en el click (antes de que valide el browser)
+    // y volvemos al paso que falta completar.
+    function firstInvalidStep() {
+      for (var i = 0; i < panels.length; i++) {
+        var invalid = fieldsOf(panels[i]).filter(function (el) { return !el.checkValidity(); })[0];
+        if (invalid) return { index: i, field: invalid };
+      }
+      return null;
+    }
+
+    if (btnSubmit) {
+      btnSubmit.addEventListener("click", function (e) {
+        var bad = firstInvalidStep();
+        if (!bad) return; // todo completo: sigue el envío normal
+        e.preventDefault();
+        if (bad.index !== current) { current = bad.index; render(true); }
+        bad.field.reportValidity();
+      });
+    }
+
+    form.addEventListener("submit", function () {
+      if (btnSubmit) {
+        btnSubmit.disabled = true;
+        btnSubmit.textContent = "Enviando…";
+      }
+    });
+
+    render(false);
   }
 
   if (document.readyState === "loading") {
