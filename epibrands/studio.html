@@ -556,7 +556,8 @@ input, select, textarea, button{ font-family:inherit; }
 .epi-price-head p{ margin:1rem auto 0; max-width:56ch; color:var(--ink-soft); }
 .epi-price-card{
   position:relative; width:min(100%,980px); margin:0 auto;
-  display:grid; grid-template-columns:1fr; gap:clamp(1.6rem,3vw,2.6rem);
+  display:grid; grid-template-columns:minmax(0,1fr);
+  column-gap:clamp(1.6rem,3vw,2.6rem); row-gap:clamp(1.5rem,2.8vw,2.2rem);
   padding:clamp(1.8rem,3.4vw,3rem); border-radius:30px;
   border:1px solid var(--accent-line);
   background:
@@ -564,18 +565,29 @@ input, select, textarea, button{ font-family:inherit; }
     var(--glass);
   box-shadow:0 30px 90px rgba(26,26,24,0.10);
 }
+/* Cabecera a todo el ancho. OJO: acá NO se puede posicionar nada en
+   absoluto — la tarjeta es .epi-motion-card, que la recorta con
+   overflow:hidden y además fuerza position:relative en sus hijos
+   directos, así que un absolute vuelve al flujo y rompe la grilla. */
+.epi-price-header{
+  grid-column:1 / -1;
+  display:flex; align-items:center; justify-content:space-between;
+  gap:.8rem 1.2rem; flex-wrap:wrap;
+  padding-bottom:clamp(1.2rem,2.2vw,1.6rem);
+  border-bottom:1px solid var(--line-soft);
+}
 .epi-price-flag{
-  position:absolute; top:-14px; left:clamp(1.8rem,3.4vw,3rem);
-  padding:.45rem .9rem; border-radius:999px;
+  display:inline-flex; align-items:center;
+  padding:.5rem 1rem; border-radius:999px;
   background:var(--ink); color:var(--bg);
   font-size:.7rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase;
 }
-.epi-price-main .plan-name{ font-size:.78rem; font-weight:700; letter-spacing:.18em; text-transform:uppercase; color:var(--ink-faint); }
-.epi-price-amount{ display:flex; align-items:flex-end; gap:.5rem; margin:.9rem 0 .5rem; flex-wrap:wrap; }
-.epi-price-amount .num{ font-size:clamp(3rem,7.5vw,4.6rem); font-weight:600; letter-spacing:-0.055em; line-height:.9; }
-.epi-price-amount .cur{ font-size:1.1rem; font-weight:700; color:var(--ink-soft); letter-spacing:-0.01em; padding-bottom:.35rem; }
-.epi-price-amount .per{ font-size:1rem; color:var(--ink-soft); padding-bottom:.4rem; }
-.epi-price-main > p{ color:var(--ink-soft); font-size:.98rem; max-width:44ch; line-height:1.55; }
+.epi-price-plan{ font-size:.72rem; font-weight:700; letter-spacing:.18em; text-transform:uppercase; color:var(--ink-faint); }
+.epi-price-amount{ display:flex; align-items:flex-end; gap:.7rem; margin:0 0 .9rem; flex-wrap:wrap; color:var(--ink); }
+.epi-price-amount .num{ font-size:clamp(3rem,7.5vw,4.6rem); font-weight:600; letter-spacing:-0.05em; line-height:.86; color:var(--ink); }
+.epi-price-amount .cur{ font-size:1.1rem; font-weight:700; color:var(--ink-soft); letter-spacing:-0.01em; padding-bottom:.3rem; }
+.epi-price-amount .per{ font-size:1rem; color:var(--ink-soft); padding-bottom:.34rem; }
+.epi-price-desc{ color:var(--ink-soft); font-size:.98rem; max-width:44ch; line-height:1.55; }
 .epi-price-main .epi-cupos{ margin-top:1.4rem; }
 .epi-price-main .btn{ margin-top:1.5rem; }
 .epi-price-note{ margin-top:1rem; font-size:.82rem; color:var(--ink-faint); max-width:42ch; }
@@ -877,7 +889,9 @@ input, select, textarea, button{ font-family:inherit; }
 }
 @media (min-width:940px){
   .epi-apply-grid{ grid-template-columns:0.9fr 1.1fr; gap:clamp(2.4rem,4vw,4rem); }
-  .epi-price-card{ grid-template-columns:1fr 1fr; align-items:start; }
+  .epi-price-card{ grid-template-columns:minmax(0,1fr) minmax(0,1fr); align-items:start; }
+  /* separador entre las dos columnas, para que la tarjeta lea como una sola pieza */
+  .epi-price-list{ border-left:1px solid var(--line-soft); padding-left:clamp(1.6rem,2.8vw,2.4rem); }
 }
 @media (max-width:1080px){
   .epi-method-flow{ grid-template-columns:repeat(3,1fr); }
@@ -1330,16 +1344,18 @@ input, select, textarea, button{ font-family:inherit; }
     </div>
 
     <div class="epi-price-card epi-motion-card">
-      <span class="epi-price-flag">Mentoría EPIBRANDS</span>
+      <header class="epi-price-header">
+        <span class="epi-price-flag">Mentoría EPIBRANDS</span>
+        <span class="epi-price-plan">Plan único · 1 a 1</span>
+      </header>
 
       <div class="epi-price-main">
-        <p class="plan-name">Mentoría 1 a 1</p>
         <p class="epi-price-amount">
           <span class="num">990</span>
           <span class="cur">USD</span>
           <span class="per">/ mes</span>
         </p>
-        <p>Acompañamiento mensual completo: estrategia, paid media, IA, automatizaciones, procesos y sistema comercial. Pensada como un proceso de 6 meses, que es donde el cambio se ve en la facturación.</p>
+        <p class="epi-price-desc">Acompañamiento mensual completo: estrategia, paid media, IA, automatizaciones, procesos y sistema comercial. Pensada como un proceso de 6 meses, que es donde el cambio se ve en la facturación.</p>
 
         <!-- Editá data-cupos-tomados cuando se ocupe un lugar. -->
         <div class="epi-cupos" data-cupos data-cupos-total="4" data-cupos-tomados="0">
