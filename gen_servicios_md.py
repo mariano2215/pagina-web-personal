@@ -38,7 +38,7 @@ SERVICES = [
         "price": "USD 300",
         "priceNote": "por mes · + inversión publicitaria, que corre por cuenta del cliente",
         "heroTitle": "Campañas pagas con estrategia, datos y foco real en ventas.",
-        "heroDescription": "Gestión profesional de campañas en Meta Ads y Google Ads para ordenar tu inversión, mejorar el rendimiento y tomar decisiones basadas en métricas reales.",
+        "heroDescription": "Gestión profesional de campañas en Meta Ads y Google Ads orientada a ordenar la inversión publicitaria, mejorar el rendimiento y sustentar las decisiones en métricas verificables.",
         "shortDescription": "Gestión profesional de campañas en Meta Ads y Google Ads con foco en ROI.",
         "includes": [
             "Diagnóstico inicial de cuenta publicitaria, oferta y embudo.",
@@ -50,9 +50,9 @@ SERVICES = [
             "Recomendaciones de mejora para escalar con criterio.",
         ],
         "forWho": [
-            "Negocios que ya invierten en publicidad y quieren mejorar resultados.",
-            "Empresas que necesitan generar leads o ventas de forma más predecible.",
-            "Emprendedores B2C que quieren dejar de improvisar con sus campañas.",
+            "Negocios que ya invierten en publicidad y buscan mejorar sus resultados.",
+            "Empresas que necesitan generar oportunidades comerciales de forma más previsible.",
+            "Emprendimientos B2C que requieren una gestión ordenada de sus campañas.",
             "PYMES B2B que necesitan campañas conectadas al proceso comercial.",
         ],
         "without": [
@@ -69,8 +69,8 @@ SERVICES = [
             "Claridad para escalar lo que funciona.",
             "Publicidad conectada con ventas reales.",
         ],
-        "finalCtaTitle": "Convertí tu inversión publicitaria en un sistema medible.",
-        "finalCtaText": "Comprá el servicio o agendá una llamada para revisar si Performance Marketing es el punto correcto por donde empezar.",
+        "finalCtaTitle": "Convierta la inversión publicitaria en un sistema medible.",
+        "finalCtaText": "Agende una llamada para evaluar si Performance Marketing constituye el punto de partida adecuado para su empresa.",
     },
     {
         "slug": "content-creation",
@@ -80,7 +80,7 @@ SERVICES = [
         "price": "USD 450",
         "priceNote": "por mes · servicio mensual de contenido estratégico",
         "heroTitle": "Contenido estratégico para construir marca, demanda y confianza.",
-        "heroDescription": "Creación de contenido para redes con enfoque comercial: ideas, guiones, copys y piezas pensadas para conectar con tu audiencia y nutrir tus campañas.",
+        "heroDescription": "Creación de contenido para redes con enfoque comercial: ideas, guiones, textos y piezas orientadas a conectar con la audiencia y a nutrir las campañas.",
         "shortDescription": "Contenido estratégico para redes, campañas y posicionamiento de marca.",
         "includes": [
             "Planificación mensual de contenidos.",
@@ -95,7 +95,7 @@ SERVICES = [
             "Marcas personales que necesitan construir autoridad.",
             "Negocios que publican pero no tienen una línea editorial clara.",
             "Empresas que necesitan contenido para acompañar campañas pagas.",
-            "Freelancers o consultores que quieren comunicar mejor su propuesta.",
+            "Profesionales independientes y consultores que buscan comunicar mejor su propuesta.",
         ],
         "without": [
             "Publicaciones sueltas sin estrategia.",
@@ -111,8 +111,8 @@ SERVICES = [
             "Calendario ordenado y sostenible.",
             "Mejor conexión entre contenido orgánico y campañas pagas.",
         ],
-        "finalCtaTitle": "Dejá de publicar por publicar.",
-        "finalCtaText": "Comprá el servicio o agendá una llamada para ordenar tu contenido con una estrategia clara.",
+        "finalCtaTitle": "Contenido con estrategia, no publicaciones aisladas.",
+        "finalCtaText": "Agende una llamada para ordenar el contenido de su empresa bajo una estrategia definida.",
     },
     {
         "slug": "realizacion-audiovisual",
@@ -122,7 +122,7 @@ SERVICES = [
         "price": "USD 450",
         "priceNote": "producción mensual",
         "heroTitle": "Videos cortos pensados para captar atención y vender mejor.",
-        "heroDescription": "Producción y edición de videos dinámicos con hooks claros, estructura comercial y formato listo para pauta, reels, stories y contenido orgánico.",
+        "heroDescription": "Producción y edición de videos dinámicos con aperturas efectivas, estructura comercial y formato listo para pauta, reels, historias y contenido orgánico.",
         "shortDescription": "Producción de videos cortos con edición dinámica y enfoque comercial.",
         "includes": [
             "Definición de ideas y conceptos para videos.",
@@ -135,9 +135,9 @@ SERVICES = [
         ],
         "forWho": [
             "Negocios que necesitan videos para redes y anuncios.",
-            "Marcas que quieren mejorar la retención y atención de sus contenidos.",
+            "Marcas que buscan mejorar la retención y la atención de sus contenidos.",
             "Empresas que tienen material grabado pero necesitan convertirlo en piezas útiles.",
-            "Emprendimientos que quieren comunicar mejor su oferta en video.",
+            "Emprendimientos que buscan comunicar mejor su oferta en video.",
         ],
         "without": [
             "Videos largos, poco claros o sin gancho.",
@@ -147,14 +147,14 @@ SERVICES = [
             "Dificultad para transformar ideas en videos publicables.",
         ],
         "withList": [
-            "Videos con hooks claros y estructura pensada para redes.",
+            "Videos con aperturas efectivas y estructura pensada para redes.",
             "Mayor capacidad de captar atención.",
             "Piezas listas para orgánico y pauta.",
             "Comunicación más dinámica de productos o servicios.",
             "Mejor conexión entre creatividad y objetivo comercial.",
         ],
-        "finalCtaTitle": "Hacé que tus videos trabajen para tu negocio.",
-        "finalCtaText": "Comprá el servicio o agendá una llamada para definir qué tipo de piezas audiovisuales necesitás.",
+        "finalCtaTitle": "Piezas audiovisuales al servicio del objetivo comercial.",
+        "finalCtaText": "Agende una llamada para definir qué tipo de piezas audiovisuales requiere su empresa.",
     },
     {
         "slug": "creacion-sitio-web",
@@ -163,8 +163,8 @@ SERVICES = [
         "modality": "Pago único",
         "price": "USD 500",
         "priceNote": "pago único · sitio profesional, responsive y orientado a conversión",
-        "heroTitle": "Un sitio web profesional para presentar, ordenar y vender tu negocio.",
-        "heroDescription": "Diseño y desarrollo de un sitio web rápido, responsive y pensado para convertir visitas en consultas, leads o ventas.",
+        "heroTitle": "Un sitio web profesional para presentar, ordenar y potenciar el negocio.",
+        "heroDescription": "Diseño y desarrollo de un sitio web rápido, responsive y orientado a convertir visitas en consultas, oportunidades comerciales o ventas.",
         "shortDescription": "Sitio profesional, rápido, responsive y optimizado para conversión.",
         "includes": [
             "Estructura estratégica del sitio.",
@@ -177,9 +177,9 @@ SERVICES = [
         ],
         "forWho": [
             "Negocios que necesitan una presencia digital profesional.",
-            "Marcas personales que quieren centralizar su autoridad.",
+            "Marcas personales que buscan centralizar su autoridad.",
             "Empresas que hoy dependen solo de Instagram o WhatsApp.",
-            "Emprendedores que necesitan una web clara para vender mejor.",
+            "Empresas que necesitan un sitio claro para sostener su proceso de venta.",
         ],
         "without": [
             "Dependencia total de redes sociales.",
@@ -191,12 +191,12 @@ SERVICES = [
         "withList": [
             "Presencia digital profesional y ordenada.",
             "Mejor experiencia para potenciales clientes.",
-            "Más claridad sobre qué ofrecés y cómo contratarte.",
+            "Mayor claridad sobre la oferta y sobre el modo de contratación.",
             "Base sólida para campañas, SEO y contenidos.",
             "Mayor confianza y autoridad comercial.",
         ],
-        "finalCtaTitle": "Tu sitio web puede ser mucho más que una vidriera.",
-        "finalCtaText": "Comprá el servicio o agendá una llamada para definir la estructura ideal de tu web.",
+        "finalCtaTitle": "El sitio web puede ser mucho más que una vidriera.",
+        "finalCtaText": "Agende una llamada para definir la estructura adecuada para su sitio web.",
     },
     {
         "slug": "creacion-landing-page",
@@ -218,10 +218,10 @@ SERVICES = [
             "Preparación para campañas y medición.",
         ],
         "forWho": [
-            "Negocios que quieren promocionar un servicio puntual.",
+            "Negocios que necesitan promocionar un servicio puntual.",
             "Empresas que hacen campañas en Meta Ads o Google Ads.",
-            "Emprendedores que necesitan captar leads.",
-            "Marcas que quieren validar una oferta específica.",
+            "Empresas que necesitan captar oportunidades comerciales.",
+            "Marcas que necesitan validar una oferta específica.",
         ],
         "without": [
             "Tráfico pago enviado a páginas genéricas.",
@@ -237,8 +237,8 @@ SERVICES = [
             "Mensaje alineado a la oferta.",
             "Base ideal para testear y optimizar.",
         ],
-        "finalCtaTitle": "No mandes tráfico pago a cualquier página.",
-        "finalCtaText": "Comprá el servicio o agendá una llamada para crear una landing preparada para convertir.",
+        "finalCtaTitle": "El tráfico pago requiere una página preparada para convertir.",
+        "finalCtaText": "Agende una llamada para desarrollar una landing preparada para convertir.",
     },
     {
         "slug": "email-marketing",
@@ -261,9 +261,9 @@ SERVICES = [
         ],
         "forWho": [
             "Negocios que generan leads y necesitan nutrirlos.",
-            "Empresas que quieren vender sin depender solo de redes sociales.",
+            "Empresas que necesitan vender sin depender exclusivamente de las redes sociales.",
             "Marcas personales con comunidad o newsletter.",
-            "Ecommerce o servicios que quieren mejorar recurrencia y seguimiento.",
+            "Ecommerce o servicios que buscan mejorar la recurrencia y el seguimiento.",
         ],
         "without": [
             "Leads que se enfrían sin seguimiento.",
@@ -279,8 +279,8 @@ SERVICES = [
             "Mayor recurrencia y seguimiento comercial.",
             "Campañas más ordenadas y medibles.",
         ],
-        "finalCtaTitle": "Tu lista puede convertirse en un activo comercial.",
-        "finalCtaText": "Comprá el setup o agendá una llamada para definir la estrategia correcta de email marketing.",
+        "finalCtaTitle": "La base de contactos puede convertirse en un activo comercial.",
+        "finalCtaText": "Agende una llamada para definir la estrategia de email marketing adecuada.",
     },
     {
         "slug": "seo-geo",
@@ -289,8 +289,8 @@ SERVICES = [
         "modality": "Mensual",
         "price": "USD 400",
         "priceNote": "por mes · estrategia mensual de posicionamiento orgánico",
-        "heroTitle": "Posicionamiento orgánico para que te encuentren cuando ya te están buscando.",
-        "heroDescription": "Estrategia SEO y GEO para mejorar la visibilidad de tu negocio en Google, búsquedas locales y mapas, conectando contenido, intención de búsqueda y conversión.",
+        "heroTitle": "Posicionamiento orgánico para captar la demanda que ya está buscando.",
+        "heroDescription": "Estrategia SEO y GEO para mejorar la visibilidad del negocio en Google, búsquedas locales y mapas, articulando contenido, intención de búsqueda y conversión.",
         "shortDescription": "Estrategia de posicionamiento orgánico en Google y mapas.",
         "includes": [
             "Diagnóstico SEO inicial del sitio.",
@@ -302,9 +302,9 @@ SERVICES = [
             "Seguimiento de oportunidades y mejoras mensuales.",
         ],
         "forWho": [
-            "Negocios locales que quieren aparecer en Google y mapas.",
-            "Empresas que quieren captar demanda orgánica.",
-            "Marcas que no quieren depender únicamente de pauta paga.",
+            "Negocios locales que necesitan aparecer en Google y en mapas.",
+            "Empresas que buscan captar demanda orgánica.",
+            "Marcas que buscan reducir su dependencia de la pauta paga.",
             "Sitios web que necesitan mejorar visibilidad y estructura.",
         ],
         "without": [
@@ -321,8 +321,8 @@ SERVICES = [
             "Menor dependencia de pauta a largo plazo.",
             "Contenido conectado a búsquedas y conversión.",
         ],
-        "finalCtaTitle": "Que te encuentren también es parte de vender.",
-        "finalCtaText": "Comprá el servicio o agendá una llamada para revisar oportunidades de posicionamiento.",
+        "finalCtaTitle": "Ser encontrado también forma parte del proceso comercial.",
+        "finalCtaText": "Agende una llamada para evaluar las oportunidades de posicionamiento.",
     },
 ]
 
@@ -549,6 +549,8 @@ TEMPLATE = """<!DOCTYPE html>
 <meta name="twitter:description" content="@@META_DESC@@">
 
 <script src="/gtm.js?v=__BUST__"></script>
+<!-- Microsoft Clarity -->
+<script src="/clarity.js?v=__BUST__"></script>
 
 <link rel="icon" type="image/png" href="/img/favicon-nuevo.png">
 <link rel="apple-touch-icon" href="/img/favicon-nuevo.png">
@@ -617,9 +619,14 @@ TEMPLATE = """<!DOCTYPE html>
           <li><a href="/#proyectos">EPIGROUP</a></li>
           <li><a href="/servicios/" class="active">Servicios</a></li>
           <li><a href="/portfolio/">Portfolio</a></li>
-          <li><a href="/contenido.html">Contenido</a></li>
-          <li><a href="/blog/">Blog</a></li>
-          <li><a href="/newsletter.html">Newsletter</a></li>
+          <li class="nav-dropdown">
+            <button type="button" class="nav-dropdown-toggle" aria-haspopup="true">Contenido</button>
+            <ul class="nav-submenu">
+              <li><a href="/contenido.html">Ebooks y packs</a></li>
+              <li><a href="/blog/">Blog</a></li>
+              <li><a href="/newsletter.html">Newsletter</a></li>
+            </ul>
+          </li>
         </ul>
       </nav>
       <button class="menu-toggle" id="menuToggle" aria-label="Menú" aria-expanded="false">☰</button>
@@ -640,14 +647,8 @@ TEMPLATE = """<!DOCTYPE html>
     <span class="sd-badge">@@MODALITY@@</span>
     <h1>@@HERO_TITLE_HTML@@</h1>
     <p class="sd-hero-desc">@@HERO_DESC@@</p>
-    <div class="sd-price-box">
-      <span class="sd-price">@@PRICE@@</span>
-      <span class="sd-price-ars">≈ @@PRICE_ARS@@</span>
-      <span class="sd-price-note">@@PRICE_NOTE@@</span>
-    </div>
     <div class="sd-ctas">
-      <a href="#" class="sd-btn sd-btn-primary" data-comprar="@@SLUG@@">Comprar →</a>
-      <a href="@@CALENDAR@@" class="sd-btn sd-btn-secondary" target="_blank" rel="noopener noreferrer">Agendar una llamada</a>
+      <a href="@@CALENDAR@@" class="sd-btn sd-btn-primary" target="_blank" rel="noopener noreferrer">Agendar una llamada</a>
     </div>
   </section>
 
@@ -663,7 +664,7 @@ TEMPLATE = """<!DOCTYPE html>
   <!-- PARA QUIÉN ES -->
   <section class="sd-section">
     <span class="sd-eyebrow">Para quién es</span>
-    <h2>Pensado para vos si te identificás con esto</h2>
+    <h2>Perfil de empresa al que está dirigido</h2>
     <div class="sd-grid-2">
 @@FORWHO@@
     </div>
@@ -672,29 +673,29 @@ TEMPLATE = """<!DOCTYPE html>
   <!-- CÓMO CONTRATARLO -->
   <section class="sd-section">
     <span class="sd-eyebrow">Cómo contratarlo</span>
-    <h2>Tres pasos simples</h2>
+    <h2>Tres pasos</h2>
     <div class="sd-steps">
       <div class="sd-step">
         <span class="sd-num">01</span>
-        <h3>Elegís el servicio</h3>
-        <p>Revisás si esta solución se adapta a tu etapa, objetivo y presupuesto.</p>
+        <h3>Evaluación del servicio</h3>
+        <p>Se verifica si la solución se adapta a la etapa, los objetivos y el presupuesto de la empresa.</p>
       </div>
       <div class="sd-step">
         <span class="sd-num">02</span>
-        <h3>Comprás o agendás</h3>
-        <p>Podés avanzar directo con el checkout o coordinar una llamada previa.</p>
+        <h3>Llamada de coordinación</h3>
+        <p>Se coordina una llamada para determinar si constituye el punto de partida adecuado.</p>
       </div>
       <div class="sd-step">
         <span class="sd-num">03</span>
-        <h3>Arrancamos con diagnóstico</h3>
-        <p>Se revisa tu negocio, oferta, canales actuales y próximos pasos.</p>
+        <h3>Diagnóstico inicial</h3>
+        <p>Se analizan el negocio, la oferta, los canales vigentes y los próximos pasos.</p>
       </div>
     </div>
   </section>
 
   <!-- COMPARATIVO -->
   <section class="sd-section">
-    <span class="sd-eyebrow">Pérdida vs. beneficio</span>
+    <span class="sd-eyebrow">Situación comparada</span>
     <h2>Qué cambia al tener este servicio</h2>
     <div class="sd-compare">
       <div class="sd-compare-card sd-neg">
@@ -717,8 +718,7 @@ TEMPLATE = """<!DOCTYPE html>
     <h2>@@FINAL_TITLE@@</h2>
     <p>@@FINAL_TEXT@@</p>
     <div class="sd-ctas">
-      <a href="#" class="sd-btn sd-btn-primary" data-comprar="@@SLUG@@">Comprar →</a>
-      <a href="@@CALENDAR@@" class="sd-btn sd-btn-secondary" target="_blank" rel="noopener noreferrer">Agendar una llamada</a>
+      <a href="@@CALENDAR@@" class="sd-btn sd-btn-primary" target="_blank" rel="noopener noreferrer">Agendar una llamada</a>
     </div>
   </section>
 
@@ -760,43 +760,6 @@ TEMPLATE = """<!DOCTYPE html>
       toggleBtn.textContent = isOpen ? '✕' : '☰';
     });
   }
-</script>
-
-<!-- Checkout Mercado Pago (servicio). Si el precio aún no está configurado
-     server-side, o falla la red, cae a "Agendar una llamada". -->
-<script>/* MP-CHECKOUT-SERVICIO */
-(function(){
-  var CALENDAR = "@@CALENDAR@@";
-  var SLUG = "@@SLUG@@";
-  function agendaFallback(){ window.open(CALENDAR, '_blank', 'noopener'); }
-  document.querySelectorAll('[data-comprar]').forEach(function(btn){
-    btn.addEventListener('click', function(e){
-      e.preventDefault();
-      var slug = btn.getAttribute('data-comprar') || SLUG;
-      var original = btn.innerHTML;
-      btn.innerHTML = 'Generando checkout…';
-      btn.style.pointerEvents = 'none';
-      btn.style.opacity = '0.7';
-      if (window.fbq) fbq('track', 'InitiateCheckout', { currency: 'ARS', content_name: slug, content_category: 'servicio' });
-      fetch('/.netlify/functions/crear-preferencia', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ producto: slug })
-      })
-      .then(function(r){ return r.ok ? r.json() : Promise.reject(r); })
-      .then(function(res){
-        if (res && res.init_point) { window.location.href = res.init_point; }
-        else { throw new Error('sin init_point'); }
-      })
-      .catch(function(){
-        btn.innerHTML = original;
-        btn.style.pointerEvents = '';
-        btn.style.opacity = '';
-        agendaFallback();
-      });
-    });
-  });
-})();
 </script>
 
 <!-- Meta CAPI eventos custom de pagina -->
