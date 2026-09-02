@@ -7,28 +7,28 @@
 <!-- ============================================================
      SEO
      ============================================================ -->
-<title>Mentoría para escalar tu facturación en 6 meses | EPIBRANDS — Mariano Calandra</title>
-<meta name="description" content="Mentoría 1:1 para emprendedores, pymes y empresas B2B. Paid media, IA, automatizaciones, procesos y estrategia para escalar tu facturación en 6 meses. USD 990/mes. Solo 4 cupos.">
+<title>Consultoría empresarial para escalar la facturación | EPIBRANDS — Mariano Calandra</title>
+<meta name="description" content="Programa de consultoría y mentoría individual para empresas, pymes y negocios B2B. Paid media, inteligencia artificial, automatización, mejora de procesos y dirección estratégica en un horizonte de seis meses. Honorarios: USD 990 mensuales. Cuatro cupos por período.">
 <meta name="author" content="Mariano Calandra">
 <meta name="robots" content="index, follow">
-<meta name="theme-color" content="#EDEDE8">
+<meta name="theme-color" content="#EBEBE6">
 <link rel="canonical" href="https://marianocalandra.com/epibrands/studio">
 
 <!-- Open Graph -->
 <meta property="og:type" content="website">
-<meta property="og:title" content="Mentoría para escalar tu facturación en 6 meses | EPIBRANDS">
-<meta property="og:description" content="Mentoría 1:1 con Mariano Calandra: paid media, IA, automatizaciones, procesos y estrategia comercial. USD 990/mes. Solo 4 cupos.">
+<meta property="og:title" content="Consultoría empresarial para escalar la facturación | EPIBRANDS">
+<meta property="og:description" content="Programa de consultoría individual: paid media, inteligencia artificial, automatización, procesos y dirección estratégica. Honorarios: USD 990 mensuales. Cuatro cupos por período.">
 <meta property="og:url" content="https://marianocalandra.com/epibrands/studio">
 <meta property="og:image" content="https://marianocalandra.com/epibrands/assets/og-epibrands.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="EPIBRANDS — Mentoría de negocios de Mariano Calandra">
+<meta property="og:image:alt" content="EPIBRANDS — Programa de consultoría empresarial de Mariano Calandra">
 <meta property="og:locale" content="es_AR">
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Mentoría para escalar tu facturación en 6 meses | EPIBRANDS">
-<meta name="twitter:description" content="Mentoría 1:1: paid media, IA, automatizaciones, procesos y estrategia. USD 990/mes. Solo 4 cupos.">
+<meta name="twitter:title" content="Consultoría empresarial para escalar la facturación | EPIBRANDS">
+<meta name="twitter:description" content="Programa de consultoría individual: paid media, IA, automatización, procesos y dirección estratégica. USD 990 mensuales.">
 <meta name="twitter:image" content="https://marianocalandra.com/epibrands/assets/og-epibrands.jpg">
 
 <!-- Favicon (reutiliza el del sitio principal) -->
@@ -43,11 +43,11 @@
 {
   "@context": "https://schema.org",
   "@type": "Service",
-  "serviceType": "Mentoría de negocios y crecimiento",
-  "name": "Mentoría EPIBRANDS — Escalá tu facturación en 6 meses",
+  "serviceType": "Consultoría empresarial y mentoría de negocios",
+  "name": "Programa de consultoría EPIBRANDS",
   "url": "https://marianocalandra.com/epibrands/studio",
   "image": "https://marianocalandra.com/epibrands/assets/og-epibrands.jpg",
-  "description": "Mentoría uno a uno para emprendedores, pymes y empresas B2B: paid media, IA, automatizaciones, asesoramiento estratégico, mejora de procesos y sistema comercial para escalar la facturación en 6 meses.",
+  "description": "Programa de consultoría individual para empresas, pymes y negocios B2B: paid media, inteligencia artificial, automatización, asesoramiento estratégico, mejora de procesos y desarrollo del sistema comercial, con el objetivo de incrementar la facturación en un horizonte de seis meses.",
   "provider": {
     "@type": "Person",
     "name": "Mariano Calandra",
@@ -60,14 +60,14 @@
     ]
   },
   "areaServed": ["AR", "LATAM", "ES"],
-  "audience": { "@type": "BusinessAudience", "audienceType": "Emprendedores, pymes y empresas B2B" },
+  "audience": { "@type": "BusinessAudience", "audienceType": "Empresas, pymes y negocios B2B" },
   "offers": {
     "@type": "Offer",
     "price": "990",
     "priceCurrency": "USD",
     "availability": "https://schema.org/LimitedAvailability",
     "url": "https://marianocalandra.com/epibrands/studio#aplicar",
-    "description": "Mentoría 1:1, abono mensual. Cupos limitados a 4 empresas en simultáneo."
+    "description": "Programa de consultoría individual con honorarios mensuales. Cupos limitados a cuatro empresas en simultáneo."
   }
 }
 </script>
@@ -105,6 +105,11 @@
 }
 
 *{ margin:0; padding:0; box-sizing:border-box; }
+
+/* El atributo hidden tiene que ganarle a cualquier clase con display propio
+   (ej. .epi-form-btn{display:inline-flex}), si no los botones ocultos del
+   formulario se siguen viendo. */
+[hidden]{ display:none !important; }
 
 html{ scroll-behavior:smooth; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; overflow-x:hidden; }
 
@@ -365,11 +370,12 @@ input, select, textarea, button{ font-family:inherit; }
 }
 .pillar:hover{ transform:translateY(-6px); border-color:var(--accent-line); box-shadow:0 18px 44px -22px rgba(26,26,24,0.4); }
 .pillar .ico{
-  font-size:24px; line-height:1; width:52px; height:52px;
+  line-height:1; width:52px; height:52px; color:var(--accent);
   display:grid; place-items:center; border-radius:16px;
   background:var(--bg); border:1px solid var(--line-soft);
   transition:transform .45s var(--ease);
 }
+.pillar .ico svg{ width:23px; height:23px; fill:none; stroke:currentColor; stroke-width:1.6; stroke-linecap:round; stroke-linejoin:round; }
 .pillar:hover .ico{ transform:scale(1.06) rotate(-4deg); }
 .pillar h3{ font-size:1.1rem; font-weight:600; letter-spacing:-0.02em; line-height:1.25; }
 .pillar p{ font-size:.94rem; color:var(--ink-soft); line-height:1.5; }
@@ -642,17 +648,6 @@ input, select, textarea, button{ font-family:inherit; }
     var(--invert-bg);
   color:var(--invert-ink); box-shadow:0 30px 100px rgba(26,26,24,0.22);
 }
-.epi-final-system{ position:absolute; inset:0; pointer-events:none; }
-.epi-final-system span{
-  position:absolute; padding:.55rem .85rem; border:1px solid rgba(237,237,232,0.14);
-  border-radius:999px; background:rgba(237,237,232,0.06); color:rgba(237,237,232,0.55);
-  font-size:.8rem; font-weight:600; animation:epiFloat 7s ease-in-out infinite;
-}
-.epi-final-system span:nth-child(1){ top:12%; left:4%; }
-.epi-final-system span:nth-child(2){ top:8%;  right:6%; animation-delay:1s; }
-.epi-final-system span:nth-child(3){ bottom:14%; left:6%; animation-delay:2s; }
-.epi-final-system span:nth-child(4){ bottom:9%;  right:8%; animation-delay:3s; }
-.epi-final-system span:nth-child(5){ top:52%; left:2%; animation-delay:4s; }
 @keyframes epiFloat{
   0%,100%{ transform:translate3d(0,0,0) rotate(0deg); }
   50%{ transform:translate3d(0,-14px,0) rotate(1deg); }
@@ -784,6 +779,7 @@ input, select, textarea, button{ font-family:inherit; }
   transition:transform .22s var(--ease), background .22s var(--ease), border-color .22s var(--ease);
 }
 .epi-whatsapp-button:hover{ transform:translateY(-2px); background:rgba(237,237,232,0.08); border-color:rgba(237,237,232,0.5); }
+.epi-whatsapp-button svg{ width:17px; height:17px; fill:none; stroke:currentColor; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round; }
 
 /* ============================================================
    FOOTER
@@ -937,8 +933,6 @@ input, select, textarea, button{ font-family:inherit; }
   .epi-hero-orbit{ opacity:.5; }
   .epi-orbit-card{ font-size:.7rem; padding:.45rem .7rem; }
   .epi-orbit-card-5, .epi-orbit-card-7, .epi-orbit-card-8{ display:none; }
-  .epi-final-system{ opacity:.35; }
-  .epi-final-system span:nth-child(3), .epi-final-system span:nth-child(5){ display:none; }
 }
 
 /* ============================================================
@@ -950,7 +944,7 @@ input, select, textarea, button{ font-family:inherit; }
   .drawline{ border-top-color:var(--line) !important; }
   .drawline::before{ display:none; }
   .mask .word > span{ transform:none; transition:none; }
-  .epi-orbit-card, .epi-final-system span, .epi-marquee-track,
+  .epi-orbit-card, .epi-marquee-track,
   .hero-badge .pip, .nav-cta .pip{ animation:none !important; }
   [data-reveal]{ opacity:1 !important; transform:none !important; filter:none !important; }
   .epi-method-line{ transform:scaleX(1) !important; }
@@ -979,11 +973,11 @@ input, select, textarea, button{ font-family:inherit; }
         <img class="brand-logo" src="assets/epibrands-logo.png" alt="EPIBRANDS" width="621" height="124">
       </a>
       <div class="nav-links" id="navLinks">
-        <a href="#incluye">Qué incluye</a>
-        <a href="#ruta">Ruta 6 meses</a>
-        <a href="#precio">Precio</a>
+        <a href="#incluye">Alcance</a>
+        <a href="#ruta">Metodología</a>
+        <a href="#precio">Honorarios</a>
         <a href="#faq">Preguntas</a>
-        <a href="#aplicar" class="nav-cta"><span class="pip" aria-hidden="true"></span> Aplicar</a>
+        <a href="#aplicar" class="nav-cta"><span class="pip" aria-hidden="true"></span> Postular</a>
       </div>
       <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">Menú</button>
     </nav>
@@ -998,75 +992,75 @@ input, select, textarea, button{ font-family:inherit; }
   <section class="hero">
     <div class="epi-hero-orbit" aria-hidden="true">
       <span class="epi-orbit-card epi-orbit-card-1">Paid Media</span>
-      <span class="epi-orbit-card epi-orbit-card-2">IA aplicada</span>
-      <span class="epi-orbit-card epi-orbit-card-3">Automatizaciones</span>
+      <span class="epi-orbit-card epi-orbit-card-2">Inteligencia artificial</span>
+      <span class="epi-orbit-card epi-orbit-card-3">Automatización</span>
       <span class="epi-orbit-card epi-orbit-card-4">Procesos</span>
-      <span class="epi-orbit-card epi-orbit-card-5">Ventas</span>
+      <span class="epi-orbit-card epi-orbit-card-5">Comercial</span>
       <span class="epi-orbit-card epi-orbit-card-6">Estrategia</span>
-      <span class="epi-orbit-card epi-orbit-card-7">Datos</span>
+      <span class="epi-orbit-card epi-orbit-card-7">Indicadores</span>
       <span class="epi-orbit-card epi-orbit-card-8">Escala</span>
     </div>
 
     <div class="wrap hero-grid">
-      <p class="hero-meta">Mentoría 1 a 1<br>Negocios B2B · LATAM</p>
+      <p class="hero-meta">Consultoría individual<br>Empresas B2B · LATAM</p>
 
       <span class="hero-badge reveal">
         <span class="pip" aria-hidden="true"></span>
-        Mentoría 1 a 1 · <b>Solo 4 cupos</b> · USD 990/mes
+        Programa individual · <b>4 cupos por período</b> · USD 990 mensuales
       </span>
 
-      <h1>Escalá la facturación de tu negocio en los próximos <em>6 meses.</em></h1>
+      <h1>Consultoría para escalar la facturación de su empresa en <em>seis meses.</em></h1>
 
       <div class="hero-bottom">
-        <p class="hero-sub reveal d1">Una mentoría uno a uno donde trabajamos <b>paid media, inteligencia artificial, automatizaciones, procesos y estrategia comercial</b> hasta que tu negocio crece con sistema y no con suerte. Para emprendedores, pymes y empresas B2B.</p>
+        <p class="hero-sub reveal d1">Programa de acompañamiento individual que integra <b>paid media, inteligencia artificial, automatización de procesos, asesoramiento estratégico y desarrollo comercial</b>. Dirigido a empresas, pymes y negocios B2B con operación en marcha.</p>
         <div class="hero-actions reveal d2">
-          <a href="#aplicar" class="btn btn-solid"><span class="dot"></span> Aplicar a la mentoría</a>
-          <a href="#incluye" class="btn btn-ghost">Ver qué incluye</a>
+          <a href="#aplicar" class="btn btn-solid"><span class="dot"></span> Solicitar admisión</a>
+          <a href="#incluye" class="btn btn-ghost">Ver el alcance</a>
         </div>
       </div>
 
       <!-- Indicador de cupos. Editá data-cupos-tomados cuando se ocupe un lugar. -->
       <div class="epi-cupos reveal d3" data-cupos data-cupos-total="4" data-cupos-tomados="0">
         <span class="epi-cupos-dots" aria-hidden="true"></span>
-        <span class="epi-cupos-text"><b>4 cupos</b> disponibles este mes</span>
+        <span class="epi-cupos-text"><b>4 cupos</b> disponibles</span>
       </div>
     </div>
   </section>
 
   <!-- ========================================================
-       MARQUEE — dolores arriba, resultados abajo
+       MARQUEE — situaciones frecuentes / áreas de trabajo
        ======================================================== -->
-  <section class="epi-marquee-section" aria-label="Problemas frecuentes y resultados de la mentoría">
+  <section class="epi-marquee-section" aria-label="Situaciones frecuentes y áreas de trabajo del programa">
     <div class="epi-marquee epi-marquee-left">
       <div class="epi-marquee-track">
-        <span>Facturo siempre lo mismo</span>
-        <span>Dependo de mí para todo</span>
-        <span>La pauta gasta y no vuelve</span>
-        <span>Pierdo horas en tareas manuales</span>
-        <span>No sé si la IA me sirve</span>
-        <span>Tengo leads y no cierro</span>
-        <span>Decido a ciegas</span>
-        <span>Facturo siempre lo mismo</span>
-        <span>Dependo de mí para todo</span>
-        <span>La pauta gasta y no vuelve</span>
-        <span>Pierdo horas en tareas manuales</span>
-        <span>No sé si la IA me sirve</span>
-        <span>Tengo leads y no cierro</span>
-        <span>Decido a ciegas</span>
+        <span>Facturación estancada</span>
+        <span>Operación dependiente de la dirección</span>
+        <span>Inversión publicitaria sin retorno medido</span>
+        <span>Procesos manuales que consumen horas</span>
+        <span>Inteligencia artificial sin aplicación concreta</span>
+        <span>Oportunidades comerciales sin seguimiento</span>
+        <span>Decisiones sin respaldo en datos</span>
+        <span>Facturación estancada</span>
+        <span>Operación dependiente de la dirección</span>
+        <span>Inversión publicitaria sin retorno medido</span>
+        <span>Procesos manuales que consumen horas</span>
+        <span>Inteligencia artificial sin aplicación concreta</span>
+        <span>Oportunidades comerciales sin seguimiento</span>
+        <span>Decisiones sin respaldo en datos</span>
       </div>
     </div>
     <div class="epi-marquee epi-marquee-right">
       <div class="epi-marquee-track">
         <span>Paid Media</span>
-        <span>IA aplicada</span>
-        <span>Automatizaciones</span>
+        <span>Inteligencia artificial</span>
+        <span>Automatización</span>
         <span>Procesos</span>
         <span>Estrategia</span>
         <span>Sistema comercial</span>
         <span>Medición</span>
         <span>Paid Media</span>
-        <span>IA aplicada</span>
-        <span>Automatizaciones</span>
+        <span>Inteligencia artificial</span>
+        <span>Automatización</span>
         <span>Procesos</span>
         <span>Estrategia</span>
         <span>Sistema comercial</span>
@@ -1076,57 +1070,57 @@ input, select, textarea, button{ font-family:inherit; }
   </section>
 
   <!-- ========================================================
-       MANIFIESTO
+       PLANTEO GENERAL
        ======================================================== -->
   <section class="section">
     <div class="wrap manifesto">
-      <div class="label-col reveal"><span class="eyebrow">La mentoría</span></div>
+      <div class="label-col reveal"><span class="eyebrow">El programa</span></div>
       <div>
-        <blockquote>Esto no es una agencia que te manda un reporte. <span>Es sentarnos juntos, todas las semanas, a construir el sistema que hace crecer tu facturación.</span></blockquote>
-        <p class="foot reveal d2">Paid media, IA, automatizaciones, procesos y asesoramiento comercial en un solo lugar y con una sola cabeza detrás. Trabajo con 4 negocios a la vez porque con más no puedo dar el nivel de atención que una decisión de este tamaño merece.</p>
+        <blockquote>EPIBRANDS no presta un servicio de agencia. <span>Desarrolla, junto a la dirección de cada empresa, el sistema comercial y operativo que sostiene su crecimiento.</span></blockquote>
+        <p class="foot reveal d2">Paid media, inteligencia artificial, automatización, procesos y asesoramiento estratégico bajo una misma conducción profesional. El programa opera con cuatro empresas por período: es el número que permite sostener el nivel de dedicación que exige una decisión de esta magnitud.</p>
       </div>
     </div>
   </section>
 
   <!-- ========================================================
-       PARA QUIÉN ES / NO ES
+       CRITERIOS DE ADMISIÓN
        ======================================================== -->
   <section class="section section--deep">
     <div class="wrap">
       <div class="section-head">
-        <span class="eyebrow reveal">Filtro</span>
+        <span class="eyebrow reveal">Admisión</span>
         <div>
-          <h2>Para quién es (y para quién no).</h2>
-          <p>Prefiero decirlo antes: no todos los negocios están en el momento correcto para esta mentoría.</p>
+          <h2>Criterios de admisión al programa.</h2>
+          <p>No todas las empresas se encuentran en el momento adecuado para incorporarse. Corresponde establecerlo con claridad antes de avanzar.</p>
         </div>
       </div>
 
       <div class="aud-grid">
         <div class="aud-col aud-col--yes epi-motion-card" data-reveal>
           <div class="aud-head">
-            <h3>Es para vos si…</h3>
-            <span class="aud-tag aud-tag--yes">Encaja</span>
+            <h3>El programa es adecuado si</h3>
+            <span class="aud-tag aud-tag--yes">Cumple</span>
           </div>
           <ul class="aud-list">
-            <li><span class="aud-ic aud-ic--yes"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg></span>Ya facturás con un producto o servicio validado y querés escalar en serio.</li>
-            <li><span class="aud-ic aud-ic--yes"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg></span>Sos dueño, socio o dirigís una pyme, empresa o negocio B2B.</li>
-            <li><span class="aud-ic aud-ic--yes"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg></span>Necesitás criterio y dirección, no otro proveedor que te mande tareas.</li>
-            <li><span class="aud-ic aud-ic--yes"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg></span>Querés usar IA y automatizaciones donde de verdad ahorran plata o tiempo.</li>
-            <li><span class="aud-ic aud-ic--yes"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg></span>Estás dispuesto a ejecutar semana a semana durante 6 meses.</li>
+            <li><span class="aud-ic aud-ic--yes"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg></span>La empresa ya factura con un producto o servicio validado en el mercado.</li>
+            <li><span class="aud-ic aud-ic--yes"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg></span>La solicitud proviene de la dirección: propietario, socio o responsable del negocio.</li>
+            <li><span class="aud-ic aud-ic--yes"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg></span>Se busca criterio y dirección estratégica, no la tercerización de tareas operativas.</li>
+            <li><span class="aud-ic aud-ic--yes"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg></span>Existe interés en incorporar inteligencia artificial y automatización con retorno medible.</li>
+            <li><span class="aud-ic aud-ic--yes"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg></span>Hay disponibilidad para sostener la ejecución semanal durante seis meses.</li>
           </ul>
         </div>
 
         <div class="aud-col epi-motion-card" data-reveal data-reveal-delay="1">
           <div class="aud-head">
-            <h3>No es para vos si…</h3>
-            <span class="aud-tag aud-tag--no">No encaja</span>
+            <h3>El programa no es adecuado si</h3>
+            <span class="aud-tag aud-tag--no">No cumple</span>
           </div>
           <ul class="aud-list">
-            <li><span class="aud-ic aud-ic--no"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10M17 7L7 17"/></svg></span>Buscás resultados mágicos en 30 días sin cambiar nada del negocio.</li>
-            <li><span class="aud-ic aud-ic--no"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10M17 7L7 17"/></svg></span>Todavía no tenés una oferta clara ni ventas para apoyarte.</li>
-            <li><span class="aud-ic aud-ic--no"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10M17 7L7 17"/></svg></span>Querés delegar todo y desaparecer del proceso.</li>
-            <li><span class="aud-ic aud-ic--no"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10M17 7L7 17"/></svg></span>Estás buscando el precio más barato del mercado.</li>
-            <li><span class="aud-ic aud-ic--no"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10M17 7L7 17"/></svg></span>No podés sostener la inversión mensual sin comprometer el negocio.</li>
+            <li><span class="aud-ic aud-ic--no"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10M17 7L7 17"/></svg></span>Se esperan resultados inmediatos sin modificar la operación actual.</li>
+            <li><span class="aud-ic aud-ic--no"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10M17 7L7 17"/></svg></span>La empresa aún no cuenta con una oferta definida ni con ventas sostenidas.</li>
+            <li><span class="aud-ic aud-ic--no"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10M17 7L7 17"/></svg></span>Se pretende delegar la totalidad del proceso sin participación de la dirección.</li>
+            <li><span class="aud-ic aud-ic--no"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10M17 7L7 17"/></svg></span>La decisión de contratación se toma exclusivamente en función del precio.</li>
+            <li><span class="aud-ic aud-ic--no"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10M17 7L7 17"/></svg></span>La inversión mensual compromete la operación financiera de la empresa.</li>
           </ul>
         </div>
       </div>
@@ -1134,130 +1128,130 @@ input, select, textarea, button{ font-family:inherit; }
   </section>
 
   <!-- ========================================================
-       QUÉ INCLUYE — 6 pilares
+       ALCANCE — seis áreas de trabajo
        ======================================================== -->
   <section class="section" id="incluye">
     <div class="wrap">
       <div class="section-head">
-        <span class="eyebrow reveal">Qué incluye</span>
+        <span class="eyebrow reveal">Alcance</span>
         <div>
-          <h2>Todo lo que tu negocio necesita para escalar, en una sola mentoría.</h2>
-          <p>No se contrata por partes. Trabajamos los seis frentes al mismo tiempo, en el orden que tu negocio necesita.</p>
+          <h2>Alcance integral del programa.</h2>
+          <p>Las seis áreas se trabajan de forma simultánea, en el orden de prioridad que determine el diagnóstico inicial. No se contratan por separado.</p>
         </div>
       </div>
 
       <div class="pillars">
         <article class="pillar epi-motion-card" data-reveal>
-          <span class="ico" aria-hidden="true">📈</span>
+          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 7-7"/><path d="M17 8h4v4"/></svg></span>
           <h3>Paid Media</h3>
-          <p>Meta Ads y Google Ads con estructura, presupuesto controlado y lectura real de los números. Pauta que se mide, no que se prueba.</p>
+          <p>Gestión de campañas en Meta Ads y Google Ads con estructura definida, presupuesto controlado y análisis de resultados. Inversión medida, no experimental.</p>
           <span class="cat">Adquisición</span>
         </article>
         <article class="pillar epi-motion-card" data-reveal data-reveal-delay="1">
-          <span class="ico" aria-hidden="true">🤖</span>
+          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="7.5" y="7.5" width="9" height="9" rx="2"/><path d="M10 3.5v2M14 3.5v2M10 18.5v2M14 18.5v2M3.5 10h2M3.5 14h2M18.5 10h2M18.5 14h2"/></svg></span>
           <h3>Inteligencia artificial</h3>
-          <p>IA aplicada a tu operación: contenido, atención, análisis y asistentes internos. Donde ahorra plata o tiempo, no donde queda lindo.</p>
+          <p>Aplicación de IA a la operación: generación de contenido, atención comercial, análisis de información y asistentes internos, en los procesos donde produce un ahorro verificable.</p>
           <span class="cat">Productividad</span>
         </article>
         <article class="pillar epi-motion-card" data-reveal data-reveal-delay="2">
-          <span class="ico" aria-hidden="true">⚙️</span>
-          <h3>Automatizaciones</h3>
-          <p>Leads, seguimiento, CRM, recordatorios y reportes andando solos. Menos tareas manuales, menos oportunidades perdidas.</p>
+          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20.5 12a8.5 8.5 0 1 1-2.6-6.1"/><path d="M20.5 4.5v4h-4"/></svg></span>
+          <h3>Automatización</h3>
+          <p>Gestión automatizada de oportunidades comerciales, seguimiento, CRM y reportes. Menor carga operativa y trazabilidad completa del embudo de ventas.</p>
           <span class="cat">Operación</span>
         </article>
         <article class="pillar epi-motion-card" data-reveal>
-          <span class="ico" aria-hidden="true">🧭</span>
-          <h3>Asesoramiento de empresas</h3>
-          <p>Posicionamiento, oferta, precios, márgenes y modelo de negocio. Las decisiones que mueven la facturación más que cualquier anuncio.</p>
+          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M15.4 8.6l-2.1 4.7-4.7 2.1 2.1-4.7z"/></svg></span>
+          <h3>Asesoramiento empresarial</h3>
+          <p>Posicionamiento, definición de la oferta, política de precios, márgenes y modelo de negocio: las decisiones de mayor impacto sobre la facturación.</p>
           <span class="cat">Estrategia</span>
         </article>
         <article class="pillar epi-motion-card" data-reveal data-reveal-delay="1">
-          <span class="ico" aria-hidden="true">🔧</span>
+          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/><circle cx="9" cy="7" r="2"/><circle cx="15" cy="12" r="2"/><circle cx="8" cy="17" r="2"/></svg></span>
           <h3>Mejora de procesos</h3>
-          <p>Ordenamos cómo se vende, se entrega y se cobra. Que el negocio funcione aunque vos no estés mirando todo el día.</p>
+          <p>Ordenamiento de los circuitos de venta, entrega y cobranza, con el objetivo de reducir la dependencia operativa respecto de la dirección.</p>
           <span class="cat">Procesos</span>
         </article>
         <article class="pillar epi-motion-card" data-reveal data-reveal-delay="2">
-          <span class="ico" aria-hidden="true">📊</span>
-          <h3>Sistema comercial y datos</h3>
-          <p>Embudo, métricas, reportes y seguimiento. Vas a saber qué canal trae plata y qué canal la quema, con números arriba de la mesa.</p>
+          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3.5 20h17"/><path d="M6.5 20v-5M11 20V8.5M15.5 20v-8M20 20V5"/></svg></span>
+          <h3>Sistema comercial y medición</h3>
+          <p>Definición del embudo, los indicadores, los tableros y las rutinas de reporte necesarias para orientar cada decisión con información verificable.</p>
           <span class="cat">Medición</span>
         </article>
       </div>
 
       <div class="deliverables reveal d1">
-        <span>Sesión semanal 1 a 1 (60 min)</span>
-        <span>WhatsApp directo conmigo</span>
-        <span>Auditoría completa al arrancar</span>
-        <span>Plan escrito a 6 meses</span>
-        <span>Revisión de campañas y números</span>
-        <span>Plantillas, prompts y automatizaciones</span>
-        <span>Grabación de cada sesión</span>
+        <span>Sesión semanal individual de 60 minutos</span>
+        <span>Canal directo de consulta entre sesiones</span>
+        <span>Diagnóstico integral al inicio</span>
+        <span>Plan de trabajo documentado a seis meses</span>
+        <span>Revisión de campañas e indicadores</span>
+        <span>Plantillas, procedimientos y automatizaciones</span>
+        <span>Registro de cada sesión</span>
       </div>
     </div>
   </section>
 
   <!-- ========================================================
-       RUTA DE 6 MESES
+       METODOLOGÍA — seis etapas
        ======================================================== -->
   <section class="section--deep epi-method-section" id="ruta" data-reveal>
     <div class="epi-method-header">
-      <p class="epi-eyebrow">La ruta</p>
-      <h2>Seis meses, seis movimientos.</h2>
-      <p>No es un curso ni una lista de tips. Es un plan con orden, donde cada mes desbloquea el siguiente.</p>
+      <p class="epi-eyebrow">Metodología</p>
+      <h2>Seis meses, seis etapas.</h2>
+      <p>El programa sigue una secuencia definida, en la que cada etapa habilita la siguiente.</p>
     </div>
     <div class="epi-method-flow">
       <div class="epi-method-line" aria-hidden="true"></div>
       <article class="epi-motion-card epi-method-step" data-reveal data-reveal-delay="1">
         <span>Mes 01</span><h3>Diagnóstico y plan</h3>
-        <p>Revisamos números, oferta, canales y procesos. Salís con un plan escrito de los 6 meses.</p>
+        <p>Análisis de indicadores, oferta, canales y procesos. La etapa concluye con el plan de trabajo documentado para los seis meses.</p>
       </article>
       <article class="epi-motion-card epi-method-step" data-reveal data-reveal-delay="2">
         <span>Mes 02</span><h3>Oferta y posicionamiento</h3>
-        <p>Qué vendés, a quién, a qué precio y por qué te eligen a vos y no al de al lado.</p>
+        <p>Definición de la propuesta de valor, el segmento objetivo, la política de precios y los factores de diferenciación.</p>
       </article>
       <article class="epi-motion-card epi-method-step" data-reveal data-reveal-delay="3">
         <span>Mes 03</span><h3>Adquisición</h3>
-        <p>Campañas y contenido para generar demanda constante, con presupuesto medido y sin quemar plata.</p>
+        <p>Puesta en marcha de campañas y contenidos orientados a generar demanda sostenida, con presupuesto controlado y retorno medido.</p>
       </article>
       <article class="epi-motion-card epi-method-step" data-reveal data-reveal-delay="4">
         <span>Mes 04</span><h3>IA y automatización</h3>
-        <p>Sacamos de tu cabeza el seguimiento, la carga de datos y las tareas repetitivas.</p>
+        <p>Implementación de asistentes, seguimiento automatizado y eliminación de las tareas repetitivas de mayor carga operativa.</p>
       </article>
       <article class="epi-motion-card epi-method-step" data-reveal data-reveal-delay="4">
         <span>Mes 05</span><h3>Procesos y equipo</h3>
-        <p>Ordenamos cómo se vende, se entrega y se cobra para que el negocio no dependa solo de vos.</p>
+        <p>Formalización de los circuitos de venta, entrega y cobranza, con el objetivo de reducir la dependencia operativa de la dirección.</p>
       </article>
       <article class="epi-motion-card epi-method-step" data-reveal data-reveal-delay="4">
-        <span>Mes 06</span><h3>Escala</h3>
-        <p>Duplicamos lo que funciona, cortamos lo que no y dejamos el sistema andando y documentado.</p>
+        <span>Mes 06</span><h3>Escalamiento</h3>
+        <p>Ampliación de las acciones que demuestran retorno, discontinuación de las que no lo demuestran y entrega del sistema documentado.</p>
       </article>
     </div>
   </section>
 
   <!-- ========================================================
-       ANTES / DESPUÉS
+       SITUACIÓN INICIAL / RESULTADO ESPERADO
        ======================================================== -->
   <section class="epi-before-after-section" data-reveal>
     <div class="epi-before-after-card">
       <div class="epi-ba-head">
-        <p class="epi-eyebrow">Antes / Después</p>
-        <h2>Escalar no es hacer más.<br>Es <span class="epi-ba-mark">decidir mejor<svg viewBox="0 0 320 24" preserveAspectRatio="none" aria-hidden="true"><path d="M5 17C60 9 130 9 196 13c54 3 99 2 119-3"/></svg></span>.</h2>
-        <p>La diferencia entre un negocio que se estanca y uno que crece casi nunca es el esfuerzo. Es el sistema que hay detrás.</p>
+        <p class="epi-eyebrow">Situación inicial / Resultado esperado</p>
+        <h2>Escalar no consiste en hacer más.<br>Consiste en <span class="epi-ba-mark">decidir mejor<svg viewBox="0 0 320 24" preserveAspectRatio="none" aria-hidden="true"><path d="M5 17C60 9 130 9 196 13c54 3 99 2 119-3"/></svg></span>.</h2>
+        <p>La diferencia entre una empresa que se estanca y una que crece rara vez reside en el esfuerzo. Reside en el sistema que respalda sus decisiones.</p>
       </div>
 
       <div class="epi-ba-grid">
         <div class="epi-ba-col epi-ba-col--before">
           <div class="epi-ba-col-head">
-            <h3>Hoy</h3>
+            <h3>Situación inicial</h3>
             <span class="epi-ba-tag epi-ba-tag--bad">Sin sistema</span>
           </div>
           <ul class="epi-ba-list">
-            <li><span class="epi-ba-ic epi-ba-ic--bad"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10M17 7L7 17"/></svg></span>Facturación que sube y baja sin explicación</li>
-            <li><span class="epi-ba-ic epi-ba-ic--bad"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10M17 7L7 17"/></svg></span>Pauta que gasta sin retorno claro</li>
-            <li><span class="epi-ba-ic epi-ba-ic--bad"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10M17 7L7 17"/></svg></span>Horas perdidas en tareas manuales</li>
-            <li><span class="epi-ba-ic epi-ba-ic--bad"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10M17 7L7 17"/></svg></span>Todo pasa por vos</li>
-            <li><span class="epi-ba-ic epi-ba-ic--bad"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10M17 7L7 17"/></svg></span>Decisiones por intuición</li>
+            <li><span class="epi-ba-ic epi-ba-ic--bad"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10M17 7L7 17"/></svg></span>Facturación variable sin explicación documentada</li>
+            <li><span class="epi-ba-ic epi-ba-ic--bad"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10M17 7L7 17"/></svg></span>Inversión publicitaria sin retorno medido</li>
+            <li><span class="epi-ba-ic epi-ba-ic--bad"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10M17 7L7 17"/></svg></span>Tareas manuales que consumen la jornada</li>
+            <li><span class="epi-ba-ic epi-ba-ic--bad"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10M17 7L7 17"/></svg></span>Operación dependiente de la dirección</li>
+            <li><span class="epi-ba-ic epi-ba-ic--bad"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10M17 7L7 17"/></svg></span>Decisiones basadas en la intuición</li>
           </ul>
         </div>
 
@@ -1267,15 +1261,15 @@ input, select, textarea, button{ font-family:inherit; }
 
         <div class="epi-ba-col epi-ba-col--after">
           <div class="epi-ba-col-head">
-            <h3>En 6 meses</h3>
+            <h3>A los seis meses</h3>
             <span class="epi-ba-tag epi-ba-tag--good">Con sistema</span>
           </div>
           <ul class="epi-ba-list">
-            <li><span class="epi-ba-ic epi-ba-ic--good"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg></span>Ingresos más previsibles mes a mes</li>
+            <li><span class="epi-ba-ic epi-ba-ic--good"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg></span>Ingresos con mayor previsibilidad mensual</li>
             <li><span class="epi-ba-ic epi-ba-ic--good"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg></span>Campañas con retorno medido</li>
-            <li><span class="epi-ba-ic epi-ba-ic--good"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg></span>Procesos automatizados con IA</li>
-            <li><span class="epi-ba-ic epi-ba-ic--good"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg></span>Un negocio que no depende solo de vos</li>
-            <li><span class="epi-ba-ic epi-ba-ic--good"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg></span>Decisiones con números arriba de la mesa</li>
+            <li><span class="epi-ba-ic epi-ba-ic--good"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg></span>Procesos automatizados con inteligencia artificial</li>
+            <li><span class="epi-ba-ic epi-ba-ic--good"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg></span>Operación con menor dependencia de la dirección</li>
+            <li><span class="epi-ba-ic epi-ba-ic--good"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg></span>Decisiones respaldadas por indicadores</li>
           </ul>
         </div>
       </div>
@@ -1283,12 +1277,12 @@ input, select, textarea, button{ font-family:inherit; }
   </section>
 
   <!-- ========================================================
-       COUNTERS
+       ANTECEDENTES
        ======================================================== -->
   <section class="epi-counters-section" data-reveal>
     <div class="epi-counters-header">
-      <p class="epi-eyebrow">Con quién trabajás</p>
-      <h2>Más de 10 años haciendo crecer negocios, no presentaciones.</h2>
+      <p class="epi-eyebrow">Antecedentes</p>
+      <h2>Más de 10 años de trabajo aplicado al crecimiento de empresas.</h2>
     </div>
     <div class="epi-counters-grid">
       <div class="epi-motion-card epi-counter-card">
@@ -1297,11 +1291,11 @@ input, select, textarea, button{ font-family:inherit; }
       </div>
       <div class="epi-motion-card epi-counter-card">
         <strong><span data-counter="25000">0</span><span class="epi-counter-unit">USD</span></strong>
-        <p>Generados en servicios profesionales</p>
+        <p>Facturados en servicios profesionales</p>
       </div>
       <div class="epi-motion-card epi-counter-card">
         <strong><span data-counter="7">0</span></strong>
-        <p>Ecommerce activos vendiendo todos los días</p>
+        <p>Ecommerce activos en operación diaria</p>
       </div>
       <div class="epi-motion-card epi-counter-card">
         <strong><span data-counter="945000">0</span></strong>
@@ -1311,42 +1305,42 @@ input, select, textarea, button{ font-family:inherit; }
   </section>
 
   <!-- ========================================================
-       PRINCIPIOS — cómo trabajamos
+       MARCO DE TRABAJO
        ======================================================== -->
   <section class="section">
     <div class="wrap">
       <div class="section-head">
-        <span class="eyebrow reveal">Cómo trabajamos</span>
+        <span class="eyebrow reveal">Marco de trabajo</span>
         <div>
-          <h2>Seis reglas que no negocio.</h2>
-          <p>Son las que hacen que la mentoría funcione y que no se convierta en una reunión más en tu agenda.</p>
+          <h2>Seis condiciones que estructuran el programa.</h2>
+          <p>Son las que aseguran que el programa produzca resultados y no se convierta en una reunión adicional en la agenda de la dirección.</p>
         </div>
       </div>
       <div class="principles">
-        <div class="principle reveal"><span class="num">01</span><div class="body"><h3>Uno a uno, sin intermediarios</h3><p>Trabajás conmigo. No hay juniors, no hay cuentas delegadas, no hay teléfono descompuesto.</p></div></div>
-        <div class="principle reveal"><span class="num">02</span><div class="body"><h3>Solo 4 negocios a la vez</h3><p>La atención que esto requiere no escala a diez clientes. Prefiero pocos y bien que muchos y a medias.</p></div></div>
-        <div class="principle reveal"><span class="num">03</span><div class="body"><h3>Ejecución, no teoría</h3><p>Cada sesión termina con acciones concretas para la semana. Si no se ejecuta, no pasa nada.</p></div></div>
-        <div class="principle reveal"><span class="num">04</span><div class="body"><h3>Números arriba de la mesa</h3><p>Miramos costos, márgenes y retorno. Si algo no da, se corta. Sin excusas y sin humo.</p></div></div>
-        <div class="principle reveal"><span class="num">05</span><div class="body"><h3>IA con criterio</h3><p>Se usa donde ahorra plata o tiempo. En el resto, no. La tecnología es medio, nunca el objetivo.</p></div></div>
-        <div class="principle reveal"><span class="num">06</span><div class="body"><h3>Tu negocio, tus decisiones</h3><p>Yo pongo método, experiencia y criterio. La última palabra siempre es tuya.</p></div></div>
+        <div class="principle reveal"><span class="num">01</span><div class="body"><h3>Conducción directa</h3><p>El programa lo dirige Mariano Calandra de forma personal. No intervienen equipos intermedios ni se delega la cuenta.</p></div></div>
+        <div class="principle reveal"><span class="num">02</span><div class="body"><h3>Cuatro empresas por período</h3><p>El nivel de dedicación requerido no admite una cartera mayor. Se prioriza la profundidad del trabajo sobre el volumen de clientes.</p></div></div>
+        <div class="principle reveal"><span class="num">03</span><div class="body"><h3>Ejecución documentada</h3><p>Cada sesión concluye con acciones definidas, responsables asignados y plazos concretos para la semana siguiente.</p></div></div>
+        <div class="principle reveal"><span class="num">04</span><div class="body"><h3>Decisiones respaldadas en datos</h3><p>Se evalúan costos, márgenes y retorno de cada acción. Toda iniciativa sin retorno verificable se discontinúa.</p></div></div>
+        <div class="principle reveal"><span class="num">05</span><div class="body"><h3>Tecnología con criterio</h3><p>La inteligencia artificial se incorpora donde genera un ahorro real de costos o de tiempo. Constituye un medio, nunca un objetivo en sí mismo.</p></div></div>
+        <div class="principle reveal"><span class="num">06</span><div class="body"><h3>La decisión final corresponde al cliente</h3><p>La consultoría aporta método, experiencia y criterio profesional. Toda decisión sobre el negocio corresponde al cliente.</p></div></div>
       </div>
     </div>
   </section>
 
   <!-- ========================================================
-       PRECIO
+       HONORARIOS
        ======================================================== -->
   <section class="epi-price-section" id="precio" data-reveal>
     <div class="epi-price-head">
-      <p class="epi-eyebrow">Inversión</p>
-      <h2>Un solo plan. Todo incluido.</h2>
-      <p>Sin paquetes, sin niveles, sin letra chica. Una mentoría, cuatro cupos y un precio claro.</p>
+      <p class="epi-eyebrow">Honorarios</p>
+      <h2>Un único programa. Alcance completo.</h2>
+      <p>Sin niveles, sin paquetes y sin condiciones adicionales. Un programa, cuatro cupos y honorarios definidos con anticipación.</p>
     </div>
 
     <div class="epi-price-card epi-motion-card">
       <header class="epi-price-header">
-        <span class="epi-price-flag">Mentoría EPIBRANDS</span>
-        <span class="epi-price-plan">Plan único · 1 a 1</span>
+        <span class="epi-price-flag">Programa EPIBRANDS</span>
+        <span class="epi-price-plan">Programa único · Individual</span>
       </header>
 
       <div class="epi-price-main">
@@ -1355,109 +1349,102 @@ input, select, textarea, button{ font-family:inherit; }
           <span class="cur">USD</span>
           <span class="per">/ mes</span>
         </p>
-        <p class="epi-price-desc">Acompañamiento mensual completo: estrategia, paid media, IA, automatizaciones, procesos y sistema comercial. Pensada como un proceso de 6 meses, que es donde el cambio se ve en la facturación.</p>
+        <p class="epi-price-desc">Acompañamiento mensual integral: asesoramiento estratégico, paid media, inteligencia artificial, automatización, procesos y sistema comercial. El programa está diseñado sobre un horizonte de seis meses, plazo en el que el impacto se refleja en la facturación.</p>
 
         <!-- Editá data-cupos-tomados cuando se ocupe un lugar. -->
         <div class="epi-cupos" data-cupos data-cupos-total="4" data-cupos-tomados="0">
           <span class="epi-cupos-dots" aria-hidden="true"></span>
-          <span class="epi-cupos-text"><b>4 cupos</b> disponibles este mes</span>
+          <span class="epi-cupos-text"><b>4 cupos</b> disponibles</span>
         </div>
 
-        <a href="#aplicar" class="btn btn-solid"><span class="dot"></span> Aplicar a la mentoría</a>
-        <p class="epi-price-note">La inversión en pauta publicitaria va aparte y la administrás vos: los USD 990 son los honorarios de la mentoría.</p>
+        <a href="#aplicar" class="btn btn-solid"><span class="dot"></span> Solicitar admisión</a>
+        <p class="epi-price-note">La inversión en medios publicitarios no está incluida y su administración corresponde al cliente. Los USD 990 mensuales corresponden a los honorarios profesionales del programa.</p>
       </div>
 
       <ul class="epi-price-list">
-        <li>Sesión semanal 1 a 1 de 60 minutos, conmigo</li>
-        <li>Auditoría completa del negocio al arrancar</li>
-        <li>Plan de crecimiento escrito a 6 meses</li>
+        <li>Sesión semanal individual de 60 minutos con Mariano Calandra</li>
+        <li>Diagnóstico integral de la empresa al inicio del programa</li>
+        <li>Plan de crecimiento documentado a seis meses</li>
         <li>Estrategia y gestión de Meta Ads y Google Ads</li>
-        <li>IA aplicada a contenido, ventas y operación</li>
-        <li>Automatizaciones de leads, CRM y seguimiento</li>
-        <li>Asesoramiento de oferta, precios y márgenes</li>
+        <li>Inteligencia artificial aplicada a contenido, ventas y operación</li>
+        <li>Automatización de oportunidades comerciales, CRM y seguimiento</li>
+        <li>Asesoramiento en oferta, política de precios y márgenes</li>
         <li>Mejora de procesos comerciales y operativos</li>
-        <li>Tablero de métricas y revisión mensual de números</li>
-        <li>WhatsApp directo entre sesiones</li>
+        <li>Tablero de indicadores y revisión mensual de resultados</li>
+        <li>Canal directo de consulta entre sesiones</li>
       </ul>
     </div>
   </section>
 
   <!-- ========================================================
-       FAQ
+       PREGUNTAS FRECUENTES
        ======================================================== -->
   <section class="section" id="faq">
     <div class="wrap">
       <div class="section-head">
-        <span class="eyebrow reveal">Preguntas</span>
+        <span class="eyebrow reveal">Consultas</span>
         <div>
-          <h2>Lo que todos preguntan antes de aplicar.</h2>
+          <h2>Preguntas frecuentes antes de postular.</h2>
         </div>
       </div>
 
       <div class="faq">
         <details class="faq-item" data-reveal>
-          <summary>¿Por qué solo 4 cupos?</summary>
-          <div class="faq-body">Porque el trabajo es uno a uno y de verdad. Cada negocio se lleva sesiones semanales, revisión de campañas, análisis de números y disponibilidad entre reuniones. Con más de cuatro no puedo sostener el nivel de atención y profesionalismo que una inversión así merece. Prefiero decir que no antes que dar la mitad.</div>
+          <summary>¿Por qué el programa se limita a cuatro cupos?</summary>
+          <div class="faq-body">Porque el trabajo es individual y sostenido en el tiempo. Cada empresa requiere sesiones semanales, revisión de campañas, análisis de indicadores y disponibilidad entre reuniones. Una cartera mayor no permitiría sostener el nivel de dedicación profesional que corresponde a una inversión de esta naturaleza.</div>
         </details>
         <details class="faq-item" data-reveal>
-          <summary>¿Cuánto dura la mentoría?</summary>
-          <div class="faq-body">Está diseñada como un proceso de 6 meses, con un abono mensual de USD 990. Seis meses es el tiempo mínimo razonable para ordenar el negocio, poner a andar la adquisición, automatizar y ver el impacto en la facturación. Trabajos más cortos suelen quedar por la mitad.</div>
+          <summary>¿Cuál es la duración del programa?</summary>
+          <div class="faq-body">Está diseñado como un proceso de seis meses, con honorarios mensuales de USD 990. Seis meses constituye el plazo mínimo razonable para ordenar la operación, poner en marcha la adquisición, automatizar procesos y observar el impacto sobre la facturación.</div>
         </details>
         <details class="faq-item" data-reveal>
-          <summary>¿Qué pasa en la primera sesión?</summary>
-          <div class="faq-body">Auditamos el negocio completo: números, oferta, precios, canales de adquisición, procesos y herramientas. De ahí sale el plan escrito de los seis meses, con prioridades y responsables. Vas a terminar esa sesión sabiendo exactamente qué se hace primero y por qué.</div>
+          <summary>¿Qué ocurre en la primera sesión?</summary>
+          <div class="faq-body">Se realiza el diagnóstico integral de la empresa: indicadores, oferta, precios, canales de adquisición, procesos y herramientas en uso. De ese análisis surge el plan de trabajo documentado para los seis meses, con prioridades, responsables y plazos definidos.</div>
         </details>
         <details class="faq-item" data-reveal>
-          <summary>¿Está incluida la inversión en publicidad?</summary>
-          <div class="faq-body">No. Los USD 990 mensuales son los honorarios de la mentoría. El presupuesto de medios (Meta, Google) lo definís vos según tus objetivos y se paga directo a las plataformas desde tu cuenta. Yo te ayudo a decidir cuánto invertir y a controlar que cada peso tenga retorno.</div>
+          <summary>¿La inversión publicitaria está incluida en los honorarios?</summary>
+          <div class="faq-body">No. Los USD 990 mensuales corresponden exclusivamente a los honorarios profesionales. El presupuesto de medios lo define el cliente en función de sus objetivos y se abona directamente a las plataformas desde su propia cuenta publicitaria. El programa incluye la recomendación del monto a invertir y el control del retorno obtenido.</div>
         </details>
         <details class="faq-item" data-reveal>
-          <summary>¿Sirve si mi negocio es chico?</summary>
-          <div class="faq-body">Sirve si ya vendés algo. No hace falta facturar seis cifras, pero sí tener un producto o servicio que el mercado ya compra. Si todavía estás validando la idea, la mentoría te va a quedar grande y te lo voy a decir en la primera respuesta.</div>
+          <summary>¿El programa es adecuado para empresas pequeñas?</summary>
+          <div class="faq-body">Lo es siempre que exista facturación. No se requiere un volumen determinado, pero sí un producto o servicio que el mercado ya adquiera. Si la empresa se encuentra en etapa de validación, se comunicará en la respuesta a la solicitud, con las recomendaciones que correspondan.</div>
         </details>
         <details class="faq-item" data-reveal>
-          <summary>¿Trabajás con empresas fuera de Argentina?</summary>
-          <div class="faq-body">Sí. La mentoría es 100% remota y en español. Trabajo con negocios de toda LATAM y España, coordinando el horario de las sesiones según tu zona.</div>
+          <summary>¿Se trabaja con empresas fuera de la Argentina?</summary>
+          <div class="faq-body">Sí. El programa se desarrolla íntegramente de forma remota y en español, con empresas de toda Latinoamérica y España. Los horarios de las sesiones se coordinan según la zona horaria del cliente.</div>
         </details>
         <details class="faq-item" data-reveal>
-          <summary>¿Y si aplico y no hay cupo disponible?</summary>
-          <div class="faq-body">Te lo digo de una y quedás primero en la lista para el próximo lugar que se libere. No vendo un cupo que no existe ni te dejo esperando sin respuesta.</div>
+          <summary>¿Qué ocurre si no hay cupos disponibles al momento de postular?</summary>
+          <div class="faq-body">Se comunica de inmediato y la solicitud queda incorporada a la lista de espera, con prioridad para el primer cupo que se libere. No se ofrecen vacantes que no se encuentren efectivamente disponibles.</div>
         </details>
       </div>
     </div>
   </section>
 
   <!-- ========================================================
-       APLICACIÓN — formulario Netlify en 3 pasos
+       SOLICITUD DE ADMISIÓN — formulario Netlify en 3 pasos
        La submission exitosa redirige a /epibrands/gracias.html,
        que dispara el evento Lead (browser + CAPI) al cargar.
        ======================================================== -->
   <section class="epi-apply-section" id="aplicar">
     <div class="epi-apply-panel" data-reveal>
-      <div class="epi-final-system" aria-hidden="true">
-        <span>Paid Media</span>
-        <span>IA</span>
-        <span>Automatizaciones</span>
-        <span>Procesos</span>
-        <span>Escala</span>
-      </div>
 
       <div class="epi-apply-grid">
         <div class="epi-apply-aside">
-          <p class="epi-eyebrow">Aplicación</p>
-          <h2>Aplicá a uno de los 4 cupos.</h2>
-          <p>Esto no es un formulario de contacto: es una aplicación. La leo yo, personalmente, y te respondo en menos de 24 horas hábiles. Te lleva menos de 2 minutos.</p>
+          <p class="epi-eyebrow">Solicitud de admisión</p>
+          <h2>Solicite uno de los cuatro cupos.</h2>
+          <p>El presente formulario constituye una solicitud de admisión al programa. Cada solicitud es evaluada personalmente por Mariano Calandra, con respuesta dentro de las 24 horas hábiles. Completarlo requiere menos de dos minutos.</p>
 
           <!-- Editá data-cupos-tomados cuando se ocupe un lugar. -->
           <div class="epi-cupos epi-cupos--invert" data-cupos data-cupos-total="4" data-cupos-tomados="0">
             <span class="epi-cupos-dots" aria-hidden="true"></span>
-            <span class="epi-cupos-text"><b>4 cupos</b> disponibles este mes</span>
+            <span class="epi-cupos-text"><b>4 cupos</b> disponibles</span>
           </div>
 
           <ol class="epi-next">
-            <li><span><b>Leo tu aplicación.</b> Reviso tu negocio y tus números antes de responderte cualquier cosa.</span></li>
-            <li><span><b>Si hay match, coordinamos una llamada de 30 minutos</b>, sin costo y sin venta forzada.</span></li>
-            <li><span><b>Si los dos vemos que da, arrancamos</b> y tenés tu plan escrito en la primera semana.</span></li>
+            <li><span><b>Evaluación de la solicitud.</b> Se analiza la información de la empresa antes de emitir una respuesta.</span></li>
+            <li><span><b>Entrevista de 30 minutos, sin costo</b>, en caso de que el perfil resulte compatible con el programa.</span></li>
+            <li><span><b>Inicio del programa</b>, con el plan de trabajo documentado durante la primera semana.</span></li>
           </ol>
         </div>
 
@@ -1468,91 +1455,91 @@ input, select, textarea, button{ font-family:inherit; }
             <p hidden><label>No completar: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
 
             <div class="epi-form-top">
-              <h3 id="epiFormTitle">Sobre vos</h3>
+              <h3 id="epiFormTitle">Datos de contacto</h3>
               <span class="epi-form-count" id="epiFormCount">Paso 1 de 3</span>
             </div>
             <div class="epi-progress" aria-hidden="true"><span id="epiFormBar"></span></div>
 
             <!-- PASO 1 -->
-            <div class="epi-step-panel is-active" data-step="1" data-title="Sobre vos">
+            <div class="epi-step-panel is-active" data-step="1" data-title="Datos de contacto">
               <div class="epi-field">
                 <label for="f-nombre">Nombre y apellido <span class="req">*</span></label>
-                <input id="f-nombre" type="text" name="nombre" placeholder="Cómo te llamás" required autocomplete="name">
+                <input id="f-nombre" type="text" name="nombre" placeholder="Nombre completo" required autocomplete="name">
               </div>
               <div class="epi-field">
-                <label for="f-email">Email <span class="req">*</span></label>
-                <input id="f-email" type="email" name="email" placeholder="tunombre@empresa.com" required autocomplete="email">
+                <label for="f-email">Correo electrónico <span class="req">*</span></label>
+                <input id="f-email" type="email" name="email" placeholder="nombre@empresa.com" required autocomplete="email">
               </div>
               <div class="epi-field">
                 <label for="f-whatsapp">WhatsApp <span class="req">*</span></label>
                 <input id="f-whatsapp" type="tel" name="whatsapp" placeholder="+54 9 341 000 0000" required autocomplete="tel">
-                <span class="epi-field-hint">Lo uso solo para coordinar la llamada. Nada de listas ni spam.</span>
+                <span class="epi-field-hint">Se utiliza únicamente para coordinar la entrevista.</span>
               </div>
             </div>
 
             <!-- PASO 2 -->
-            <div class="epi-step-panel" data-step="2" data-title="Sobre tu negocio">
+            <div class="epi-step-panel" data-step="2" data-title="Datos de la empresa">
               <div class="epi-field">
                 <label for="f-empresa">Empresa o marca <span class="req">*</span></label>
-                <input id="f-empresa" type="text" name="empresa" placeholder="Nombre de tu negocio" required autocomplete="organization">
+                <input id="f-empresa" type="text" name="empresa" placeholder="Razón social o nombre comercial" required autocomplete="organization">
               </div>
               <div class="epi-field-row">
                 <div class="epi-field">
-                  <label for="f-web">Web o Instagram</label>
-                  <input id="f-web" type="text" name="web" placeholder="@tumarca o tusitio.com" autocomplete="url">
+                  <label for="f-web">Sitio web o Instagram</label>
+                  <input id="f-web" type="text" name="web" placeholder="empresa.com o @empresa" autocomplete="url">
                 </div>
                 <div class="epi-field">
                   <label for="f-rubro">Rubro <span class="req">*</span></label>
-                  <input id="f-rubro" type="text" name="rubro" placeholder="Ej: software, salud, retail" required>
+                  <input id="f-rubro" type="text" name="rubro" placeholder="Software, salud, retail" required>
                 </div>
               </div>
               <div class="epi-field">
                 <label for="f-facturacion">Facturación mensual aproximada <span class="req">*</span></label>
                 <select id="f-facturacion" name="facturacion" required>
-                  <option value="" disabled selected>Elegí una opción</option>
-                  <option>Todavía no facturo de forma constante</option>
-                  <option>Menos de USD 5.000 por mes</option>
-                  <option>Entre USD 5.000 y USD 15.000 por mes</option>
-                  <option>Entre USD 15.000 y USD 50.000 por mes</option>
-                  <option>Entre USD 50.000 y USD 150.000 por mes</option>
-                  <option>Más de USD 150.000 por mes</option>
+                  <option value="" disabled selected>Seleccione una opción</option>
+                  <option>Sin facturación constante</option>
+                  <option>Menos de USD 5.000 mensuales</option>
+                  <option>Entre USD 5.000 y USD 15.000 mensuales</option>
+                  <option>Entre USD 15.000 y USD 50.000 mensuales</option>
+                  <option>Entre USD 50.000 y USD 150.000 mensuales</option>
+                  <option>Más de USD 150.000 mensuales</option>
                 </select>
-                <span class="epi-field-hint">Un número aproximado alcanza. Me sirve para saber por dónde empezar.</span>
+                <span class="epi-field-hint">Un valor aproximado es suficiente. Permite determinar el punto de partida del programa.</span>
               </div>
             </div>
 
             <!-- PASO 3 -->
-            <div class="epi-step-panel" data-step="3" data-title="Sobre tu objetivo">
+            <div class="epi-step-panel" data-step="3" data-title="Objetivos">
               <div class="epi-field">
-                <label for="f-objetivo">¿Qué querés lograr en los próximos 6 meses? <span class="req">*</span></label>
+                <label for="f-objetivo">¿Qué objetivos busca alcanzar en los próximos seis meses? <span class="req">*</span></label>
                 <textarea id="f-objetivo" name="objetivo" rows="4" required
-                  placeholder="Contame dónde estás hoy, a dónde querés llegar y qué sentís que te está frenando."></textarea>
+                  placeholder="Describa la situación actual de la empresa, los objetivos previstos y los principales obstáculos identificados."></textarea>
               </div>
               <div class="epi-field">
-                <label>Sobre la inversión de USD 990/mes <span class="req">*</span></label>
+                <label>Respecto de los honorarios de USD 990 mensuales <span class="req">*</span></label>
                 <div class="epi-choices">
                   <label class="epi-choice">
-                    <input type="radio" name="inversion" value="Puedo sostenerla desde ahora" required>
-                    <span>Sí, puedo sostenerla desde ahora</span>
+                    <input type="radio" name="inversion" value="La empresa puede afrontarlos desde el inicio" required>
+                    <span>La empresa puede afrontarlos desde el inicio</span>
                   </label>
                   <label class="epi-choice">
-                    <input type="radio" name="inversion" value="Puedo, pero quiero entender el retorno primero">
-                    <span>Sí, pero primero quiero entender el retorno</span>
+                    <input type="radio" name="inversion" value="Puede afrontarlos, sujeto al análisis previo del retorno">
+                    <span>Puede afrontarlos, sujeto al análisis previo del retorno</span>
                   </label>
                   <label class="epi-choice">
-                    <input type="radio" name="inversion" value="Todavía no puedo">
-                    <span>Todavía no está a mi alcance</span>
+                    <input type="radio" name="inversion" value="No se encuentran dentro de las posibilidades actuales">
+                    <span>No se encuentran dentro de las posibilidades actuales</span>
                   </label>
                 </div>
               </div>
               <div class="epi-field">
-                <label for="f-inicio">¿Cuándo querrías arrancar? <span class="req">*</span></label>
+                <label for="f-inicio">¿En qué plazo prevé iniciar? <span class="req">*</span></label>
                 <select id="f-inicio" name="inicio" required>
-                  <option value="" disabled selected>Elegí una opción</option>
-                  <option>Ya mismo</option>
-                  <option>Este mes</option>
-                  <option>En 2 o 3 meses</option>
-                  <option>Todavía estoy averiguando</option>
+                  <option value="" disabled selected>Seleccione una opción</option>
+                  <option>De inmediato</option>
+                  <option>Dentro del mes en curso</option>
+                  <option>En dos o tres meses</option>
+                  <option>Aún en evaluación</option>
                 </select>
               </div>
             </div>
@@ -1560,25 +1547,26 @@ input, select, textarea, button{ font-family:inherit; }
             <div class="epi-form-nav" id="epiFormNav">
               <button type="button" class="epi-form-btn epi-form-btn--ghost" id="epiFormBack" hidden>Volver</button>
               <button type="button" class="epi-form-btn epi-form-btn--full" id="epiFormNext" hidden>
-                Siguiente <span aria-hidden="true">→</span>
+                Continuar <span aria-hidden="true">→</span>
               </button>
               <button type="submit" class="epi-form-btn epi-form-btn--full" id="epiFormSubmit">
-                Enviar mi aplicación <span aria-hidden="true">→</span>
+                Enviar solicitud <span aria-hidden="true">→</span>
               </button>
             </div>
 
-            <p class="epi-form-foot">🔒 Tus datos quedan entre vos y yo. Sin listas, sin spam, sin compartir con terceros.</p>
+            <p class="epi-form-foot">La información suministrada es confidencial y no se comparte con terceros.</p>
           </form>
         </div>
       </div>
 
       <div class="epi-contact-alt">
-        <span class="epi-contact-or">¿Preferís preguntarme algo antes?</span>
+        <span class="epi-contact-or">Para consultas previas a la solicitud</span>
         <a class="epi-whatsapp-button"
-           href="https://wa.me/5493416397137?text=Hola%20Mariano%2C%20vengo%20de%20la%20web%20y%20quiero%20info%20de%20la%20mentor%C3%ADa%20EPIBRANDS"
+           href="https://wa.me/5493416397137?text=Buenos%20d%C3%ADas.%20Escribo%20desde%20el%20sitio%20web%20para%20consultar%20por%20el%20programa%20de%20consultor%C3%ADa%20EPIBRANDS."
            target="_blank" rel="noopener"
            onclick="if(window.mcTrack)window.mcTrack('Lead',{content_name:'EPIBRANDS Mentoría',content_category:'whatsapp'});">
-          <span aria-hidden="true">💬</span> Escribime por WhatsApp
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.7 8.7 0 0 1-3.6-.8L3 20.5l1.4-5.1a8.4 8.4 0 0 1-.9-3.9 8.4 8.4 0 0 1 8.5-8.4 8.4 8.4 0 0 1 9 8.4z"/></svg>
+          Consultar por WhatsApp
         </a>
       </div>
     </div>
@@ -1596,12 +1584,12 @@ input, select, textarea, button{ font-family:inherit; }
     </a>
     <div class="foot-links">
       <a href="../index.html">Inicio</a>
-      <a href="#incluye">Qué incluye</a>
-      <a href="#precio">Precio</a>
-      <a href="#aplicar">Aplicar</a>
+      <a href="#incluye">Alcance</a>
+      <a href="#precio">Honorarios</a>
+      <a href="#aplicar">Postular</a>
       <a href="mailto:info@marianocalandra.com">info@marianocalandra.com</a>
     </div>
-    <p class="foot-copy">© <span id="year"></span> Mariano Calandra · EPIBRANDS. Mentoría de negocios: paid media, IA, automatizaciones y procesos para escalar.</p>
+    <p class="foot-copy">© <span id="year"></span> Mariano Calandra · EPIBRANDS. Consultoría empresarial: paid media, inteligencia artificial, automatización y procesos.</p>
   </div>
 </footer>
 

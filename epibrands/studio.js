@@ -158,17 +158,17 @@
       var strong = document.createElement("b");
       var rest = "";
       if (left === 0) {
-        strong.textContent = "Sin cupos";
-        rest = " disponibles este mes · lista de espera abierta";
+        strong.textContent = "Sin cupos disponibles";
+        rest = " · lista de espera abierta";
       } else if (left === 1) {
-        strong.textContent = "Queda 1 cupo";
-        rest = " disponible este mes";
+        strong.textContent = "1 cupo";
+        rest = " disponible";
       } else if (left === total) {
         strong.textContent = total + " cupos";
-        rest = " disponibles este mes";
+        rest = " disponibles";
       } else {
-        strong.textContent = "Quedan " + left + " de " + total + " cupos";
-        rest = " disponibles este mes";
+        strong.textContent = left + " de " + total + " cupos";
+        rest = " disponibles";
       }
       text.textContent = "";
       text.appendChild(strong);
