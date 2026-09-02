@@ -84,10 +84,11 @@
   --bg-deep:   #E4E4DE;   /* fondo bloque alterno */
   --ink:       #1A1A18;   /* texto principal — negro carbón */
   --ink-soft:  #5C5C57;   /* texto secundario — gris medio */
-  --ink-faint: #9A9A93;   /* numeración / detalles */
+  --ink-faint: #666660;   /* detalles y notas — 4.9:1 sobre crema y 4.5:1 sobre el fondo alterno */
   --line:      rgba(26,26,24,0.14);  /* líneas divisorias finas */
   --line-soft: rgba(26,26,24,0.08);
-  --accent:    #6E7C6A;   /* verde apagado, uso mínimo */
+  --accent:    #6E7C6A;   /* verde apagado — solo para rellenos y bordes */
+  --accent-ink:#586552;   /* verde para TEXTO sobre fondo claro — 5.3:1 */
   --invert-bg: #16160A;   /* secciones oscuras */
   --invert-ink:#EDEDE8;
 
@@ -391,7 +392,7 @@ input, select, textarea, button{ font-family:inherit; }
   padding:.6rem .95rem; border:1px solid var(--line); border-radius:999px;
   background:var(--bg); font-size:.86rem; font-weight:500; color:var(--ink-soft);
 }
-.deliverables span::before{ content:"✓"; color:var(--accent); font-weight:700; }
+.deliverables span::before{ content:"✓"; color:var(--accent-ink); font-weight:700; }
 
 /* ============================================================
    MARQUEE
@@ -427,14 +428,14 @@ input, select, textarea, button{ font-family:inherit; }
 .epi-method-section{ position:relative; padding:clamp(4rem,8vw,7rem) var(--gutter); overflow:hidden; }
 .epi-method-header{ width:min(100%,880px); margin:0 auto 2.6rem; text-align:center; }
 .epi-eyebrow{
-  margin-bottom:.75rem; color:var(--accent);
+  margin-bottom:.75rem; color:var(--accent-ink);
   font-size:.76rem; font-weight:700; letter-spacing:.18em; text-transform:uppercase;
 }
 .epi-method-header h2{
   margin:0; font-size:clamp(1.9rem,4.8vw,3.6rem); line-height:1.02;
   font-weight:500; letter-spacing:-0.045em;
 }
-.epi-method-header p{ margin:1rem auto 0; max-width:56ch; color:var(--ink-soft); }
+.epi-method-header p:not(.epi-eyebrow){ margin:1rem auto 0; max-width:56ch; color:var(--ink-soft); }
 .epi-method-flow{
   position:relative; width:min(100%,1160px); margin:0 auto;
   display:grid; grid-template-columns:repeat(6,1fr); gap:1rem;
@@ -529,7 +530,7 @@ input, select, textarea, button{ font-family:inherit; }
 /* ============================================================
    COUNTERS
    ============================================================ */
-.epi-counters-section{ padding:clamp(4rem,8vw,7rem) var(--gutter); }
+.epi-counters-section{ padding:clamp(4rem,8vw,7rem) var(--gutter); background:var(--bg-deep); }
 .epi-counters-header{ width:min(100%,820px); margin:0 auto 2.4rem; text-align:center; }
 .epi-counters-header h2{
   margin:0; font-size:clamp(1.8rem,4.6vw,3.4rem); line-height:1.02;
@@ -559,7 +560,7 @@ input, select, textarea, button{ font-family:inherit; }
 .epi-price-section{ padding:clamp(4rem,8vw,7rem) var(--gutter); background:var(--bg-deep); }
 .epi-price-head{ width:min(100%,820px); margin:0 auto 2.6rem; text-align:center; }
 .epi-price-head h2{ margin:0; font-size:clamp(1.9rem,4.6vw,3.4rem); line-height:1.02; font-weight:500; letter-spacing:-0.045em; }
-.epi-price-head p{ margin:1rem auto 0; max-width:56ch; color:var(--ink-soft); }
+.epi-price-head p:not(.epi-eyebrow){ margin:1rem auto 0; max-width:56ch; color:var(--ink-soft); }
 .epi-price-card{
   position:relative; width:min(100%,980px); margin:0 auto;
   display:grid; grid-template-columns:minmax(0,1fr);
@@ -707,7 +708,7 @@ input, select, textarea, button{ font-family:inherit; }
 .epi-field{ display:grid; gap:.4rem; }
 .epi-field-row{ display:grid; grid-template-columns:1fr 1fr; gap:.8rem; }
 .epi-field label{ font-size:.8rem; font-weight:600; letter-spacing:-0.005em; color:var(--ink-soft); }
-.epi-field label .req{ color:var(--accent); }
+.epi-field label .req{ color:var(--accent-ink); }
 .epi-field input,
 .epi-field select,
 .epi-field textarea{
