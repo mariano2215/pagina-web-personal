@@ -38,12 +38,31 @@ def to_base36(n: int) -> str:
     return "".join(reversed(out))
 
 
+SKIP_DIRS = {".git", "node_modules", ".netlify", "netlify"}
+
+
+def collect_html_files(root: str) -> list:
+    """Todos los .html del sitio, incluidas las subcarpetas.
+
+    Antes solo se recorria el directorio raiz, asi que paginas como
+    /epibrands/studio.html o /servicios/*.html se publicaban con el
+    placeholder __BUST__ literal y nunca invalidaban cache.
+    """
+    found = []
+    for dirpath, dirnames, filenames in os.walk(root):
+        dirnames[:] = [d for d in dirnames if d not in SKIP_DIRS and not d.startswith(".")]
+        for name in filenames:
+            if name.endswith(".html"):
+                found.append(os.path.join(dirpath, name))
+    return sorted(found)
+
+
 def main() -> int:
     bust = to_base36(int(time.time() * 1000))
 
-    html_files = [f for f in os.listdir(".") if f.endswith(".html") and os.path.isfile(f)]
+    html_files = collect_html_files(".")
     if not html_files:
-        print("[bust] No se encontraron archivos .html en el directorio actual.", file=sys.stderr)
+        print("[bust] No se encontraron archivos .html.", file=sys.stderr)
         return 0
 
     total = 0
