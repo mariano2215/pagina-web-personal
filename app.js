@@ -167,12 +167,12 @@ const translations = {
     'proj1-meaning-desc': 'It\'s the project where I learned to sell from scratch, communicate better and understand the value of a brand with personality.',
     'proj1-cta': 'Discover EPICALCOS →',
 
-    'proj2-tagline': 'Business consulting to scale revenue',
-    'proj2-d1': 'One-on-one consulting program for companies, SMBs and B2B businesses: paid media, artificial intelligence, automation, processes and strategic direction over a six-month horizon.',
+    'proj2-tagline': 'Growth Partner for businesses that want to grow better',
+    'proj2-d1': 'We embed as a strategic partner to organize your acquisition, improve your commercial opportunities and sustain a profitable growth system. Performance to measure, business to decide, leadership to sustain.',
     'proj2-d2': 'It\'s a project focused on providing integrated marketing services for companies, SMBs, entrepreneurs, personal brands and digital projects that need to organize their communication, improve their campaigns and build a more professional strategy.',
     'proj2-meaning-title': 'EPIBRANDS represents my strategic vision of marketing.',
     'proj2-meaning-desc': 'It\'s the space where paid media, branding, content, consulting, AI, sales and commercial planning come together.',
-    'proj2-cta': 'View the program →',
+    'proj2-cta': 'Discover EPIBRANDS →',
 
     'proj3-tagline': 'Digital education to learn marketing, AI and business',
     'proj3-d1': 'EPICADEMY is an online course platform built to turn knowledge into practical, clear and actionable training.',
@@ -188,7 +188,7 @@ const translations = {
 
     // Proyecto image alts
     'proj1-img-alt': 'EPICALCOS — Stickers and graphic communication store',
-    'proj2-img-alt': 'EPIBRANDS — Business consulting',
+    'proj2-img-alt': 'EPIBRANDS — Growth Partner',
     'proj3-img-alt': 'EPICADEMY — Online marketing courses',
 
     // Sobre mí (teaser en la home)

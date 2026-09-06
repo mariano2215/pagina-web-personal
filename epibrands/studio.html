@@ -7,8 +7,9 @@
 <!-- ============================================================
      SEO
      ============================================================ -->
-<title>Consultoría empresarial para escalar la facturación | EPIBRANDS — Mariano Calandra</title>
-<meta name="description" content="Programa de consultoría y mentoría individual para empresas, pymes y negocios B2B. Paid media, inteligencia artificial, automatización, mejora de procesos y dirección estratégica en un horizonte de seis meses. Honorarios: USD 990 mensuales. Cuatro cupos por período.">
+<title>EPIBRANDS | Growth Partner para negocios que quieren crecer mejor</title>
+<meta name="description" content="Nos integramos como socio estratégico para ordenar tu adquisición, mejorar tus oportunidades comerciales y sostener un sistema de crecimiento rentable.">
+<meta name="keywords" content="growth partner, performance marketing, desarrollo de negocios, marketing digital, estrategia comercial, Meta Ads, Google Ads, adquisición de clientes, crecimiento rentable, EPIBRANDS">
 <meta name="author" content="Mariano Calandra">
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#EBEBE6">
@@ -16,19 +17,19 @@
 
 <!-- Open Graph -->
 <meta property="og:type" content="website">
-<meta property="og:title" content="Consultoría empresarial para escalar la facturación | EPIBRANDS">
-<meta property="og:description" content="Programa de consultoría individual: paid media, inteligencia artificial, automatización, procesos y dirección estratégica. Honorarios: USD 990 mensuales. Cuatro cupos por período.">
+<meta property="og:title" content="EPIBRANDS | Growth Partner para negocios que quieren crecer mejor">
+<meta property="og:description" content="Nos integramos como socio estratégico para ordenar tu adquisición, mejorar tus oportunidades comerciales y sostener un sistema de crecimiento rentable.">
 <meta property="og:url" content="https://marianocalandra.com/epibrands/studio">
 <meta property="og:image" content="https://marianocalandra.com/epibrands/assets/og-epibrands.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="EPIBRANDS — Programa de consultoría empresarial de Mariano Calandra">
+<meta property="og:image:alt" content="EPIBRANDS — Growth Partner: performance, negocios y liderazgo">
 <meta property="og:locale" content="es_AR">
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Consultoría empresarial para escalar la facturación | EPIBRANDS">
-<meta name="twitter:description" content="Programa de consultoría individual: paid media, IA, automatización, procesos y dirección estratégica. USD 990 mensuales.">
+<meta name="twitter:title" content="EPIBRANDS | Growth Partner para negocios que quieren crecer mejor">
+<meta name="twitter:description" content="Performance para medir. Negocios para decidir. Liderazgo para sostener. Un socio estratégico para ordenar la adquisición y crecer con rentabilidad.">
 <meta name="twitter:image" content="https://marianocalandra.com/epibrands/assets/og-epibrands.jpg">
 
 <!-- Favicon (reutiliza el del sitio principal) -->
@@ -43,11 +44,11 @@
 {
   "@context": "https://schema.org",
   "@type": "Service",
-  "serviceType": "Consultoría empresarial y mentoría de negocios",
-  "name": "Programa de consultoría EPIBRANDS",
+  "serviceType": "Growth Partner: performance marketing, desarrollo de negocios y dirección de crecimiento",
+  "name": "EPIBRANDS — Growth Partnership",
   "url": "https://marianocalandra.com/epibrands/studio",
   "image": "https://marianocalandra.com/epibrands/assets/og-epibrands.jpg",
-  "description": "Programa de consultoría individual para empresas, pymes y negocios B2B: paid media, inteligencia artificial, automatización, asesoramiento estratégico, mejora de procesos y desarrollo del sistema comercial, con el objetivo de incrementar la facturación en un horizonte de seis meses.",
+  "description": "EPIBRANDS es un Growth Partner que se integra como socio estratégico del negocio para ordenar la adquisición, mejorar la calidad de las oportunidades comerciales y sostener un sistema de crecimiento rentable. Trabaja sobre tres pilares: performance para medir, negocios para decidir y liderazgo para sostener.",
   "provider": {
     "@type": "Person",
     "name": "Mariano Calandra",
@@ -67,7 +68,7 @@
     "priceCurrency": "USD",
     "availability": "https://schema.org/LimitedAvailability",
     "url": "https://marianocalandra.com/epibrands/studio#aplicar",
-    "description": "Programa de consultoría individual con honorarios mensuales. Cupos limitados a cuatro empresas en simultáneo."
+    "description": "Growth Partnership con honorarios mensuales. Cupos limitados a cuatro negocios en simultáneo."
   }
 }
 </script>
@@ -113,6 +114,9 @@
 [hidden]{ display:none !important; }
 
 html{ scroll-behavior:smooth; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; overflow-x:hidden; }
+
+/* El header es fixed: sin esto los anchors caen debajo de la barra. */
+[id]{ scroll-margin-top:88px; }
 
 body{
   background:var(--bg);
@@ -209,16 +213,16 @@ input, select, textarea, button{ font-family:inherit; }
 .hero{
   min-height:100svh;
   display:flex; flex-direction:column; justify-content:flex-end;
-  padding-block:150px 60px;
+  padding-block:clamp(118px,15vh,150px) clamp(44px,6vh,60px);
   position:relative;
 }
 .hero-grid{ display:grid; grid-template-columns:minmax(0,1fr); gap:34px; }
 .hero h1{
-  font-size:clamp(2.35rem, 6.2vw, 5.6rem);
-  line-height:1.02;
+  font-size:clamp(2.1rem, 5.2vw, 4.1rem);
+  line-height:1.03;
   font-weight:600;
   letter-spacing:-0.045em;
-  max-width:17ch;
+  max-width:24ch;
 }
 .hero h1 em{ font-style:normal; color:var(--ink-soft); }
 .hero-bottom{
@@ -229,6 +233,11 @@ input, select, textarea, button{ font-family:inherit; }
 }
 .hero-sub{ font-size:clamp(1rem,1.3vw,1.18rem); color:var(--ink-soft); max-width:52ch; font-weight:400; }
 .hero-actions{ display:flex; gap:14px; flex-wrap:wrap; }
+
+/* Pie del hero: indicador de cupos + concepto central en una fila */
+.hero-foot{ display:flex; flex-wrap:wrap; align-items:center; gap:14px 26px; }
+.hero-concept{ font-size:13.5px; color:var(--ink-faint); letter-spacing:-0.005em; }
+.hero-concept b{ color:var(--ink-soft); font-weight:700; }
 
 /* píldora de apertura de cupos, arriba del H1 */
 .hero-badge{
@@ -360,7 +369,7 @@ input, select, textarea, button{ font-family:inherit; }
 .aud-ic--no{ background:rgba(176,68,57,0.12); }  .aud-ic--no svg{ stroke:#B04439; }
 
 /* ============================================================
-   PILARES — qué incluye la mentoría
+   PILARES — qué hacemos como Growth Partner
    ============================================================ */
 .pillars{ display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(14px,1.6vw,20px); }
 .pillar{
@@ -876,13 +885,197 @@ input, select, textarea, button{ font-family:inherit; }
 .epi-motion-card:hover::after{ opacity:1; }
 
 /* ============================================================
+   GROWTH PARTNER — bloques del nuevo posicionamiento
+   Concepto central, pilares, problemas y frases destacadas.
+   Todo reutiliza las variables de :root, así que cambiando la
+   paleta de arriba cambia también esta sección.
+   ============================================================ */
+
+/* mantra del hero, en la esquina superior derecha (oculto en mobile) */
+.hero-meta b{ color:var(--ink); font-weight:700; }
+
+/* --- Concepto central: bloque oscuro tipo manifiesto --------- */
+.epi-concept{
+  padding-block:clamp(64px,9vw,120px);
+  color:var(--invert-ink);
+  background:
+    radial-gradient(circle at 10% 0%, rgba(110,124,106,0.30), transparent 48%),
+    var(--invert-bg);
+}
+.epi-concept .epi-eyebrow{ color:rgba(237,237,232,0.55); }
+.epi-concept-intro{
+  margin:.9rem 0 clamp(1.8rem,3.6vw,2.8rem);
+  max-width:60ch; font-size:1.04rem; line-height:1.6;
+  color:rgba(237,237,232,0.72);
+}
+.epi-concept-intro b{ color:var(--invert-ink); font-weight:600; }
+.epi-concept-lines{
+  display:grid; font-weight:500;
+  border-top:1px solid rgba(237,237,232,0.14);
+}
+.epi-concept-line{
+  display:grid; grid-template-columns:56px 1fr; gap:clamp(10px,2vw,24px);
+  align-items:baseline;
+  padding-block:clamp(16px,2.4vw,26px);
+  border-bottom:1px solid rgba(237,237,232,0.14);
+  font-size:clamp(1.75rem,5.2vw,3.8rem);
+  line-height:1.04; letter-spacing:-0.045em;
+  transition:padding-left .4s var(--ease);
+}
+.epi-concept-line:hover{ padding-left:12px; }
+.epi-concept-line .num{
+  font-size:12px; font-weight:700; letter-spacing:.14em;
+  color:rgba(237,237,232,0.42); font-variant-numeric:tabular-nums;
+}
+.epi-concept-line em{ font-style:normal; color:rgba(237,237,232,0.48); }
+.epi-concept-foot{
+  margin-top:clamp(1.8rem,3vw,2.6rem); max-width:62ch;
+  color:rgba(237,237,232,0.76); font-size:1.02rem; line-height:1.6;
+}
+.epi-concept-foot b{ color:var(--invert-ink); font-weight:600; }
+
+/* --- Frase destacada dentro de una sección ------------------- */
+.epi-pullquote{
+  margin-top:clamp(24px,3vw,36px);
+  padding:clamp(18px,2.2vw,26px) clamp(20px,2.4vw,30px);
+  border-left:3px solid var(--accent); border-radius:0 18px 18px 0;
+  background:linear-gradient(90deg, var(--accent-glow), transparent 72%), var(--glass);
+  font-size:clamp(1.05rem,1.9vw,1.35rem); font-weight:600;
+  letter-spacing:-0.025em; line-height:1.35; max-width:54ch;
+}
+
+/* --- Banda de frase de autoridad, a todo el ancho ------------ */
+.epi-quote-band{
+  padding-block:clamp(48px,7vw,86px);
+  border-block:1px solid var(--line);
+  background:var(--bg);
+}
+.epi-quote-band--deep{ background:var(--bg-deep); }
+.epi-quote-band blockquote{
+  font-size:clamp(1.5rem,4vw,2.9rem); line-height:1.1;
+  font-weight:500; letter-spacing:-0.04em; max-width:26ch;
+}
+.epi-quote-band blockquote span{ color:var(--ink-faint); }
+.epi-quote-band cite{
+  display:block; margin-top:1.1rem; font-style:normal;
+  font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:var(--ink-faint);
+}
+.epi-quote-band--invert{
+  color:var(--invert-ink); border-color:rgba(237,237,232,0.14);
+  background:
+    radial-gradient(circle at 85% 0%, rgba(110,124,106,0.26), transparent 52%),
+    var(--invert-bg);
+}
+.epi-quote-band--invert blockquote span{ color:rgba(237,237,232,0.5); }
+.epi-quote-band--invert cite{ color:rgba(237,237,232,0.45); }
+
+/* --- Los 3 pilares del Growth Partnership -------------------- */
+.epi-pillars3{ display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(14px,1.6vw,20px); }
+.epi-pillar3{
+  display:flex; flex-direction:column; gap:.9rem;
+  padding:clamp(22px,2.4vw,32px);
+  background:var(--glass); border:1px solid var(--line); border-radius:24px;
+  transition:transform .45s var(--ease), border-color .45s var(--ease), box-shadow .45s var(--ease);
+}
+.epi-pillar3:hover{
+  transform:translateY(-6px); border-color:var(--accent-line);
+  box-shadow:0 18px 44px -22px rgba(26,26,24,0.4);
+}
+.epi-pillar3-num{
+  font-size:10.5px; font-weight:700; letter-spacing:.2em;
+  text-transform:uppercase; color:var(--accent-ink);
+}
+.epi-pillar3 h3{
+  font-size:clamp(1.15rem,2vw,1.45rem); font-weight:600;
+  letter-spacing:-0.03em; line-height:1.2;
+}
+.epi-pillar3 > p{ font-size:.95rem; color:var(--ink-soft); line-height:1.55; }
+.epi-taglist{ display:flex; flex-wrap:wrap; gap:.4rem; list-style:none; }
+.epi-taglist li{
+  padding:.4rem .72rem; border:1px solid var(--line); border-radius:999px;
+  background:var(--bg); font-size:.8rem; font-weight:500; color:var(--ink-soft);
+}
+.epi-pillar3-quote{
+  margin-top:auto; padding-top:1.1rem; border-top:1px solid var(--line-soft);
+  font-size:.98rem; font-weight:600; letter-spacing:-0.02em;
+  line-height:1.35; color:var(--ink);
+}
+
+/* --- Problemas que resolvemos -------------------------------- */
+.epi-problems{ display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(12px,1.4vw,18px); }
+.epi-problem{
+  display:flex; flex-direction:column; gap:.85rem;
+  padding:clamp(20px,2.2vw,28px);
+  border:1px solid var(--line); border-radius:20px; background:var(--glass-soft);
+  transition:transform .35s var(--ease), border-color .35s var(--ease);
+}
+.epi-problem:hover{ transform:translateY(-5px); border-color:var(--accent-line); }
+.epi-problem-num{
+  width:34px; height:34px; border-radius:50%; display:grid; place-items:center;
+  border:1px solid var(--line); background:var(--bg);
+  font-size:.76rem; font-weight:700; color:var(--ink-faint); font-variant-numeric:tabular-nums;
+}
+.epi-problem p{ font-size:1rem; line-height:1.5; color:var(--ink); }
+
+/* --- Par de frases cortas al pie de una grilla --------------- */
+.epi-mini-quotes{
+  display:grid; grid-template-columns:repeat(2,1fr);
+  gap:clamp(12px,1.4vw,18px); margin-top:clamp(16px,2vw,24px);
+}
+.epi-mini-quote{
+  padding:clamp(18px,2vw,24px) clamp(20px,2.2vw,28px);
+  border-left:3px solid var(--accent); border-radius:0 16px 16px 0;
+  background:linear-gradient(90deg, var(--accent-glow), transparent 72%), var(--glass);
+  font-size:clamp(1rem,1.6vw,1.18rem); font-weight:600;
+  letter-spacing:-0.02em; line-height:1.32;
+}
+
+/* --- Nota al pie de la grilla "para quién es" ---------------- */
+.epi-aud-note{
+  margin-top:clamp(18px,2.4vw,28px);
+  font-size:.9rem; color:var(--ink-faint); max-width:74ch; line-height:1.55;
+}
+
+/* --- Links secundarios dentro del panel oscuro de cierre ----- */
+.epi-apply-links{ display:flex; flex-wrap:wrap; gap:.7rem; margin-top:1.7rem; }
+.epi-apply-links a{
+  display:inline-flex; align-items:center; gap:.5rem;
+  padding:.72rem 1.15rem; border-radius:999px;
+  border:1px solid rgba(237,237,232,0.28); color:var(--invert-ink);
+  font-size:.88rem; font-weight:600;
+  transition:background .25s var(--ease), border-color .25s var(--ease), transform .25s var(--ease);
+}
+.epi-apply-links a:hover{
+  background:rgba(237,237,232,0.08); border-color:rgba(237,237,232,0.5); transform:translateY(-2px);
+}
+
+/* --- Responsive de los bloques nuevos ------------------------ */
+@media (max-width:1080px){
+  .epi-pillars3{ grid-template-columns:repeat(2,1fr); }
+  .epi-problems{ grid-template-columns:repeat(2,1fr); }
+}
+@media (max-width:760px){
+  .epi-pillars3{ grid-template-columns:1fr; }
+  .epi-concept-line{ grid-template-columns:38px 1fr; }
+  .epi-mini-quotes{ grid-template-columns:1fr; }
+}
+@media (max-width:640px){
+  .epi-problems{ grid-template-columns:1fr; }
+}
+@media (max-width:480px){
+  /* "Agendar una llamada" no entra en media fila: mejor apilados. */
+  .hero-actions{ flex-direction:column; align-items:stretch; }
+  .hero-actions .btn{ width:100%; }
+}
+
+/* ============================================================
    RESPONSIVE
    ============================================================ */
 @media (min-width:760px){
   .hero-bottom{ grid-template-columns:1.35fr 1fr; }
   .manifesto{ grid-template-columns:0.4fr 1fr; gap:60px; }
   .section-head{ grid-template-columns:0.5fr 1fr; align-items:end; gap:40px; }
-  .aud-grid{ grid-template-columns:1fr 1fr; }
+  .aud-grid{ grid-template-columns:1fr 1fr; align-items:start; }
 }
 @media (min-width:940px){
   .epi-apply-grid{ grid-template-columns:0.9fr 1.1fr; gap:clamp(2.4rem,4vw,4rem); }
@@ -974,11 +1167,11 @@ input, select, textarea, button{ font-family:inherit; }
         <img class="brand-logo" src="assets/epibrands-logo.png" alt="EPIBRANDS" width="621" height="124">
       </a>
       <div class="nav-links" id="navLinks">
-        <a href="#incluye">Alcance</a>
-        <a href="#ruta">Metodología</a>
+        <a href="#concepto">Sistema</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#ruta">Cómo trabajamos</a>
         <a href="#precio">Honorarios</a>
-        <a href="#faq">Preguntas</a>
-        <a href="#aplicar" class="nav-cta"><span class="pip" aria-hidden="true"></span> Postular</a>
+        <a href="#aplicar" class="nav-cta"><span class="pip" aria-hidden="true"></span> Agendar llamada</a>
       </div>
       <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">Menú</button>
     </nav>
@@ -992,241 +1185,357 @@ input, select, textarea, button{ font-family:inherit; }
        ======================================================== -->
   <section class="hero">
     <div class="epi-hero-orbit" aria-hidden="true">
-      <span class="epi-orbit-card epi-orbit-card-1">Paid Media</span>
-      <span class="epi-orbit-card epi-orbit-card-2">Inteligencia artificial</span>
-      <span class="epi-orbit-card epi-orbit-card-3">Automatización</span>
-      <span class="epi-orbit-card epi-orbit-card-4">Procesos</span>
-      <span class="epi-orbit-card epi-orbit-card-5">Comercial</span>
-      <span class="epi-orbit-card epi-orbit-card-6">Estrategia</span>
-      <span class="epi-orbit-card epi-orbit-card-7">Indicadores</span>
-      <span class="epi-orbit-card epi-orbit-card-8">Escala</span>
+      <span class="epi-orbit-card epi-orbit-card-1">Performance</span>
+      <span class="epi-orbit-card epi-orbit-card-2">Adquisición</span>
+      <span class="epi-orbit-card epi-orbit-card-3">Oferta comercial</span>
+      <span class="epi-orbit-card epi-orbit-card-4">Calidad de leads</span>
+      <span class="epi-orbit-card epi-orbit-card-5">Datos</span>
+      <span class="epi-orbit-card epi-orbit-card-6">Decisiones</span>
+      <span class="epi-orbit-card epi-orbit-card-7">Foco</span>
+      <span class="epi-orbit-card epi-orbit-card-8">Rentabilidad</span>
     </div>
 
     <div class="wrap hero-grid">
-      <p class="hero-meta">Consultoría individual<br>Empresas B2B · LATAM</p>
+      <p class="hero-meta">Growth Partner<br>LATAM · Remoto</p>
 
       <span class="hero-badge reveal">
         <span class="pip" aria-hidden="true"></span>
-        Programa individual · <b>4 cupos por período</b> · USD 990 mensuales
+        Growth Partner · <b>4 cupos por período</b>
       </span>
 
-      <h1>Consultoría para escalar la facturación de su empresa en <em>seis meses.</em></h1>
+      <h1>Marketing, performance y desarrollo comercial para negocios que quieren <em>crecer mejor.</em></h1>
 
       <div class="hero-bottom">
-        <p class="hero-sub reveal d1">Programa de acompañamiento individual que integra <b>paid media, inteligencia artificial, automatización de procesos, asesoramiento estratégico y desarrollo comercial</b>. Dirigido a empresas, pymes y negocios B2B con operación en marcha.</p>
+        <p class="hero-sub reveal d1">Nos integramos como <b>socio estratégico</b> para ordenar tu adquisición, mejorar tus oportunidades comerciales y sostener un sistema de crecimiento rentable.</p>
         <div class="hero-actions reveal d2">
-          <a href="#aplicar" class="btn btn-solid"><span class="dot"></span> Solicitar admisión</a>
-          <a href="#incluye" class="btn btn-ghost">Ver el alcance</a>
+          <a href="#aplicar" class="btn btn-solid"><span class="dot"></span> Agendar una llamada</a>
+          <a href="#servicios" class="btn btn-ghost">Ver servicios</a>
         </div>
       </div>
 
-      <!-- Indicador de cupos. Editá data-cupos-tomados cuando se ocupe un lugar. -->
-      <div class="epi-cupos reveal d3" data-cupos data-cupos-total="4" data-cupos-tomados="0">
-        <span class="epi-cupos-dots" aria-hidden="true"></span>
-        <span class="epi-cupos-text"><b>4 cupos</b> disponibles</span>
+      <div class="hero-foot reveal d3">
+        <!-- Indicador de cupos. Editá data-cupos-tomados cuando se ocupe un lugar. -->
+        <div class="epi-cupos" data-cupos data-cupos-total="4" data-cupos-tomados="0">
+          <span class="epi-cupos-dots" aria-hidden="true"></span>
+          <span class="epi-cupos-text"><b>4 cupos</b> disponibles</span>
+        </div>
+        <p class="hero-concept"><b>Performance</b> para medir · <b>Negocios</b> para decidir · <b>Liderazgo</b> para sostener</p>
       </div>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       CONCEPTO CENTRAL — los tres pilares como manifiesto
+       ======================================================== -->
+  <section class="epi-concept" id="concepto" data-reveal>
+    <div class="wrap">
+      <p class="epi-eyebrow">Concepto</p>
+      <p class="epi-concept-intro">EPIBRANDS es un <b>Growth Partner</b> para negocios que quieren crecer con más claridad, datos y foco comercial. Trabajamos sobre tres pilares:</p>
+      <h2 class="epi-concept-lines">
+        <span class="epi-concept-line"><span class="num">01</span><span>Performance <em>para medir.</em></span></span>
+        <span class="epi-concept-line"><span class="num">02</span><span>Negocios <em>para decidir.</em></span></span>
+        <span class="epi-concept-line"><span class="num">03</span><span>Liderazgo <em>para sostener.</em></span></span>
+      </h2>
+      <p class="epi-concept-foot">Porque el crecimiento no depende solo de hacer más marketing. Depende de <b>medir mejor, decidir mejor y ejecutar con mayor foco</b>.</p>
     </div>
   </section>
 
   <!-- ========================================================
        MARQUEE — situaciones frecuentes / áreas de trabajo
        ======================================================== -->
-  <section class="epi-marquee-section" aria-label="Situaciones frecuentes y áreas de trabajo del programa">
+  <section class="epi-marquee-section" aria-label="Situaciones frecuentes y áreas de trabajo del Growth Partner">
     <div class="epi-marquee epi-marquee-left">
       <div class="epi-marquee-track">
-        <span>Facturación estancada</span>
-        <span>Operación dependiente de la dirección</span>
-        <span>Inversión publicitaria sin retorno medido</span>
-        <span>Procesos manuales que consumen horas</span>
-        <span>Inteligencia artificial sin aplicación concreta</span>
-        <span>Oportunidades comerciales sin seguimiento</span>
-        <span>Decisiones sin respaldo en datos</span>
-        <span>Facturación estancada</span>
-        <span>Operación dependiente de la dirección</span>
-        <span>Inversión publicitaria sin retorno medido</span>
-        <span>Procesos manuales que consumen horas</span>
-        <span>Inteligencia artificial sin aplicación concreta</span>
-        <span>Oportunidades comerciales sin seguimiento</span>
-        <span>Decisiones sin respaldo en datos</span>
+        <span>Pauta activa sin retorno claro</span>
+        <span>Leads que no se convierten en oportunidades</span>
+        <span>Campañas que funcionan por momentos</span>
+        <span>Reportes que muestran números, no decisiones</span>
+        <span>Muchas ideas y poco foco para priorizar</span>
+        <span>El negocio crece y la operación se desordena</span>
+        <span>Presupuesto que sube sin revisar la oferta</span>
+        <span>Pauta activa sin retorno claro</span>
+        <span>Leads que no se convierten en oportunidades</span>
+        <span>Campañas que funcionan por momentos</span>
+        <span>Reportes que muestran números, no decisiones</span>
+        <span>Muchas ideas y poco foco para priorizar</span>
+        <span>El negocio crece y la operación se desordena</span>
+        <span>Presupuesto que sube sin revisar la oferta</span>
       </div>
     </div>
     <div class="epi-marquee epi-marquee-right">
       <div class="epi-marquee-track">
-        <span>Paid Media</span>
-        <span>Inteligencia artificial</span>
-        <span>Automatización</span>
-        <span>Procesos</span>
-        <span>Estrategia</span>
-        <span>Sistema comercial</span>
-        <span>Medición</span>
-        <span>Paid Media</span>
-        <span>Inteligencia artificial</span>
-        <span>Automatización</span>
-        <span>Procesos</span>
-        <span>Estrategia</span>
-        <span>Sistema comercial</span>
-        <span>Medición</span>
+        <span>Performance</span>
+        <span>Adquisición</span>
+        <span>Oferta comercial</span>
+        <span>Proceso comercial</span>
+        <span>Medición y datos</span>
+        <span>Growth meetings</span>
+        <span>Foco de ejecución</span>
+        <span>Performance</span>
+        <span>Adquisición</span>
+        <span>Oferta comercial</span>
+        <span>Proceso comercial</span>
+        <span>Medición y datos</span>
+        <span>Growth meetings</span>
+        <span>Foco de ejecución</span>
       </div>
     </div>
   </section>
 
   <!-- ========================================================
-       PLANTEO GENERAL
+       POSICIONAMIENTO — no somos una agencia tradicional
        ======================================================== -->
   <section class="section">
     <div class="wrap manifesto">
-      <div class="label-col reveal"><span class="eyebrow">El programa</span></div>
+      <div class="label-col reveal"><span class="eyebrow">Posicionamiento</span></div>
       <div>
-        <blockquote>EPIBRANDS no presta un servicio de agencia. <span>Desarrolla, junto a la dirección de cada empresa, el sistema comercial y operativo que sostiene su crecimiento.</span></blockquote>
-        <p class="foot reveal d2">Paid media, inteligencia artificial, automatización, procesos y asesoramiento estratégico bajo una misma conducción profesional. El programa opera con cuatro empresas por período: es el número que permite sostener el nivel de dedicación que exige una decisión de esta magnitud.</p>
+        <blockquote>No somos una agencia tradicional. <span>Nos integramos como socio de crecimiento del negocio.</span></blockquote>
+        <p class="foot reveal d2">Una agencia tradicional suele vender entregables: campañas, posteos, reportes o piezas gráficas. EPIBRANDS trabaja desde otro lugar: entendemos el negocio, ordenamos la adquisición, mejoramos la calidad de las oportunidades comerciales y construimos un sistema de crecimiento rentable. No buscamos solamente más tráfico, más leads o más campañas activas. <b>Buscamos mejores decisiones de crecimiento.</b></p>
+        <p class="epi-pullquote reveal d3">No administramos marketing. Administramos decisiones de crecimiento con datos, criterio comercial y foco de ejecución.</p>
       </div>
     </div>
   </section>
 
   <!-- ========================================================
-       CRITERIOS DE ADMISIÓN
+       LOS 3 PILARES — nuestro sistema de crecimiento
        ======================================================== -->
-  <section class="section section--deep">
+  <section class="section section--deep" id="pilares">
     <div class="wrap">
       <div class="section-head">
-        <span class="eyebrow reveal">Admisión</span>
+        <span class="eyebrow reveal">Los 3 pilares</span>
         <div>
-          <h2>Criterios de admisión al programa.</h2>
-          <p>No todas las empresas se encuentran en el momento adecuado para incorporarse. Corresponde establecerlo con claridad antes de avanzar.</p>
+          <h2>Nuestro sistema de crecimiento.</h2>
+          <p>El crecimiento rentable necesita más que campañas activas. Necesita datos claros, decisiones comerciales correctas y una ejecución sostenida.</p>
         </div>
       </div>
 
-      <div class="aud-grid">
-        <div class="aud-col aud-col--yes epi-motion-card" data-reveal>
-          <div class="aud-head">
-            <h3>El programa es adecuado si</h3>
-            <span class="aud-tag aud-tag--yes">Cumple</span>
-          </div>
-          <ul class="aud-list">
-            <li><span class="aud-ic aud-ic--yes"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg></span>La empresa ya factura con un producto o servicio validado en el mercado.</li>
-            <li><span class="aud-ic aud-ic--yes"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg></span>La solicitud proviene de la dirección: propietario, socio o responsable del negocio.</li>
-            <li><span class="aud-ic aud-ic--yes"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg></span>Se busca criterio y dirección estratégica, no la tercerización de tareas operativas.</li>
-            <li><span class="aud-ic aud-ic--yes"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg></span>Existe interés en incorporar inteligencia artificial y automatización con retorno medible.</li>
-            <li><span class="aud-ic aud-ic--yes"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg></span>Hay disponibilidad para sostener la ejecución semanal durante seis meses.</li>
+      <div class="epi-pillars3">
+        <article class="epi-pillar3 epi-motion-card" data-reveal>
+          <span class="epi-pillar3-num">01 — Performance</span>
+          <h3>Performance para medir</h3>
+          <p>Medimos, analizamos y optimizamos los canales de adquisición para entender qué funciona, qué no funciona y dónde están las oportunidades reales de mejora.</p>
+          <ul class="epi-taglist">
+            <li>Meta Ads</li>
+            <li>Google Ads</li>
+            <li>TikTok Ads</li>
+            <li>GA4 y Google Tag Manager</li>
+            <li>Embudos de conversión</li>
+            <li>Reportes y análisis de performance</li>
+            <li>Testing creativo</li>
+            <li>Optimización de campañas</li>
+            <li>Lectura de CPA, ROAS, CPL y tasa de conversión</li>
           </ul>
-        </div>
+          <p class="epi-pillar3-quote">Sin datos, el crecimiento se vuelve intuición.</p>
+        </article>
 
-        <div class="aud-col epi-motion-card" data-reveal data-reveal-delay="1">
-          <div class="aud-head">
-            <h3>El programa no es adecuado si</h3>
-            <span class="aud-tag aud-tag--no">No cumple</span>
-          </div>
-          <ul class="aud-list">
-            <li><span class="aud-ic aud-ic--no"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10M17 7L7 17"/></svg></span>Se esperan resultados inmediatos sin modificar la operación actual.</li>
-            <li><span class="aud-ic aud-ic--no"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10M17 7L7 17"/></svg></span>La empresa aún no cuenta con una oferta definida ni con ventas sostenidas.</li>
-            <li><span class="aud-ic aud-ic--no"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10M17 7L7 17"/></svg></span>Se pretende delegar la totalidad del proceso sin participación de la dirección.</li>
-            <li><span class="aud-ic aud-ic--no"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10M17 7L7 17"/></svg></span>La decisión de contratación se toma exclusivamente en función del precio.</li>
-            <li><span class="aud-ic aud-ic--no"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10M17 7L7 17"/></svg></span>La inversión mensual compromete la operación financiera de la empresa.</li>
+        <article class="epi-pillar3 epi-motion-card" data-reveal data-reveal-delay="1">
+          <span class="epi-pillar3-num">02 — Negocios</span>
+          <h3>Negocios para decidir</h3>
+          <p>No todo resultado de marketing es rentable, escalable o conveniente. Por eso analizamos la oferta, el proceso comercial, el margen, la calidad de los leads y las oportunidades que realmente tienen sentido para el negocio.</p>
+          <ul class="epi-taglist">
+            <li>Propuesta de valor</li>
+            <li>Oferta comercial</li>
+            <li>Pricing y margen</li>
+            <li>Calidad de leads</li>
+            <li>Proceso comercial</li>
+            <li>WhatsApp / CRM</li>
+            <li>Seguimiento de oportunidades</li>
+            <li>Segmentos prioritarios</li>
+            <li>Productos o servicios a escalar</li>
           </ul>
-        </div>
+          <p class="epi-pillar3-quote">No buscamos más leads. Buscamos mejores oportunidades comerciales.</p>
+        </article>
+
+        <article class="epi-pillar3 epi-motion-card" data-reveal data-reveal-delay="2">
+          <span class="epi-pillar3-num">03 — Liderazgo</span>
+          <h3>Liderazgo para sostener</h3>
+          <p>El crecimiento no se sostiene solo con campañas. Se sostiene con foco, prioridades, procesos, criterio y capacidad de ejecución. Ayudamos a ordenar el sistema para que las decisiones se conviertan en avance real.</p>
+          <ul class="epi-taglist">
+            <li>Priorización semanal</li>
+            <li>Reuniones de crecimiento</li>
+            <li>Claridad de próximos pasos</li>
+            <li>Cierre de ciclos</li>
+            <li>Seguimiento de decisiones</li>
+            <li>Tableros simples</li>
+            <li>Procesos de ejecución</li>
+            <li>Foco comercial</li>
+            <li>Cultura de mejora continua</li>
+          </ul>
+          <p class="epi-pillar3-quote">El crecimiento necesita foco para no convertirse en caos.</p>
+        </article>
       </div>
     </div>
   </section>
 
   <!-- ========================================================
-       ALCANCE — seis áreas de trabajo
+       QUÉ HACEMOS COMO GROWTH PARTNER
+       El id #incluye queda en el encabezado para no romper links
+       antiguos que apuntaban a la sección de alcance.
        ======================================================== -->
-  <section class="section" id="incluye">
+  <section class="section" id="servicios">
     <div class="wrap">
-      <div class="section-head">
-        <span class="eyebrow reveal">Alcance</span>
+      <div class="section-head" id="incluye">
+        <span class="eyebrow reveal">Qué hacemos</span>
         <div>
-          <h2>Alcance integral del programa.</h2>
-          <p>Las seis áreas se trabajan de forma simultánea, en el orden de prioridad que determine el diagnóstico inicial. No se contratan por separado.</p>
+          <h2>Qué hacemos como Growth Partner.</h2>
+          <p>Nos involucramos en las áreas que más impacto tienen sobre el crecimiento: adquisición, conversión, oferta, proceso comercial y ejecución.</p>
         </div>
       </div>
 
       <div class="pillars">
         <article class="pillar epi-motion-card" data-reveal>
-          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 7-7"/><path d="M17 8h4v4"/></svg></span>
-          <h3>Paid Media</h3>
-          <p>Gestión de campañas en Meta Ads y Google Ads con estructura definida, presupuesto controlado y análisis de resultados. Inversión medida, no experimental.</p>
-          <span class="cat">Adquisición</span>
-        </article>
-        <article class="pillar epi-motion-card" data-reveal data-reveal-delay="1">
-          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="7.5" y="7.5" width="9" height="9" rx="2"/><path d="M10 3.5v2M14 3.5v2M10 18.5v2M14 18.5v2M3.5 10h2M3.5 14h2M18.5 10h2M18.5 14h2"/></svg></span>
-          <h3>Inteligencia artificial</h3>
-          <p>Aplicación de IA a la operación: generación de contenido, atención comercial, análisis de información y asistentes internos, en los procesos donde produce un ahorro verificable.</p>
-          <span class="cat">Productividad</span>
-        </article>
-        <article class="pillar epi-motion-card" data-reveal data-reveal-delay="2">
-          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20.5 12a8.5 8.5 0 1 1-2.6-6.1"/><path d="M20.5 4.5v4h-4"/></svg></span>
-          <h3>Automatización</h3>
-          <p>Gestión automatizada de oportunidades comerciales, seguimiento, CRM y reportes. Menor carga operativa y trazabilidad completa del embudo de ventas.</p>
-          <span class="cat">Operación</span>
-        </article>
-        <article class="pillar epi-motion-card" data-reveal>
           <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M15.4 8.6l-2.1 4.7-4.7 2.1 2.1-4.7z"/></svg></span>
-          <h3>Asesoramiento empresarial</h3>
-          <p>Posicionamiento, definición de la oferta, política de precios, márgenes y modelo de negocio: las decisiones de mayor impacto sobre la facturación.</p>
-          <span class="cat">Estrategia</span>
+          <h3>Diagnóstico inicial</h3>
+          <p>Analizamos la situación actual del negocio, los canales activos, la oferta, el embudo, las métricas, el proceso comercial y los principales cuellos de botella.</p>
+          <span class="cat">Punto de partida</span>
         </article>
         <article class="pillar epi-motion-card" data-reveal data-reveal-delay="1">
-          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/><circle cx="9" cy="7" r="2"/><circle cx="15" cy="12" r="2"/><circle cx="8" cy="17" r="2"/></svg></span>
-          <h3>Mejora de procesos</h3>
-          <p>Ordenamiento de los circuitos de venta, entrega y cobranza, con el objetivo de reducir la dependencia operativa respecto de la dirección.</p>
-          <span class="cat">Procesos</span>
+          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 7-7"/><path d="M17 8h4v4"/></svg></span>
+          <h3>Estrategia de crecimiento</h3>
+          <p>Definimos objetivos comerciales, segmentos prioritarios, canales de adquisición, mensajes, presupuesto, KPIs y próximos experimentos.</p>
+          <span class="cat">Dirección</span>
         </article>
         <article class="pillar epi-motion-card" data-reveal data-reveal-delay="2">
           <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3.5 20h17"/><path d="M6.5 20v-5M11 20V8.5M15.5 20v-8M20 20V5"/></svg></span>
-          <h3>Sistema comercial y medición</h3>
-          <p>Definición del embudo, los indicadores, los tableros y las rutinas de reporte necesarias para orientar cada decisión con información verificable.</p>
-          <span class="cat">Medición</span>
+          <h3>Performance marketing</h3>
+          <p>Creamos, gestionamos y optimizamos campañas en Meta Ads, Google Ads y otros canales según el negocio, el objetivo y la etapa del embudo.</p>
+          <span class="cat">Adquisición</span>
+        </article>
+        <article class="pillar epi-motion-card" data-reveal>
+          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/><circle cx="9" cy="7" r="2"/><circle cx="15" cy="12" r="2"/><circle cx="8" cy="17" r="2"/></svg></span>
+          <h3>Desarrollo comercial</h3>
+          <p>Revisamos la calidad de las oportunidades, las objeciones, el proceso de venta, los mensajes comerciales y el seguimiento de leads.</p>
+          <span class="cat">Conversión</span>
+        </article>
+        <article class="pillar epi-motion-card" data-reveal data-reveal-delay="1">
+          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20.5 12a8.5 8.5 0 1 1-2.6-6.1"/><path d="M20.5 4.5v4h-4"/></svg></span>
+          <h3>Growth meetings</h3>
+          <p>Trabajamos con reuniones de crecimiento para revisar aprendizajes, tomar decisiones, priorizar acciones y sostener foco.</p>
+          <span class="cat">Decisiones</span>
+        </article>
+        <article class="pillar epi-motion-card" data-reveal data-reveal-delay="2">
+          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="7.5" y="7.5" width="9" height="9" rx="2"/><path d="M10 3.5v2M14 3.5v2M10 18.5v2M14 18.5v2M3.5 10h2M3.5 14h2M18.5 10h2M18.5 14h2"/></svg></span>
+          <h3>Sistema de ejecución</h3>
+          <p>Ordenamos prioridades, responsables, fechas, próximos pasos y criterios de decisión para que el crecimiento no dependa de improvisación.</p>
+          <span class="cat">Ejecución</span>
         </article>
       </div>
 
       <div class="deliverables reveal d1">
-        <span>Sesión semanal individual de 60 minutos</span>
-        <span>Canal directo de consulta entre sesiones</span>
-        <span>Diagnóstico integral al inicio</span>
-        <span>Plan de trabajo documentado a seis meses</span>
-        <span>Revisión de campañas e indicadores</span>
-        <span>Plantillas, procedimientos y automatizaciones</span>
-        <span>Registro de cada sesión</span>
+        <span>Diagnóstico integral del negocio</span>
+        <span>Plan de crecimiento documentado</span>
+        <span>Gestión de Meta Ads y Google Ads</span>
+        <span>Medición con GA4 y Google Tag Manager</span>
+        <span>Revisión de leads y proceso comercial</span>
+        <span>Growth meeting semanal de 60 minutos</span>
+        <span>Tablero de indicadores y próximos pasos</span>
+        <span>Canal directo entre reuniones</span>
       </div>
     </div>
   </section>
 
   <!-- ========================================================
-       METODOLOGÍA — seis etapas
+       PROBLEMAS QUE RESOLVEMOS
+       ======================================================== -->
+  <section class="section section--deep" id="problemas">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow reveal">Diagnóstico</span>
+        <div>
+          <h2>Problemas que resolvemos.</h2>
+          <p>Situaciones frecuentes en negocios que ya facturan y necesitan ordenar su crecimiento comercial.</p>
+        </div>
+      </div>
+
+      <div class="epi-problems">
+        <article class="epi-problem epi-motion-card" data-reveal data-reveal-delay="0">
+          <span class="epi-problem-num" aria-hidden="true">01</span>
+          <p>Invertís en publicidad, pero no sabés si realmente está generando crecimiento rentable.</p>
+        </article>
+        <article class="epi-problem epi-motion-card" data-reveal data-reveal-delay="1">
+          <span class="epi-problem-num" aria-hidden="true">02</span>
+          <p>Tenés leads, mensajes o consultas, pero no todos se convierten en oportunidades comerciales reales.</p>
+        </article>
+        <article class="epi-problem epi-motion-card" data-reveal data-reveal-delay="2">
+          <span class="epi-problem-num" aria-hidden="true">03</span>
+          <p>Las campañas funcionan por momentos, pero no hay un sistema claro de medición, aprendizaje y optimización.</p>
+        </article>
+        <article class="epi-problem epi-motion-card" data-reveal data-reveal-delay="3">
+          <span class="epi-problem-num" aria-hidden="true">04</span>
+          <p>El negocio crece, pero la operación, el seguimiento o el proceso comercial empiezan a desordenarse.</p>
+        </article>
+        <article class="epi-problem epi-motion-card" data-reveal data-reveal-delay="0">
+          <span class="epi-problem-num" aria-hidden="true">05</span>
+          <p>Hay muchas ideas, canales y oportunidades, pero falta foco para decidir qué priorizar.</p>
+        </article>
+        <article class="epi-problem epi-motion-card" data-reveal data-reveal-delay="1">
+          <span class="epi-problem-num" aria-hidden="true">06</span>
+          <p>Los reportes muestran números, pero no siempre ayudan a tomar mejores decisiones.</p>
+        </article>
+      </div>
+
+      <div class="epi-mini-quotes">
+        <p class="epi-mini-quote" data-reveal>Un CPA bajo no siempre significa crecimiento.</p>
+        <p class="epi-mini-quote" data-reveal data-reveal-delay="1">No todos los leads tienen el mismo valor.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       FRASE DE AUTORIDAD
+       ======================================================== -->
+  <section class="epi-quote-band" data-reveal>
+    <div class="wrap">
+      <blockquote>La pauta no salva una mala oferta. <span>La acelera.</span></blockquote>
+      <cite>EPIBRANDS · Growth Partner</cite>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       CÓMO TRABAJAMOS — seis pasos del sistema de crecimiento
        ======================================================== -->
   <section class="section--deep epi-method-section" id="ruta" data-reveal>
     <div class="epi-method-header">
-      <p class="epi-eyebrow">Metodología</p>
-      <h2>Seis meses, seis etapas.</h2>
-      <p>El programa sigue una secuencia definida, en la que cada etapa habilita la siguiente.</p>
+      <p class="epi-eyebrow">Cómo trabajamos</p>
+      <h2>Un sistema, seis pasos.</h2>
+      <p>El orden importa: cada paso habilita al siguiente y evita decisiones tomadas sin información. El ciclo arranca en el primer mes y se sostiene durante todo el acompañamiento.</p>
     </div>
     <div class="epi-method-flow">
       <div class="epi-method-line" aria-hidden="true"></div>
       <article class="epi-motion-card epi-method-step" data-reveal data-reveal-delay="1">
-        <span>Mes 01</span><h3>Diagnóstico y plan</h3>
-        <p>Análisis de indicadores, oferta, canales y procesos. La etapa concluye con el plan de trabajo documentado para los seis meses.</p>
+        <span>Paso 01</span><h3>Entendemos el negocio</h3>
+        <p>Antes de tocar campañas, entendemos qué vendés, a quién, con qué margen, con qué proceso y con qué objetivo comercial.</p>
       </article>
       <article class="epi-motion-card epi-method-step" data-reveal data-reveal-delay="2">
-        <span>Mes 02</span><h3>Oferta y posicionamiento</h3>
-        <p>Definición de la propuesta de valor, el segmento objetivo, la política de precios y los factores de diferenciación.</p>
+        <span>Paso 02</span><h3>Ordenamos la adquisición</h3>
+        <p>Definimos canales, mensajes, audiencias, presupuesto, creatividades, embudo y KPIs.</p>
       </article>
       <article class="epi-motion-card epi-method-step" data-reveal data-reveal-delay="3">
-        <span>Mes 03</span><h3>Adquisición</h3>
-        <p>Puesta en marcha de campañas y contenidos orientados a generar demanda sostenida, con presupuesto controlado y retorno medido.</p>
+        <span>Paso 03</span><h3>Medimos performance</h3>
+        <p>Implementamos medición, reportes y lectura de datos para separar ruido de señal.</p>
       </article>
       <article class="epi-motion-card epi-method-step" data-reveal data-reveal-delay="4">
-        <span>Mes 04</span><h3>IA y automatización</h3>
-        <p>Implementación de asistentes, seguimiento automatizado y eliminación de las tareas repetitivas de mayor carga operativa.</p>
+        <span>Paso 04</span><h3>Mejoramos oportunidades comerciales</h3>
+        <p>Analizamos la calidad de los leads, las objeciones, el seguimiento y la conversión comercial.</p>
       </article>
       <article class="epi-motion-card epi-method-step" data-reveal data-reveal-delay="4">
-        <span>Mes 05</span><h3>Procesos y equipo</h3>
-        <p>Formalización de los circuitos de venta, entrega y cobranza, con el objetivo de reducir la dependencia operativa de la dirección.</p>
+        <span>Paso 05</span><h3>Priorizamos decisiones</h3>
+        <p>No se trata de hacer todo. Se trata de elegir las acciones que más impacto pueden tener sobre el crecimiento.</p>
       </article>
       <article class="epi-motion-card epi-method-step" data-reveal data-reveal-delay="4">
-        <span>Mes 06</span><h3>Escalamiento</h3>
-        <p>Ampliación de las acciones que demuestran retorno, discontinuación de las que no lo demuestran y entrega del sistema documentado.</p>
+        <span>Paso 06</span><h3>Sostenemos ejecución</h3>
+        <p>Acompañamos con reuniones, tableros, próximos pasos y foco para que la estrategia avance.</p>
       </article>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       FRASE DE AUTORIDAD
+       ======================================================== -->
+  <section class="epi-quote-band epi-quote-band--invert" data-reveal>
+    <div class="wrap">
+      <blockquote>Escalar el desorden <span>también es escalar.</span></blockquote>
+      <cite>EPIBRANDS · Liderazgo para sostener</cite>
     </div>
   </section>
 
@@ -1236,23 +1545,23 @@ input, select, textarea, button{ font-family:inherit; }
   <section class="epi-before-after-section" data-reveal>
     <div class="epi-before-after-card">
       <div class="epi-ba-head">
-        <p class="epi-eyebrow">Situación inicial / Resultado esperado</p>
-        <h2>Escalar no consiste en hacer más.<br>Consiste en <span class="epi-ba-mark">decidir mejor<svg viewBox="0 0 320 24" preserveAspectRatio="none" aria-hidden="true"><path d="M5 17C60 9 130 9 196 13c54 3 99 2 119-3"/></svg></span>.</h2>
-        <p>La diferencia entre una empresa que se estanca y una que crece rara vez reside en el esfuerzo. Reside en el sistema que respalda sus decisiones.</p>
+        <p class="epi-eyebrow">Antes / Después</p>
+        <h2>Crecer no consiste en hacer más marketing.<br>Consiste en <span class="epi-ba-mark">decidir mejor<svg viewBox="0 0 320 24" preserveAspectRatio="none" aria-hidden="true"><path d="M5 17C60 9 130 9 196 13c54 3 99 2 119-3"/></svg></span>.</h2>
+        <p>La diferencia entre un negocio que se estanca y uno que crece rara vez reside en el esfuerzo. Reside en el sistema que respalda sus decisiones.</p>
       </div>
 
       <div class="epi-ba-grid">
         <div class="epi-ba-col epi-ba-col--before">
           <div class="epi-ba-col-head">
-            <h3>Situación inicial</h3>
+            <h3>Antes</h3>
             <span class="epi-ba-tag epi-ba-tag--bad">Sin sistema</span>
           </div>
           <ul class="epi-ba-list">
-            <li><span class="epi-ba-ic epi-ba-ic--bad"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10M17 7L7 17"/></svg></span>Facturación variable sin explicación documentada</li>
-            <li><span class="epi-ba-ic epi-ba-ic--bad"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10M17 7L7 17"/></svg></span>Inversión publicitaria sin retorno medido</li>
-            <li><span class="epi-ba-ic epi-ba-ic--bad"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10M17 7L7 17"/></svg></span>Tareas manuales que consumen la jornada</li>
-            <li><span class="epi-ba-ic epi-ba-ic--bad"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10M17 7L7 17"/></svg></span>Operación dependiente de la dirección</li>
-            <li><span class="epi-ba-ic epi-ba-ic--bad"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10M17 7L7 17"/></svg></span>Decisiones basadas en la intuición</li>
+            <li><span class="epi-ba-ic epi-ba-ic--bad"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10M17 7L7 17"/></svg></span>Pauta activa sin lectura clara de retorno</li>
+            <li><span class="epi-ba-ic epi-ba-ic--bad"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10M17 7L7 17"/></svg></span>Leads que no se convierten en oportunidades</li>
+            <li><span class="epi-ba-ic epi-ba-ic--bad"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10M17 7L7 17"/></svg></span>Campañas que funcionan por momentos</li>
+            <li><span class="epi-ba-ic epi-ba-ic--bad"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10M17 7L7 17"/></svg></span>Reportes que muestran números, no decisiones</li>
+            <li><span class="epi-ba-ic epi-ba-ic--bad"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10M17 7L7 17"/></svg></span>Muchas ideas y poco foco para priorizar</li>
           </ul>
         </div>
 
@@ -1262,18 +1571,79 @@ input, select, textarea, button{ font-family:inherit; }
 
         <div class="epi-ba-col epi-ba-col--after">
           <div class="epi-ba-col-head">
-            <h3>A los seis meses</h3>
+            <h3>Después</h3>
             <span class="epi-ba-tag epi-ba-tag--good">Con sistema</span>
           </div>
           <ul class="epi-ba-list">
-            <li><span class="epi-ba-ic epi-ba-ic--good"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg></span>Ingresos con mayor previsibilidad mensual</li>
-            <li><span class="epi-ba-ic epi-ba-ic--good"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg></span>Campañas con retorno medido</li>
-            <li><span class="epi-ba-ic epi-ba-ic--good"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg></span>Procesos automatizados con inteligencia artificial</li>
-            <li><span class="epi-ba-ic epi-ba-ic--good"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg></span>Operación con menor dependencia de la dirección</li>
-            <li><span class="epi-ba-ic epi-ba-ic--good"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg></span>Decisiones respaldadas por indicadores</li>
+            <li><span class="epi-ba-ic epi-ba-ic--good"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg></span>Adquisición ordenada por canal y objetivo</li>
+            <li><span class="epi-ba-ic epi-ba-ic--good"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg></span>Oportunidades comerciales de mejor calidad</li>
+            <li><span class="epi-ba-ic epi-ba-ic--good"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg></span>CPA, ROAS, CPL y conversión bajo lectura</li>
+            <li><span class="epi-ba-ic epi-ba-ic--good"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg></span>Reportes que derivan en decisiones</li>
+            <li><span class="epi-ba-ic epi-ba-ic--good"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg></span>Prioridades claras y ejecución sostenida</li>
           </ul>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       PARA QUIÉN ES EPIBRANDS
+       ======================================================== -->
+  <section class="section section--deep" id="para-quien">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow reveal">Para quién es</span>
+        <div>
+          <h2>Para negocios que quieren crecer con más claridad, no con más ruido.</h2>
+          <p>EPIBRANDS es para empresas, marcas y profesionales que ya tienen una operación en marcha y quieren ordenar su crecimiento comercial. Trabajamos mejor con negocios que entienden que el marketing no es una acción aislada, sino parte de un sistema que conecta adquisición, ventas, oferta, datos y ejecución.</p>
+        </div>
+      </div>
+
+      <div class="aud-grid">
+        <div class="aud-col aud-col--yes epi-motion-card" data-reveal>
+          <div class="aud-head">
+            <h3>Ideal para</h3>
+            <span class="aud-tag aud-tag--yes">Encaja</span>
+          </div>
+          <ul class="aud-list">
+            <li><span class="aud-ic aud-ic--yes"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg></span>Negocios B2C con ticket medio o alto</li>
+            <li><span class="aud-ic aud-ic--yes"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg></span>Servicios profesionales</li>
+            <li><span class="aud-ic aud-ic--yes"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg></span>Educación, cursos y formación</li>
+            <li><span class="aud-ic aud-ic--yes"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg></span>Estética, salud y bienestar</li>
+            <li><span class="aud-ic aud-ic--yes"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg></span>Real estate</li>
+            <li><span class="aud-ic aud-ic--yes"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg></span>Agro, finanzas y servicios B2B</li>
+            <li><span class="aud-ic aud-ic--yes"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg></span>E-commerce con margen</li>
+            <li><span class="aud-ic aud-ic--yes"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg></span>Empresas que invierten en pauta y quieren mejorar la calidad de sus resultados</li>
+            <li><span class="aud-ic aud-ic--yes"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg></span>Marcas que venden, pero necesitan más orden comercial</li>
+          </ul>
+        </div>
+
+        <div class="aud-col epi-motion-card" data-reveal data-reveal-delay="1">
+          <div class="aud-head">
+            <h3>No es ideal para</h3>
+            <span class="aud-tag aud-tag--no">No encaja</span>
+          </div>
+          <ul class="aud-list">
+            <li><span class="aud-ic aud-ic--no"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10M17 7L7 17"/></svg></span>Negocios que solo buscan posteos sueltos</li>
+            <li><span class="aud-ic aud-ic--no"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10M17 7L7 17"/></svg></span>Empresas que quieren “hacer una publicidad barata”</li>
+            <li><span class="aud-ic aud-ic--no"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10M17 7L7 17"/></svg></span>Proyectos sin oferta clara</li>
+            <li><span class="aud-ic aud-ic--no"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10M17 7L7 17"/></svg></span>Marcas que no están dispuestas a revisar su proceso comercial</li>
+            <li><span class="aud-ic aud-ic--no"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10M17 7L7 17"/></svg></span>Negocios que solo quieren volumen sin mirar rentabilidad</li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="epi-aud-note">Trabajamos con cuatro negocios por período y el proceso requiere la participación de quien decide: dueño, socio o responsable comercial. Es lo que permite sostener la profundidad del trabajo.</p>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       FRASE DE AUTORIDAD
+       ======================================================== -->
+  <section class="epi-quote-band" data-reveal>
+    <div class="wrap">
+      <blockquote>Antes de aumentar presupuesto, <span>hay que revisar qué está intentando vender el negocio.</span></blockquote>
+      <cite>EPIBRANDS · Negocios para decidir</cite>
     </div>
   </section>
 
@@ -1283,7 +1653,7 @@ input, select, textarea, button{ font-family:inherit; }
   <section class="epi-counters-section" data-reveal>
     <div class="epi-counters-header">
       <p class="epi-eyebrow">Antecedentes</p>
-      <h2>Más de 10 años de trabajo aplicado al crecimiento de empresas.</h2>
+      <h2>Más de 10 años de trabajo aplicado al crecimiento de negocios.</h2>
     </div>
     <div class="epi-counters-grid">
       <div class="epi-motion-card epi-counter-card">
@@ -1313,16 +1683,16 @@ input, select, textarea, button{ font-family:inherit; }
       <div class="section-head">
         <span class="eyebrow reveal">Marco de trabajo</span>
         <div>
-          <h2>Seis condiciones que estructuran el programa.</h2>
-          <p>Son las que aseguran que el programa produzca resultados y no se convierta en una reunión adicional en la agenda de la dirección.</p>
+          <h2>Seis condiciones que sostienen el trabajo.</h2>
+          <p>Son las que aseguran que el partnership produzca decisiones y avance real, y no una reunión más en la agenda.</p>
         </div>
       </div>
       <div class="principles">
         <div class="principle reveal"><span class="num">01</span><div class="body"><h3>Conducción directa</h3><p>El programa lo dirige Mariano Calandra de forma personal. No intervienen equipos intermedios ni se delega la cuenta.</p></div></div>
-        <div class="principle reveal"><span class="num">02</span><div class="body"><h3>Cuatro empresas por período</h3><p>El nivel de dedicación requerido no admite una cartera mayor. Se prioriza la profundidad del trabajo sobre el volumen de clientes.</p></div></div>
+        <div class="principle reveal"><span class="num">02</span><div class="body"><h3>Cuatro negocios por período</h3><p>El nivel de dedicación requerido no admite una cartera mayor. Se prioriza la profundidad del trabajo sobre el volumen de clientes.</p></div></div>
         <div class="principle reveal"><span class="num">03</span><div class="body"><h3>Ejecución documentada</h3><p>Cada sesión concluye con acciones definidas, responsables asignados y plazos concretos para la semana siguiente.</p></div></div>
-        <div class="principle reveal"><span class="num">04</span><div class="body"><h3>Decisiones respaldadas en datos</h3><p>Se evalúan costos, márgenes y retorno de cada acción. Toda iniciativa sin retorno verificable se discontinúa.</p></div></div>
-        <div class="principle reveal"><span class="num">05</span><div class="body"><h3>Tecnología con criterio</h3><p>La inteligencia artificial se incorpora donde genera un ahorro real de costos o de tiempo. Constituye un medio, nunca un objetivo en sí mismo.</p></div></div>
+        <div class="principle reveal"><span class="num">04</span><div class="body"><h3>Decisiones respaldadas en datos</h3><p>Se evalúan CPA, ROAS, CPL, margen y calidad de leads en cada acción. Toda iniciativa sin retorno verificable se discontinúa.</p></div></div>
+        <div class="principle reveal"><span class="num">05</span><div class="body"><h3>Tecnología con criterio</h3><p>La automatización y la inteligencia artificial se incorporan donde generan un ahorro real de costos o de tiempo. Constituyen un medio, nunca un objetivo en sí mismo.</p></div></div>
         <div class="principle reveal"><span class="num">06</span><div class="body"><h3>La decisión final corresponde al cliente</h3><p>La consultoría aporta método, experiencia y criterio profesional. Toda decisión sobre el negocio corresponde al cliente.</p></div></div>
       </div>
     </div>
@@ -1334,14 +1704,14 @@ input, select, textarea, button{ font-family:inherit; }
   <section class="epi-price-section" id="precio" data-reveal>
     <div class="epi-price-head">
       <p class="epi-eyebrow">Honorarios</p>
-      <h2>Un único programa. Alcance completo.</h2>
-      <p>Sin niveles, sin paquetes y sin condiciones adicionales. Un programa, cuatro cupos y honorarios definidos con anticipación.</p>
+      <h2>Un único partnership. Alcance completo.</h2>
+      <p>Sin niveles, sin paquetes y sin condiciones adicionales. Un solo formato de trabajo, cuatro cupos y honorarios definidos con anticipación.</p>
     </div>
 
     <div class="epi-price-card epi-motion-card">
       <header class="epi-price-header">
-        <span class="epi-price-flag">Programa EPIBRANDS</span>
-        <span class="epi-price-plan">Programa único · Individual</span>
+        <span class="epi-price-flag">Growth Partnership</span>
+        <span class="epi-price-plan">Formato único · Individual</span>
       </header>
 
       <div class="epi-price-main">
@@ -1350,7 +1720,7 @@ input, select, textarea, button{ font-family:inherit; }
           <span class="cur">USD</span>
           <span class="per">/ mes</span>
         </p>
-        <p class="epi-price-desc">Acompañamiento mensual integral: asesoramiento estratégico, paid media, inteligencia artificial, automatización, procesos y sistema comercial. El programa está diseñado sobre un horizonte de seis meses, plazo en el que el impacto se refleja en la facturación.</p>
+        <p class="epi-price-desc">Nos integramos como socio estratégico del negocio: estrategia de crecimiento, performance marketing, desarrollo comercial, medición y sistema de ejecución. El trabajo está diseñado sobre un horizonte de seis meses, plazo en el que el impacto se refleja en la facturación.</p>
 
         <!-- Editá data-cupos-tomados cuando se ocupe un lugar. -->
         <div class="epi-cupos" data-cupos data-cupos-total="4" data-cupos-tomados="0">
@@ -1358,21 +1728,21 @@ input, select, textarea, button{ font-family:inherit; }
           <span class="epi-cupos-text"><b>4 cupos</b> disponibles</span>
         </div>
 
-        <a href="#aplicar" class="btn btn-solid"><span class="dot"></span> Solicitar admisión</a>
-        <p class="epi-price-note">La inversión en medios publicitarios no está incluida y su administración corresponde al cliente. Los USD 990 mensuales corresponden a los honorarios profesionales del programa.</p>
+        <a href="#aplicar" class="btn btn-solid"><span class="dot"></span> Agendar una llamada</a>
+        <p class="epi-price-note">La inversión en medios publicitarios no está incluida y su administración corresponde al cliente. Los USD 990 mensuales corresponden a los honorarios profesionales del partnership.</p>
       </div>
 
       <ul class="epi-price-list">
-        <li>Sesión semanal individual de 60 minutos con Mariano Calandra</li>
-        <li>Diagnóstico integral de la empresa al inicio del programa</li>
+        <li>Growth meeting semanal de 60 minutos con Mariano Calandra</li>
+        <li>Diagnóstico inicial del negocio, la oferta y el embudo</li>
         <li>Plan de crecimiento documentado a seis meses</li>
-        <li>Estrategia y gestión de Meta Ads y Google Ads</li>
-        <li>Inteligencia artificial aplicada a contenido, ventas y operación</li>
-        <li>Automatización de oportunidades comerciales, CRM y seguimiento</li>
-        <li>Asesoramiento en oferta, política de precios y márgenes</li>
-        <li>Mejora de procesos comerciales y operativos</li>
-        <li>Tablero de indicadores y revisión mensual de resultados</li>
-        <li>Canal directo de consulta entre sesiones</li>
+        <li>Estrategia y gestión de Meta Ads, Google Ads y TikTok Ads</li>
+        <li>Medición con GA4 y Google Tag Manager, y lectura de CPA, ROAS y CPL</li>
+        <li>Revisión de la calidad de leads y del proceso comercial</li>
+        <li>Asesoramiento en propuesta de valor, oferta, pricing y margen</li>
+        <li>Automatización de seguimiento, WhatsApp y CRM</li>
+        <li>Tablero de indicadores y próximos pasos priorizados</li>
+        <li>Canal directo de consulta entre reuniones</li>
       </ul>
     </div>
   </section>
@@ -1385,17 +1755,25 @@ input, select, textarea, button{ font-family:inherit; }
       <div class="section-head">
         <span class="eyebrow reveal">Consultas</span>
         <div>
-          <h2>Preguntas frecuentes antes de postular.</h2>
+          <h2>Preguntas frecuentes antes de agendar.</h2>
         </div>
       </div>
 
       <div class="faq">
         <details class="faq-item" data-reveal>
-          <summary>¿Por qué el programa se limita a cuatro cupos?</summary>
+          <summary>¿En qué se diferencia de una agencia de marketing?</summary>
+          <div class="faq-body">Una agencia tradicional vende entregables: campañas, posteos, reportes o piezas gráficas. Un Growth Partner se integra al negocio: revisa la oferta, el margen, la calidad de los leads y el proceso comercial, además de gestionar la adquisición. El objetivo no es producir más marketing, sino mejorar las decisiones de crecimiento y sostener su ejecución.</div>
+        </details>
+        <details class="faq-item" data-reveal>
+          <summary>¿Gestionan las campañas o solo asesoran?</summary>
+          <div class="faq-body">Ambas cosas. Creamos, gestionamos y optimizamos las campañas en Meta Ads, Google Ads y los canales que correspondan al negocio, y en paralelo trabajamos la estrategia, la oferta, la medición y el proceso comercial. La ejecución y el criterio van juntos: separarlos es lo que suele romper el sistema.</div>
+        </details>
+        <details class="faq-item" data-reveal>
+          <summary>¿Por qué el trabajo se limita a cuatro cupos?</summary>
           <div class="faq-body">Porque el trabajo es individual y sostenido en el tiempo. Cada empresa requiere sesiones semanales, revisión de campañas, análisis de indicadores y disponibilidad entre reuniones. Una cartera mayor no permitiría sostener el nivel de dedicación profesional que corresponde a una inversión de esta naturaleza.</div>
         </details>
         <details class="faq-item" data-reveal>
-          <summary>¿Cuál es la duración del programa?</summary>
+          <summary>¿Cuál es la duración del acompañamiento?</summary>
           <div class="faq-body">Está diseñado como un proceso de seis meses, con honorarios mensuales de USD 990. Seis meses constituye el plazo mínimo razonable para ordenar la operación, poner en marcha la adquisición, automatizar procesos y observar el impacto sobre la facturación.</div>
         </details>
         <details class="faq-item" data-reveal>
@@ -1407,7 +1785,7 @@ input, select, textarea, button{ font-family:inherit; }
           <div class="faq-body">No. Los USD 990 mensuales corresponden exclusivamente a los honorarios profesionales. El presupuesto de medios lo define el cliente en función de sus objetivos y se abona directamente a las plataformas desde su propia cuenta publicitaria. El programa incluye la recomendación del monto a invertir y el control del retorno obtenido.</div>
         </details>
         <details class="faq-item" data-reveal>
-          <summary>¿El programa es adecuado para empresas pequeñas?</summary>
+          <summary>¿Es adecuado para negocios pequeños?</summary>
           <div class="faq-body">Lo es siempre que exista facturación. No se requiere un volumen determinado, pero sí un producto o servicio que el mercado ya adquiera. Si la empresa se encuentra en etapa de validación, se comunicará en la respuesta a la solicitud, con las recomendaciones que correspondan.</div>
         </details>
         <details class="faq-item" data-reveal>
@@ -1415,7 +1793,7 @@ input, select, textarea, button{ font-family:inherit; }
           <div class="faq-body">Sí. El programa se desarrolla íntegramente de forma remota y en español, con empresas de toda Latinoamérica y España. Los horarios de las sesiones se coordinan según la zona horaria del cliente.</div>
         </details>
         <details class="faq-item" data-reveal>
-          <summary>¿Qué ocurre si no hay cupos disponibles al momento de postular?</summary>
+          <summary>¿Qué ocurre si no hay cupos disponibles al momento de escribir?</summary>
           <div class="faq-body">Se comunica de inmediato y la solicitud queda incorporada a la lista de espera, con prioridad para el primer cupo que se libere. No se ofrecen vacantes que no se encuentren efectivamente disponibles.</div>
         </details>
       </div>
@@ -1423,18 +1801,29 @@ input, select, textarea, button{ font-family:inherit; }
   </section>
 
   <!-- ========================================================
-       SOLICITUD DE ADMISIÓN — formulario Netlify en 3 pasos
-       La submission exitosa redirige a /epibrands/gracias.html,
-       que dispara el evento Lead (browser + CAPI) al cargar.
+       FRASE DE AUTORIDAD
+       ======================================================== -->
+  <section class="epi-quote-band epi-quote-band--deep" data-reveal>
+    <div class="wrap">
+      <blockquote>No buscamos más marketing. <span>Buscamos mejor crecimiento.</span></blockquote>
+      <cite>EPIBRANDS · Growth Partner</cite>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       CIERRE — agendar una llamada
+       Formulario Netlify en 3 pasos. La submission exitosa
+       redirige a /epibrands/gracias.html, que dispara el evento
+       Lead (browser + CAPI) al cargar.
        ======================================================== -->
   <section class="epi-apply-section" id="aplicar">
     <div class="epi-apply-panel" data-reveal>
 
       <div class="epi-apply-grid">
         <div class="epi-apply-aside">
-          <p class="epi-eyebrow">Solicitud de admisión</p>
-          <h2>Solicite uno de los cuatro cupos.</h2>
-          <p>El presente formulario constituye una solicitud de admisión al programa. Cada solicitud es evaluada personalmente por Mariano Calandra, con respuesta dentro de las 24 horas hábiles. Completarlo requiere menos de dos minutos.</p>
+          <p class="epi-eyebrow">Próximo paso</p>
+          <h2>Construyamos un sistema de crecimiento rentable.</h2>
+          <p>Si tu negocio necesita ordenar su adquisición, mejorar la calidad de sus oportunidades comerciales y crecer con más foco, EPIBRANDS puede integrarse como socio estratégico de crecimiento. Completá el formulario y agendamos una llamada: cada solicitud la revisa personalmente Mariano Calandra, con respuesta dentro de las 24 horas hábiles.</p>
 
           <!-- Editá data-cupos-tomados cuando se ocupe un lugar. -->
           <div class="epi-cupos epi-cupos--invert" data-cupos data-cupos-total="4" data-cupos-tomados="0">
@@ -1443,10 +1832,18 @@ input, select, textarea, button{ font-family:inherit; }
           </div>
 
           <ol class="epi-next">
-            <li><span><b>Evaluación de la solicitud.</b> Se analiza la información de la empresa antes de emitir una respuesta.</span></li>
-            <li><span><b>Entrevista de 30 minutos, sin costo</b>, en caso de que el perfil resulte compatible con el programa.</span></li>
-            <li><span><b>Inicio del programa</b>, con el plan de trabajo documentado durante la primera semana.</span></li>
+            <li><span><b>Revisamos tu negocio.</b> Analizamos la información enviada antes de responder.</span></li>
+            <li><span><b>Llamada de 30 minutos, sin costo</b>, para entender la situación comercial y ver si hay encaje.</span></li>
+            <li><span><b>Arranque del partnership</b>, con el plan de crecimiento documentado en la primera semana.</span></li>
           </ol>
+
+          <!-- Agenda: se reutiliza el link de Google Calendar que ya usa el
+               resto del sitio (/servicios/*). Si en algún momento se abre una
+               agenda propia de EPIBRANDS, se cambia solo acá. -->
+          <div class="epi-apply-links">
+            <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0ia82BAbDyGthqzolde_NV2XPid5bfoAH0WuXI1NgmCFZyf5DvB7wPZBZAt2nrZRumUXYQJATZ?gv=true" target="_blank" rel="noopener">Agendar directo en el calendario ↗</a>
+            <a href="#servicios">Conocer servicios</a>
+          </div>
         </div>
 
         <div class="epi-form-card">
@@ -1505,7 +1902,7 @@ input, select, textarea, button{ font-family:inherit; }
                   <option>Entre USD 50.000 y USD 150.000 mensuales</option>
                   <option>Más de USD 150.000 mensuales</option>
                 </select>
-                <span class="epi-field-hint">Un valor aproximado es suficiente. Permite determinar el punto de partida del programa.</span>
+                <span class="epi-field-hint">Un valor aproximado es suficiente. Permite determinar el punto de partida del trabajo.</span>
               </div>
             </div>
 
@@ -1551,7 +1948,7 @@ input, select, textarea, button{ font-family:inherit; }
                 Continuar <span aria-hidden="true">→</span>
               </button>
               <button type="submit" class="epi-form-btn epi-form-btn--full" id="epiFormSubmit">
-                Enviar solicitud <span aria-hidden="true">→</span>
+                Agendar una llamada <span aria-hidden="true">→</span>
               </button>
             </div>
 
@@ -1561,11 +1958,11 @@ input, select, textarea, button{ font-family:inherit; }
       </div>
 
       <div class="epi-contact-alt">
-        <span class="epi-contact-or">Para consultas previas a la solicitud</span>
+        <span class="epi-contact-or">¿Preferís preguntar antes?</span>
         <a class="epi-whatsapp-button"
-           href="https://wa.me/5493416397137?text=Buenos%20d%C3%ADas.%20Escribo%20desde%20el%20sitio%20web%20para%20consultar%20por%20el%20programa%20de%20consultor%C3%ADa%20EPIBRANDS."
+           href="https://wa.me/5493416397137?text=Buenos%20d%C3%ADas.%20Escribo%20desde%20el%20sitio%20web%20para%20consultar%20por%20el%20Growth%20Partnership%20de%20EPIBRANDS."
            target="_blank" rel="noopener"
-           onclick="if(window.mcTrack)window.mcTrack('Lead',{content_name:'EPIBRANDS Mentoría',content_category:'whatsapp'});">
+           onclick="if(window.mcTrack)window.mcTrack('Lead',{content_name:'EPIBRANDS Growth Partner',content_category:'whatsapp'});">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.7 8.7 0 0 1-3.6-.8L3 20.5l1.4-5.1a8.4 8.4 0 0 1-.9-3.9 8.4 8.4 0 0 1 8.5-8.4 8.4 8.4 0 0 1 9 8.4z"/></svg>
           Consultar por WhatsApp
         </a>
@@ -1585,12 +1982,13 @@ input, select, textarea, button{ font-family:inherit; }
     </a>
     <div class="foot-links">
       <a href="../index.html">Inicio</a>
-      <a href="#incluye">Alcance</a>
+      <a href="#concepto">Sistema</a>
+      <a href="#servicios">Servicios</a>
       <a href="#precio">Honorarios</a>
-      <a href="#aplicar">Postular</a>
+      <a href="#aplicar">Agendar una llamada</a>
       <a href="mailto:info@marianocalandra.com">info@marianocalandra.com</a>
     </div>
-    <p class="foot-copy">© <span id="year"></span> Mariano Calandra · EPIBRANDS. Consultoría empresarial: paid media, inteligencia artificial, automatización y procesos.</p>
+    <p class="foot-copy">© <span id="year"></span> Mariano Calandra · EPIBRANDS. Growth Partner: performance para medir, negocios para decidir, liderazgo para sostener.</p>
   </div>
 </footer>
 
