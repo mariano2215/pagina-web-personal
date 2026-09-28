@@ -149,15 +149,14 @@
   }
 
   /* ------------------------------------------------------------
-     COMPONENTES REUTILIZABLES (hoy sin uso en la página)
-     Cupos: se renderizan desde data-cupos-total / data-cupos-tomados.
-     Contadores: el valor final ya viene escrito en el HTML; la
-     animación es un extra que respeta movimiento reducido.
-     Markup listo para pegar en docs/epibrands-content-pending.md.
+     CUPOS — única fuente: data-cupos-total / data-cupos-tomados en
+     <body>. Cada [data-cupos] los puede pisar con sus propios
+     atributos. Sin JS queda el texto genérico del HTML.
      ------------------------------------------------------------ */
+  var body = document.body;
   document.querySelectorAll("[data-cupos]").forEach(function (box) {
-    var total = parseInt(box.getAttribute("data-cupos-total"), 10);
-    var taken = parseInt(box.getAttribute("data-cupos-tomados"), 10);
+    var total = parseInt(box.getAttribute("data-cupos-total") || body.getAttribute("data-cupos-total"), 10);
+    var taken = parseInt(box.getAttribute("data-cupos-tomados") || body.getAttribute("data-cupos-tomados"), 10);
     if (!(total > 0)) return;
     if (!(taken >= 0)) taken = 0;
     if (taken > total) taken = total;
@@ -184,6 +183,12 @@
     text.appendChild(document.createTextNode(rest));
   });
 
+  /* ------------------------------------------------------------
+     CONTADORES (reutilizable, hoy sin uso en la página)
+     El valor final ya viene escrito en el HTML; la animación es un
+     extra que respeta movimiento reducido. Markup listo para pegar
+     en docs/epibrands-content-pending.md.
+     ------------------------------------------------------------ */
   var counters = document.querySelectorAll("[data-counter]");
   if (counters.length && !reduceMotion && "IntersectionObserver" in window) {
     var formatCounter = function (n) { return Math.round(n).toLocaleString("es-AR"); };

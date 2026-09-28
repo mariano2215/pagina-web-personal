@@ -69,8 +69,9 @@
     "price": "990",
     "priceCurrency": "USD",
     "priceSpecification": { "@type": "UnitPriceSpecification", "price": "990", "priceCurrency": "USD", "unitText": "mes" },
+    "availability": "https://schema.org/LimitedAvailability",
     "url": "https://marianocalandra.com/epibrands/studio#aplicar",
-    "description": "Inversión mensual del Growth Partnership. El presupuesto publicitario no está incluido."
+    "description": "Inversión mensual del Growth Partnership. El presupuesto publicitario no está incluido. Cuatro negocios por período."
   }
 }
 </script>
@@ -241,10 +242,11 @@ img{ max-width:100%; }
 .hero-sub{ font-size:clamp(1rem, .94rem + .3vw, 1.18rem); color:var(--ink-soft); max-width:58ch; }
 .hero-actions{ display:flex; gap:12px; flex-wrap:wrap; }
 .hero-micro{ font-size:.92rem; color:var(--ink-soft); max-width:40rem; }
-.hero-price{
+.hero-foot{
   width:100%; max-width:40rem; padding-top:16px; border-top:1px solid var(--line);
-  font-size:.86rem; color:var(--ink-faint);
+  display:flex; flex-wrap:wrap; align-items:center; gap:10px 20px;
 }
+.hero-price{ font-size:.86rem; color:var(--ink-faint); }
 .hero-price b{ color:var(--ink); font-weight:700; }
 
 /* Etiquetas decorativas: máximo tres, solo en escritorio y en su propia
@@ -347,6 +349,7 @@ img{ max-width:100%; }
   padding:.85rem .95rem; border-radius:14px; background:rgba(255,255,255,0.78);
   border:1px solid var(--line-soft); font-size:.98rem; line-height:1.45;
 }
+.aud-note{ margin-top:1rem; font-size:.9rem; line-height:1.5; color:var(--ink-soft); }
 .aud-ic{ flex:0 0 auto; width:22px; height:22px; border-radius:50%; display:grid; place-items:center; margin-top:1px; background:rgba(79,125,91,0.18); }
 .aud-ic svg{ width:12px; height:12px; fill:none; stroke:#4F7D5B; stroke-width:2.8; stroke-linecap:round; stroke-linejoin:round; }
 
@@ -389,15 +392,6 @@ img{ max-width:100%; }
   font-size:.68rem; font-weight:700; letter-spacing:.16em; text-transform:uppercase;
 }
 
-.epi-get{ margin-top:clamp(32px,3.6vw,48px); }
-.epi-get-list{ display:grid; grid-template-columns:minmax(0,1fr); gap:10px; list-style:none; }
-.epi-get-list li{
-  display:flex; gap:.6rem; align-items:flex-start;
-  padding:1rem 1.05rem; border:1px solid var(--line); border-radius:16px; background:var(--bg);
-  font-size:.92rem; line-height:1.45; color:var(--ink-soft);
-}
-.epi-get-list li::before{ content:"✓"; content:"✓" / ""; flex:0 0 auto; color:var(--accent-ink); font-weight:700; }
-.epi-get-list b{ color:var(--ink); font-weight:600; }
 
 /* ============================================================
    PRIMEROS 30 DÍAS — etapas orientativas
@@ -501,6 +495,18 @@ img{ max-width:100%; }
   background:rgba(79,125,91,0.18); color:#4F7D5B;
   display:grid; place-items:center; font-size:.7rem; font-weight:800; margin-top:1px;
 }
+
+/* Condiciones confirmadas: permanencia, cancelación y pago */
+.epi-terms{
+  width:min(100%,980px); margin:clamp(14px,1.6vw,20px) auto 0;
+  display:grid; grid-template-columns:minmax(0,1fr); gap:12px;
+}
+.epi-term{ padding:1.1rem 1.25rem; border:1px solid var(--line); border-radius:18px; background:var(--glass-soft); }
+.epi-term dt{
+  margin-bottom:.35rem; color:var(--accent-ink);
+  font-size:.72rem; font-weight:700; letter-spacing:.16em; text-transform:uppercase;
+}
+.epi-term dd{ font-size:.93rem; line-height:1.5; color:var(--ink); }
 
 /* Cuadro de alcance: quién hace qué. Cada columna lleva data-scope
    (gestiona / asesora / cliente / externo) para poder mantenerlo por
@@ -651,6 +657,7 @@ img{ max-width:100%; }
 }
 .epi-form-alert a{ font-weight:600; text-decoration:underline; text-underline-offset:3px; }
 .epi-form-foot{ margin-top:1rem; font-size:.8rem; color:var(--ink-faint); line-height:1.4; }
+.epi-form-foot a{ color:var(--ink-soft); text-decoration:underline; text-underline-offset:3px; }
 
 .epi-contact-alt{ position:relative; z-index:1; display:flex; flex-direction:column; align-items:center; gap:.8rem; margin-top:2.4rem; }
 .epi-contact-or{ color:rgba(237,237,232,0.7); font-size:.88rem; }
@@ -664,10 +671,8 @@ img{ max-width:100%; }
 .epi-whatsapp-button svg{ width:17px; height:17px; fill:none; stroke:currentColor; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round; }
 
 /* ============================================================
-   COMPONENTES REUTILIZABLES SIN USO PÚBLICO
-   Cupos y contadores quedan disponibles, pero hoy no se renderizan:
-   faltan datos confirmados (ver docs/epibrands-content-pending.md,
-   donde está el HTML listo para pegar).
+   CUPOS — el valor sale de data-cupos-tomados en <body> (única
+   fuente). Sin JS se lee el texto genérico "Cupos limitados".
    ============================================================ */
 .epi-cupos{
   display:flex; align-items:center; gap:14px; flex-wrap:wrap;
@@ -679,6 +684,19 @@ img{ max-width:100%; }
 .epi-cupos-dot.is-taken{ background:var(--ink-faint); opacity:.34; }
 .epi-cupos-text{ font-size:13px; color:var(--ink-soft); letter-spacing:-0.005em; }
 .epi-cupos-text b{ color:var(--ink); font-weight:700; }
+.epi-price-main .epi-cupos{ margin-top:1.3rem; }
+.epi-cupos--compact{ padding:0; border:0; background:none; gap:10px; }
+.epi-cupos--compact .epi-cupos-dot{ width:18px; height:6px; }
+.epi-cupos--invert{ margin-top:1.4rem; border-color:rgba(237,237,232,0.18); background:rgba(237,237,232,0.06); }
+.epi-cupos--invert .epi-cupos-text{ color:rgba(237,237,232,0.75); }
+.epi-cupos--invert .epi-cupos-text b{ color:var(--invert-ink); }
+.epi-cupos--invert .epi-cupos-dot{ background:#9DAA98; }
+.epi-cupos--invert .epi-cupos-dot.is-taken{ background:rgba(237,237,232,0.9); opacity:.22; }
+
+/* ============================================================
+   CONTADORES — reutilizable, hoy sin uso: faltan datos con
+   contexto (HTML listo en docs/epibrands-content-pending.md).
+   ============================================================ */
 
 .epi-counters{ display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:1rem; }
 .epi-counter{ padding:1.4rem; border:1px solid var(--line); border-radius:20px; background:var(--glass); }
@@ -739,9 +757,11 @@ img{ max-width:100%; }
 }
 @media (min-width:640px){
   .epi-problems{ grid-template-columns:repeat(2,minmax(0,1fr)); }
-  .epi-get-list{ grid-template-columns:repeat(2,minmax(0,1fr)); }
   .epi-stages{ grid-template-columns:repeat(2,minmax(0,1fr)); }
   .epi-scope-grid{ grid-template-columns:repeat(2,minmax(0,1fr)); }
+}
+@media (min-width:860px){
+  .epi-terms{ grid-template-columns:repeat(3,minmax(0,1fr)); }
 }
 @media (min-width:760px){
   .section-head{ grid-template-columns:minmax(0,.42fr) minmax(0,1fr); align-items:start; gap:40px; }
@@ -764,7 +784,6 @@ img{ max-width:100%; }
   .epi-fit{ grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr); }
 }
 @media (min-width:1080px){
-  .epi-get-list{ grid-template-columns:repeat(5,minmax(0,1fr)); }
   .epi-stages{ grid-template-columns:repeat(4,minmax(0,1fr)); }
   .epi-scope-grid{ grid-template-columns:repeat(4,minmax(0,1fr)); }
 }
@@ -806,7 +825,9 @@ img{ max-width:100%; }
 </style>
 </head>
 
-<body>
+<!-- Cupos: ÚNICA fuente. Al tomar o liberar un lugar, cambiar solo
+     data-cupos-tomados; studio.js actualiza los tres indicadores. -->
+<body data-cupos-total="4" data-cupos-tomados="1">
 
 <!-- Meta Pixel noscript (fallback sin JS) -->
 <noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=1460516722431287&ev=PageView&noscript=1"/></noscript>
@@ -851,7 +872,13 @@ img{ max-width:100%; }
           <a href="#servicios" class="btn btn-ghost">Ver cómo trabajamos</a>
         </div>
         <p class="hero-micro">Llamada inicial de 30 minutos, sin costo. Atención directa de Mariano Calandra.</p>
-        <p class="hero-price">Partnership: <b>USD 990/mes</b> + inversión publicitaria.</p>
+        <div class="hero-foot">
+          <p class="hero-price">Partnership: <b>USD 990/mes</b> + inversión publicitaria.</p>
+          <p class="epi-cupos epi-cupos--compact" data-cupos>
+            <span class="epi-cupos-dots" aria-hidden="true"></span>
+            <span class="epi-cupos-text"><b>Cupos limitados</b> · cuatro negocios por período</span>
+          </p>
+        </div>
       </div>
 
       <!-- Decorativo: los tres frentes del trabajo (solo escritorio). -->
@@ -949,12 +976,13 @@ img{ max-width:100%; }
 
       <div class="epi-fit">
         <div class="aud-col" data-reveal>
-          <div class="aud-head"><h3>El acompañamiento encaja si…</h3></div>
+          <div class="aud-head"><h3>Requisitos para aplicar</h3></div>
           <ul class="aud-list">
             <li><span class="aud-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span>Tenés una oferta que ya genera ventas.</li>
             <li><span class="aud-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span>Podés destinar recursos al acompañamiento y a la publicidad.</li>
             <li><span class="aud-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span>Quien toma decisiones participa y puede implementar mejoras comerciales.</li>
           </ul>
+          <p class="aud-note">Cada solicitud se evalúa con estos requisitos. Solo tomamos los negocios que los cumplen.</p>
         </div>
 
         <div id="problemas">
@@ -984,8 +1012,8 @@ img{ max-width:100%; }
 
   <!-- ========================================================
        4. QUÉ INCLUYE Y CÓMO TRABAJAMOS
-       #concepto, #pilares e #incluye quedan en bloques internos
-       para no romper links antiguos.
+       #concepto y #pilares quedan en bloques internos para no romper
+       links antiguos (#incluye está en la lista de Inversión).
        ======================================================== -->
   <section class="section section--deep" id="servicios" aria-labelledby="servicios-title">
     <div class="wrap">
@@ -1017,17 +1045,6 @@ img{ max-width:100%; }
           <p class="epi-out"><span class="epi-out-label">Resultado del trabajo</span>Prioridades documentadas, con responsables y fechas.</p>
         </article>
       </div>
-
-      <div class="epi-get" id="incluye">
-        <h3 class="epi-subhead">Qué obtenés</h3>
-        <ul class="epi-get-list">
-          <li><span><b>Diagnóstico</b> del negocio, la oferta, los canales y el seguimiento.</span></li>
-          <li><span><b>Plan priorizado</b> con las próximas mejoras.</span></li>
-          <li><span><b>Campañas gestionadas</b> según el alcance acordado.</span></li>
-          <li><span><b>Indicadores</b> revisados en cada reunión.</span></li>
-          <li><span><b>Acciones semanales</b> con responsables.</span></li>
-        </ul>
-      </div>
     </div>
   </section>
 
@@ -1049,7 +1066,7 @@ img{ max-width:100%; }
           <span class="epi-stage-num">Etapa 1</span>
           <h3 class="epi-stage-title">Diagnóstico</h3>
           <p class="epi-stage-work">Revisamos el negocio, la oferta, los canales y el seguimiento.</p>
-          <p class="epi-out"><span class="epi-out-label">Resultado esperado</span>Prioridades iniciales.</p>
+          <p class="epi-out"><span class="epi-out-label">Resultado esperado</span>Plan de crecimiento documentado, en la primera semana.</p>
         </li>
         <li class="epi-stage epi-motion-card" data-reveal data-reveal-delay="1">
           <span class="epi-stage-num">Etapa 2</span>
@@ -1071,7 +1088,7 @@ img{ max-width:100%; }
         </li>
       </ol>
 
-      <p class="epi-note">El plan inicial ordena prioridades a partir del diagnóstico; no reemplaza una auditoría técnica completa.</p>
+      <p class="epi-note">El plan de la primera semana ordena prioridades a partir del diagnóstico; no reemplaza una auditoría técnica completa.</p>
     </div>
   </section>
 
@@ -1112,7 +1129,7 @@ img{ max-width:100%; }
       <div class="epi-price-card epi-motion-card">
         <header class="epi-price-header">
           <span class="epi-price-flag">Growth Partnership</span>
-          <span class="epi-price-plan">Consultá disponibilidad</span>
+          <span class="epi-price-plan">Formato único · Individual</span>
         </header>
 
         <div class="epi-price-main">
@@ -1123,20 +1140,44 @@ img{ max-width:100%; }
           </p>
           <p class="epi-price-desc"><b>El presupuesto publicitario se paga aparte</b>, directamente a las plataformas desde las cuentas del cliente. EPIBRANDS gestiona las campañas dentro del alcance acordado.</p>
           <p class="epi-price-desc">El trabajo se organiza con un horizonte de seis meses para implementar, medir y ajustar las mejoras. Los resultados dependen del punto de partida, la inversión, la oferta y la ejecución del negocio.</p>
+          <p class="epi-cupos" data-cupos>
+            <span class="epi-cupos-dots" aria-hidden="true"></span>
+            <span class="epi-cupos-text"><b>Cupos limitados</b> · cuatro negocios por período</span>
+          </p>
           <a href="#aplicar" class="btn btn-solid" data-cta="precio"><span class="dot" aria-hidden="true"></span> Solicitar una llamada</a>
         </div>
 
-        <div class="epi-price-format">
-          <h3 class="epi-price-format-title">Formato de trabajo</h3>
+        <div class="epi-price-format" id="incluye">
+          <h3 class="epi-price-format-title">Incluye</h3>
           <ul class="epi-price-list">
-            <li>Reunión semanal de 60 minutos con Mariano Calandra</li>
-            <li>Canal de consultas entre reuniones</li>
-            <li>Conducción directa, sin equipos intermedios</li>
-            <li>Horizonte de trabajo de seis meses</li>
-            <li>Cuatro negocios por período</li>
+            <li>Growth meeting semanal de 60 minutos con Mariano Calandra</li>
+            <li>Diagnóstico inicial del negocio, la oferta y el embudo</li>
+            <li>Plan de crecimiento documentado a seis meses</li>
+            <li>Estrategia y gestión de Meta Ads, Google Ads y TikTok Ads</li>
+            <li>Medición con GA4 y Google Tag Manager, y lectura de CPA, ROAS y CPL</li>
+            <li>Revisión de la calidad de leads y del proceso comercial</li>
+            <li>Asesoramiento en propuesta de valor, oferta, pricing y margen</li>
+            <li>Automatización de seguimiento, WhatsApp y CRM</li>
+            <li>Tablero de indicadores y próximos pasos priorizados</li>
+            <li>Canal directo de consulta por WhatsApp entre reuniones, con respuesta inmediata</li>
           </ul>
         </div>
       </div>
+
+      <dl class="epi-terms" aria-label="Condiciones">
+        <div class="epi-term">
+          <dt>Permanencia mínima</dt>
+          <dd>Tres meses: el tiempo que necesita el proceso para implementar los cambios y medirlos con seriedad.</dd>
+        </div>
+        <div class="epi-term">
+          <dt>Cancelación</dt>
+          <dd>Por escrito, con 7 días de anticipación.</dd>
+        </div>
+        <div class="epi-term">
+          <dt>Forma de pago</dt>
+          <dd>PayPal, Stripe u otras plataformas de pago internacionales. En Argentina, también por transferencia en pesos a la cotización del dólar del día.</dd>
+        </div>
+      </dl>
 
       <div class="epi-scope" aria-labelledby="scope-title">
         <h3 class="epi-scope-title" id="scope-title">Quién hace qué</h3>
@@ -1144,9 +1185,10 @@ img{ max-width:100%; }
           <div class="epi-scope-col" data-scope="gestiona">
             <h4>EPIBRANDS gestiona</h4>
             <ul>
-              <li>Campañas en Meta Ads, Google Ads u otros canales, dentro del alcance acordado.</li>
-              <li>Revisión y ajustes de la medición (GA4 y Google Tag Manager).</li>
-              <li>Reunión semanal, tablero de seguimiento y próximos pasos documentados.</li>
+              <li>Estrategia y gestión de campañas en Meta Ads, Google Ads y TikTok Ads.</li>
+              <li>Medición con GA4 y Google Tag Manager.</li>
+              <li>Automatización de seguimiento, WhatsApp y CRM: si no los tenés, te acompañamos en la creación y la implementación.</li>
+              <li>Growth meeting semanal, tablero de indicadores y plan documentado.</li>
             </ul>
           </div>
           <div class="epi-scope-col" data-scope="asesora">
@@ -1169,6 +1211,7 @@ img{ max-width:100%; }
             <h4>Costos aparte</h4>
             <ul>
               <li>Presupuesto publicitario, pagado directamente a las plataformas desde las cuentas del cliente.</li>
+              <li>Licencias de herramientas (CRM, automatización y otras), a cargo del cliente.</li>
             </ul>
           </div>
         </div>
@@ -1191,11 +1234,7 @@ img{ max-width:100%; }
       <div class="faq">
         <details class="faq-item">
           <summary>¿Gestionás las campañas o solo asesorás?</summary>
-          <div class="faq-body">Las dos cosas. EPIBRANDS gestiona tus campañas dentro del alcance acordado y, en paralelo, asesora sobre la oferta, la medición y el seguimiento comercial. El detalle está en <a href="#precio">Quién hace qué</a>.</div>
-        </details>
-        <details class="faq-item">
-          <summary>¿Qué incluye el acompañamiento?</summary>
-          <div class="faq-body">Diagnóstico y plan priorizado, gestión de campañas según el alcance acordado, revisión de la medición y del seguimiento comercial, una reunión semanal de 60 minutos con Mariano y un canal de consultas entre reuniones.</div>
+          <div class="faq-body">Las dos cosas. EPIBRANDS gestiona tus campañas en Meta Ads, Google Ads y TikTok Ads y, en paralelo, asesora sobre la oferta, la medición y el seguimiento comercial. El detalle está en <a href="#precio">Inversión y alcance</a>.</div>
         </details>
         <details class="faq-item">
           <summary>¿La inversión publicitaria está incluida?</summary>
@@ -1203,23 +1242,27 @@ img{ max-width:100%; }
         </details>
         <details class="faq-item">
           <summary>¿Qué necesitamos tener para empezar?</summary>
-          <div class="faq-body">Una oferta que ya genere ventas, la participación de quien toma las decisiones y acceso a las cuentas publicitarias y a la medición. No pedimos un mínimo de facturación. Si el negocio todavía está validando su oferta, te lo decimos al responder la solicitud.</div>
+          <div class="faq-body">Una oferta que ya genere ventas, la participación de quien toma las decisiones y acceso a las cuentas publicitarias y a la medición. Si todavía no tenés CRM o automatizaciones, te acompañamos en la creación y la implementación; las licencias de las herramientas quedan a cargo del cliente. No pedimos un mínimo de facturación.</div>
         </details>
         <details class="faq-item">
           <summary>¿Cómo es la llamada inicial?</summary>
-          <div class="faq-body">Dura 30 minutos, es sin costo y la hace Mariano. Sirve para conocer tu situación, entender qué querés mejorar y evaluar si el acompañamiento es adecuado. Se coordina por email o WhatsApp después de revisar tu solicitud.</div>
+          <div class="faq-body">Dura 30 minutos, es sin costo y la hace Mariano. Sirve para conocer tu situación, entender qué querés mejorar y evaluar si tu negocio cumple los requisitos. Se coordina por email o WhatsApp después de revisar tu solicitud.</div>
         </details>
         <details class="faq-item">
           <summary>¿Cómo se organiza el trabajo durante los seis meses?</summary>
-          <div class="faq-body">El primer mes se dedica al diagnóstico, la medición y las primeras mejoras. Después, cada semana se revisan indicadores, se definen prioridades y se asignan próximos pasos. Los ajustes se deciden con un período y un volumen de datos adecuados, no por resultados aislados. Los resultados dependen del punto de partida, la inversión, la oferta y la ejecución del negocio.</div>
+          <div class="faq-body">En la primera semana entregamos el plan de crecimiento documentado. Después, cada semana se revisan indicadores, se definen prioridades y se asignan próximos pasos. Los ajustes se deciden con un período y un volumen de datos adecuados, no por resultados aislados. Los resultados dependen del punto de partida, la inversión, la oferta y la ejecución del negocio.</div>
         </details>
         <details class="faq-item">
-          <summary>¿Por qué trabajan con cuatro negocios por período?</summary>
-          <div class="faq-body">Porque Mariano participa de forma directa en cada acompañamiento: reuniones semanales, revisión de campañas y consultas entre reuniones. Si al momento de tu solicitud no hay disponibilidad, te lo decimos y la solicitud queda en lista de espera.</div>
+          <summary>¿Hay permanencia mínima? ¿Cómo se cancela?</summary>
+          <div class="faq-body">Sí, la permanencia mínima es de tres meses: es el tiempo que necesita el proceso para implementar los cambios y medirlos con seriedad. La cancelación se pide por escrito, con 7 días de anticipación.</div>
         </details>
         <details class="faq-item">
-          <summary>¿Trabajan con negocios fuera de la Argentina?</summary>
-          <div class="faq-body">Sí. El trabajo es remoto y en español, con negocios de Latinoamérica y España. Los horarios de las reuniones se coordinan según tu zona horaria.</div>
+          <summary>¿Trabajan con negocios fuera de la Argentina? ¿Cómo se paga?</summary>
+          <div class="faq-body">Sí. El trabajo es remoto y en español, con negocios de Latinoamérica y España, y los horarios se coordinan según tu zona horaria. El pago se hace por PayPal, Stripe u otras plataformas de pago internacionales. En Argentina también se puede pagar por transferencia en pesos, a la cotización del dólar del día.</div>
+        </details>
+        <details class="faq-item">
+          <summary>¿Por qué hay cupos?</summary>
+          <div class="faq-body">Porque Mariano participa de forma directa en cada acompañamiento, así que trabajamos con cuatro negocios por período. Además, no tomamos cualquier negocio: solo los que cumplen los <a href="#para-quien">requisitos</a>. Si al momento de tu solicitud no hay lugar, te lo decimos y la solicitud queda en lista de espera.</div>
         </details>
       </div>
     </div>
@@ -1239,7 +1282,11 @@ img{ max-width:100%; }
         <div class="epi-apply-aside">
           <p class="epi-eyebrow">Solicitud</p>
           <h2 id="aplicar-title">Contanos qué querés mejorar de tu negocio.</h2>
-          <p class="epi-apply-intro">Mariano revisa cada solicitud y responde dentro de las 24 horas hábiles. La llamada inicial dura 30 minutos, es sin costo y sirve para conocer tu situación y evaluar si podemos ayudarte.</p>
+          <p class="epi-apply-intro">Mariano revisa cada solicitud y responde dentro de las 24 horas hábiles. Solo tomamos los negocios que cumplen los requisitos. La llamada inicial dura 30 minutos, es sin costo y sirve para conocer tu situación y evaluar si podemos ayudarte.</p>
+          <p class="epi-cupos epi-cupos--invert" data-cupos>
+            <span class="epi-cupos-dots" aria-hidden="true"></span>
+            <span class="epi-cupos-text"><b>Cupos limitados</b> · cuatro negocios por período</span>
+          </p>
           <ol class="epi-flow" aria-label="Cómo sigue">
             <li>Solicitud</li>
             <li>Revisión de Mariano</li>
@@ -1315,7 +1362,7 @@ img{ max-width:100%; }
               </div>
             </div>
 
-            <p class="epi-form-foot">La información es confidencial y no se comparte con terceros.</p>
+            <p class="epi-form-foot">Usamos tus datos solo para responder tu solicitud; no los vendemos ni los cedemos. <a href="/privacidad.html">Política de privacidad</a>.</p>
           </form>
         </div>
       </div>
@@ -1349,6 +1396,7 @@ img{ max-width:100%; }
       <a href="#faq">Preguntas</a>
       <a href="#aplicar" data-cta="footer">Solicitar una llamada</a>
       <a href="mailto:info@marianocalandra.com">info@marianocalandra.com</a>
+      <a href="/privacidad.html">Privacidad</a>
     </nav>
     <p class="foot-copy">© <span id="year">2026</span> Mariano Calandra · EPIBRANDS · Growth Partner.</p>
   </div>
