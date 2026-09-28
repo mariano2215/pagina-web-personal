@@ -1,336 +1,413 @@
 /* ============================================================
-   EPIBRANDS — Mentoría | JavaScript
-   Externo (no inline) para cumplir la CSP del sitio:
-   script-src 'self' ... (los <script> inline están bloqueados).
+   EPIBRANDS — Growth Partner | JavaScript
+   Externo (no inline) para cumplir la CSP del sitio.
+   Todo es mejora progresiva: sin JS la página se lee completa
+   y el formulario se envía igual a Netlify Forms (POST nativo).
    ============================================================ */
 
-/* ------------------------------------------------------------
-   BLOQUE 1 — header sticky, menú mobile, mask reveal
-   ------------------------------------------------------------ */
-(function(){
-  // año footer
-  var yearEl = document.getElementById('year');
+(function () {
+  var root = document.documentElement;
+  root.classList.add("js");
+
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var PAGE_PATH = window.location.pathname;
+  var FORM_NAME = "epibrands-studio";
+
+  /* ------------------------------------------------------------
+     ANALÍTICA — adaptador desacoplado
+     Empuja eventos a window.dataLayer (convención GA4/GTM del
+     sitio). Esta página hoy NO carga GTM: los eventos quedan en el
+     dataLayer hasta que se conecte (ver docs/epibrands-measurement.md).
+     Meta sigue igual que en el resto del sitio: meta-pixel.js marca
+     los clicks a WhatsApp como Contact y gracias.html dispara Lead.
+     Solo pasan los parámetros de la lista: nunca nombre, email,
+     teléfono, texto libre ni URLs ingresadas.
+     ------------------------------------------------------------ */
+  var ALLOWED_PARAMS = ["cta_location", "cta_label", "link_location"];
+
+  function track(eventName, params) {
+    var payload = { event: eventName, page_path: PAGE_PATH };
+    params = params || {};
+    ALLOWED_PARAMS.forEach(function (key) {
+      var value = params[key];
+      if (typeof value === "string" || typeof value === "number") {
+        payload[key] = String(value).slice(0, 100);
+      }
+    });
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push(payload);
+  }
+
+  document.addEventListener("click", function (e) {
+    if (!e.target.closest) return;
+    var cta = e.target.closest("[data-cta]");
+    if (cta) {
+      track("cta_click", {
+        cta_location: cta.getAttribute("data-cta"),
+        cta_label: (cta.textContent || "").replace(/\s+/g, " ").trim()
+      });
+    }
+    var wa = e.target.closest('a[href*="wa.me"]');
+    if (wa) {
+      track("whatsapp_click", { link_location: wa.getAttribute("data-wa-location") || "otro" });
+    }
+  }, true);
+
+  /* ------------------------------------------------------------
+     HEADER, AÑO Y PROGRESO DE SCROLL
+     ------------------------------------------------------------ */
+  var yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  // header al hacer scroll
-  var header = document.getElementById('header');
-  if (header) {
-    var onScroll = function(){ header.classList.toggle('is-scrolled', window.scrollY > 24); };
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive:true });
+  var header = document.getElementById("header");
+  var progressBar = document.querySelector(".epi-scroll-progress");
+  function onScroll() {
+    var y = window.scrollY || document.documentElement.scrollTop;
+    if (header) header.classList.toggle("is-scrolled", y > 24);
+    if (progressBar) {
+      var max = document.documentElement.scrollHeight - window.innerHeight;
+      progressBar.style.width = (max > 0 ? (y / max) * 100 : 0) + "%";
+    }
   }
+  onScroll();
+  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", onScroll);
 
-  // menú mobile
-  var toggle = document.getElementById('navToggle');
-  var links  = document.getElementById('navLinks');
+  /* ------------------------------------------------------------
+     MENÚ MOBILE — overlay a pantalla completa
+     Al abrir, el foco pasa al primer link y queda atrapado entre
+     los links y el botón; Escape cierra y devuelve el foco.
+     ------------------------------------------------------------ */
+  var toggle = document.getElementById("navToggle");
+  var links = document.getElementById("navLinks");
   if (toggle && links) {
-    toggle.addEventListener('click', function(){
-      var open = links.classList.toggle('open');
-      toggle.setAttribute('aria-expanded', open);
-      toggle.textContent = open ? 'Cerrar' : 'Menú';
-    });
-    links.addEventListener('click', function(e){
-      if(e.target.tagName === 'A' || e.target.closest('a')){
-        links.classList.remove('open');
-        toggle.setAttribute('aria-expanded', false);
-        toggle.textContent = 'Menú';
+    var isOpen = function () { return links.classList.contains("open"); };
+    var setMenu = function (open, returnFocus) {
+      links.classList.toggle("open", open);
+      document.body.classList.toggle("nav-open", open);
+      toggle.setAttribute("aria-expanded", String(open));
+      toggle.textContent = open ? "Cerrar" : "Menú";
+      if (open) {
+        var first = links.querySelector("a");
+        if (first) first.focus();
+      } else if (returnFocus) {
+        toggle.focus();
       }
+    };
+
+    toggle.addEventListener("click", function () { setMenu(!isOpen(), false); });
+    links.addEventListener("click", function (e) {
+      if (isOpen() && e.target.closest && e.target.closest("a")) setMenu(false, false);
+    });
+    document.addEventListener("keydown", function (e) {
+      if (!isOpen()) return;
+      if (e.key === "Escape") { setMenu(false, true); return; }
+      if (e.key !== "Tab") return;
+      var items = Array.prototype.slice.call(links.querySelectorAll("a")).concat(toggle);
+      var first = items[0], last = items[items.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    });
+
+    // Si se agranda la ventana con el menú abierto, se cierra solo.
+    var desktop = window.matchMedia("(min-width: 1024px)");
+    var onChange = function () { if (desktop.matches && isOpen()) setMenu(false, false); };
+    if (desktop.addEventListener) desktop.addEventListener("change", onChange);
+    else if (desktop.addListener) desktop.addListener(onChange);
+  }
+
+  /* ------------------------------------------------------------
+     REVEAL — solo oculta lo que está fuera de pantalla y se
+     muestra una vez (sin reanimar al salir).
+     ------------------------------------------------------------ */
+  var revealEls = document.querySelectorAll("[data-reveal]");
+  if (reduceMotion || !("IntersectionObserver" in window)) {
+    revealEls.forEach(function (el) { el.classList.add("is-visible"); });
+  } else {
+    var revealObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0, rootMargin: "0px 0px -8% 0px" });
+    revealEls.forEach(function (el) { revealObserver.observe(el); });
+  }
+
+  /* ------------------------------------------------------------
+     MOUSE-GLOW EN CARDS
+     ------------------------------------------------------------ */
+  if (!reduceMotion) {
+    document.querySelectorAll(".epi-motion-card").forEach(function (card) {
+      card.addEventListener("mousemove", function (event) {
+        var rect = card.getBoundingClientRect();
+        card.style.setProperty("--mouse-x", ((event.clientX - rect.left) / rect.width) * 100 + "%");
+        card.style.setProperty("--mouse-y", ((event.clientY - rect.top) / rect.height) * 100 + "%");
+      });
     });
   }
 
-  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  /* ------------------------------------------------------------
+     CUPOS — única fuente: data-cupos-total / data-cupos-tomados en
+     <body>. Cada [data-cupos] los puede pisar con sus propios
+     atributos. Sin JS queda el texto genérico del HTML.
+     ------------------------------------------------------------ */
+  var body = document.body;
+  document.querySelectorAll("[data-cupos]").forEach(function (box) {
+    var total = parseInt(box.getAttribute("data-cupos-total") || body.getAttribute("data-cupos-total"), 10);
+    var taken = parseInt(box.getAttribute("data-cupos-tomados") || body.getAttribute("data-cupos-tomados"), 10);
+    if (!(total > 0)) return;
+    if (!(taken >= 0)) taken = 0;
+    if (taken > total) taken = total;
+    var left = total - taken;
 
-  // ---- Mask reveal por palabras -------------------------------------
-  // Envuelve cada palabra de los títulos en una máscara recortada para
-  // que aparezca deslizándose. Preserva <em>, <span>, <b>, etc.
-  function splitWords(el, counter){
-    var nodes = Array.prototype.slice.call(el.childNodes);
-    nodes.forEach(function(node){
-      if(node.nodeType === 3){ // nodo de texto
-        var parts = node.textContent.split(/(\s+)/);
-        var frag = document.createDocumentFragment();
-        parts.forEach(function(part){
-          if(part === '') return;
-          if(/^\s+$/.test(part)){ frag.appendChild(document.createTextNode(part)); return; }
-          var word = document.createElement('span'); word.className = 'word';
-          var inner = document.createElement('span');
-          inner.textContent = part;
-          // escalonado suave, con tope para textos largos
-          inner.style.transitionDelay = Math.min(counter.i, 18) * 0.045 + 's';
-          counter.i++;
-          word.appendChild(inner);
-          frag.appendChild(word);
-        });
-        el.replaceChild(frag, node);
-      } else if(node.nodeType === 1){
-        splitWords(node, counter); // recursa preservando el elemento
+    var dots = box.querySelector(".epi-cupos-dots");
+    if (dots) {
+      dots.textContent = "";
+      for (var i = 0; i < total; i++) {
+        var dot = document.createElement("span");
+        dot.className = "epi-cupos-dot" + (i < taken ? " is-taken" : "");
+        dots.appendChild(dot);
       }
-    });
-  }
+    }
+    var text = box.querySelector(".epi-cupos-text");
+    if (!text) return;
+    var strong = document.createElement("b");
+    var rest;
+    if (left === 0) { strong.textContent = "Sin cupos disponibles"; rest = " · lista de espera abierta"; }
+    else if (left === 1) { strong.textContent = "1 cupo"; rest = " disponible"; }
+    else { strong.textContent = left + " de " + total + " cupos"; rest = " disponibles"; }
+    text.textContent = "";
+    text.appendChild(strong);
+    text.appendChild(document.createTextNode(rest));
+  });
 
-  var maskSelector = '.hero h1, .manifesto blockquote, .section-head h2, .principle h3';
-  if(!reduce){
-    document.querySelectorAll(maskSelector).forEach(function(el){
-      splitWords(el, { i:0 });
-      el.classList.add('mask');
-    });
-    // líneas divisorias que se "dibujan" al entrar
-    document.querySelectorAll('.hero-bottom, .principles').forEach(function(el){
-      el.classList.add('drawline');
-    });
+  /* ------------------------------------------------------------
+     CONTADORES (reutilizable, hoy sin uso en la página)
+     El valor final ya viene escrito en el HTML; la animación es un
+     extra que respeta movimiento reducido. Markup listo para pegar
+     en docs/epibrands-content-pending.md.
+     ------------------------------------------------------------ */
+  var counters = document.querySelectorAll("[data-counter]");
+  if (counters.length && !reduceMotion && "IntersectionObserver" in window) {
+    var formatCounter = function (n) { return Math.round(n).toLocaleString("es-AR"); };
+    var counterObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        counterObserver.unobserve(entry.target);
+        var el = entry.target;
+        var target = Number(el.getAttribute("data-counter"));
+        if (!isFinite(target)) return;
+        var start = performance.now();
+        var tick = function (now) {
+          var p = Math.min((now - start) / 1400, 1);
+          el.textContent = formatCounter(target * (1 - Math.pow(1 - p, 3)));
+          if (p < 1) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+      });
+    }, { threshold: 0.5 });
+    counters.forEach(function (c) { counterObserver.observe(c); });
   }
-
-  // ---- Observer bidireccional (entrada Y salida) --------------------
-  var animated = document.querySelectorAll('.reveal, .mask, .drawline');
-  if(reduce){
-    animated.forEach(function(el){ el.classList.add('in'); });
-    return;
-  }
-  var io = new IntersectionObserver(function(entries){
-    entries.forEach(function(en){
-      en.target.classList.toggle('in', en.isIntersecting);
-    });
-  }, { threshold:0.15, rootMargin:'0px 0px -8% 0px' });
-  animated.forEach(function(el){ io.observe(el); });
 })();
 
-/* ------------------------------------------------------------
-   BLOQUE 2 — progreso de scroll, reveal global, cupos,
-   counters, mouse-glow y formulario de aplicación en pasos
-   ------------------------------------------------------------ */
-(function(){
-  function init(){
-    var prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+/* ============================================================
+   FORMULARIO DE SOLICITUD
+   - Validación en el cliente con errores junto a cada campo y un
+     resumen accesible. Netlify Forms no valida campos del lado del
+     servidor (solo el nombre del form y el antispam).
+   - Envío por fetch al mismo endpoint (action) del POST nativo.
+     Solo si Netlify responde OK se pasa a gracias.html; si falla,
+     los datos quedan en el formulario y se muestra el error.
+   - Bloqueo de doble envío mientras la solicitud está en curso.
+   ============================================================ */
+(function () {
+  var form = document.getElementById("epiApplyForm");
+  if (!form || !window.fetch || !window.FormData) return;
 
-    /* --- Scroll progress --- */
-    var progressBar = document.querySelector(".epi-scroll-progress");
-    function updateScrollProgress() {
-      if (!progressBar) return;
-      var scrollTop = window.scrollY || document.documentElement.scrollTop;
-      var docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      var progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-      progressBar.style.width = progress + "%";
-    }
-    updateScrollProgress();
-    window.addEventListener("scroll", updateScrollProgress, { passive: true });
-    window.addEventListener("resize", updateScrollProgress);
+  var FORM_NAME = "epibrands-studio";
+  var MAX_MSG = 600;
+  var PAGE_PATH = window.location.pathname;
 
-    /* --- Reveal global (data-reveal) --- */
-    var revealElements = document.querySelectorAll("[data-reveal]");
-    if (prefersReducedMotion) {
-      revealElements.forEach(function (el) { el.classList.add("is-visible"); });
-    } else {
-      var revealObserver = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-            revealObserver.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.14, rootMargin: "0px 0px -8% 0px" });
-      revealElements.forEach(function (el) { revealObserver.observe(el); });
-    }
+  var submitBtn = document.getElementById("epiFormSubmit");
+  var submitText = submitBtn ? submitBtn.textContent : "";
+  var summary = document.getElementById("epiFormSummary");
+  var summaryList = summary ? summary.querySelector("ul") : null;
+  var alertBox = document.getElementById("epiFormAlert");
+  var msgCount = document.getElementById("c-objetivo");
 
-    /* --- Indicador de cupos -----------------------------------------
-       Los valores salen de data-cupos-total / data-cupos-tomados en el
-       HTML. Para marcar un cupo como ocupado, subí data-cupos-tomados
-       en los tres bloques (hero, precio y aplicación).                */
-    document.querySelectorAll("[data-cupos]").forEach(function (box) {
-      var total = parseInt(box.getAttribute("data-cupos-total"), 10);
-      var taken = parseInt(box.getAttribute("data-cupos-tomados"), 10);
-      if (!(total > 0)) total = 4;
-      if (!(taken >= 0)) taken = 0;
-      if (taken > total) taken = total;
-      var left = total - taken;
-
-      var dots = box.querySelector(".epi-cupos-dots");
-      if (dots) {
-        dots.textContent = "";
-        for (var i = 0; i < total; i++) {
-          var dot = document.createElement("span");
-          dot.className = "epi-cupos-dot" + (i < taken ? " is-taken" : "");
-          dots.appendChild(dot);
-        }
-      }
-
-      var text = box.querySelector(".epi-cupos-text");
-      if (!text) return;
-      var strong = document.createElement("b");
-      var rest = "";
-      if (left === 0) {
-        strong.textContent = "Sin cupos disponibles";
-        rest = " · lista de espera abierta";
-      } else if (left === 1) {
-        strong.textContent = "1 cupo";
-        rest = " disponible";
-      } else if (left === total) {
-        strong.textContent = total + " cupos";
-        rest = " disponibles";
-      } else {
-        strong.textContent = left + " de " + total + " cupos";
-        rest = " disponibles";
-      }
-      text.textContent = "";
-      text.appendChild(strong);
-      text.appendChild(document.createTextNode(rest));
-    });
-
-    /* --- Counters animados --- */
-    var counters = document.querySelectorAll("[data-counter]");
-    function formatCounter(n) { return Math.round(n).toLocaleString("es-AR"); }
-    function animateCounter(counter) {
-      var target = Number(counter.getAttribute("data-counter"));
-      var duration = 1400;
-      var startTime = performance.now();
-      function tick(now) {
-        var elapsed = now - startTime;
-        var progress = Math.min(elapsed / duration, 1);
-        var eased = 1 - Math.pow(1 - progress, 3);
-        counter.textContent = formatCounter(target * eased);
-        if (progress < 1) { requestAnimationFrame(tick); }
-        else { counter.textContent = formatCounter(target); }
-      }
-      requestAnimationFrame(tick);
-    }
-    if (prefersReducedMotion) {
-      counters.forEach(function (c) { c.textContent = formatCounter(Number(c.getAttribute("data-counter"))); });
-    } else {
-      var counterObserver = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            animateCounter(entry.target);
-            counterObserver.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.5 });
-      counters.forEach(function (c) { counterObserver.observe(c); });
-    }
-
-    /* --- Mouse-glow en cards --- */
-    if (!prefersReducedMotion) {
-      document.querySelectorAll(".epi-motion-card").forEach(function (card) {
-        card.addEventListener("mousemove", function (event) {
-          var rect = card.getBoundingClientRect();
-          var x = ((event.clientX - rect.left) / rect.width) * 100;
-          var y = ((event.clientY - rect.top) / rect.height) * 100;
-          card.style.setProperty("--mouse-x", x + "%");
-          card.style.setProperty("--mouse-y", y + "%");
-        });
-      });
-    }
-
-    /* --- Formulario de aplicación en 3 pasos -------------------------
-       Sin JS el formulario se ve completo y funciona igual: los pasos
-       solo se activan cuando esta clase se agrega.                     */
-    var form = document.getElementById("epiApplyForm");
-    if (!form) return;
-    var panels = Array.prototype.slice.call(form.querySelectorAll(".epi-step-panel"));
-    if (panels.length < 2) return;
-
-    var btnNext   = document.getElementById("epiFormNext");
-    var btnBack   = document.getElementById("epiFormBack");
-    var btnSubmit = document.getElementById("epiFormSubmit");
-    var title     = document.getElementById("epiFormTitle");
-    var count     = document.getElementById("epiFormCount");
-    var bar       = document.getElementById("epiFormBar");
-    var card      = form.closest(".epi-form-card") || form;
-
-    form.classList.add("js-steps");
-    var current = 0;
-
-    function fieldsOf(panel) {
-      return Array.prototype.slice.call(panel.querySelectorAll("input, select, textarea"));
-    }
-
-    function render(scroll) {
-      panels.forEach(function (p, i) { p.classList.toggle("is-active", i === current); });
-      if (title) title.textContent = panels[current].getAttribute("data-title") || "";
-      if (count) count.textContent = "Paso " + (current + 1) + " de " + panels.length;
-      if (bar)   bar.style.width = ((current + 1) / panels.length) * 100 + "%";
-
-      var last = current === panels.length - 1;
-      if (btnNext)   btnNext.hidden   = last;
-      if (btnSubmit) btnSubmit.hidden = !last;
-      if (btnBack)   btnBack.hidden   = current === 0;
-
-      if (scroll) {
-        var top = card.getBoundingClientRect().top;
-        if (top < 70) {
-          window.scrollTo({
-            top: window.scrollY + top - 90,
-            behavior: prefersReducedMotion ? "auto" : "smooth"
-          });
-        }
-        var first = fieldsOf(panels[current]).filter(function (f) { return f.type !== "hidden"; })[0];
-        if (first) { try { first.focus({ preventScroll: true }); } catch (e) { first.focus(); } }
-      }
-    }
-
-    // Devuelve true si el paso está completo; si no, marca el campo.
-    function validPanel(panel) {
-      var invalid = fieldsOf(panel).filter(function (f) { return !f.checkValidity(); })[0];
-      if (!invalid) return true;
-      invalid.reportValidity();
-      return false;
-    }
-
-    if (btnNext) {
-      btnNext.addEventListener("click", function () {
-        if (!validPanel(panels[current])) return;
-        if (current < panels.length - 1) { current++; render(true); }
-      });
-    }
-    if (btnBack) {
-      btnBack.addEventListener("click", function () {
-        if (current > 0) { current--; render(true); }
-      });
-    }
-
-    // Enter avanza de paso en vez de enviar el formulario incompleto.
-    form.addEventListener("keydown", function (e) {
-      if (e.key !== "Enter") return;
-      if (e.target.tagName === "TEXTAREA") return;
-      if (current < panels.length - 1) {
-        e.preventDefault();
-        if (btnNext) btnNext.click();
-      }
-    });
-
-    // Red de seguridad: la validación nativa no puede enfocar un campo que
-    // quedó en un paso oculto y el envío se bloquearía en silencio. Por eso
-    // revisamos todos los pasos en el click (antes de que valide el browser)
-    // y volvemos al paso que falta completar.
-    function firstInvalidStep() {
-      for (var i = 0; i < panels.length; i++) {
-        var invalid = fieldsOf(panels[i]).filter(function (el) { return !el.checkValidity(); })[0];
-        if (invalid) return { index: i, field: invalid };
-      }
-      return null;
-    }
-
-    if (btnSubmit) {
-      btnSubmit.addEventListener("click", function (e) {
-        var bad = firstInvalidStep();
-        if (!bad) return; // todo completo: sigue el envío normal
-        e.preventDefault();
-        if (bad.index !== current) { current = bad.index; render(true); }
-        bad.field.reportValidity();
-      });
-    }
-
-    form.addEventListener("submit", function () {
-      if (btnSubmit) {
-        btnSubmit.disabled = true;
-        btnSubmit.textContent = "Enviando…";
-      }
-    });
-
-    render(false);
+  function track(eventName, params) {
+    // Mismo contrato que el adaptador de arriba (sin datos personales).
+    var payload = { event: eventName, page_path: PAGE_PATH, form_name: FORM_NAME };
+    Object.keys(params || {}).forEach(function (k) { payload[k] = String(params[k]).slice(0, 100); });
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push(payload);
   }
 
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", init);
-  } else {
-    init();
+  // Reglas en el orden visual de los campos. Reciben el valor sin
+  // espacios en los extremos y devuelven el mensaje de error o "".
+  var rules = {
+    nombre: function (v) { return v ? "" : "Ingresá tu nombre y apellido."; },
+    email: function (v) {
+      if (!v) return "Ingresá tu email.";
+      return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v) ? "" : "Revisá el email. Ejemplo: nombre@empresa.com";
+    },
+    empresa: function (v) { return v ? "" : "Ingresá el nombre de tu marca o negocio."; },
+    objetivo: function (v) {
+      if (!v) return "Contanos brevemente qué te gustaría mejorar.";
+      if (v.length > MAX_MSG) return "El texto tiene " + v.length + " caracteres. Resumilo en " + MAX_MSG + " como máximo.";
+      return "";
+    },
+    whatsapp: function (v) {
+      if (!v) return "";
+      var digits = v.replace(/\D/g, "");
+      var ok = /^[+\d\s().-]+$/.test(v) && digits.length >= 8 && digits.length <= 15;
+      return ok ? "" : "Revisá el número. Incluí código de país y de área, por ejemplo +54 9 341 000 0000.";
+    }
+  };
+  var ruleNames = Object.keys(rules);
+
+  function input(name) { return form.elements[name]; }
+
+  function setError(name, msg) {
+    var el = input(name);
+    var box = document.getElementById("e-" + name);
+    if (!el || !box) return;
+    box.textContent = msg;
+    box.hidden = !msg;
+    if (msg) el.setAttribute("aria-invalid", "true");
+    else el.removeAttribute("aria-invalid");
+  }
+
+  function validate(name) {
+    var el = input(name);
+    var msg = el ? rules[name](el.value.trim()) : "";
+    setError(name, msg);
+    return msg;
+  }
+
+  function updateCount() {
+    if (!msgCount) return;
+    var n = input("objetivo").value.trim().length;
+    msgCount.textContent = n + " / " + MAX_MSG;
+    msgCount.classList.toggle("is-over", n > MAX_MSG);
+  }
+
+  function renderSummary(names) {
+    if (!summary || !summaryList) return;
+    summaryList.textContent = "";
+    names.forEach(function (name) {
+      var li = document.createElement("li");
+      var a = document.createElement("a");
+      a.href = "#" + input(name).id;
+      a.textContent = document.getElementById("e-" + name).textContent;
+      a.addEventListener("click", function (ev) { ev.preventDefault(); input(name).focus(); });
+      li.appendChild(a);
+      summaryList.appendChild(li);
+    });
+    summary.hidden = false;
+    summary.focus();
+  }
+
+  // El JS toma el control de la validación (sin JS queda la nativa).
+  form.noValidate = true;
+  if (msgCount) { msgCount.hidden = false; updateCount(); }
+
+  var started = false;
+  var attempted = false;
+  var sending = false;
+
+  form.addEventListener("input", function (e) {
+    var name = e.target.name;
+    if (!name || name === "bot-field") return;
+    if (!started) {
+      started = true;
+      track("lead_form_start", {});
+    }
+    if (name === "objetivo") updateCount();
+    // Si el campo ya estaba marcado, el error se va apenas se corrige.
+    if (rules[name] && e.target.getAttribute("aria-invalid") === "true") validate(name);
+  });
+
+  // Al salir de un campo se valida solo si ya tiene algo escrito (o si
+  // ya se intentó enviar), para no marcar errores mientras se recorre.
+  form.addEventListener("focusout", function (e) {
+    var name = e.target.name;
+    if (rules[name] && (attempted || e.target.value.trim())) validate(name);
+  });
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    if (sending) return;
+    attempted = true;
+    if (alertBox) alertBox.hidden = true;
+
+    var invalid = ruleNames.filter(function (name) { return validate(name); });
+    if (invalid.length) {
+      renderSummary(invalid);
+      track("lead_form_error", { error_type: "validacion", error_field: invalid.join(",") });
+      return;
+    }
+    if (summary) summary.hidden = true;
+    send();
+  });
+
+  function encode(data) {
+    var pairs = [];
+    data.forEach(function (value, key) {
+      pairs.push(encodeURIComponent(key) + "=" + encodeURIComponent(value));
+    });
+    return pairs.join("&");
+  }
+
+  function fail(errorType) {
+    sending = false;
+    if (submitBtn) {
+      submitBtn.disabled = false;
+      submitBtn.textContent = submitText;
+    }
+    if (alertBox) alertBox.hidden = false;
+    track("lead_form_error", { error_type: errorType });
+  }
+
+  function send() {
+    sending = true;
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Enviando…";
+    }
+
+    var action = form.getAttribute("action");
+    var controller = window.AbortController ? new AbortController() : null;
+    var timer = controller ? setTimeout(function () { controller.abort(); }, 20000) : null;
+
+    fetch(action, {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode(new FormData(form)),
+      credentials: "same-origin",
+      signal: controller ? controller.signal : undefined
+    }).then(function (res) {
+      if (timer) clearTimeout(timer);
+      if (!res.ok) { fail("servidor_" + res.status); return; }
+      // Aceptada por Netlify: gracias.html dispara Lead + generate_lead
+      // una sola vez gracias a esta marca (una recarga no lo repite).
+      try { sessionStorage.setItem("epi_lead_ok", lastCtaLocation()); } catch (err) { /* sin storage */ }
+      if (submitBtn) submitBtn.textContent = "Solicitud enviada";
+      window.location.assign(action);
+    }).catch(function () {
+      if (timer) clearTimeout(timer);
+      fail("red");
+    });
+  }
+
+  // El adaptador de arriba guarda el último CTA en el dataLayer.
+  function lastCtaLocation() {
+    var dl = window.dataLayer || [];
+    for (var i = dl.length - 1; i >= 0; i--) {
+      if (dl[i] && dl[i].event === "cta_click" && dl[i].cta_location) return dl[i].cta_location;
+    }
+    return "directo";
   }
 })();

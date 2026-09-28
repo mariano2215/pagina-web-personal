@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
-<meta name="description" content="Solicitud recibida por EPIBRANDS, Growth Partner. La respuesta se emite dentro de las 24 horas hábiles.">
+<meta name="description" content="Recibimos tu solicitud para el Growth Partnership de EPIBRANDS. Mariano Calandra responde dentro de las 24 horas hábiles.">
 <meta name="theme-color" content="#EDEDE8">
 <title>Solicitud recibida | EPIBRANDS Growth Partner — Mariano Calandra</title>
 
@@ -65,9 +65,9 @@ a.btn{ text-decoration:none; }
 <noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=1460516722431287&ev=PageView&noscript=1"/></noscript>
 
 <main class="thanks">
-  <span class="badge">Solicitud recibida</span>
-  <h1>Solicitud recibida. <em>La revisamos a la brevedad.</em></h1>
-  <p>Cada solicitud la revisa personalmente Mariano Calandra. Vas a recibir una respuesta por correo electrónico o WhatsApp dentro de las 24 horas hábiles. Si hay encaje, coordinamos una llamada de 30 minutos, sin costo.</p>
+  <span class="badge">Solicitud enviada</span>
+  <h1>Recibimos tu solicitud.</h1>
+  <p>Mariano va a contactarte dentro de las 24 horas hábiles para coordinar los próximos pasos.</p>
   <div class="actions">
     <a href="/epibrands/studio" class="btn btn-solid">Volver a EPIBRANDS →</a>
     <a href="https://wa.me/5493416397137?text=Buenos%20d%C3%ADas.%20Acabo%20de%20enviar%20la%20solicitud%20desde%20la%20web%20de%20EPIBRANDS."
@@ -76,10 +76,26 @@ a.btn{ text-decoration:none; }
   <p class="micro">Para consultas urgentes: <a href="mailto:info@marianocalandra.com">info@marianocalandra.com</a>.</p>
 </main>
 
-<!-- Meta CAPI: evento Lead del form EPIBRANDS Studio (browser + servidor, deduplicado) -->
+<!-- Conversión del form EPIBRANDS Studio.
+     studio.js deja la marca epi_lead_ok solo cuando Netlify confirma el
+     envío; acá se consume una única vez. Así una recarga o una visita
+     directa a esta página no cuentan como lead.
+     - Meta: Lead (browser + CAPI, deduplicado por event_id).
+     - dataLayer: generate_lead, sin datos personales. -->
 <script>
 document.addEventListener("DOMContentLoaded", function(){
+  var origen = null;
+  try {
+    origen = sessionStorage.getItem("epi_lead_ok");
+    if (origen !== null) sessionStorage.removeItem("epi_lead_ok");
+  } catch (e) {
+    // Sin sessionStorage: se cuenta solo si viene de la landing.
+    if (/\/epibrands\/studio/.test(document.referrer)) origen = "sin-storage";
+  }
+  if (origen === null) return;
   if (window.mcTrack) window.mcTrack("Lead", { content_name: "EPIBRANDS Growth Partner", content_category: "form" });
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({ event: "generate_lead", form_name: "epibrands-studio", lead_source: origen, page_path: location.pathname });
 });
 </script>
 </body>

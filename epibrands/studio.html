@@ -7,9 +7,9 @@
 <!-- ============================================================
      SEO
      ============================================================ -->
-<title>EPIBRANDS | Growth Partner para negocios que quieren crecer mejor</title>
-<meta name="description" content="Nos integramos como socio estratégico para ordenar tu adquisición, mejorar tus oportunidades comerciales y sostener un sistema de crecimiento rentable.">
-<meta name="keywords" content="growth partner, performance marketing, desarrollo de negocios, marketing digital, estrategia comercial, Meta Ads, Google Ads, adquisición de clientes, crecimiento rentable, EPIBRANDS">
+<title>Growth Partner: publicidad y gestión comercial | EPIBRANDS</title>
+<meta name="description" content="Growth Partnership con Mariano Calandra: campañas, medición y seguimiento comercial para negocios que ya venden. USD 990/mes + inversión publicitaria.">
+<meta name="keywords" content="growth partner, performance marketing, gestión de campañas, Meta Ads, Google Ads, seguimiento comercial, medición, EPIBRANDS, Mariano Calandra">
 <meta name="author" content="Mariano Calandra">
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#EBEBE6">
@@ -17,26 +17,28 @@
 
 <!-- Open Graph -->
 <meta property="og:type" content="website">
-<meta property="og:title" content="EPIBRANDS | Growth Partner para negocios que quieren crecer mejor">
-<meta property="og:description" content="Nos integramos como socio estratégico para ordenar tu adquisición, mejorar tus oportunidades comerciales y sostener un sistema de crecimiento rentable.">
+<meta property="og:title" content="EPIBRANDS | Publicidad y gestión comercial para convertir más consultas en ventas">
+<meta property="og:description" content="Growth Partnership para negocios que ya venden: campañas, medición y seguimiento comercial, con atención directa de Mariano Calandra.">
 <meta property="og:url" content="https://marianocalandra.com/epibrands/studio">
 <meta property="og:image" content="https://marianocalandra.com/epibrands/assets/og-epibrands.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="EPIBRANDS — Growth Partner: performance, negocios y liderazgo">
+<meta property="og:image:alt" content="EPIBRANDS: Marketing claro. Crecimiento real.">
 <meta property="og:locale" content="es_AR">
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="EPIBRANDS | Growth Partner para negocios que quieren crecer mejor">
-<meta name="twitter:description" content="Performance para medir. Negocios para decidir. Liderazgo para sostener. Un socio estratégico para ordenar la adquisición y crecer con rentabilidad.">
+<meta name="twitter:title" content="EPIBRANDS | Publicidad y gestión comercial para convertir más consultas en ventas">
+<meta name="twitter:description" content="Growth Partnership para negocios que ya venden: campañas, medición y seguimiento comercial, con atención directa de Mariano Calandra.">
 <meta name="twitter:image" content="https://marianocalandra.com/epibrands/assets/og-epibrands.jpg">
 
 <!-- Favicon (reutiliza el del sitio principal) -->
 <link rel="icon" type="image/png" href="../img/favicon-nuevo.png">
 
 <!-- Meta Pixel + CAPI (mismo pixel y function que el resto del sitio).
-     Dispara PageView automático y expone window.mcTrack para los eventos Lead. -->
+     Dispara PageView automático y registra como Contact los clicks a
+     WhatsApp. El Lead se dispara en gracias.html, solo tras un envío
+     confirmado del formulario. -->
 <script src="/meta-pixel.js?v=__BUST__" defer></script>
 
 <!-- JSON-LD -->
@@ -44,11 +46,11 @@
 {
   "@context": "https://schema.org",
   "@type": "Service",
-  "serviceType": "Growth Partner: performance marketing, desarrollo de negocios y dirección de crecimiento",
+  "serviceType": "Growth Partnership: gestión de campañas, medición y seguimiento comercial",
   "name": "EPIBRANDS — Growth Partnership",
   "url": "https://marianocalandra.com/epibrands/studio",
   "image": "https://marianocalandra.com/epibrands/assets/og-epibrands.jpg",
-  "description": "EPIBRANDS es un Growth Partner que se integra como socio estratégico del negocio para ordenar la adquisición, mejorar la calidad de las oportunidades comerciales y sostener un sistema de crecimiento rentable. Trabaja sobre tres pilares: performance para medir, negocios para decidir y liderazgo para sostener.",
+  "description": "Acompañamiento de EPIBRANDS, dirigido por Mariano Calandra, para negocios que ya venden: gestión de campañas publicitarias, medición y trabajo sobre el seguimiento comercial, con una reunión semanal de 60 minutos. El presupuesto publicitario se paga aparte.",
   "provider": {
     "@type": "Person",
     "name": "Mariano Calandra",
@@ -61,14 +63,15 @@
     ]
   },
   "areaServed": ["AR", "LATAM", "ES"],
-  "audience": { "@type": "BusinessAudience", "audienceType": "Empresas, pymes y negocios B2B" },
+  "audience": { "@type": "BusinessAudience", "audienceType": "Negocios que ya venden" },
   "offers": {
     "@type": "Offer",
     "price": "990",
     "priceCurrency": "USD",
+    "priceSpecification": { "@type": "UnitPriceSpecification", "price": "990", "priceCurrency": "USD", "unitText": "mes" },
     "availability": "https://schema.org/LimitedAvailability",
     "url": "https://marianocalandra.com/epibrands/studio#aplicar",
-    "description": "Growth Partnership con inversión mensual. Cupos limitados a cuatro negocios en simultáneo."
+    "description": "Inversión mensual del Growth Partnership. El presupuesto publicitario no está incluido. Cuatro negocios por período."
   }
 }
 </script>
@@ -90,6 +93,7 @@
   --line-soft: rgba(26,26,24,0.08);
   --accent:    #6E7C6A;   /* verde apagado — solo para rellenos y bordes */
   --accent-ink:#586552;   /* verde para TEXTO sobre fondo claro — 5.3:1 */
+  --error:     #A23A2F;   /* errores de formulario — 5.3:1 sobre crema */
   --invert-bg: #16160A;   /* secciones oscuras */
   --invert-ink:#EDEDE8;
 
@@ -109,11 +113,12 @@
 *{ margin:0; padding:0; box-sizing:border-box; }
 
 /* El atributo hidden tiene que ganarle a cualquier clase con display propio
-   (ej. .epi-form-btn{display:inline-flex}), si no los botones ocultos del
-   formulario se siguen viendo. */
+   (ej. .epi-form-btn{display:inline-flex}), si no los elementos ocultos
+   del formulario se siguen viendo. */
 [hidden]{ display:none !important; }
 
-html{ scroll-behavior:smooth; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; overflow-x:hidden; }
+html{ -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; overflow-x:hidden; }
+@media (prefers-reduced-motion:no-preference){ html{ scroll-behavior:smooth; } }
 
 /* El header es fixed: sin esto los anchors caen debajo de la barra. */
 [id]{ scroll-margin-top:88px; }
@@ -127,13 +132,22 @@ body{
   letter-spacing:-0.01em;
   overflow-x:hidden;
 }
+body.nav-open{ overflow:hidden; }
 
 a{ color:inherit; text-decoration:none; }
 input, select, textarea, button{ font-family:inherit; }
+img{ max-width:100%; }
+
+:focus-visible{ outline:2px solid var(--accent-ink); outline-offset:3px; border-radius:4px; }
+
+.sr-only{
+  position:absolute; width:1px; height:1px; padding:0; margin:-1px;
+  overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;
+}
 
 .wrap{ max-width:var(--maxw); margin:0 auto; padding-inline:var(--gutter); }
 
-/* etiqueta pequeña tipo "Visión / Enfoque" */
+/* etiqueta pequeña de sección */
 .eyebrow{
   font-size:11px;
   font-weight:700;
@@ -150,9 +164,13 @@ input, select, textarea, button{ font-family:inherit; }
   background:var(--ink-faint);
   display:inline-block;
 }
+.epi-eyebrow{
+  margin-bottom:.75rem; color:var(--accent-ink);
+  font-size:.76rem; font-weight:700; letter-spacing:.18em; text-transform:uppercase;
+}
 
 /* ============================================================
-   HEADER — sticky, minimalista, casi invisible
+   HEADER — fijo, minimalista
    ============================================================ */
 .header{
   position:fixed; inset:0 0 auto 0; z-index:100;
@@ -162,7 +180,7 @@ input, select, textarea, button{ font-family:inherit; }
   border-bottom:1px solid transparent;
 }
 .header.is-scrolled{
-  background:rgba(237,237,232,0.82);
+  background:rgba(237,237,232,0.86);
   backdrop-filter:saturate(140%) blur(14px);
   -webkit-backdrop-filter:saturate(140%) blur(14px);
   padding-block:14px;
@@ -177,7 +195,7 @@ input, select, textarea, button{ font-family:inherit; }
 .header.is-scrolled .brand-logo{ height:22px; }
 .foot-wrap .brand-logo{ height:22px; }
 @media (max-width:760px){ .brand-logo{ height:22px; } }
-.nav-links{ display:flex; gap:30px; align-items:center; }
+.nav-links{ display:flex; gap:26px; align-items:center; }
 .nav-links a{
   font-size:13.5px; font-weight:500; color:var(--ink-soft);
   position:relative; transition:color .3s var(--ease);
@@ -196,67 +214,70 @@ input, select, textarea, button{ font-family:inherit; }
 }
 .nav-cta::after{ display:none !important; }
 .nav-cta:hover{ background:transparent; color:var(--ink) !important; }
-.nav-cta .pip{
-  width:6px; height:6px; border-radius:50%; background:var(--accent);
-  box-shadow:0 0 0 0 rgba(110,124,106,0.7); animation:epiPulse 2.4s infinite;
+.nav-toggle{
+  display:none; background:none; border:0; cursor:pointer;
+  font-size:13px; font-weight:600; color:var(--ink); letter-spacing:0.08em;
+  min-height:44px; padding-inline:6px;
 }
-@keyframes epiPulse{
-  0%{ box-shadow:0 0 0 0 rgba(110,124,106,0.55); }
-  70%{ box-shadow:0 0 0 8px rgba(110,124,106,0); }
-  100%{ box-shadow:0 0 0 0 rgba(110,124,106,0); }
-}
-.nav-toggle{ display:none; background:none; border:0; cursor:pointer; font-size:13px; color:var(--ink); letter-spacing:0.08em; }
 
 /* ============================================================
-   HERO
+   HERO — contenido en flujo normal, sin altura mínima rígida
    ============================================================ */
 .hero{
-  min-height:100svh;
-  display:flex; flex-direction:column; justify-content:flex-end;
-  padding-block:clamp(118px,15vh,150px) clamp(44px,6vh,60px);
   position:relative;
+  padding-block:clamp(104px,15vh,150px) clamp(56px,8vh,96px);
 }
-.hero-grid{ display:grid; grid-template-columns:minmax(0,1fr); gap:34px; }
+.hero-grid{ display:grid; grid-template-columns:minmax(0,1fr); gap:40px; align-items:center; }
+.hero-copy{ display:grid; justify-items:start; gap:clamp(18px,2.2vw,26px); min-width:0; }
+.hero-copy .epi-eyebrow{ margin-bottom:0; }
 .hero h1{
-  font-size:clamp(2.1rem, 5.2vw, 4.1rem);
-  line-height:1.03;
+  font-size:clamp(2.05rem, 1.35rem + 3.3vw, 4.1rem);
+  line-height:1.04;
   font-weight:600;
   letter-spacing:-0.045em;
-  max-width:24ch;
+  max-width:19ch;
+  text-wrap:balance;
 }
 .hero h1 em{ font-style:normal; color:var(--ink-soft); }
-.hero-bottom{
-  display:grid; grid-template-columns:1fr; gap:40px;
-  align-items:end;
-  border-top:1px solid var(--line);
-  padding-top:32px;
+.hero-sub{ font-size:clamp(1rem, .94rem + .3vw, 1.18rem); color:var(--ink-soft); max-width:58ch; }
+.hero-actions{ display:flex; gap:12px; flex-wrap:wrap; }
+.hero-micro{ font-size:.92rem; color:var(--ink-soft); max-width:40rem; }
+.hero-foot{
+  width:100%; max-width:40rem; padding-top:16px; border-top:1px solid var(--line);
+  display:flex; flex-wrap:wrap; align-items:center; gap:10px 20px;
 }
-.hero-sub{ font-size:clamp(1rem,1.3vw,1.18rem); color:var(--ink-soft); max-width:52ch; font-weight:400; }
-.hero-actions{ display:flex; gap:14px; flex-wrap:wrap; }
+.hero-price{ font-size:.86rem; color:var(--ink-faint); }
+.hero-price b{ color:var(--ink); font-weight:700; }
 
-/* Pie del hero: indicador de cupos + concepto central en una fila */
-.hero-foot{ display:flex; flex-wrap:wrap; align-items:center; gap:14px 26px; }
-.hero-concept{ font-size:13.5px; color:var(--ink-faint); letter-spacing:-0.005em; }
-.hero-concept b{ color:var(--ink-soft); font-weight:700; }
-
-/* píldora de apertura de cupos, arriba del H1 */
-.hero-badge{
-  display:inline-flex; align-items:center; gap:10px; align-self:start;
-  padding:9px 16px 9px 12px; border:1px solid var(--line); border-radius:999px;
-  background:var(--glass); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px);
-  font-size:12.5px; font-weight:600; color:var(--ink-soft); letter-spacing:-0.005em;
-  width:fit-content; max-width:100%; min-width:0;
+/* Etiquetas decorativas: máximo tres, solo en escritorio y en su propia
+   columna, así nunca se superponen al texto ni capturan clics. */
+.hero-aside{ display:none; }
+.hero-chip{
+  position:relative; z-index:1;
+  display:inline-flex; align-items:center; gap:.65rem; width:fit-content;
+  padding:.7rem 1.05rem .7rem .85rem; border:1px solid var(--line); border-radius:999px;
+  background:var(--bg); color:var(--ink-soft);
+  font-size:.86rem; font-weight:600; letter-spacing:-0.01em;
+  box-shadow:0 12px 40px rgba(26,26,24,0.06);
 }
-.hero-badge .pip{
-  width:8px; height:8px; border-radius:50%; background:var(--accent);
-  box-shadow:0 0 0 0 rgba(110,124,106,0.7); animation:epiPulse 2.4s infinite; flex:0 0 auto;
+.hero-chip::before{ content:""; width:8px; height:8px; border-radius:50%; background:var(--accent); flex:0 0 auto; }
+@media (min-width:1080px){
+  .hero-grid{ grid-template-columns:minmax(0,1fr) 260px; gap:56px; }
+  .hero-aside{
+    position:relative; display:grid; gap:26px; padding-block:8px;
+    pointer-events:none; user-select:none;
+  }
+  .hero-aside::before{
+    content:""; position:absolute; left:calc(.85rem + 4px); top:28px; bottom:28px; width:1px;
+    background:var(--accent-line);
+  }
+  .hero-chip:nth-child(2){ margin-left:22px; }
 }
-.hero-badge b{ color:var(--ink); font-weight:700; }
 
 .btn{
-  display:inline-flex; align-items:center; gap:10px;
-  font-size:14px; font-weight:600; letter-spacing:0;
-  padding:15px 28px; border-radius:999px;
+  display:inline-flex; align-items:center; justify-content:center; gap:10px;
+  min-height:48px; font-size:14px; font-weight:600; letter-spacing:0;
+  padding:13px 26px; border-radius:999px;
   border:1px solid var(--ink); transition:all .4s var(--ease);
 }
 .btn .dot{ width:6px; height:6px; border-radius:50%; background:currentColor; transition:transform .4s var(--ease); }
@@ -266,315 +287,166 @@ input, select, textarea, button{ font-family:inherit; }
 .btn-ghost:hover{ border-color:var(--ink); }
 .btn:hover .dot{ transform:translateX(4px); }
 
-.hero-meta{
-  position:absolute; top:132px; right:var(--gutter);
-  font-size:11px; letter-spacing:0.16em; text-transform:uppercase;
-  color:var(--ink-faint); text-align:right; line-height:2;
-}
-
 /* ============================================================
-   CUPOS — indicador reutilizable
-   Editá data-cupos-tomados cuando se ocupe un lugar.
+   SECCIÓN base — los fondos alternan crema / --bg-deep
    ============================================================ */
-.epi-cupos{
-  display:flex; align-items:center; gap:14px; flex-wrap:wrap;
-  padding:14px 18px; border:1px solid var(--line); border-radius:16px;
-  background:var(--glass); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px);
-  width:fit-content; max-width:100%; min-width:0;
-}
-.epi-cupos-dots{ display:flex; gap:7px; }
-.epi-cupos-dot{
-  width:26px; height:8px; border-radius:999px;
-  background:var(--accent); opacity:.9;
-}
-.epi-cupos-dot.is-taken{ background:var(--ink-faint); opacity:.34; }
-.epi-cupos-text{ font-size:13px; color:var(--ink-soft); letter-spacing:-0.005em; }
-.epi-cupos-text b{ color:var(--ink); font-weight:700; }
-.epi-cupos--invert{ border-color:rgba(237,237,232,0.18); background:rgba(237,237,232,0.06); }
-.epi-cupos--invert .epi-cupos-text{ color:rgba(237,237,232,0.7); }
-.epi-cupos--invert .epi-cupos-text b{ color:var(--invert-ink); }
-.epi-cupos--invert .epi-cupos-dot.is-taken{ background:rgba(237,237,232,0.9); opacity:.22; }
-
-/* ============================================================
-   SECCIÓN base
-   ============================================================ */
-.section{ padding-block:clamp(80px, 12vh, 160px); }
+.section{ padding-block:clamp(72px,10vw,128px); }
 .section--deep{ background:var(--bg-deep); }
-.section-head{ display:grid; grid-template-columns:1fr; gap:18px; margin-bottom:56px; }
-.section-head h2{ font-size:clamp(1.8rem,4vw,3rem); font-weight:500; letter-spacing:-0.04em; line-height:1.05; }
-.section-head p{ color:var(--ink-soft); font-size:1.02rem; max-width:56ch; margin-top:6px; }
+.section-head{ display:grid; grid-template-columns:minmax(0,1fr); gap:14px; margin-bottom:clamp(32px,4vw,52px); }
+.section-head h2{
+  font-size:clamp(1.75rem, 1.2rem + 2.4vw, 3rem); font-weight:500;
+  letter-spacing:-0.04em; line-height:1.06; max-width:22ch; text-wrap:balance;
+}
+.section-head-text{ color:var(--ink-soft); font-size:1.02rem; max-width:58ch; margin-top:14px; }
+.section-head-text b{ color:var(--ink); font-weight:600; }
+.epi-subhead{ font-size:1.05rem; font-weight:600; letter-spacing:-0.02em; margin-bottom:1rem; }
+.epi-note{ margin-top:clamp(20px,2.4vw,28px); font-size:.9rem; color:var(--ink-faint); max-width:72ch; line-height:1.55; }
 
 /* ============================================================
-   MANIFIESTO
+   CASOS — evidencia con período, moneda y fuente
    ============================================================ */
-.manifesto{ display:grid; grid-template-columns:1fr; gap:40px; }
-.manifesto blockquote{
-  font-size:clamp(1.6rem, 4vw, 3.2rem);
-  line-height:1.12;
-  font-weight:500;
-  letter-spacing:-0.035em;
-  max-width:22ch;
+.epi-cases{ display:grid; grid-template-columns:minmax(0,1fr); gap:clamp(14px,1.6vw,20px); }
+.epi-case{
+  display:flex; flex-direction:column; gap:1.2rem;
+  padding:clamp(22px,2.6vw,34px);
+  background:var(--glass); border:1px solid var(--line); border-radius:24px;
 }
-.manifesto blockquote span{ color:var(--ink-faint); }
-.manifesto .foot{
-  font-size:14.5px; color:var(--ink-soft); max-width:46ch; margin-top:36px;
+.epi-case-tags{ display:flex; flex-wrap:wrap; gap:.4rem; list-style:none; }
+.epi-case-tags li{
+  padding:.38rem .72rem; border:1px solid var(--line); border-radius:999px;
+  background:var(--bg); font-size:.78rem; font-weight:600; color:var(--ink-soft);
 }
+.epi-case-metric{
+  display:flex; align-items:baseline; flex-wrap:wrap; gap:.2rem .6rem;
+  padding-bottom:1.1rem; border-bottom:1px solid var(--line-soft);
+}
+.epi-case-num{
+  font-size:clamp(2.4rem, 1.8rem + 2.4vw, 3.4rem); font-weight:600;
+  letter-spacing:-0.05em; line-height:.95; font-variant-numeric:tabular-nums;
+}
+.epi-case-unit{ font-size:.95rem; color:var(--ink-soft); font-weight:500; }
+.epi-case-facts{ display:grid; gap:.95rem; }
+.epi-case-facts dt{
+  margin-bottom:.25rem; color:var(--accent-ink);
+  font-size:.7rem; font-weight:700; letter-spacing:.16em; text-transform:uppercase;
+}
+.epi-case-facts dd{ font-size:.95rem; line-height:1.5; color:var(--ink-soft); }
 
 /* ============================================================
-   PRINCIPIOS
+   PARA QUIÉN ES — encaje + situaciones frecuentes
    ============================================================ */
-.principles{ border-top:1px solid var(--line); }
-.principle{
-  display:grid; grid-template-columns:80px 1fr; gap:24px;
-  padding-block:28px; border-bottom:1px solid var(--line);
-  align-items:baseline; transition:padding-left .4s var(--ease);
-}
-.principle:hover{ padding-left:14px; }
-.principle .num{ font-size:13px; color:var(--ink-faint); font-variant-numeric:tabular-nums; font-weight:600; }
-.principle .body{ display:grid; grid-template-columns:1fr; gap:8px; }
-.principle h3{ font-size:clamp(1.25rem,2.4vw,1.85rem); font-weight:500; letter-spacing:-0.03em; }
-.principle p{ font-size:14.5px; color:var(--ink-soft); max-width:56ch; }
-
-/* ============================================================
-   PARA QUIÉN ES / NO ES
-   ============================================================ */
-.aud-grid{ display:grid; grid-template-columns:1fr; gap:clamp(1rem,2vw,1.5rem); }
+.epi-fit{ display:grid; grid-template-columns:minmax(0,1fr); gap:clamp(22px,3vw,40px); align-items:start; }
 .aud-col{
-  padding:clamp(1.4rem,2.4vw,2rem); border:1px solid var(--line); border-radius:24px;
-  background:var(--glass-soft);
-}
-.aud-col--yes{
-  border-color:var(--accent-line);
+  padding:clamp(1.4rem,2.4vw,2rem); border:1px solid var(--accent-line); border-radius:24px;
   background:linear-gradient(180deg, rgba(110,124,106,0.12), rgba(110,124,106,0.03)), var(--glass);
   box-shadow:0 18px 50px rgba(110,124,106,0.13);
 }
-.aud-head{ display:flex; align-items:center; gap:.65rem; margin-bottom:1.2rem; }
-.aud-head h3{ font-size:1.22rem; font-weight:600; letter-spacing:-0.02em; }
-.aud-tag{
-  font-size:.68rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase;
-  padding:.3rem .62rem; border-radius:999px;
-}
-.aud-tag--yes{ color:#3F6E4C; background:rgba(79,125,91,0.18); }
-.aud-tag--no{ color:#A23A2F; background:rgba(176,68,57,0.12); }
+.aud-head{ margin-bottom:1.1rem; }
+.aud-head h3{ font-size:1.18rem; font-weight:600; letter-spacing:-0.02em; }
 .aud-list{ display:grid; gap:.55rem; list-style:none; }
 .aud-list li{
   display:flex; align-items:flex-start; gap:.7rem;
-  padding:.85rem .95rem; border-radius:14px; background:rgba(255,255,255,0.6);
-  border:1px solid var(--line-soft); font-size:.96rem; line-height:1.4;
+  padding:.85rem .95rem; border-radius:14px; background:rgba(255,255,255,0.78);
+  border:1px solid var(--line-soft); font-size:.98rem; line-height:1.45;
 }
-.aud-col--yes .aud-list li{ background:rgba(255,255,255,0.78); }
-.aud-ic{ flex:0 0 auto; width:22px; height:22px; border-radius:50%; display:grid; place-items:center; margin-top:1px; }
-.aud-ic svg{ width:12px; height:12px; fill:none; stroke-width:2.8; stroke-linecap:round; stroke-linejoin:round; }
-.aud-ic--yes{ background:rgba(79,125,91,0.18); } .aud-ic--yes svg{ stroke:#4F7D5B; }
-.aud-ic--no{ background:rgba(176,68,57,0.12); }  .aud-ic--no svg{ stroke:#B04439; }
+.aud-note{ margin-top:1rem; font-size:.9rem; line-height:1.5; color:var(--ink-soft); }
+.aud-ic{ flex:0 0 auto; width:22px; height:22px; border-radius:50%; display:grid; place-items:center; margin-top:1px; background:rgba(79,125,91,0.18); }
+.aud-ic svg{ width:12px; height:12px; fill:none; stroke:#4F7D5B; stroke-width:2.8; stroke-linecap:round; stroke-linejoin:round; }
+
+.epi-problems{ display:grid; grid-template-columns:minmax(0,1fr); gap:12px; list-style:none; }
+.epi-problem{
+  display:flex; flex-direction:column; gap:.8rem;
+  padding:clamp(18px,2vw,24px);
+  border:1px solid var(--line); border-radius:20px; background:var(--glass-soft);
+}
+.epi-problem-num{
+  width:34px; height:34px; border-radius:50%; display:grid; place-items:center;
+  border:1px solid var(--line); background:var(--bg);
+  font-size:.76rem; font-weight:700; color:var(--ink-faint); font-variant-numeric:tabular-nums;
+}
+.epi-problem-text{ font-size:1rem; line-height:1.5; color:var(--ink); }
 
 /* ============================================================
-   PILARES — qué hacemos como Growth Partner
+   QUÉ INCLUYE — tres frentes + qué obtiene el cliente
    ============================================================ */
-.pillars{ display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(14px,1.6vw,20px); }
-.pillar{
-  display:flex; flex-direction:column; gap:12px;
-  padding:clamp(22px,2.2vw,30px);
-  background:var(--glass); border:1px solid var(--line); border-radius:20px;
+.epi-pillars3{ display:grid; grid-template-columns:minmax(0,1fr); gap:clamp(14px,1.6vw,20px); }
+.epi-pillar3{
+  display:flex; flex-direction:column; gap:.85rem;
+  padding:clamp(22px,2.4vw,32px);
+  background:var(--glass); border:1px solid var(--line); border-radius:24px;
   transition:transform .45s var(--ease), border-color .45s var(--ease), box-shadow .45s var(--ease);
 }
-.pillar:hover{ transform:translateY(-6px); border-color:var(--accent-line); box-shadow:0 18px 44px -22px rgba(26,26,24,0.4); }
-.pillar .ico{
-  line-height:1; width:52px; height:52px; color:var(--accent);
-  display:grid; place-items:center; border-radius:16px;
-  background:var(--bg); border:1px solid var(--line-soft);
-  transition:transform .45s var(--ease);
+.epi-pillar3:hover{
+  transform:translateY(-4px); border-color:var(--accent-line);
+  box-shadow:0 18px 44px -22px rgba(26,26,24,0.4);
 }
-.pillar .ico svg{ width:23px; height:23px; fill:none; stroke:currentColor; stroke-width:1.6; stroke-linecap:round; stroke-linejoin:round; }
-.pillar:hover .ico{ transform:scale(1.06) rotate(-4deg); }
-.pillar h3{ font-size:1.1rem; font-weight:600; letter-spacing:-0.02em; line-height:1.25; }
-.pillar p{ font-size:.94rem; color:var(--ink-soft); line-height:1.5; }
-.pillar .cat{
-  margin-top:auto; padding-top:14px; border-top:1px solid var(--line-soft);
-  font-size:10.5px; color:var(--ink-faint); letter-spacing:0.14em; text-transform:uppercase; font-weight:600;
+.epi-pillar3-num{ font-size:10.5px; font-weight:700; letter-spacing:.2em; text-transform:uppercase; color:var(--accent-ink); }
+.epi-pillar3-title{ font-size:clamp(1.15rem,2vw,1.4rem); font-weight:600; letter-spacing:-0.03em; line-height:1.2; }
+.epi-pillar3-desc{ font-size:.96rem; color:var(--ink-soft); line-height:1.55; }
+.epi-out{
+  margin-top:auto; padding-top:1rem; border-top:1px solid var(--line-soft);
+  font-size:.94rem; line-height:1.45; color:var(--ink); font-weight:500;
+}
+.epi-out-label{
+  display:block; margin-bottom:.3rem; color:var(--ink-faint);
+  font-size:.68rem; font-weight:700; letter-spacing:.16em; text-transform:uppercase;
 }
 
-/* chips de entregables */
-.deliverables{ display:flex; flex-wrap:wrap; gap:10px; margin-top:clamp(28px,3vw,40px); }
-.deliverables span{
-  display:inline-flex; align-items:center; gap:8px;
-  padding:.6rem .95rem; border:1px solid var(--line); border-radius:999px;
-  background:var(--bg); font-size:.86rem; font-weight:500; color:var(--ink-soft);
-}
-.deliverables span::before{ content:"✓"; color:var(--accent-ink); font-weight:700; }
 
 /* ============================================================
-   MARQUEE
+   PRIMEROS 30 DÍAS — etapas orientativas
    ============================================================ */
-.epi-marquee-section{
-  position:relative; width:100%; padding:2.2rem 0; overflow:hidden;
-  border-block:1px solid var(--line); background:var(--bg-deep);
+.epi-stages{ display:grid; grid-template-columns:minmax(0,1fr); gap:clamp(12px,1.4vw,18px); list-style:none; }
+.epi-stage{
+  display:flex; flex-direction:column; gap:.7rem;
+  padding:clamp(20px,2.2vw,26px);
+  border:1px solid var(--line); border-radius:20px; background:var(--glass);
 }
-.epi-marquee{
-  display:flex; overflow:hidden; user-select:none;
-  -webkit-mask-image:linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
-          mask-image:linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+.epi-stage-num{
+  align-self:flex-start; display:inline-flex; align-items:center; height:30px; padding:0 .8rem;
+  border-radius:999px; background:var(--ink); color:var(--bg);
+  font-size:.7rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase;
 }
-.epi-marquee + .epi-marquee{ margin-top:1rem; }
-.epi-marquee-track{
-  display:flex; align-items:center; gap:1rem; min-width:max-content;
-  animation:epiMarqueeLeft 38s linear infinite;
-}
-.epi-marquee-right .epi-marquee-track{ animation-name:epiMarqueeRight; }
-.epi-marquee:hover .epi-marquee-track{ animation-play-state:paused; }
-.epi-marquee span{
-  display:inline-flex; align-items:center; padding:.66rem 1rem;
-  border:1px solid var(--line); border-radius:999px; background:var(--glass);
-  color:var(--ink-soft); font-size:.92rem; font-weight:500; white-space:nowrap;
-}
-.epi-marquee-right span{ background:var(--accent-glow); color:var(--ink); border-color:rgba(110,124,106,0.25); }
-@keyframes epiMarqueeLeft{ from{transform:translateX(0);} to{transform:translateX(-50%);} }
-@keyframes epiMarqueeRight{ from{transform:translateX(-50%);} to{transform:translateX(0);} }
+.epi-stage-title{ font-size:1.1rem; font-weight:600; letter-spacing:-0.02em; }
+.epi-stage-work{ font-size:.94rem; color:var(--ink-soft); line-height:1.5; }
 
 /* ============================================================
-   RUTA DE 6 MESES
+   MARIANO — presentación personal
    ============================================================ */
-.epi-method-section{ position:relative; padding:clamp(4rem,8vw,7rem) var(--gutter); overflow:hidden; }
-.epi-method-header{ width:min(100%,880px); margin:0 auto 2.6rem; text-align:center; }
-.epi-eyebrow{
-  margin-bottom:.75rem; color:var(--accent-ink);
-  font-size:.76rem; font-weight:700; letter-spacing:.18em; text-transform:uppercase;
+.epi-about{ display:grid; grid-template-columns:minmax(0,1fr); gap:clamp(28px,4vw,64px); align-items:center; }
+.epi-about-photo{
+  width:100%; max-width:340px; aspect-ratio:4 / 5; overflow:hidden;
+  border:1px solid var(--line); border-radius:24px; background:#F1F1EF;
 }
-.epi-method-header h2{
-  margin:0; font-size:clamp(1.9rem,4.8vw,3.6rem); line-height:1.02;
-  font-weight:500; letter-spacing:-0.045em;
+.epi-about-photo img{ display:block; width:100%; height:100%; object-fit:cover; object-position:50% 14%; }
+.epi-about-body{ display:grid; gap:18px; justify-items:start; }
+.epi-about-body h2{
+  font-size:clamp(1.75rem, 1.2rem + 2.4vw, 3rem); font-weight:500;
+  letter-spacing:-0.04em; line-height:1.06; max-width:20ch; text-wrap:balance;
 }
-.epi-method-header p:not(.epi-eyebrow){ margin:1rem auto 0; max-width:56ch; color:var(--ink-soft); }
-.epi-method-flow{
-  position:relative; width:min(100%,1160px); margin:0 auto;
-  display:grid; grid-template-columns:repeat(6,1fr); gap:1rem;
+.epi-about-text{ font-size:1.06rem; color:var(--ink-soft); max-width:54ch; line-height:1.6; }
+.epi-about-text b{ color:var(--ink); font-weight:600; }
+.epi-textlink{
+  display:inline-flex; align-items:center; min-height:44px;
+  font-size:.92rem; font-weight:600; color:var(--ink);
+  text-decoration:underline; text-decoration-color:var(--accent-line); text-underline-offset:4px;
 }
-.epi-method-line{
-  position:absolute; top:46px; left:8%; right:8%; height:2px;
-  background:linear-gradient(90deg, transparent, var(--accent-line), transparent);
-  transform:scaleX(0); transform-origin:left center; transition:transform 1.2s var(--ease);
-}
-.epi-method-section.is-visible .epi-method-line{ transform:scaleX(1); }
-.epi-method-step{
-  position:relative; z-index:1; min-height:230px; padding:1.1rem;
-  border:1px solid var(--line); border-radius:18px; background:var(--glass);
-  transition:transform .26s var(--ease), border-color .26s var(--ease);
-}
-.epi-method-step:hover{ transform:translateY(-6px); border-color:var(--accent-line); }
-.epi-method-step > span{
-  display:inline-flex; padding:0 .8rem; height:34px; margin-bottom:1rem;
-  align-items:center; justify-content:center; border-radius:999px;
-  background:var(--ink); color:var(--bg); font-weight:700; font-size:.72rem;
-  letter-spacing:.08em; text-transform:uppercase;
-}
-.epi-method-step h3{ margin:0 0 .55rem; font-size:1.02rem; font-weight:600; letter-spacing:-0.02em; }
-.epi-method-step p{ margin:0; color:var(--ink-soft); font-size:.89rem; line-height:1.45; }
+.epi-textlink:hover{ text-decoration-color:var(--ink); }
 
 /* ============================================================
-   ANTES / DESPUÉS
+   INVERSIÓN Y ALCANCE
    ============================================================ */
-.epi-before-after-section{ padding:clamp(4rem,8vw,7rem) var(--gutter); }
-.epi-before-after-card{
-  width:min(100%,1120px); margin:0 auto;
-  padding:clamp(1.6rem,3.4vw,2.8rem); border:1px solid var(--line); border-radius:28px;
-  background:
-    radial-gradient(circle at 12% 0%, var(--accent-glow), transparent 44%),
-    var(--glass);
-  box-shadow:0 24px 80px rgba(26,26,24,0.07);
+.epi-price-head{ width:min(100%,820px); margin:0 auto clamp(28px,3.4vw,44px); text-align:center; }
+.epi-price-head h2{
+  margin:0; font-size:clamp(1.9rem, 1.3rem + 2.6vw, 3.4rem); line-height:1.04;
+  font-weight:500; letter-spacing:-0.045em; text-wrap:balance;
 }
-.epi-ba-head{ max-width:760px; margin:0 0 clamp(1.9rem,3.6vw,2.7rem); }
-.epi-ba-head h2{
-  margin:.55rem 0 .9rem;
-  font-size:clamp(1.9rem,4.6vw,3.4rem); line-height:1.05; font-weight:500; letter-spacing:-0.045em;
-}
-.epi-ba-head p:not(.epi-eyebrow){ margin:0; color:var(--ink-soft); font-size:1.02rem; line-height:1.55; max-width:54ch; }
-.epi-ba-mark{ position:relative; white-space:nowrap; }
-.epi-ba-mark svg{
-  position:absolute; left:-2%; bottom:-0.22em; width:104%; height:0.46em;
-  overflow:visible; pointer-events:none;
-}
-.epi-ba-mark svg path{
-  fill:none; stroke:var(--accent); stroke-width:8; stroke-linecap:round;
-  stroke-dasharray:360; stroke-dashoffset:360;
-  transition:stroke-dashoffset 1s var(--ease) .35s;
-}
-.epi-before-after-section.is-visible .epi-ba-mark svg path{ stroke-dashoffset:0; }
-.epi-ba-grid{ position:relative; display:grid; grid-template-columns:1fr 1fr; gap:clamp(1rem,2.4vw,1.6rem); }
-.epi-ba-col{
-  padding:clamp(1.1rem,2.2vw,1.5rem); border-radius:20px;
-  border:1px solid var(--line); background:var(--glass-soft);
-}
-.epi-ba-col--after{
-  border-color:var(--accent-line);
-  background:linear-gradient(180deg, rgba(110,124,106,0.12), rgba(110,124,106,0.03)), var(--glass);
-  box-shadow:0 14px 44px rgba(110,124,106,0.14);
-}
-.epi-ba-col-head{ display:flex; align-items:center; gap:.6rem; margin-bottom:1.05rem; }
-.epi-ba-col-head h3{ margin:0; font-size:1.12rem; font-weight:600; letter-spacing:-0.01em; }
-.epi-ba-tag{
-  font-size:.7rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
-  padding:.28rem .6rem; border-radius:999px;
-}
-.epi-ba-tag--bad{ color:#A23A2F; background:rgba(176,68,57,0.12); }
-.epi-ba-tag--good{ color:#3F6E4C; background:rgba(79,125,91,0.16); }
-.epi-ba-list{ display:grid; gap:.6rem; margin:0; padding:0; list-style:none; }
-.epi-ba-list li{
-  display:flex; align-items:center; gap:.7rem;
-  padding:.8rem .9rem; border-radius:13px; background:rgba(255,255,255,0.55);
-  border:1px solid var(--line); font-weight:500; font-size:.95rem; line-height:1.3;
-}
-.epi-ba-col--after .epi-ba-list li{ background:rgba(255,255,255,0.74); }
-.epi-ba-ic{ flex:0 0 auto; width:24px; height:24px; border-radius:50%; display:grid; place-items:center; }
-.epi-ba-ic svg{ width:13px; height:13px; fill:none; stroke-width:2.6; stroke-linecap:round; stroke-linejoin:round; }
-.epi-ba-ic--bad{ background:rgba(176,68,57,0.12); }  .epi-ba-ic--bad svg{ stroke:#B04439; }
-.epi-ba-ic--good{ background:rgba(79,125,91,0.18); } .epi-ba-ic--good svg{ stroke:#4F7D5B; }
-.epi-ba-arrow{
-  position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
-  width:42px; height:42px; border-radius:50%; display:grid; place-items:center; z-index:2;
-  background:var(--bg); border:1px solid var(--accent-line); color:var(--accent);
-  box-shadow:0 6px 20px rgba(26,26,24,0.12);
-}
-.epi-ba-arrow svg{ width:18px; height:18px; fill:none; stroke:currentColor; stroke-width:2.2; stroke-linecap:round; stroke-linejoin:round; }
-
-/* ============================================================
-   COUNTERS
-   ============================================================ */
-.epi-counters-section{ padding:clamp(4rem,8vw,7rem) var(--gutter); background:var(--bg-deep); }
-.epi-counters-header{ width:min(100%,820px); margin:0 auto 2.4rem; text-align:center; }
-.epi-counters-header h2{
-  margin:0; font-size:clamp(1.8rem,4.6vw,3.4rem); line-height:1.02;
-  font-weight:500; letter-spacing:-0.045em;
-}
-.epi-counters-grid{
-  width:min(100%,1120px); margin:0 auto; display:grid;
-  grid-template-columns:repeat(4,1fr); gap:1rem;
-}
-.epi-counter-card{
-  min-height:180px; padding:1.4rem; border:1px solid var(--line); border-radius:20px;
-  background:var(--glass);
-  transition:transform .26s var(--ease), border-color .26s var(--ease);
-}
-.epi-counter-card:hover{ transform:translateY(-6px); border-color:var(--accent-line); }
-.epi-counter-card strong{
-  display:block; margin-bottom:.6rem;
-  font-size:clamp(2.1rem,4.4vw,3.4rem); line-height:.9; letter-spacing:-0.05em; font-weight:600;
-  font-variant-numeric:tabular-nums;
-}
-.epi-counter-unit{ font-size:.34em; font-weight:700; letter-spacing:0; color:var(--ink-soft); margin-left:.18em; vertical-align:.08em; }
-.epi-counter-card p{ margin:0; color:var(--ink-soft); font-size:.94rem; line-height:1.35; }
-
-/* ============================================================
-   PRECIO
-   ============================================================ */
-.epi-price-section{ padding:clamp(4rem,8vw,7rem) var(--gutter); background:var(--bg-deep); }
-.epi-price-head{ width:min(100%,820px); margin:0 auto 2.6rem; text-align:center; }
-.epi-price-head h2{ margin:0; font-size:clamp(1.9rem,4.6vw,3.4rem); line-height:1.02; font-weight:500; letter-spacing:-0.045em; }
-.epi-price-head p:not(.epi-eyebrow){ margin:1rem auto 0; max-width:56ch; color:var(--ink-soft); }
+.epi-price-lead{ margin:1rem auto 0; max-width:56ch; color:var(--ink-soft); }
 .epi-price-card{
   position:relative; width:min(100%,980px); margin:0 auto;
   display:grid; grid-template-columns:minmax(0,1fr);
   column-gap:clamp(1.6rem,3vw,2.6rem); row-gap:clamp(1.5rem,2.8vw,2.2rem);
-  padding:clamp(1.8rem,3.4vw,3rem); border-radius:30px;
+  padding:clamp(1.5rem,3.4vw,3rem); border-radius:30px;
   border:1px solid var(--accent-line);
   background:
     radial-gradient(circle at 85% 0%, var(--accent-glow), transparent 52%),
@@ -598,15 +470,19 @@ input, select, textarea, button{ font-family:inherit; }
   background:var(--ink); color:var(--bg);
   font-size:.7rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase;
 }
-.epi-price-plan{ font-size:.72rem; font-weight:700; letter-spacing:.18em; text-transform:uppercase; color:var(--ink-faint); }
-.epi-price-amount{ display:flex; align-items:flex-end; gap:.7rem; margin:0 0 .9rem; flex-wrap:wrap; color:var(--ink); }
+.epi-price-plan{ font-size:.72rem; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:var(--ink-faint); }
+.epi-price-amount{ display:flex; align-items:flex-end; gap:.7rem; margin:0 0 1.1rem; flex-wrap:wrap; color:var(--ink); }
 .epi-price-amount .num{ font-size:clamp(3rem,7.5vw,4.6rem); font-weight:600; letter-spacing:-0.05em; line-height:.86; color:var(--ink); }
 .epi-price-amount .cur{ font-size:1.1rem; font-weight:700; color:var(--ink-soft); letter-spacing:-0.01em; padding-bottom:.3rem; }
 .epi-price-amount .per{ font-size:1rem; color:var(--ink-soft); padding-bottom:.34rem; }
-.epi-price-desc{ color:var(--ink-soft); font-size:.98rem; max-width:44ch; line-height:1.55; }
-.epi-price-main .epi-cupos{ margin-top:1.4rem; }
+.epi-price-desc{ color:var(--ink-soft); font-size:.97rem; max-width:48ch; line-height:1.55; }
+.epi-price-desc + .epi-price-desc{ margin-top:.8rem; }
+.epi-price-desc b{ color:var(--ink); font-weight:600; }
 .epi-price-main .btn{ margin-top:1.5rem; }
-.epi-price-note{ margin-top:1rem; font-size:.82rem; color:var(--ink-faint); max-width:42ch; }
+.epi-price-format-title{
+  margin-bottom:.9rem; color:var(--accent-ink);
+  font-size:.72rem; font-weight:700; letter-spacing:.16em; text-transform:uppercase;
+}
 .epi-price-list{ display:grid; gap:.62rem; list-style:none; align-content:start; }
 .epi-price-list li{
   display:flex; align-items:flex-start; gap:.7rem;
@@ -615,9 +491,42 @@ input, select, textarea, button{ font-family:inherit; }
 }
 .epi-price-list li:last-child{ border-bottom:0; padding-bottom:0; }
 .epi-price-list li::before{
-  content:"✓"; flex:0 0 auto; width:20px; height:20px; border-radius:50%;
+  content:"✓"; content:"✓" / ""; flex:0 0 auto; width:20px; height:20px; border-radius:50%;
   background:rgba(79,125,91,0.18); color:#4F7D5B;
   display:grid; place-items:center; font-size:.7rem; font-weight:800; margin-top:1px;
+}
+
+/* Condiciones confirmadas: permanencia, cancelación y pago */
+.epi-terms{
+  width:min(100%,980px); margin:clamp(14px,1.6vw,20px) auto 0;
+  display:grid; grid-template-columns:minmax(0,1fr); gap:12px;
+}
+.epi-term{ padding:1.1rem 1.25rem; border:1px solid var(--line); border-radius:18px; background:var(--glass-soft); }
+.epi-term dt{
+  margin-bottom:.35rem; color:var(--accent-ink);
+  font-size:.72rem; font-weight:700; letter-spacing:.16em; text-transform:uppercase;
+}
+.epi-term dd{ font-size:.93rem; line-height:1.5; color:var(--ink); }
+
+/* Cuadro de alcance: quién hace qué. Cada columna lleva data-scope
+   (gestiona / asesora / cliente / externo) para poder mantenerlo por
+   separado. Solo contenido confirmado: lo pendiente está en
+   docs/epibrands-content-pending.md. */
+.epi-scope{ width:min(100%,980px); margin:clamp(28px,3.4vw,44px) auto 0; }
+.epi-scope-title{ font-size:1.1rem; font-weight:600; letter-spacing:-0.02em; margin-bottom:1rem; }
+.epi-scope-grid{ display:grid; grid-template-columns:minmax(0,1fr); gap:12px; }
+.epi-scope-col{
+  padding:1.2rem 1.25rem; border:1px solid var(--line); border-radius:18px; background:var(--glass-soft);
+}
+.epi-scope-col[data-scope="externo"]{ background:transparent; border-style:dashed; border-color:rgba(26,26,24,0.24); }
+.epi-scope-col h4{
+  margin-bottom:.8rem; color:var(--accent-ink);
+  font-size:.72rem; font-weight:700; letter-spacing:.16em; text-transform:uppercase;
+}
+.epi-scope-col ul{ display:grid; gap:.6rem; list-style:none; }
+.epi-scope-col li{ position:relative; padding-left:1rem; font-size:.92rem; line-height:1.45; color:var(--ink); }
+.epi-scope-col li::before{
+  content:""; position:absolute; left:0; top:.58em; width:5px; height:5px; border-radius:50%; background:var(--accent);
 }
 
 /* ============================================================
@@ -628,168 +537,175 @@ input, select, textarea, button{ font-family:inherit; }
   border:1px solid var(--line); border-radius:18px; background:var(--glass);
   overflow:hidden; transition:border-color .3s var(--ease), background .3s var(--ease);
 }
-.faq-item[open]{ border-color:var(--accent-line); background:var(--glass); }
+.faq-item[open]{ border-color:var(--accent-line); }
 .faq-item summary{
   display:flex; align-items:center; justify-content:space-between; gap:1rem;
-  padding:1.15rem 1.3rem; cursor:pointer; list-style:none;
+  min-height:56px; padding:1.1rem 1.3rem; cursor:pointer; list-style:none;
   font-size:1.02rem; font-weight:600; letter-spacing:-0.02em;
 }
 .faq-item summary::-webkit-details-marker{ display:none; }
 .faq-item summary::after{
-  content:"+"; flex:0 0 auto; width:28px; height:28px; border-radius:50%;
+  content:"+"; content:"+" / ""; flex:0 0 auto; width:28px; height:28px; border-radius:50%;
   border:1px solid var(--line); display:grid; place-items:center;
   font-size:1.05rem; font-weight:400; color:var(--ink-soft);
   transition:transform .35s var(--ease), background .35s var(--ease), color .35s var(--ease);
 }
-.faq-item[open] summary::after{ content:"+"; transform:rotate(45deg); background:var(--ink); color:var(--bg); border-color:var(--ink); }
-.faq-item .faq-body{ padding:0 1.3rem 1.25rem; color:var(--ink-soft); font-size:.96rem; line-height:1.6; max-width:70ch; }
-.faq-item summary:focus-visible{ outline:2px solid var(--accent); outline-offset:-2px; }
+.faq-item[open] summary::after{ transform:rotate(45deg); background:var(--ink); color:var(--bg); border-color:var(--ink); }
+.faq-item summary:focus-visible{ outline:2px solid var(--accent-ink); outline-offset:-2px; }
+.faq-body{ padding:0 1.3rem 1.25rem; color:var(--ink-soft); font-size:.97rem; line-height:1.6; max-width:70ch; }
+.faq-body a{ color:var(--ink); text-decoration:underline; text-underline-offset:3px; }
 
 /* ============================================================
-   APLICACIÓN — bloque oscuro + formulario en tarjeta clara
+   SOLICITUD — bloque oscuro + formulario en tarjeta clara
    ============================================================ */
 .epi-apply-section{ padding:clamp(3rem,7vw,6rem) 0 clamp(3rem,7vw,5rem); }
 .epi-apply-panel{
   position:relative; width:min(100% - 2.5rem, 1200px); margin:0 auto;
-  padding:clamp(2rem,5vw,4rem) clamp(1.3rem,3.4vw,3.4rem); overflow:hidden;
+  padding:clamp(1.6rem,5vw,4rem) clamp(1.1rem,3.4vw,3.4rem); overflow:hidden;
   border:1px solid rgba(237,237,232,0.12); border-radius:32px;
   background:
     radial-gradient(circle at 50% 0%, rgba(110,124,106,0.32), transparent 48%),
     var(--invert-bg);
   color:var(--invert-ink); box-shadow:0 30px 100px rgba(26,26,24,0.22);
 }
-@keyframes epiFloat{
-  0%,100%{ transform:translate3d(0,0,0) rotate(0deg); }
-  50%{ transform:translate3d(0,-14px,0) rotate(1deg); }
-}
-
-.epi-apply-grid{ position:relative; z-index:1; display:grid; grid-template-columns:1fr; gap:clamp(2rem,4vw,3.4rem); align-items:start; }
-.epi-apply-aside .epi-eyebrow{ color:rgba(237,237,232,0.6); }
+.epi-apply-panel :focus-visible{ outline-color:var(--invert-ink); }
+.epi-apply-panel .epi-form-card :focus-visible{ outline-color:var(--accent-ink); }
+.epi-apply-grid{ position:relative; z-index:1; display:grid; grid-template-columns:minmax(0,1fr); gap:clamp(2rem,4vw,3.4rem); align-items:start; }
+.epi-apply-aside .epi-eyebrow{ color:rgba(237,237,232,0.65); }
 .epi-apply-aside h2{
-  margin:0 0 1rem; font-size:clamp(2rem,5vw,3.6rem); line-height:1.0;
-  font-weight:500; letter-spacing:-0.05em;
+  margin:0 0 1rem; font-size:clamp(1.9rem, 1.3rem + 2.6vw, 3.4rem); line-height:1.02;
+  font-weight:500; letter-spacing:-0.05em; text-wrap:balance;
 }
-.epi-apply-aside > p{ color:rgba(237,237,232,0.68); font-size:1.02rem; line-height:1.6; max-width:44ch; }
-.epi-apply-aside .epi-cupos{ margin-top:1.6rem; }
+.epi-apply-intro{ color:rgba(237,237,232,0.74); font-size:1.02rem; line-height:1.6; max-width:46ch; }
 
-.epi-next{ margin-top:2.2rem; display:grid; gap:.9rem; list-style:none; counter-reset:nx; }
-.epi-next li{
-  display:flex; gap:.9rem; align-items:flex-start;
-  color:rgba(237,237,232,0.72); font-size:.95rem; line-height:1.45;
+/* recorrido: solicitud → revisión → llamada */
+.epi-flow{ display:flex; flex-wrap:wrap; gap:.5rem; list-style:none; margin-top:1.6rem; counter-reset:flow; }
+.epi-flow li{
+  display:inline-flex; align-items:center; gap:.55rem;
+  padding:.45rem .9rem .45rem .45rem; border:1px solid rgba(237,237,232,0.2); border-radius:999px;
+  font-size:.86rem; color:rgba(237,237,232,0.86);
 }
-.epi-next li::before{
-  counter-increment:nx; content:counter(nx);
-  flex:0 0 auto; width:26px; height:26px; border-radius:50%;
-  border:1px solid rgba(237,237,232,0.24); background:rgba(237,237,232,0.06);
-  color:var(--invert-ink); display:grid; place-items:center;
-  font-size:.74rem; font-weight:700;
+.epi-flow li::before{
+  counter-increment:flow; content:counter(flow);
+  width:24px; height:24px; border-radius:50%; display:grid; place-items:center;
+  background:rgba(237,237,232,0.12); color:var(--invert-ink); font-size:.72rem; font-weight:700;
 }
-.epi-next li b{ color:var(--invert-ink); font-weight:600; }
 
 /* --- Tarjeta del formulario --- */
 .epi-form-card{
   background:var(--bg); color:var(--ink); border-radius:26px;
-  padding:clamp(1.4rem,2.8vw,2.3rem);
+  padding:clamp(1.3rem,2.8vw,2.3rem);
   box-shadow:0 30px 80px rgba(0,0,0,0.35);
   border:1px solid rgba(237,237,232,0.10);
 }
-.epi-form-top{ display:flex; align-items:center; justify-content:space-between; gap:1rem; margin-bottom:1.1rem; }
-.epi-form-top h3{ font-size:1.06rem; font-weight:600; letter-spacing:-0.02em; }
-.epi-form-count{ font-size:.76rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-faint); white-space:nowrap; }
-.epi-progress{ height:5px; border-radius:999px; background:var(--line-soft); overflow:hidden; margin-bottom:1.5rem; }
-.epi-progress span{
-  display:block; height:100%; width:33.33%; border-radius:999px;
-  background:linear-gradient(90deg, var(--ink), var(--accent));
-  transition:width .45s var(--ease);
-}
-.js-steps .epi-progress{ display:block; }
-.epi-progress{ display:none; }
-.js-steps .epi-form-count{ display:inline; }
-.epi-form-count{ display:none; }
-
-.epi-step-panel{ display:grid; gap:.9rem; }
-.js-steps .epi-step-panel{ display:none; }
-.js-steps .epi-step-panel.is-active{ display:grid; animation:epiStepIn .45s var(--ease); }
-@keyframes epiStepIn{ from{ opacity:0; transform:translateY(10px); } to{ opacity:1; transform:none; } }
-.epi-step-panel + .epi-step-panel{ margin-top:1.2rem; }
-.js-steps .epi-step-panel + .epi-step-panel{ margin-top:0; }
-
-.epi-field{ display:grid; gap:.4rem; }
-.epi-field-row{ display:grid; grid-template-columns:1fr 1fr; gap:.8rem; }
-.epi-field label{ font-size:.8rem; font-weight:600; letter-spacing:-0.005em; color:var(--ink-soft); }
-.epi-field label .req{ color:var(--accent-ink); }
+.epi-form-title{ font-size:1.1rem; font-weight:600; letter-spacing:-0.02em; }
+.epi-form-req{ margin:.35rem 0 1.2rem; font-size:.8rem; color:var(--ink-faint); }
+.epi-form-fields{ display:grid; gap:.95rem; }
+.epi-field{ display:grid; gap:.4rem; align-content:start; }
+.epi-field-row{ display:grid; grid-template-columns:minmax(0,1fr); gap:.95rem; }
+.epi-field label{ font-size:.84rem; font-weight:600; letter-spacing:-0.005em; color:var(--ink); }
+.epi-field .req{ color:var(--accent-ink); }
+.epi-field .opt{ font-weight:500; color:var(--ink-faint); }
 .epi-field input,
-.epi-field select,
 .epi-field textarea{
-  width:100%; padding:.85rem 1rem; font-size:.95rem; color:var(--ink);
-  background:#fff; border:1px solid var(--line); border-radius:13px; outline:none;
+  width:100%; min-height:48px; padding:.8rem 1rem; font-size:1rem; color:var(--ink);
+  background:#fff; border:1px solid rgba(26,26,24,0.24); border-radius:13px; outline:none;
   transition:border-color .22s var(--ease), box-shadow .22s var(--ease);
   appearance:none; -webkit-appearance:none;
 }
-.epi-field select{
-  background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%235C5C57' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
-  background-repeat:no-repeat; background-position:right 14px center; background-size:16px;
-  padding-right:40px; cursor:pointer;
+.epi-field textarea{ resize:vertical; min-height:120px; line-height:1.5; }
+.epi-field input::placeholder, .epi-field textarea::placeholder{ color:#76766F; }
+.epi-field input:focus, .epi-field textarea:focus{
+  border-color:var(--accent); box-shadow:0 0 0 4px var(--accent-glow);
 }
-.epi-field textarea{ resize:vertical; min-height:110px; line-height:1.5; }
-.epi-field input::placeholder, .epi-field textarea::placeholder{ color:var(--ink-faint); }
-.epi-field input:focus, .epi-field select:focus, .epi-field textarea:focus{
-  border-color:var(--accent-line); box-shadow:0 0 0 4px var(--accent-glow);
+.epi-field input[aria-invalid="true"],
+.epi-field textarea[aria-invalid="true"]{
+  border-color:var(--error); box-shadow:0 0 0 4px rgba(176,68,57,0.12);
 }
-.epi-field input:user-invalid, .epi-field select:user-invalid, .epi-field textarea:user-invalid{
-  border-color:#B04439; box-shadow:0 0 0 4px rgba(176,68,57,0.12);
-}
-.epi-field-hint{ font-size:.78rem; color:var(--ink-faint); }
+.epi-field-meta{ display:flex; justify-content:space-between; align-items:baseline; gap:1rem; }
+.epi-field-hint{ font-size:.8rem; color:var(--ink-faint); }
+.epi-field-count{ font-size:.78rem; color:var(--ink-faint); font-variant-numeric:tabular-nums; white-space:nowrap; }
+.epi-field-count.is-over{ color:var(--error); font-weight:700; }
+.epi-field-error{ font-size:.82rem; font-weight:600; color:var(--error); line-height:1.4; }
 
-/* opciones tipo tarjeta (radios) */
-.epi-choices{ display:grid; gap:.55rem; }
-.epi-choice input{ position:absolute; opacity:0; width:0; height:0; }
-.epi-choice > span{
-  display:flex; align-items:center; gap:.75rem; cursor:pointer;
-  padding:.85rem 1rem; border:1px solid var(--line); border-radius:13px; background:#fff;
-  font-size:.93rem; line-height:1.35;
-  transition:border-color .22s var(--ease), background .22s var(--ease), box-shadow .22s var(--ease);
+/* resumen de errores (se enfoca al enviar con campos incompletos) */
+.epi-form-summary{
+  margin-bottom:1.1rem; padding:1rem 1.1rem;
+  border:1px solid rgba(162,58,47,0.35); border-left:4px solid var(--error); border-radius:12px;
+  background:rgba(176,68,57,0.06);
 }
-.epi-choice > span::before{
-  content:""; flex:0 0 auto; width:18px; height:18px; border-radius:50%;
-  border:1.5px solid var(--ink-faint); background:#fff;
-  transition:border-color .2s var(--ease), box-shadow .2s var(--ease);
-}
-.epi-choice:hover > span{ border-color:var(--ink-faint); }
-.epi-choice input:checked + span{
-  border-color:var(--accent-line); background:rgba(110,124,106,0.09);
-  box-shadow:0 0 0 3px var(--accent-glow);
-}
-.epi-choice input:checked + span::before{ border-color:var(--accent); border-width:5px; }
-.epi-choice input:focus-visible + span{ outline:2px solid var(--accent); outline-offset:2px; }
+.epi-form-summary:focus-visible{ outline-color:var(--error); }
+.epi-form-summary-title{ margin-bottom:.4rem; font-size:.92rem; font-weight:700; color:var(--error); }
+.epi-form-summary ul{ display:grid; gap:.25rem; list-style:none; }
+.epi-form-summary a{ font-size:.88rem; color:var(--ink); text-decoration:underline; text-underline-offset:3px; }
 
-/* navegación del formulario */
-.epi-form-nav{ display:flex; gap:.7rem; align-items:center; margin-top:1.4rem; }
+.epi-form-submit{ display:grid; gap:.75rem; margin-top:1.3rem; }
+.epi-form-price{ font-size:.86rem; color:var(--ink-soft); }
+.epi-form-price b{ color:var(--ink); font-weight:700; }
 .epi-form-btn{
-  display:inline-flex; align-items:center; justify-content:center; gap:.55rem;
+  display:inline-flex; align-items:center; justify-content:center; gap:.55rem; width:100%;
   min-height:52px; padding:0 1.5rem; border-radius:999px; border:1px solid var(--ink);
-  background:var(--ink); color:var(--bg); font-size:.96rem; font-weight:600; cursor:pointer;
-  transition:transform .22s var(--ease), box-shadow .22s var(--ease), background .22s var(--ease), color .22s var(--ease);
+  background:var(--ink); color:var(--bg); font-size:.98rem; font-weight:600; cursor:pointer;
+  transition:transform .22s var(--ease), box-shadow .22s var(--ease), opacity .22s var(--ease);
 }
 .epi-form-btn:hover{ transform:translateY(-2px); box-shadow:0 14px 34px rgba(26,26,24,0.22); }
 .epi-form-btn:active{ transform:translateY(0) scale(.99); }
-.epi-form-btn--ghost{ background:transparent; color:var(--ink); border-color:var(--line); }
-.epi-form-btn--ghost:hover{ border-color:var(--ink); box-shadow:none; }
-.epi-form-btn--full{ flex:1; }
-.epi-form-btn span{ transition:transform .22s var(--ease); }
-.epi-form-btn:hover span{ transform:translateX(4px); }
-.epi-form-foot{ margin-top:1rem; font-size:.79rem; color:var(--ink-faint); display:flex; align-items:center; gap:.45rem; line-height:1.4; }
+.epi-form-btn[disabled]{ opacity:.72; cursor:progress; transform:none; box-shadow:none; }
+.epi-form-alert{
+  padding:.9rem 1rem; border-radius:12px; font-size:.9rem; line-height:1.5; color:var(--ink);
+  background:rgba(176,68,57,0.08); border:1px solid rgba(162,58,47,0.35);
+}
+.epi-form-alert a{ font-weight:600; text-decoration:underline; text-underline-offset:3px; }
+.epi-form-foot{ margin-top:1rem; font-size:.8rem; color:var(--ink-faint); line-height:1.4; }
+.epi-form-foot a{ color:var(--ink-soft); text-decoration:underline; text-underline-offset:3px; }
 
 .epi-contact-alt{ position:relative; z-index:1; display:flex; flex-direction:column; align-items:center; gap:.8rem; margin-top:2.4rem; }
-.epi-contact-or{ color:rgba(237,237,232,0.5); font-size:.85rem; }
+.epi-contact-or{ color:rgba(237,237,232,0.7); font-size:.88rem; }
 .epi-whatsapp-button{
-  display:inline-flex; align-items:center; gap:.55rem; min-height:50px; padding:0 1.4rem;
+  display:inline-flex; align-items:center; gap:.55rem; min-height:48px; padding:0 1.4rem;
   border-radius:999px; border:1px solid rgba(237,237,232,0.28); background:transparent;
   color:var(--invert-ink); font-weight:600;
   transition:transform .22s var(--ease), background .22s var(--ease), border-color .22s var(--ease);
 }
 .epi-whatsapp-button:hover{ transform:translateY(-2px); background:rgba(237,237,232,0.08); border-color:rgba(237,237,232,0.5); }
 .epi-whatsapp-button svg{ width:17px; height:17px; fill:none; stroke:currentColor; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round; }
+
+/* ============================================================
+   CUPOS — el valor sale de data-cupos-tomados en <body> (única
+   fuente). Sin JS se lee el texto genérico "Cupos limitados".
+   ============================================================ */
+.epi-cupos{
+  display:flex; align-items:center; gap:14px; flex-wrap:wrap;
+  padding:14px 18px; border:1px solid var(--line); border-radius:16px;
+  background:var(--glass); width:fit-content; max-width:100%; min-width:0;
+}
+.epi-cupos-dots{ display:flex; gap:7px; }
+.epi-cupos-dot{ width:26px; height:8px; border-radius:999px; background:var(--accent); opacity:.9; }
+.epi-cupos-dot.is-taken{ background:var(--ink-faint); opacity:.34; }
+.epi-cupos-text{ font-size:13px; color:var(--ink-soft); letter-spacing:-0.005em; }
+.epi-cupos-text b{ color:var(--ink); font-weight:700; }
+.epi-price-main .epi-cupos{ margin-top:1.3rem; }
+.epi-cupos--compact{ padding:0; border:0; background:none; gap:10px; }
+.epi-cupos--compact .epi-cupos-dot{ width:18px; height:6px; }
+.epi-cupos--invert{ margin-top:1.4rem; border-color:rgba(237,237,232,0.18); background:rgba(237,237,232,0.06); }
+.epi-cupos--invert .epi-cupos-text{ color:rgba(237,237,232,0.75); }
+.epi-cupos--invert .epi-cupos-text b{ color:var(--invert-ink); }
+.epi-cupos--invert .epi-cupos-dot{ background:#9DAA98; }
+.epi-cupos--invert .epi-cupos-dot.is-taken{ background:rgba(237,237,232,0.9); opacity:.22; }
+
+/* ============================================================
+   CONTADORES — reutilizable, hoy sin uso: faltan datos con
+   contexto (HTML listo en docs/epibrands-content-pending.md).
+   ============================================================ */
+
+.epi-counters{ display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:1rem; }
+.epi-counter{ padding:1.4rem; border:1px solid var(--line); border-radius:20px; background:var(--glass); }
+.epi-counter-num{
+  display:block; margin-bottom:.6rem; font-size:clamp(2.1rem,4.4vw,3.2rem); line-height:.95;
+  letter-spacing:-0.05em; font-weight:600; font-variant-numeric:tabular-nums;
+}
+.epi-counter-label{ color:var(--ink-soft); font-size:.94rem; line-height:1.4; }
+.epi-counter-context{ margin-top:.5rem; color:var(--ink-faint); font-size:.8rem; }
 
 /* ============================================================
    FOOTER
@@ -799,80 +715,29 @@ input, select, textarea, button{ font-family:inherit; }
   display:flex; flex-wrap:wrap; gap:24px; justify-content:space-between; align-items:center;
 }
 .foot-wrap .brand{ font-size:14px; }
-.foot-links{ display:flex; gap:26px; flex-wrap:wrap; }
-.foot-links a{ font-size:13px; color:var(--ink-soft); transition:color .3s var(--ease); }
+.foot-links{ display:flex; gap:10px 26px; flex-wrap:wrap; }
+.foot-links a{ font-size:13px; color:var(--ink-soft); transition:color .3s var(--ease); padding-block:6px; }
 .foot-links a:hover{ color:var(--ink); }
 .foot-copy{ font-size:12px; color:var(--ink-faint); width:100%; }
 
 /* ============================================================
-   MOTION
+   MOTION — sutil y siempre opcional. Solo se ocultan elementos
+   cuando el JS está activo (clase .js), así el contenido se lee
+   aunque falle el script.
    ============================================================ */
 .epi-scroll-progress{
   position:fixed; top:0; left:0; height:2px; width:0%;
   z-index:9999; pointer-events:none;
   background:linear-gradient(90deg, var(--ink), var(--accent));
-  transform-origin:left center;
-  transition:width .08s linear;
 }
-
-.reveal{ opacity:0; transform:translateY(26px); transition:opacity 1s cubic-bezier(.19,1,.22,1), transform 1s cubic-bezier(.19,1,.22,1); }
-.reveal.in{ opacity:1; transform:none; }
-.reveal.d1{ transition-delay:.10s; }
-.reveal.d2{ transition-delay:.20s; }
-.reveal.d3{ transition-delay:.30s; }
-.reveal.d4{ transition-delay:.40s; }
-
-.mask .word{
-  display:inline-block; overflow:hidden; vertical-align:top;
-  padding:0.12em 0 0.16em; margin:-0.12em 0 -0.16em;
+.js [data-reveal]{
+  opacity:0; transform:translateY(18px);
+  transition:opacity .7s var(--ease), transform .7s var(--ease);
 }
-.mask .word > span{
-  display:inline-block;
-  transform:translateY(115%);
-  transition:transform 1.05s cubic-bezier(.19,1,.22,1);
-  will-change:transform;
-}
-.mask.in .word > span{ transform:translateY(0); }
-
-.drawline{ position:relative; border-top-color:transparent !important; }
-.drawline::before{
-  content:""; position:absolute; top:0; left:0; right:0; height:1px;
-  background:var(--line); transform:scaleX(0); transform-origin:left center;
-  transition:transform 1.2s cubic-bezier(.19,1,.22,1);
-}
-.drawline.in::before{ transform:scaleX(1); }
-
-[data-reveal]{
-  opacity:0; transform:translateY(24px); filter:blur(6px);
-  transition:opacity .7s var(--ease), transform .7s var(--ease), filter .7s var(--ease);
-  will-change:opacity, transform, filter;
-}
-[data-reveal].is-visible{ opacity:1; transform:none; filter:blur(0); }
-[data-reveal-delay="1"]{ transition-delay:.10s; }
-[data-reveal-delay="2"]{ transition-delay:.20s; }
-[data-reveal-delay="3"]{ transition-delay:.30s; }
-[data-reveal-delay="4"]{ transition-delay:.40s; }
-
-/* chips ambientales del hero */
-.hero .wrap{ position:relative; z-index:2; }
-.hero-meta{ z-index:2; }
-.epi-hero-orbit{ position:absolute; inset:0; z-index:0; pointer-events:none; overflow:hidden; }
-.epi-orbit-card{
-  position:absolute; display:inline-flex; align-items:center; justify-content:center;
-  padding:.55rem .9rem; border:1px solid var(--line); border-radius:999px;
-  background:var(--glass-soft); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px);
-  color:var(--ink-soft); font-size:.78rem; font-weight:600; letter-spacing:-0.01em;
-  box-shadow:0 12px 40px rgba(26,26,24,0.06);
-  opacity:.7; animation:epiFloat 7s ease-in-out infinite;
-}
-.epi-orbit-card-1{ top:16%; left:6%; animation-delay:0s; }
-.epi-orbit-card-2{ top:24%; right:7%; animation-delay:.8s; }
-.epi-orbit-card-3{ bottom:34%; left:8%; animation-delay:1.4s; }
-.epi-orbit-card-4{ bottom:4%; right:9%; animation-delay:2s; }
-.epi-orbit-card-5{ top:48%; left:3%; animation-delay:2.6s; }
-.epi-orbit-card-6{ top:12%; right:24%; animation-delay:3.2s; }
-.epi-orbit-card-7{ bottom:44%; right:4%; animation-delay:3.8s; }
-.epi-orbit-card-8{ bottom:11%; left:30%; animation-delay:4.4s; }
+.js [data-reveal].is-visible{ opacity:1; transform:none; }
+.js [data-reveal-delay="1"]{ transition-delay:.08s; }
+.js [data-reveal-delay="2"]{ transition-delay:.16s; }
+.js [data-reveal-delay="3"]{ transition-delay:.24s; }
 
 /* mouse-glow en cards */
 .epi-motion-card{ position:relative; overflow:hidden; }
@@ -885,271 +750,84 @@ input, select, textarea, button{ font-family:inherit; }
 .epi-motion-card:hover::after{ opacity:1; }
 
 /* ============================================================
-   GROWTH PARTNER — bloques del nuevo posicionamiento
-   Concepto central, pilares, problemas y frases destacadas.
-   Todo reutiliza las variables de :root, así que cambiando la
-   paleta de arriba cambia también esta sección.
+   RESPONSIVE
    ============================================================ */
-
-/* mantra del hero, en la esquina superior derecha (oculto en mobile) */
-.hero-meta b{ color:var(--ink); font-weight:700; }
-
-/* --- Concepto central: bloque oscuro tipo manifiesto --------- */
-.epi-concept{
-  padding-block:clamp(64px,9vw,120px);
-  color:var(--invert-ink);
-  background:
-    radial-gradient(circle at 10% 0%, rgba(110,124,106,0.30), transparent 48%),
-    var(--invert-bg);
+@media (min-width:560px){
+  .epi-field-row{ grid-template-columns:repeat(2,minmax(0,1fr)); }
 }
-.epi-concept .epi-eyebrow{ color:rgba(237,237,232,0.55); }
-.epi-concept-intro{
-  margin:.9rem 0 clamp(1.8rem,3.6vw,2.8rem);
-  max-width:60ch; font-size:1.04rem; line-height:1.6;
-  color:rgba(237,237,232,0.72);
+@media (min-width:640px){
+  .epi-problems{ grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .epi-stages{ grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .epi-scope-grid{ grid-template-columns:repeat(2,minmax(0,1fr)); }
 }
-.epi-concept-intro b{ color:var(--invert-ink); font-weight:600; }
-.epi-concept-lines{
-  display:grid; font-weight:500;
-  border-top:1px solid rgba(237,237,232,0.14);
+@media (min-width:860px){
+  .epi-terms{ grid-template-columns:repeat(3,minmax(0,1fr)); }
 }
-.epi-concept-line{
-  display:grid; grid-template-columns:56px 1fr; gap:clamp(10px,2vw,24px);
-  align-items:baseline;
-  padding-block:clamp(16px,2.4vw,26px);
-  border-bottom:1px solid rgba(237,237,232,0.14);
-  font-size:clamp(1.75rem,5.2vw,3.8rem);
-  line-height:1.04; letter-spacing:-0.045em;
-  transition:padding-left .4s var(--ease);
+@media (min-width:760px){
+  .section-head{ grid-template-columns:minmax(0,.42fr) minmax(0,1fr); align-items:start; gap:40px; }
+  .section-head .eyebrow{ padding-top:.9em; }
 }
-.epi-concept-line:hover{ padding-left:12px; }
-.epi-concept-line .num{
-  font-size:12px; font-weight:700; letter-spacing:.14em;
-  color:rgba(237,237,232,0.42); font-variant-numeric:tabular-nums;
+@media (min-width:860px){
+  .epi-about{ grid-template-columns:minmax(0,340px) minmax(0,1fr); }
 }
-.epi-concept-line em{ font-style:normal; color:rgba(237,237,232,0.48); }
-.epi-concept-foot{
-  margin-top:clamp(1.8rem,3vw,2.6rem); max-width:62ch;
-  color:rgba(237,237,232,0.76); font-size:1.02rem; line-height:1.6;
+@media (min-width:900px){
+  .epi-cases{ grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .epi-pillars3{ grid-template-columns:repeat(3,minmax(0,1fr)); }
 }
-.epi-concept-foot b{ color:var(--invert-ink); font-weight:600; }
-
-/* --- Frase destacada dentro de una sección ------------------- */
-.epi-pullquote{
-  margin-top:clamp(24px,3vw,36px);
-  padding:clamp(18px,2.2vw,26px) clamp(20px,2.4vw,30px);
-  border-left:3px solid var(--accent); border-radius:0 18px 18px 0;
-  background:linear-gradient(90deg, var(--accent-glow), transparent 72%), var(--glass);
-  font-size:clamp(1.05rem,1.9vw,1.35rem); font-weight:600;
-  letter-spacing:-0.025em; line-height:1.35; max-width:54ch;
+@media (min-width:940px){
+  .epi-apply-grid{ grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr); gap:clamp(2.4rem,4vw,4rem); }
+  .epi-price-card{ grid-template-columns:minmax(0,1fr) minmax(0,1fr); align-items:start; }
+  /* separador entre las dos columnas, para que la tarjeta lea como una sola pieza */
+  .epi-price-format{ border-left:1px solid var(--line-soft); padding-left:clamp(1.6rem,2.8vw,2.4rem); }
+}
+@media (min-width:960px){
+  .epi-fit{ grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr); }
+}
+@media (min-width:1080px){
+  .epi-stages{ grid-template-columns:repeat(4,minmax(0,1fr)); }
+  .epi-scope-grid{ grid-template-columns:repeat(4,minmax(0,1fr)); }
 }
 
-/* --- Banda de frase de autoridad, a todo el ancho ------------ */
-.epi-quote-band{
-  padding-block:clamp(48px,7vw,86px);
-  border-block:1px solid var(--line);
-  background:var(--bg);
-}
-.epi-quote-band--deep{ background:var(--bg-deep); }
-.epi-quote-band blockquote{
-  font-size:clamp(1.5rem,4vw,2.9rem); line-height:1.1;
-  font-weight:500; letter-spacing:-0.04em; max-width:26ch;
-}
-.epi-quote-band blockquote span{ color:var(--ink-faint); }
-.epi-quote-band cite{
-  display:block; margin-top:1.1rem; font-style:normal;
-  font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:var(--ink-faint);
-}
-.epi-quote-band--invert{
-  color:var(--invert-ink); border-color:rgba(237,237,232,0.14);
-  background:
-    radial-gradient(circle at 85% 0%, rgba(110,124,106,0.26), transparent 52%),
-    var(--invert-bg);
-}
-.epi-quote-band--invert blockquote span{ color:rgba(237,237,232,0.5); }
-.epi-quote-band--invert cite{ color:rgba(237,237,232,0.45); }
-
-/* --- Los 3 pilares del Growth Partnership -------------------- */
-.epi-pillars3{ display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(14px,1.6vw,20px); }
-.epi-pillar3{
-  display:flex; flex-direction:column; gap:.9rem;
-  padding:clamp(22px,2.4vw,32px);
-  background:var(--glass); border:1px solid var(--line); border-radius:24px;
-  transition:transform .45s var(--ease), border-color .45s var(--ease), box-shadow .45s var(--ease);
-}
-.epi-pillar3:hover{
-  transform:translateY(-6px); border-color:var(--accent-line);
-  box-shadow:0 18px 44px -22px rgba(26,26,24,0.4);
-}
-.epi-pillar3-num{
-  font-size:10.5px; font-weight:700; letter-spacing:.2em;
-  text-transform:uppercase; color:var(--accent-ink);
-}
-.epi-pillar3 h3{
-  font-size:clamp(1.15rem,2vw,1.45rem); font-weight:600;
-  letter-spacing:-0.03em; line-height:1.2;
-}
-.epi-pillar3 > p{ font-size:.95rem; color:var(--ink-soft); line-height:1.55; }
-.epi-taglist{ display:flex; flex-wrap:wrap; gap:.4rem; list-style:none; }
-.epi-taglist li{
-  padding:.4rem .72rem; border:1px solid var(--line); border-radius:999px;
-  background:var(--bg); font-size:.8rem; font-weight:500; color:var(--ink-soft);
-}
-.epi-pillar3-quote{
-  margin-top:auto; padding-top:1.1rem; border-top:1px solid var(--line-soft);
-  font-size:.98rem; font-weight:600; letter-spacing:-0.02em;
-  line-height:1.35; color:var(--ink);
-}
-
-/* --- Problemas que resolvemos -------------------------------- */
-.epi-problems{ display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(12px,1.4vw,18px); }
-.epi-problem{
-  display:flex; flex-direction:column; gap:.85rem;
-  padding:clamp(20px,2.2vw,28px);
-  border:1px solid var(--line); border-radius:20px; background:var(--glass-soft);
-  transition:transform .35s var(--ease), border-color .35s var(--ease);
-}
-.epi-problem:hover{ transform:translateY(-5px); border-color:var(--accent-line); }
-.epi-problem-num{
-  width:34px; height:34px; border-radius:50%; display:grid; place-items:center;
-  border:1px solid var(--line); background:var(--bg);
-  font-size:.76rem; font-weight:700; color:var(--ink-faint); font-variant-numeric:tabular-nums;
-}
-.epi-problem p{ font-size:1rem; line-height:1.5; color:var(--ink); }
-
-/* --- Par de frases cortas al pie de una grilla --------------- */
-.epi-mini-quotes{
-  display:grid; grid-template-columns:repeat(2,1fr);
-  gap:clamp(12px,1.4vw,18px); margin-top:clamp(16px,2vw,24px);
-}
-.epi-mini-quote{
-  padding:clamp(18px,2vw,24px) clamp(20px,2.2vw,28px);
-  border-left:3px solid var(--accent); border-radius:0 16px 16px 0;
-  background:linear-gradient(90deg, var(--accent-glow), transparent 72%), var(--glass);
-  font-size:clamp(1rem,1.6vw,1.18rem); font-weight:600;
-  letter-spacing:-0.02em; line-height:1.32;
-}
-
-/* --- Nota al pie de la grilla "para quién es" ---------------- */
-.epi-aud-note{
-  margin-top:clamp(18px,2.4vw,28px);
-  font-size:.9rem; color:var(--ink-faint); max-width:74ch; line-height:1.55;
-}
-
-/* --- Links secundarios dentro del panel oscuro de cierre ----- */
-.epi-apply-links{ display:flex; flex-wrap:wrap; gap:.7rem; margin-top:1.7rem; }
-.epi-apply-links a{
-  display:inline-flex; align-items:center; gap:.5rem;
-  padding:.72rem 1.15rem; border-radius:999px;
-  border:1px solid rgba(237,237,232,0.28); color:var(--invert-ink);
-  font-size:.88rem; font-weight:600;
-  transition:background .25s var(--ease), border-color .25s var(--ease), transform .25s var(--ease);
-}
-.epi-apply-links a:hover{
-  background:rgba(237,237,232,0.08); border-color:rgba(237,237,232,0.5); transform:translateY(-2px);
-}
-
-/* --- Responsive de los bloques nuevos ------------------------ */
-@media (max-width:1080px){
-  .epi-pillars3{ grid-template-columns:repeat(2,1fr); }
-  .epi-problems{ grid-template-columns:repeat(2,1fr); }
-}
-@media (max-width:760px){
-  .epi-pillars3{ grid-template-columns:1fr; }
-  .epi-concept-line{ grid-template-columns:38px 1fr; }
-  .epi-mini-quotes{ grid-template-columns:1fr; }
-}
-@media (max-width:640px){
-  .epi-problems{ grid-template-columns:1fr; }
+/* Menú mobile/tablet: overlay a pantalla completa. Cerrado queda con
+   visibility:hidden para que sus links no reciban foco con Tab. */
+@media (max-width:1023px){
+  .nav-links{
+    position:fixed; inset:0; background:var(--bg);
+    flex-direction:column; justify-content:center; align-items:flex-start;
+    gap:8px; padding:var(--gutter);
+    transform:translateX(100%); visibility:hidden;
+    transition:transform .5s var(--ease), visibility 0s linear .5s;
+    z-index:90;
+  }
+  .nav-links.open{ transform:none; visibility:visible; transition:transform .5s var(--ease), visibility 0s; }
+  .nav-links a{ font-size:28px; font-weight:500; letter-spacing:-0.02em; color:var(--ink); padding-block:4px; }
+  .nav-links a::after{ display:none; }
+  .nav-links .nav-cta{ font-size:17px; margin-top:20px; padding:14px 24px; }
+  .nav-toggle{ display:block; z-index:95; }
 }
 @media (max-width:480px){
-  /* "Agendar una llamada" no entra en media fila: mejor apilados. */
-  .hero-actions{ flex-direction:column; align-items:stretch; }
+  .hero-actions{ flex-direction:column; align-items:stretch; width:100%; }
   .hero-actions .btn{ width:100%; }
 }
 
 /* ============================================================
-   RESPONSIVE
-   ============================================================ */
-@media (min-width:760px){
-  .hero-bottom{ grid-template-columns:1.35fr 1fr; }
-  .manifesto{ grid-template-columns:0.4fr 1fr; gap:60px; }
-  .section-head{ grid-template-columns:0.5fr 1fr; align-items:end; gap:40px; }
-  .aud-grid{ grid-template-columns:1fr 1fr; align-items:start; }
-}
-@media (min-width:940px){
-  .epi-apply-grid{ grid-template-columns:0.9fr 1.1fr; gap:clamp(2.4rem,4vw,4rem); }
-  .epi-price-card{ grid-template-columns:minmax(0,1fr) minmax(0,1fr); align-items:start; }
-  /* separador entre las dos columnas, para que la tarjeta lea como una sola pieza */
-  .epi-price-list{ border-left:1px solid var(--line-soft); padding-left:clamp(1.6rem,2.8vw,2.4rem); }
-}
-@media (max-width:1080px){
-  .epi-method-flow{ grid-template-columns:repeat(3,1fr); }
-  .epi-method-line{ display:none; }
-  .pillars{ grid-template-columns:repeat(2,1fr); }
-}
-@media (max-width:900px){
-  .epi-counters-grid{ grid-template-columns:repeat(2,1fr); }
-}
-@media (max-width:760px){
-  .nav-links{
-    position:fixed; inset:0; background:var(--bg);
-    flex-direction:column; justify-content:center; align-items:flex-start;
-    gap:8px; padding:var(--gutter); transform:translateX(100%);
-    transition:transform .5s var(--ease); z-index:90;
-  }
-  .nav-links.open{ transform:none; }
-  .nav-links a{ font-size:28px; font-weight:500; letter-spacing:-0.02em; color:var(--ink); }
-  .nav-links a::after{ display:none; }
-  .nav-links .nav-cta{ font-size:17px; margin-top:20px; padding:14px 24px; }
-  .nav-toggle{ display:block; z-index:95; }
-  .hero-meta{ display:none; }
-  .principle{ grid-template-columns:48px 1fr; gap:14px; }
-  .hero-actions .btn{ flex:1; justify-content:center; }
-}
-@media (max-width:700px){
-  .epi-method-flow{ grid-template-columns:1fr; }
-  .epi-method-step{ min-height:auto; }
-}
-@media (max-width:640px){
-  .epi-ba-grid{ grid-template-columns:1fr; }
-  .epi-ba-arrow{ transform:translate(-50%,-50%) rotate(90deg); }
-  .pillars{ grid-template-columns:1fr; }
-  .epi-field-row{ grid-template-columns:1fr; }
-}
-@media (max-width:560px){
-  .epi-counters-grid{ grid-template-columns:1fr; }
-  .epi-counter-card{ min-height:150px; }
-  .epi-form-nav{ flex-direction:column-reverse; }
-  .epi-form-nav .epi-form-btn{ width:100%; }
-}
-@media (max-width:768px){
-  .epi-hero-orbit{ opacity:.5; }
-  .epi-orbit-card{ font-size:.7rem; padding:.45rem .7rem; }
-  .epi-orbit-card-5, .epi-orbit-card-7, .epi-orbit-card-8{ display:none; }
-}
-
-/* ============================================================
-   REDUCED MOTION
+   REDUCED MOTION / IMPRESIÓN
    ============================================================ */
 @media (prefers-reduced-motion:reduce){
-  html{ scroll-behavior:auto; }
-  .reveal{ opacity:1; transform:none; transition:none; }
-  .drawline{ border-top-color:var(--line) !important; }
-  .drawline::before{ display:none; }
-  .mask .word > span{ transform:none; transition:none; }
-  .epi-orbit-card, .epi-marquee-track,
-  .hero-badge .pip, .nav-cta .pip{ animation:none !important; }
-  [data-reveal]{ opacity:1 !important; transform:none !important; filter:none !important; }
-  .epi-method-line{ transform:scaleX(1) !important; }
-  .epi-scroll-progress{ transition:none !important; }
-  .epi-ba-mark svg path{ transition:none !important; stroke-dashoffset:0 !important; }
-  .js-steps .epi-step-panel.is-active{ animation:none; }
+  *, *::before, *::after{ transition-duration:.01ms !important; animation:none !important; }
+  .js [data-reveal]{ opacity:1 !important; transform:none !important; }
+  .epi-pillar3:hover, .btn:hover .dot, .epi-form-btn:hover, .epi-whatsapp-button:hover{ transform:none; }
+}
+@media print{
+  .js [data-reveal]{ opacity:1; transform:none; }
+  .header, .epi-scroll-progress{ display:none; }
 }
 </style>
 </head>
 
-<body>
+<!-- Cupos: ÚNICA fuente. Al tomar o liberar un lugar, cambiar solo
+     data-cupos-tomados; studio.js actualiza los tres indicadores. -->
+<body data-cupos-total="4" data-cupos-tomados="1">
 
 <!-- Meta Pixel noscript (fallback sin JS) -->
 <noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=1460516722431287&ev=PageView&noscript=1"/></noscript>
@@ -1162,18 +840,18 @@ input, select, textarea, button{ font-family:inherit; }
      ============================================================ -->
 <header class="header" id="header">
   <div class="wrap">
-    <nav class="nav">
+    <nav class="nav" aria-label="Principal">
       <a href="#top" class="brand" aria-label="EPIBRANDS — Inicio">
         <img class="brand-logo" src="assets/epibrands-logo.png" alt="EPIBRANDS" width="621" height="124">
       </a>
       <div class="nav-links" id="navLinks">
-        <a href="#concepto">Sistema</a>
-        <a href="#servicios">Servicios</a>
-        <a href="#ruta">Cómo trabajamos</a>
+        <a href="#servicios">Qué incluye</a>
+        <a href="#ruta">Cómo empezamos</a>
         <a href="#precio">Inversión</a>
-        <a href="#aplicar" class="nav-cta"><span class="pip" aria-hidden="true"></span> Agendar llamada</a>
+        <a href="#faq">Preguntas</a>
+        <a href="#aplicar" class="nav-cta" data-cta="header">Solicitar una llamada</a>
       </div>
-      <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">Menú</button>
+      <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="navLinks">Menú</button>
     </nav>
   </div>
 </header>
@@ -1181,788 +859,519 @@ input, select, textarea, button{ font-family:inherit; }
 <main id="top">
 
   <!-- ========================================================
-       HERO
+       1. HERO — beneficio, destinatario y siguiente paso
        ======================================================== -->
-  <section class="hero">
-    <div class="epi-hero-orbit" aria-hidden="true">
-      <span class="epi-orbit-card epi-orbit-card-1">Performance</span>
-      <span class="epi-orbit-card epi-orbit-card-2">Adquisición</span>
-      <span class="epi-orbit-card epi-orbit-card-3">Oferta comercial</span>
-      <span class="epi-orbit-card epi-orbit-card-4">Calidad de leads</span>
-      <span class="epi-orbit-card epi-orbit-card-5">Datos</span>
-      <span class="epi-orbit-card epi-orbit-card-6">Decisiones</span>
-      <span class="epi-orbit-card epi-orbit-card-7">Foco</span>
-      <span class="epi-orbit-card epi-orbit-card-8">Rentabilidad</span>
-    </div>
-
+  <section class="hero" aria-labelledby="hero-title">
     <div class="wrap hero-grid">
-      <p class="hero-meta">Growth Partner<br>LATAM · Remoto</p>
-
-      <span class="hero-badge reveal">
-        <span class="pip" aria-hidden="true"></span>
-        Growth Partner · <b>4 cupos por período</b>
-      </span>
-
-      <h1>Marketing, performance y desarrollo comercial para negocios que quieren <em>crecer mejor.</em></h1>
-
-      <div class="hero-bottom">
-        <p class="hero-sub reveal d1">Nos integramos como <b>socio estratégico</b> para ordenar tu adquisición, mejorar tus oportunidades comerciales y sostener un sistema de crecimiento rentable.</p>
-        <div class="hero-actions reveal d2">
-          <a href="#aplicar" class="btn btn-solid"><span class="dot"></span> Agendar una llamada</a>
-          <a href="#servicios" class="btn btn-ghost">Ver servicios</a>
+      <div class="hero-copy">
+        <p class="epi-eyebrow">EPIBRANDS · Growth Partner</p>
+        <h1 id="hero-title">Publicidad y gestión comercial para <em>convertir más consultas en ventas.</em></h1>
+        <p class="hero-sub">Para negocios que ya venden y quieren mejorar el retorno de su publicidad. Trabajamos sobre tus campañas, la medición y el seguimiento comercial para detectar qué frena las ventas y priorizar las próximas mejoras.</p>
+        <div class="hero-actions">
+          <a href="#aplicar" class="btn btn-solid" data-cta="hero"><span class="dot" aria-hidden="true"></span> Solicitar una llamada</a>
+          <a href="#servicios" class="btn btn-ghost">Ver cómo trabajamos</a>
+        </div>
+        <p class="hero-micro">Llamada inicial de 30 minutos, sin costo. Atención directa de Mariano Calandra.</p>
+        <div class="hero-foot">
+          <p class="hero-price">Partnership: <b>USD 990/mes</b> + inversión publicitaria.</p>
+          <p class="epi-cupos epi-cupos--compact" data-cupos>
+            <span class="epi-cupos-dots" aria-hidden="true"></span>
+            <span class="epi-cupos-text"><b>Cupos limitados</b> · cuatro negocios por período</span>
+          </p>
         </div>
       </div>
 
-      <div class="hero-foot reveal d3">
-        <!-- Indicador de cupos. Editá data-cupos-tomados cuando se ocupe un lugar. -->
-        <div class="epi-cupos" data-cupos data-cupos-total="4" data-cupos-tomados="2">
-          <span class="epi-cupos-dots" aria-hidden="true"></span>
-          <span class="epi-cupos-text"><b>2 de 4 cupos</b> disponibles</span>
-        </div>
-        <p class="hero-concept"><b>Performance</b> para medir · <b>Negocios</b> para decidir · <b>Liderazgo</b> para sostener</p>
+      <!-- Decorativo: los tres frentes del trabajo (solo escritorio). -->
+      <div class="hero-aside" aria-hidden="true">
+        <span class="hero-chip">Campañas y medición</span>
+        <span class="hero-chip">Oferta y seguimiento</span>
+        <span class="hero-chip">Prioridades semanales</span>
       </div>
     </div>
   </section>
 
   <!-- ========================================================
-       CONCEPTO CENTRAL — los tres pilares como manifiesto
+       2. EVIDENCIA — casos ya publicados en /portfolio/, con
+       período, moneda y fuente. Solo se muestra lo confirmado.
        ======================================================== -->
-  <section class="epi-concept" id="concepto" data-reveal>
-    <div class="wrap">
-      <p class="epi-eyebrow">Concepto</p>
-      <p class="epi-concept-intro">EPIBRANDS es un <b>Growth Partner</b> para negocios que quieren crecer con más claridad, datos y foco comercial. Trabajamos sobre tres pilares:</p>
-      <h2 class="epi-concept-lines">
-        <span class="epi-concept-line"><span class="num">01</span><span>Performance <em>para medir.</em></span></span>
-        <span class="epi-concept-line"><span class="num">02</span><span>Negocios <em>para decidir.</em></span></span>
-        <span class="epi-concept-line"><span class="num">03</span><span>Liderazgo <em>para sostener.</em></span></span>
-      </h2>
-      <p class="epi-concept-foot">Porque el crecimiento no depende solo de hacer más marketing. Depende de <b>medir mejor, decidir mejor y ejecutar con mayor foco</b>.</p>
-    </div>
-  </section>
-
-  <!-- ========================================================
-       MARQUEE — situaciones frecuentes / áreas de trabajo
-       ======================================================== -->
-  <section class="epi-marquee-section" aria-label="Situaciones frecuentes y áreas de trabajo del Growth Partner">
-    <div class="epi-marquee epi-marquee-left">
-      <div class="epi-marquee-track">
-        <span>Pauta activa sin retorno claro</span>
-        <span>Leads que no se convierten en oportunidades</span>
-        <span>Campañas que funcionan por momentos</span>
-        <span>Reportes que muestran números, no decisiones</span>
-        <span>Muchas ideas y poco foco para priorizar</span>
-        <span>El negocio crece y la operación se desordena</span>
-        <span>Presupuesto que sube sin revisar la oferta</span>
-        <span>Pauta activa sin retorno claro</span>
-        <span>Leads que no se convierten en oportunidades</span>
-        <span>Campañas que funcionan por momentos</span>
-        <span>Reportes que muestran números, no decisiones</span>
-        <span>Muchas ideas y poco foco para priorizar</span>
-        <span>El negocio crece y la operación se desordena</span>
-        <span>Presupuesto que sube sin revisar la oferta</span>
-      </div>
-    </div>
-    <div class="epi-marquee epi-marquee-right">
-      <div class="epi-marquee-track">
-        <span>Performance</span>
-        <span>Adquisición</span>
-        <span>Oferta comercial</span>
-        <span>Proceso comercial</span>
-        <span>Medición y datos</span>
-        <span>Growth meetings</span>
-        <span>Foco de ejecución</span>
-        <span>Performance</span>
-        <span>Adquisición</span>
-        <span>Oferta comercial</span>
-        <span>Proceso comercial</span>
-        <span>Medición y datos</span>
-        <span>Growth meetings</span>
-        <span>Foco de ejecución</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========================================================
-       POSICIONAMIENTO — no somos una agencia tradicional
-       ======================================================== -->
-  <section class="section">
-    <div class="wrap manifesto">
-      <div class="label-col reveal"><span class="eyebrow">Posicionamiento</span></div>
-      <div>
-        <blockquote>No somos una agencia tradicional. <span>Nos integramos como socio de crecimiento del negocio.</span></blockquote>
-        <p class="foot reveal d2">Una agencia tradicional suele vender entregables: campañas, posteos, reportes o piezas gráficas. EPIBRANDS trabaja desde otro lugar: entendemos el negocio, ordenamos la adquisición, mejoramos la calidad de las oportunidades comerciales y construimos un sistema de crecimiento rentable. No buscamos solamente más tráfico, más leads o más campañas activas. <b>Buscamos mejores decisiones de crecimiento.</b></p>
-        <p class="epi-pullquote reveal d3">No administramos marketing. Administramos decisiones de crecimiento con datos, criterio comercial y foco de ejecución.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========================================================
-       LOS 3 PILARES — nuestro sistema de crecimiento
-       ======================================================== -->
-  <section class="section section--deep" id="pilares">
+  <section class="section section--deep" id="casos" aria-labelledby="casos-title">
     <div class="wrap">
       <div class="section-head">
-        <span class="eyebrow reveal">Los 3 pilares</span>
+        <span class="eyebrow">Casos</span>
         <div>
-          <h2>Nuestro sistema de crecimiento.</h2>
-          <p>El crecimiento rentable necesita más que campañas activas. Necesita datos claros, decisiones comerciales correctas y una ejecución sostenida.</p>
+          <h2 id="casos-title">Campañas gestionadas por Mariano Calandra.</h2>
+          <p class="section-head-text">Dos clientes anonimizados, con datos de las plataformas publicitarias. Muestran la parte de campañas del trabajo, no el acompañamiento completo.</p>
         </div>
       </div>
 
-      <div class="epi-pillars3">
-        <article class="epi-pillar3 epi-motion-card" data-reveal>
-          <span class="epi-pillar3-num">01 — Performance</span>
-          <h3>Performance para medir</h3>
-          <p>Medimos, analizamos y optimizamos los canales de adquisición para entender qué funciona, qué no funciona y dónde están las oportunidades reales de mejora.</p>
-          <ul class="epi-taglist">
-            <li>Meta Ads</li>
+      <div class="epi-cases">
+        <article class="epi-case" data-reveal aria-labelledby="caso-1">
+          <ul class="epi-case-tags" aria-label="Sector, plataforma y período">
+            <li>Equipamiento gastronómico</li>
             <li>Google Ads</li>
-            <li>TikTok Ads</li>
-            <li>GA4 y Google Tag Manager</li>
-            <li>Embudos de conversión</li>
-            <li>Reportes y análisis de performance</li>
-            <li>Testing creativo</li>
-            <li>Optimización de campañas</li>
-            <li>Lectura de CPA, ROAS, CPL y tasa de conversión</li>
+            <li>Mar–jun 2026</li>
           </ul>
-          <p class="epi-pillar3-quote">Sin datos, el crecimiento se vuelve intuición.</p>
+          <p class="epi-case-metric" id="caso-1"><span class="epi-case-num">13,9x</span> <span class="epi-case-unit">ROAS en cuatro meses</span></p>
+          <dl class="epi-case-facts">
+            <div>
+              <dt>Situación inicial</dt>
+              <dd>Empresa argentina con venta directa que buscaba aumentar la inversión publicitaria sin perder rentabilidad.</dd>
+            </div>
+            <div>
+              <dt>Trabajo realizado</dt>
+              <dd>Mariano gestionó las campañas de Google Ads, con las compras como conversión principal.</dd>
+            </div>
+            <div>
+              <dt>Resultado</dt>
+              <dd>ARS 22,7 millones en compras sobre ARS 1,63 millones de inversión, entre marzo y junio de 2026.</dd>
+            </div>
+            <div>
+              <dt>Contexto</dt>
+              <dd>Valores informados por Google Ads según su modelo de atribución.</dd>
+            </div>
+          </dl>
         </article>
 
+        <article class="epi-case" data-reveal data-reveal-delay="1" aria-labelledby="caso-2">
+          <ul class="epi-case-tags" aria-label="Sector, plataforma y período">
+            <li>E-commerce de branding visual</li>
+            <li>Meta Ads</li>
+            <li>Mar–jun 2026</li>
+          </ul>
+          <p class="epi-case-metric" id="caso-2"><span class="epi-case-num">2.448</span> <span class="epi-case-unit">conversaciones por WhatsApp</span></p>
+          <dl class="epi-case-facts">
+            <div>
+              <dt>Situación inicial</dt>
+              <dd>Venta consultiva que se cierra por WhatsApp. El objetivo era sostener un volumen constante de consultas a un costo controlado.</dd>
+            </div>
+            <div>
+              <dt>Trabajo realizado</dt>
+              <dd>Mariano gestionó las campañas de Meta Ads con objetivo de conversaciones.</dd>
+            </div>
+            <div>
+              <dt>Resultado</dt>
+              <dd>Costo promedio de unos ARS 500 por conversación, con una inversión cercana a ARS 1,2 millones, entre marzo y junio de 2026.</dd>
+            </div>
+            <div>
+              <dt>Contexto</dt>
+              <dd>En el mismo período, el equipo comercial del cliente cerró ventas por unos ARS 27 millones. La venta se concreta por WhatsApp, así que la atribución a las campañas es asistida, no directa.</dd>
+            </div>
+          </dl>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       3. PARA QUIÉN ES — encaje y situaciones frecuentes
+       ======================================================== -->
+  <section class="section" id="para-quien" aria-labelledby="para-quien-title">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Para quién es</span>
+        <div>
+          <h2 id="para-quien-title">Para negocios que ya venden y quieren mejorar sus resultados comerciales.</h2>
+        </div>
+      </div>
+
+      <div class="epi-fit">
+        <div class="aud-col" data-reveal>
+          <div class="aud-head"><h3>Requisitos para aplicar</h3></div>
+          <ul class="aud-list">
+            <li><span class="aud-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span>Tenés una oferta que ya genera ventas.</li>
+            <li><span class="aud-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span>Podés destinar recursos al acompañamiento y a la publicidad.</li>
+            <li><span class="aud-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span>Quien toma decisiones participa y puede implementar mejoras comerciales.</li>
+          </ul>
+          <p class="aud-note">Cada solicitud se evalúa con estos requisitos. Solo tomamos los negocios que los cumplen.</p>
+        </div>
+
+        <div id="problemas">
+          <h3 class="epi-subhead">Situaciones que solemos abordar</h3>
+          <ul class="epi-problems">
+            <li class="epi-problem epi-motion-card" data-reveal>
+              <span class="epi-problem-num" aria-hidden="true">01</span>
+              <p class="epi-problem-text">Invertís en anuncios y te cuesta entender qué termina en ventas.</p>
+            </li>
+            <li class="epi-problem epi-motion-card" data-reveal data-reveal-delay="1">
+              <span class="epi-problem-num" aria-hidden="true">02</span>
+              <p class="epi-problem-text">Recibís consultas, pero muchas se enfrían antes de comprar.</p>
+            </li>
+            <li class="epi-problem epi-motion-card" data-reveal>
+              <span class="epi-problem-num" aria-hidden="true">03</span>
+              <p class="epi-problem-text">Las campañas mejoran por momentos y después pierden rendimiento.</p>
+            </li>
+            <li class="epi-problem epi-motion-card" data-reveal data-reveal-delay="1">
+              <span class="epi-problem-num" aria-hidden="true">04</span>
+              <p class="epi-problem-text">Hay varias acciones en marcha y cuesta decidir cuál priorizar.</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       4. QUÉ INCLUYE Y CÓMO TRABAJAMOS
+       #concepto y #pilares quedan en bloques internos para no romper
+       links antiguos (#incluye está en la lista de Inversión).
+       ======================================================== -->
+  <section class="section section--deep" id="servicios" aria-labelledby="servicios-title">
+    <div class="wrap">
+      <div class="section-head" id="concepto">
+        <span class="eyebrow">Qué incluye</span>
+        <div>
+          <h2 id="servicios-title">Qué incluye y cómo trabajamos.</h2>
+          <p class="section-head-text">Como <b>Growth Partner</b>, EPIBRANDS te acompaña en la estrategia, gestiona tus campañas y trabaja sobre tu proceso comercial. El trabajo se organiza en tres frentes.</p>
+        </div>
+      </div>
+
+      <div class="epi-pillars3" id="pilares">
+        <article class="epi-pillar3 epi-motion-card" data-reveal>
+          <span class="epi-pillar3-num">01</span>
+          <h3 class="epi-pillar3-title">Campañas y medición</h3>
+          <p class="epi-pillar3-desc">Gestión de la adquisición, revisión de las conversiones y lectura de los indicadores.</p>
+          <p class="epi-out"><span class="epi-out-label">Resultado del trabajo</span>Campañas gestionadas y conversiones revisadas en cada ciclo.</p>
+        </article>
         <article class="epi-pillar3 epi-motion-card" data-reveal data-reveal-delay="1">
-          <span class="epi-pillar3-num">02 — Negocios</span>
-          <h3>Negocios para decidir</h3>
-          <p>No todo resultado de marketing es rentable, escalable o conveniente. Por eso analizamos la oferta, el proceso comercial, el margen, la calidad de los leads y las oportunidades que realmente tienen sentido para el negocio.</p>
-          <ul class="epi-taglist">
-            <li>Propuesta de valor</li>
-            <li>Oferta comercial</li>
-            <li>Pricing y margen</li>
-            <li>Calidad de leads</li>
-            <li>Proceso comercial</li>
-            <li>WhatsApp / CRM</li>
-            <li>Seguimiento de oportunidades</li>
-            <li>Segmentos prioritarios</li>
-            <li>Productos o servicios a escalar</li>
-          </ul>
-          <p class="epi-pillar3-quote">No buscamos más leads. Buscamos mejores oportunidades comerciales.</p>
+          <span class="epi-pillar3-num">02</span>
+          <h3 class="epi-pillar3-title">Oferta y seguimiento comercial</h3>
+          <p class="epi-pillar3-desc">Revisión de la propuesta, la calidad de las consultas, las objeciones y el seguimiento.</p>
+          <p class="epi-out"><span class="epi-out-label">Resultado del trabajo</span>Ajustes concretos para la oferta y para la respuesta a las consultas.</p>
         </article>
-
         <article class="epi-pillar3 epi-motion-card" data-reveal data-reveal-delay="2">
-          <span class="epi-pillar3-num">03 — Liderazgo</span>
-          <h3>Liderazgo para sostener</h3>
-          <p>El crecimiento no se sostiene solo con campañas. Se sostiene con foco, prioridades, procesos, criterio y capacidad de ejecución. Ayudamos a ordenar el sistema para que las decisiones se conviertan en avance real.</p>
-          <ul class="epi-taglist">
-            <li>Priorización semanal</li>
-            <li>Reuniones de crecimiento</li>
-            <li>Claridad de próximos pasos</li>
-            <li>Cierre de ciclos</li>
-            <li>Seguimiento de decisiones</li>
-            <li>Tableros simples</li>
-            <li>Procesos de ejecución</li>
-            <li>Foco comercial</li>
-            <li>Cultura de mejora continua</li>
-          </ul>
-          <p class="epi-pillar3-quote">El crecimiento necesita foco para no convertirse en caos.</p>
+          <span class="epi-pillar3-num">03</span>
+          <h3 class="epi-pillar3-title">Prioridades y ejecución</h3>
+          <p class="epi-pillar3-desc">Reunión semanal, responsables, próximos pasos y tablero de seguimiento.</p>
+          <p class="epi-out"><span class="epi-out-label">Resultado del trabajo</span>Prioridades documentadas, con responsables y fechas.</p>
         </article>
       </div>
     </div>
   </section>
 
   <!-- ========================================================
-       QUÉ HACEMOS COMO GROWTH PARTNER
-       El id #incluye queda en el encabezado para no romper links
-       antiguos que apuntaban a la sección de alcance.
+       5a. PRIMEROS 30 DÍAS — orientación, no plazos fijos
        ======================================================== -->
-  <section class="section" id="servicios">
-    <div class="wrap">
-      <div class="section-head" id="incluye">
-        <span class="eyebrow reveal">Qué hacemos</span>
-        <div>
-          <h2>Qué hacemos como Growth Partner.</h2>
-          <p>Nos involucramos en las áreas que más impacto tienen sobre el crecimiento: adquisición, conversión, oferta, proceso comercial y ejecución.</p>
-        </div>
-      </div>
-
-      <div class="pillars">
-        <article class="pillar epi-motion-card" data-reveal>
-          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M15.4 8.6l-2.1 4.7-4.7 2.1 2.1-4.7z"/></svg></span>
-          <h3>Diagnóstico inicial</h3>
-          <p>Analizamos la situación actual del negocio, los canales activos, la oferta, el embudo, las métricas, el proceso comercial y los principales cuellos de botella.</p>
-          <span class="cat">Punto de partida</span>
-        </article>
-        <article class="pillar epi-motion-card" data-reveal data-reveal-delay="1">
-          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 7-7"/><path d="M17 8h4v4"/></svg></span>
-          <h3>Estrategia de crecimiento</h3>
-          <p>Definimos objetivos comerciales, segmentos prioritarios, canales de adquisición, mensajes, presupuesto, KPIs y próximos experimentos.</p>
-          <span class="cat">Dirección</span>
-        </article>
-        <article class="pillar epi-motion-card" data-reveal data-reveal-delay="2">
-          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3.5 20h17"/><path d="M6.5 20v-5M11 20V8.5M15.5 20v-8M20 20V5"/></svg></span>
-          <h3>Performance marketing</h3>
-          <p>Creamos, gestionamos y optimizamos campañas en Meta Ads, Google Ads y otros canales según el negocio, el objetivo y la etapa del embudo.</p>
-          <span class="cat">Adquisición</span>
-        </article>
-        <article class="pillar epi-motion-card" data-reveal>
-          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/><circle cx="9" cy="7" r="2"/><circle cx="15" cy="12" r="2"/><circle cx="8" cy="17" r="2"/></svg></span>
-          <h3>Desarrollo comercial</h3>
-          <p>Revisamos la calidad de las oportunidades, las objeciones, el proceso de venta, los mensajes comerciales y el seguimiento de leads.</p>
-          <span class="cat">Conversión</span>
-        </article>
-        <article class="pillar epi-motion-card" data-reveal data-reveal-delay="1">
-          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20.5 12a8.5 8.5 0 1 1-2.6-6.1"/><path d="M20.5 4.5v4h-4"/></svg></span>
-          <h3>Growth meetings</h3>
-          <p>Trabajamos con reuniones de crecimiento para revisar aprendizajes, tomar decisiones, priorizar acciones y sostener foco.</p>
-          <span class="cat">Decisiones</span>
-        </article>
-        <article class="pillar epi-motion-card" data-reveal data-reveal-delay="2">
-          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="7.5" y="7.5" width="9" height="9" rx="2"/><path d="M10 3.5v2M14 3.5v2M10 18.5v2M14 18.5v2M3.5 10h2M3.5 14h2M18.5 10h2M18.5 14h2"/></svg></span>
-          <h3>Sistema de ejecución</h3>
-          <p>Ordenamos prioridades, responsables, fechas, próximos pasos y criterios de decisión para que el crecimiento no dependa de improvisación.</p>
-          <span class="cat">Ejecución</span>
-        </article>
-      </div>
-
-      <div class="deliverables reveal d1">
-        <span>Diagnóstico integral del negocio</span>
-        <span>Plan de crecimiento documentado</span>
-        <span>Gestión de Meta Ads y Google Ads</span>
-        <span>Medición con GA4 y Google Tag Manager</span>
-        <span>Revisión de leads y proceso comercial</span>
-        <span>Growth meeting semanal de 60 minutos</span>
-        <span>Tablero de indicadores y próximos pasos</span>
-        <span>Canal directo entre reuniones</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========================================================
-       PROBLEMAS QUE RESOLVEMOS
-       ======================================================== -->
-  <section class="section section--deep" id="problemas">
+  <section class="section" id="ruta" aria-labelledby="ruta-title">
     <div class="wrap">
       <div class="section-head">
-        <span class="eyebrow reveal">Diagnóstico</span>
+        <span class="eyebrow">Primeros 30 días</span>
         <div>
-          <h2>Problemas que resolvemos.</h2>
-          <p>Situaciones frecuentes en negocios que ya facturan y necesitan ordenar su crecimiento comercial.</p>
+          <h2 id="ruta-title">Cómo empezamos a trabajar.</h2>
+          <p class="section-head-text">El orden y los tiempos se ajustan al punto de partida del negocio y a la disponibilidad de accesos e información.</p>
         </div>
       </div>
 
-      <div class="epi-problems">
-        <article class="epi-problem epi-motion-card" data-reveal data-reveal-delay="0">
-          <span class="epi-problem-num" aria-hidden="true">01</span>
-          <p>Invertís en publicidad, pero no sabés si realmente está generando crecimiento rentable.</p>
-        </article>
-        <article class="epi-problem epi-motion-card" data-reveal data-reveal-delay="1">
-          <span class="epi-problem-num" aria-hidden="true">02</span>
-          <p>Tenés leads, mensajes o consultas, pero no todos se convierten en oportunidades comerciales reales.</p>
-        </article>
-        <article class="epi-problem epi-motion-card" data-reveal data-reveal-delay="2">
-          <span class="epi-problem-num" aria-hidden="true">03</span>
-          <p>Las campañas funcionan por momentos, pero no hay un sistema claro de medición, aprendizaje y optimización.</p>
-        </article>
-        <article class="epi-problem epi-motion-card" data-reveal data-reveal-delay="3">
-          <span class="epi-problem-num" aria-hidden="true">04</span>
-          <p>El negocio crece, pero la operación, el seguimiento o el proceso comercial empiezan a desordenarse.</p>
-        </article>
-        <article class="epi-problem epi-motion-card" data-reveal data-reveal-delay="0">
-          <span class="epi-problem-num" aria-hidden="true">05</span>
-          <p>Hay muchas ideas, canales y oportunidades, pero falta foco para decidir qué priorizar.</p>
-        </article>
-        <article class="epi-problem epi-motion-card" data-reveal data-reveal-delay="1">
-          <span class="epi-problem-num" aria-hidden="true">06</span>
-          <p>Los reportes muestran números, pero no siempre ayudan a tomar mejores decisiones.</p>
-        </article>
-      </div>
+      <ol class="epi-stages">
+        <li class="epi-stage epi-motion-card" data-reveal>
+          <span class="epi-stage-num">Etapa 1</span>
+          <h3 class="epi-stage-title">Diagnóstico</h3>
+          <p class="epi-stage-work">Revisamos el negocio, la oferta, los canales y el seguimiento.</p>
+          <p class="epi-out"><span class="epi-out-label">Resultado esperado</span>Plan de crecimiento documentado, en la primera semana.</p>
+        </li>
+        <li class="epi-stage epi-motion-card" data-reveal data-reveal-delay="1">
+          <span class="epi-stage-num">Etapa 2</span>
+          <h3 class="epi-stage-title">Medición</h3>
+          <p class="epi-stage-work">Revisamos eventos, indicadores y fuentes de datos.</p>
+          <p class="epi-out"><span class="epi-out-label">Resultado esperado</span>Base de medición y ajustes necesarios.</p>
+        </li>
+        <li class="epi-stage epi-motion-card" data-reveal data-reveal-delay="2">
+          <span class="epi-stage-num">Etapa 3</span>
+          <h3 class="epi-stage-title">Implementación</h3>
+          <p class="epi-stage-work">Aplicamos las mejoras priorizadas en campañas y seguimiento.</p>
+          <p class="epi-out"><span class="epi-out-label">Resultado esperado</span>Primeras acciones en marcha.</p>
+        </li>
+        <li class="epi-stage epi-motion-card" data-reveal data-reveal-delay="3">
+          <span class="epi-stage-num">Etapa 4</span>
+          <h3 class="epi-stage-title">Revisión</h3>
+          <p class="epi-stage-work">Evaluamos las señales iniciales y lo que quedó pendiente.</p>
+          <p class="epi-out"><span class="epi-out-label">Resultado esperado</span>Próximo ciclo de trabajo.</p>
+        </li>
+      </ol>
 
-      <div class="epi-mini-quotes">
-        <p class="epi-mini-quote" data-reveal>Un CPA bajo no siempre significa crecimiento.</p>
-        <p class="epi-mini-quote" data-reveal data-reveal-delay="1">No todos los leads tienen el mismo valor.</p>
+      <p class="epi-note">El plan de la primera semana ordena prioridades a partir del diagnóstico; no reemplaza una auditoría técnica completa.</p>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       5b. PRESENTACIÓN — Mariano Calandra
+       Foto real ya publicada en el sitio (home), dimensiones
+       reservadas con width/height + aspect-ratio.
+       ======================================================== -->
+  <section class="section section--deep" id="mariano" aria-labelledby="mariano-title">
+    <div class="wrap epi-about">
+      <div class="epi-about-photo" data-reveal>
+        <img src="/img/Mariano-hero-480.webp"
+             srcset="/img/Mariano-hero-480.webp 480w, /img/Mariano-hero-900.webp 900w"
+             sizes="(min-width: 860px) 340px, calc(100vw - 40px)"
+             width="480" height="853" alt="Mariano Calandra" loading="lazy" decoding="async">
+      </div>
+      <div class="epi-about-body" data-reveal data-reveal-delay="1">
+        <span class="eyebrow">Quién dirige el trabajo</span>
+        <h2 id="mariano-title">Trabajo directo con Mariano Calandra.</h2>
+        <p class="epi-about-text">Mariano dirige el acompañamiento, participa en las reuniones y trabaja sobre las prioridades de marketing y del proceso comercial de tu negocio.</p>
+        <p class="epi-about-text">No intervienen equipos intermedios: <b>la cuenta no se delega.</b></p>
+        <a class="epi-textlink" href="https://www.linkedin.com/in/marianocalandra22/" target="_blank" rel="noopener noreferrer">Ver perfil en LinkedIn <span aria-hidden="true">↗</span><span class="sr-only">(se abre en otra pestaña)</span></a>
       </div>
     </div>
   </section>
 
   <!-- ========================================================
-       FRASE DE AUTORIDAD
+       6. INVERSIÓN Y ALCANCE
        ======================================================== -->
-  <section class="epi-quote-band" data-reveal>
+  <section class="section" id="precio" aria-labelledby="precio-title">
     <div class="wrap">
-      <blockquote>La pauta no salva una mala oferta. <span>La acelera.</span></blockquote>
-      <cite>EPIBRANDS · Growth Partner</cite>
-    </div>
-  </section>
-
-  <!-- ========================================================
-       CÓMO TRABAJAMOS — seis pasos del sistema de crecimiento
-       ======================================================== -->
-  <section class="section--deep epi-method-section" id="ruta" data-reveal>
-    <div class="epi-method-header">
-      <p class="epi-eyebrow">Cómo trabajamos</p>
-      <h2>Un sistema, seis pasos.</h2>
-      <p>El orden importa: cada paso habilita al siguiente y evita decisiones tomadas sin información. El ciclo arranca en el primer mes y se sostiene durante todo el acompañamiento.</p>
-    </div>
-    <div class="epi-method-flow">
-      <div class="epi-method-line" aria-hidden="true"></div>
-      <article class="epi-motion-card epi-method-step" data-reveal data-reveal-delay="1">
-        <span>Paso 01</span><h3>Entendemos el negocio</h3>
-        <p>Antes de tocar campañas, entendemos qué vendés, a quién, con qué margen, con qué proceso y con qué objetivo comercial.</p>
-      </article>
-      <article class="epi-motion-card epi-method-step" data-reveal data-reveal-delay="2">
-        <span>Paso 02</span><h3>Ordenamos la adquisición</h3>
-        <p>Definimos canales, mensajes, audiencias, presupuesto, creatividades, embudo y KPIs.</p>
-      </article>
-      <article class="epi-motion-card epi-method-step" data-reveal data-reveal-delay="3">
-        <span>Paso 03</span><h3>Medimos performance</h3>
-        <p>Implementamos medición, reportes y lectura de datos para separar ruido de señal.</p>
-      </article>
-      <article class="epi-motion-card epi-method-step" data-reveal data-reveal-delay="4">
-        <span>Paso 04</span><h3>Mejoramos oportunidades comerciales</h3>
-        <p>Analizamos la calidad de los leads, las objeciones, el seguimiento y la conversión comercial.</p>
-      </article>
-      <article class="epi-motion-card epi-method-step" data-reveal data-reveal-delay="4">
-        <span>Paso 05</span><h3>Priorizamos decisiones</h3>
-        <p>No se trata de hacer todo. Se trata de elegir las acciones que más impacto pueden tener sobre el crecimiento.</p>
-      </article>
-      <article class="epi-motion-card epi-method-step" data-reveal data-reveal-delay="4">
-        <span>Paso 06</span><h3>Sostenemos ejecución</h3>
-        <p>Acompañamos con reuniones, tableros, próximos pasos y foco para que la estrategia avance.</p>
-      </article>
-    </div>
-  </section>
-
-  <!-- ========================================================
-       FRASE DE AUTORIDAD
-       ======================================================== -->
-  <section class="epi-quote-band epi-quote-band--invert" data-reveal>
-    <div class="wrap">
-      <blockquote>Escalar el desorden <span>también es escalar.</span></blockquote>
-      <cite>EPIBRANDS · Liderazgo para sostener</cite>
-    </div>
-  </section>
-
-  <!-- ========================================================
-       SITUACIÓN INICIAL / RESULTADO ESPERADO
-       ======================================================== -->
-  <section class="epi-before-after-section" data-reveal>
-    <div class="epi-before-after-card">
-      <div class="epi-ba-head">
-        <p class="epi-eyebrow">Antes / Después</p>
-        <h2>Crecer no consiste en hacer más marketing.<br>Consiste en <span class="epi-ba-mark">decidir mejor<svg viewBox="0 0 320 24" preserveAspectRatio="none" aria-hidden="true"><path d="M5 17C60 9 130 9 196 13c54 3 99 2 119-3"/></svg></span>.</h2>
-        <p>La diferencia entre un negocio que se estanca y uno que crece rara vez reside en el esfuerzo. Reside en el sistema que respalda sus decisiones.</p>
+      <div class="epi-price-head">
+        <p class="epi-eyebrow">Inversión y alcance</p>
+        <h2 id="precio-title">Un acompañamiento de crecimiento por USD 990 al mes.</h2>
+        <p class="epi-price-lead">Estrategia, gestión de campañas, medición y revisión del proceso comercial, con seguimiento semanal y prioridades documentadas.</p>
       </div>
 
-      <div class="epi-ba-grid">
-        <div class="epi-ba-col epi-ba-col--before">
-          <div class="epi-ba-col-head">
-            <h3>Antes</h3>
-            <span class="epi-ba-tag epi-ba-tag--bad">Sin sistema</span>
-          </div>
-          <ul class="epi-ba-list">
-            <li><span class="epi-ba-ic epi-ba-ic--bad"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10M17 7L7 17"/></svg></span>Pauta activa sin lectura clara de retorno</li>
-            <li><span class="epi-ba-ic epi-ba-ic--bad"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10M17 7L7 17"/></svg></span>Leads que no se convierten en oportunidades</li>
-            <li><span class="epi-ba-ic epi-ba-ic--bad"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10M17 7L7 17"/></svg></span>Campañas que funcionan por momentos</li>
-            <li><span class="epi-ba-ic epi-ba-ic--bad"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10M17 7L7 17"/></svg></span>Reportes que muestran números, no decisiones</li>
-            <li><span class="epi-ba-ic epi-ba-ic--bad"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10M17 7L7 17"/></svg></span>Muchas ideas y poco foco para priorizar</li>
-          </ul>
+      <div class="epi-price-card epi-motion-card">
+        <header class="epi-price-header">
+          <span class="epi-price-flag">Growth Partnership</span>
+          <span class="epi-price-plan">Formato único · Individual</span>
+        </header>
+
+        <div class="epi-price-main">
+          <p class="epi-price-amount" aria-label="990 dólares por mes">
+            <span class="num">990</span>
+            <span class="cur">USD</span>
+            <span class="per">/ mes</span>
+          </p>
+          <p class="epi-price-desc"><b>El presupuesto publicitario se paga aparte</b>, directamente a las plataformas desde las cuentas del cliente. EPIBRANDS gestiona las campañas dentro del alcance acordado.</p>
+          <p class="epi-price-desc">El trabajo se organiza con un horizonte de seis meses para implementar, medir y ajustar las mejoras. Los resultados dependen del punto de partida, la inversión, la oferta y la ejecución del negocio.</p>
+          <p class="epi-cupos" data-cupos>
+            <span class="epi-cupos-dots" aria-hidden="true"></span>
+            <span class="epi-cupos-text"><b>Cupos limitados</b> · cuatro negocios por período</span>
+          </p>
+          <a href="#aplicar" class="btn btn-solid" data-cta="precio"><span class="dot" aria-hidden="true"></span> Solicitar una llamada</a>
         </div>
 
-        <div class="epi-ba-arrow" aria-hidden="true">
-          <svg viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
-        </div>
-
-        <div class="epi-ba-col epi-ba-col--after">
-          <div class="epi-ba-col-head">
-            <h3>Después</h3>
-            <span class="epi-ba-tag epi-ba-tag--good">Con sistema</span>
-          </div>
-          <ul class="epi-ba-list">
-            <li><span class="epi-ba-ic epi-ba-ic--good"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg></span>Adquisición ordenada por canal y objetivo</li>
-            <li><span class="epi-ba-ic epi-ba-ic--good"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg></span>Oportunidades comerciales de mejor calidad</li>
-            <li><span class="epi-ba-ic epi-ba-ic--good"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg></span>CPA, ROAS, CPL y conversión bajo lectura</li>
-            <li><span class="epi-ba-ic epi-ba-ic--good"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg></span>Reportes que derivan en decisiones</li>
-            <li><span class="epi-ba-ic epi-ba-ic--good"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg></span>Prioridades claras y ejecución sostenida</li>
+        <div class="epi-price-format" id="incluye">
+          <h3 class="epi-price-format-title">Incluye</h3>
+          <ul class="epi-price-list">
+            <li>Growth meeting semanal de 60 minutos con Mariano Calandra</li>
+            <li>Diagnóstico inicial del negocio, la oferta y el embudo</li>
+            <li>Plan de crecimiento documentado a seis meses</li>
+            <li>Estrategia y gestión de Meta Ads, Google Ads y TikTok Ads</li>
+            <li>Medición con GA4 y Google Tag Manager, y lectura de CPA, ROAS y CPL</li>
+            <li>Revisión de la calidad de leads y del proceso comercial</li>
+            <li>Asesoramiento en propuesta de valor, oferta, pricing y margen</li>
+            <li>Automatización de seguimiento, WhatsApp y CRM</li>
+            <li>Tablero de indicadores y próximos pasos priorizados</li>
+            <li>Canal directo de consulta por WhatsApp entre reuniones, con respuesta inmediata</li>
           </ul>
         </div>
       </div>
+
+      <dl class="epi-terms" aria-label="Condiciones">
+        <div class="epi-term">
+          <dt>Permanencia mínima</dt>
+          <dd>Tres meses: el tiempo que necesita el proceso para implementar los cambios y medirlos con seriedad.</dd>
+        </div>
+        <div class="epi-term">
+          <dt>Cancelación</dt>
+          <dd>Por escrito, con 7 días de anticipación.</dd>
+        </div>
+        <div class="epi-term">
+          <dt>Forma de pago</dt>
+          <dd>PayPal, Stripe u otras plataformas de pago internacionales. En Argentina, también por transferencia en pesos a la cotización del dólar del día.</dd>
+        </div>
+      </dl>
+
+      <div class="epi-scope" aria-labelledby="scope-title">
+        <h3 class="epi-scope-title" id="scope-title">Quién hace qué</h3>
+        <div class="epi-scope-grid">
+          <div class="epi-scope-col" data-scope="gestiona">
+            <h4>EPIBRANDS gestiona</h4>
+            <ul>
+              <li>Estrategia y gestión de campañas en Meta Ads, Google Ads y TikTok Ads.</li>
+              <li>Medición con GA4 y Google Tag Manager.</li>
+              <li>Automatización de seguimiento, WhatsApp y CRM: si no los tenés, te acompañamos en la creación y la implementación.</li>
+              <li>Growth meeting semanal, tablero de indicadores y plan documentado.</li>
+            </ul>
+          </div>
+          <div class="epi-scope-col" data-scope="asesora">
+            <h4>EPIBRANDS asesora</h4>
+            <ul>
+              <li>Propuesta de valor, oferta, precios y margen.</li>
+              <li>Calidad de las consultas, objeciones y seguimiento comercial.</li>
+            </ul>
+          </div>
+          <div class="epi-scope-col" data-scope="cliente">
+            <h4>El cliente aporta</h4>
+            <ul>
+              <li>Acceso a las cuentas publicitarias y de medición.</li>
+              <li>La participación de quien toma decisiones en la reunión semanal.</li>
+              <li>La atención de consultas y la implementación de los cambios comerciales acordados.</li>
+              <li>La decisión final sobre el negocio.</li>
+            </ul>
+          </div>
+          <div class="epi-scope-col" data-scope="externo">
+            <h4>Costos aparte</h4>
+            <ul>
+              <li>Presupuesto publicitario, pagado directamente a las plataformas desde las cuentas del cliente.</li>
+              <li>Licencias de herramientas (CRM, automatización y otras), a cargo del cliente.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- ========================================================
-       PARA QUIÉN ES EPIBRANDS
+       7. PREGUNTAS FRECUENTES
        ======================================================== -->
-  <section class="section section--deep" id="para-quien">
+  <section class="section section--deep" id="faq" aria-labelledby="faq-title">
     <div class="wrap">
       <div class="section-head">
-        <span class="eyebrow reveal">Para quién es</span>
+        <span class="eyebrow">Preguntas</span>
         <div>
-          <h2>Para negocios que quieren crecer con más claridad, no con más ruido.</h2>
-          <p>EPIBRANDS es para empresas, marcas y profesionales que ya tienen una operación en marcha y quieren ordenar su crecimiento comercial. Trabajamos mejor con negocios que entienden que el marketing no es una acción aislada, sino parte de un sistema que conecta adquisición, ventas, oferta, datos y ejecución.</p>
-        </div>
-      </div>
-
-      <div class="aud-grid">
-        <div class="aud-col aud-col--yes epi-motion-card" data-reveal>
-          <div class="aud-head">
-            <h3>Ideal para</h3>
-            <span class="aud-tag aud-tag--yes">Encaja</span>
-          </div>
-          <ul class="aud-list">
-            <li><span class="aud-ic aud-ic--yes"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg></span>Negocios B2C con ticket medio o alto</li>
-            <li><span class="aud-ic aud-ic--yes"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg></span>Servicios profesionales</li>
-            <li><span class="aud-ic aud-ic--yes"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg></span>Educación, cursos y formación</li>
-            <li><span class="aud-ic aud-ic--yes"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg></span>Estética, salud y bienestar</li>
-            <li><span class="aud-ic aud-ic--yes"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg></span>Real estate</li>
-            <li><span class="aud-ic aud-ic--yes"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg></span>Agro, finanzas y servicios B2B</li>
-            <li><span class="aud-ic aud-ic--yes"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg></span>E-commerce con margen</li>
-            <li><span class="aud-ic aud-ic--yes"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg></span>Empresas que invierten en pauta y quieren mejorar la calidad de sus resultados</li>
-            <li><span class="aud-ic aud-ic--yes"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg></span>Marcas que venden, pero necesitan más orden comercial</li>
-          </ul>
-        </div>
-
-        <div class="aud-col epi-motion-card" data-reveal data-reveal-delay="1">
-          <div class="aud-head">
-            <h3>No es ideal para</h3>
-            <span class="aud-tag aud-tag--no">No encaja</span>
-          </div>
-          <ul class="aud-list">
-            <li><span class="aud-ic aud-ic--no"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10M17 7L7 17"/></svg></span>Negocios que solo buscan posteos sueltos</li>
-            <li><span class="aud-ic aud-ic--no"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10M17 7L7 17"/></svg></span>Empresas que quieren “hacer una publicidad barata”</li>
-            <li><span class="aud-ic aud-ic--no"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10M17 7L7 17"/></svg></span>Proyectos sin oferta clara</li>
-            <li><span class="aud-ic aud-ic--no"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10M17 7L7 17"/></svg></span>Marcas que no están dispuestas a revisar su proceso comercial</li>
-            <li><span class="aud-ic aud-ic--no"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10M17 7L7 17"/></svg></span>Negocios que solo quieren volumen sin mirar rentabilidad</li>
-          </ul>
-        </div>
-      </div>
-
-      <p class="epi-aud-note">Trabajamos con cuatro negocios por período y el proceso requiere la participación de quien decide: dueño, socio o responsable comercial. Es lo que permite sostener la profundidad del trabajo.</p>
-    </div>
-  </section>
-
-  <!-- ========================================================
-       FRASE DE AUTORIDAD
-       ======================================================== -->
-  <section class="epi-quote-band" data-reveal>
-    <div class="wrap">
-      <blockquote>Antes de aumentar presupuesto, <span>hay que revisar qué está intentando vender el negocio.</span></blockquote>
-      <cite>EPIBRANDS · Negocios para decidir</cite>
-    </div>
-  </section>
-
-  <!-- ========================================================
-       ANTECEDENTES
-       ======================================================== -->
-  <section class="epi-counters-section" data-reveal>
-    <div class="epi-counters-header">
-      <p class="epi-eyebrow">Antecedentes</p>
-      <h2>Más de 10 años de trabajo aplicado al crecimiento de negocios.</h2>
-    </div>
-    <div class="epi-counters-grid">
-      <div class="epi-motion-card epi-counter-card">
-        <strong><span data-counter="34">0</span></strong>
-        <p>Clientes actuales consolidados</p>
-      </div>
-      <div class="epi-motion-card epi-counter-card">
-        <strong><span data-counter="25000">0</span><span class="epi-counter-unit">USD</span></strong>
-        <p>Facturados en servicios profesionales</p>
-      </div>
-      <div class="epi-motion-card epi-counter-card">
-        <strong><span data-counter="7">0</span></strong>
-        <p>Ecommerce activos en operación diaria</p>
-      </div>
-      <div class="epi-motion-card epi-counter-card">
-        <strong><span data-counter="945000">0</span></strong>
-        <p>Visualizaciones en Instagram</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========================================================
-       MARCO DE TRABAJO
-       ======================================================== -->
-  <section class="section">
-    <div class="wrap">
-      <div class="section-head">
-        <span class="eyebrow reveal">Marco de trabajo</span>
-        <div>
-          <h2>Seis condiciones que sostienen el trabajo.</h2>
-          <p>Son las que aseguran que el partnership produzca decisiones y avance real, y no una reunión más en la agenda.</p>
-        </div>
-      </div>
-      <div class="principles">
-        <div class="principle reveal"><span class="num">01</span><div class="body"><h3>Conducción directa</h3><p>El programa lo dirige Mariano Calandra de forma personal. No intervienen equipos intermedios ni se delega la cuenta.</p></div></div>
-        <div class="principle reveal"><span class="num">02</span><div class="body"><h3>Cuatro negocios por período</h3><p>El nivel de dedicación requerido no admite una cartera mayor. Se prioriza la profundidad del trabajo sobre el volumen de clientes.</p></div></div>
-        <div class="principle reveal"><span class="num">03</span><div class="body"><h3>Ejecución documentada</h3><p>Cada sesión concluye con acciones definidas, responsables asignados y plazos concretos para la semana siguiente.</p></div></div>
-        <div class="principle reveal"><span class="num">04</span><div class="body"><h3>Decisiones respaldadas en datos</h3><p>Se evalúan CPA, ROAS, CPL, margen y calidad de leads en cada acción. Toda iniciativa sin retorno verificable se discontinúa.</p></div></div>
-        <div class="principle reveal"><span class="num">05</span><div class="body"><h3>Tecnología con criterio</h3><p>La automatización y la inteligencia artificial se incorporan donde generan un ahorro real de costos o de tiempo. Constituyen un medio, nunca un objetivo en sí mismo.</p></div></div>
-        <div class="principle reveal"><span class="num">06</span><div class="body"><h3>La decisión final corresponde al cliente</h3><p>La consultoría aporta método, experiencia y criterio profesional. Toda decisión sobre el negocio corresponde al cliente.</p></div></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========================================================
-       INVERSIÓN
-       ======================================================== -->
-  <section class="epi-price-section" id="precio" data-reveal>
-    <div class="epi-price-head">
-      <p class="epi-eyebrow">Inversión</p>
-      <h2>Un único partnership. Alcance completo.</h2>
-      <p>Sin niveles, sin paquetes y sin condiciones adicionales. Un solo formato de trabajo, cuatro cupos y una inversión definida con anticipación.</p>
-    </div>
-
-    <div class="epi-price-card epi-motion-card">
-      <header class="epi-price-header">
-        <span class="epi-price-flag">Growth Partnership</span>
-        <span class="epi-price-plan">Formato único · Individual</span>
-      </header>
-
-      <div class="epi-price-main">
-        <p class="epi-price-amount">
-          <span class="num">990</span>
-          <span class="cur">USD</span>
-          <span class="per">/ mes</span>
-        </p>
-        <p class="epi-price-desc">Nos integramos como socio estratégico del negocio: estrategia de crecimiento, performance marketing, desarrollo comercial, medición y sistema de ejecución. El trabajo está diseñado sobre un horizonte de seis meses, plazo en el que el impacto se refleja en la facturación.</p>
-
-        <!-- Editá data-cupos-tomados cuando se ocupe un lugar. -->
-        <div class="epi-cupos" data-cupos data-cupos-total="4" data-cupos-tomados="2">
-          <span class="epi-cupos-dots" aria-hidden="true"></span>
-          <span class="epi-cupos-text"><b>2 de 4 cupos</b> disponibles</span>
-        </div>
-
-        <a href="#aplicar" class="btn btn-solid"><span class="dot"></span> Agendar una llamada</a>
-        <p class="epi-price-note">El presupuesto de medios publicitarios no está incluido y su administración corresponde al cliente. Los USD 990 mensuales corresponden a la inversión en el partnership.</p>
-      </div>
-
-      <ul class="epi-price-list">
-        <li>Growth meeting semanal de 60 minutos con Mariano Calandra</li>
-        <li>Diagnóstico inicial del negocio, la oferta y el embudo</li>
-        <li>Plan de crecimiento documentado a seis meses</li>
-        <li>Estrategia y gestión de Meta Ads, Google Ads y TikTok Ads</li>
-        <li>Medición con GA4 y Google Tag Manager, y lectura de CPA, ROAS y CPL</li>
-        <li>Revisión de la calidad de leads y del proceso comercial</li>
-        <li>Asesoramiento en propuesta de valor, oferta, pricing y margen</li>
-        <li>Automatización de seguimiento, WhatsApp y CRM</li>
-        <li>Tablero de indicadores y próximos pasos priorizados</li>
-        <li>Canal directo de consulta entre reuniones</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- ========================================================
-       PREGUNTAS FRECUENTES
-       ======================================================== -->
-  <section class="section" id="faq">
-    <div class="wrap">
-      <div class="section-head">
-        <span class="eyebrow reveal">Consultas</span>
-        <div>
-          <h2>Preguntas frecuentes antes de agendar.</h2>
+          <h2 id="faq-title">Preguntas frecuentes.</h2>
         </div>
       </div>
 
       <div class="faq">
-        <details class="faq-item" data-reveal>
-          <summary>¿En qué se diferencia de una agencia de marketing?</summary>
-          <div class="faq-body">Una agencia tradicional vende entregables: campañas, posteos, reportes o piezas gráficas. Un Growth Partner se integra al negocio: revisa la oferta, el margen, la calidad de los leads y el proceso comercial, además de gestionar la adquisición. El objetivo no es producir más marketing, sino mejorar las decisiones de crecimiento y sostener su ejecución.</div>
+        <details class="faq-item">
+          <summary>¿Gestionás las campañas o solo asesorás?</summary>
+          <div class="faq-body">Las dos cosas. EPIBRANDS gestiona tus campañas en Meta Ads, Google Ads y TikTok Ads y, en paralelo, asesora sobre la oferta, la medición y el seguimiento comercial. El detalle está en <a href="#precio">Inversión y alcance</a>.</div>
         </details>
-        <details class="faq-item" data-reveal>
-          <summary>¿Gestionan las campañas o solo asesoran?</summary>
-          <div class="faq-body">Ambas cosas. Creamos, gestionamos y optimizamos las campañas en Meta Ads, Google Ads y los canales que correspondan al negocio, y en paralelo trabajamos la estrategia, la oferta, la medición y el proceso comercial. La ejecución y el criterio van juntos: separarlos es lo que suele romper el sistema.</div>
+        <details class="faq-item">
+          <summary>¿La inversión publicitaria está incluida?</summary>
+          <div class="faq-body">No. Los USD 990 mensuales corresponden al acompañamiento. El presupuesto publicitario lo define el cliente según sus objetivos y se paga directamente a las plataformas desde sus propias cuentas. Te recomendamos el monto a invertir y revisamos su rendimiento en cada reunión.</div>
         </details>
-        <details class="faq-item" data-reveal>
-          <summary>¿Por qué el trabajo se limita a cuatro cupos?</summary>
-          <div class="faq-body">Porque el trabajo es individual y sostenido en el tiempo. Cada empresa requiere sesiones semanales, revisión de campañas, análisis de indicadores y disponibilidad entre reuniones. Una cartera mayor no permitiría sostener el nivel de dedicación profesional que corresponde a una inversión de esta naturaleza.</div>
+        <details class="faq-item">
+          <summary>¿Qué necesitamos tener para empezar?</summary>
+          <div class="faq-body">Una oferta que ya genere ventas, la participación de quien toma las decisiones y acceso a las cuentas publicitarias y a la medición. Si todavía no tenés CRM o automatizaciones, te acompañamos en la creación y la implementación; las licencias de las herramientas quedan a cargo del cliente. No pedimos un mínimo de facturación.</div>
         </details>
-        <details class="faq-item" data-reveal>
-          <summary>¿Cuál es la duración del acompañamiento?</summary>
-          <div class="faq-body">Está diseñado como un proceso de seis meses, con una inversión mensual de USD 990. Seis meses constituye el plazo mínimo razonable para ordenar la operación, poner en marcha la adquisición, automatizar procesos y observar el impacto sobre la facturación.</div>
+        <details class="faq-item">
+          <summary>¿Cómo es la llamada inicial?</summary>
+          <div class="faq-body">Dura 30 minutos, es sin costo y la hace Mariano. Sirve para conocer tu situación, entender qué querés mejorar y evaluar si tu negocio cumple los requisitos. Se coordina por email o WhatsApp después de revisar tu solicitud.</div>
         </details>
-        <details class="faq-item" data-reveal>
-          <summary>¿Qué ocurre en la primera sesión?</summary>
-          <div class="faq-body">Se realiza el diagnóstico integral de la empresa: indicadores, oferta, precios, canales de adquisición, procesos y herramientas en uso. De ese análisis surge el plan de trabajo documentado para los seis meses, con prioridades, responsables y plazos definidos.</div>
+        <details class="faq-item">
+          <summary>¿Cómo se organiza el trabajo durante los seis meses?</summary>
+          <div class="faq-body">En la primera semana entregamos el plan de crecimiento documentado. Después, cada semana se revisan indicadores, se definen prioridades y se asignan próximos pasos. Los ajustes se deciden con un período y un volumen de datos adecuados, no por resultados aislados. Los resultados dependen del punto de partida, la inversión, la oferta y la ejecución del negocio.</div>
         </details>
-        <details class="faq-item" data-reveal>
-          <summary>¿El presupuesto publicitario está incluido en la inversión?</summary>
-          <div class="faq-body">No. Los USD 990 mensuales corresponden exclusivamente a la inversión en el acompañamiento profesional. El presupuesto de medios lo define el cliente en función de sus objetivos y se abona directamente a las plataformas desde su propia cuenta publicitaria. El programa incluye la recomendación del monto a invertir y el control del retorno obtenido.</div>
+        <details class="faq-item">
+          <summary>¿Hay permanencia mínima? ¿Cómo se cancela?</summary>
+          <div class="faq-body">Sí, la permanencia mínima es de tres meses: es el tiempo que necesita el proceso para implementar los cambios y medirlos con seriedad. La cancelación se pide por escrito, con 7 días de anticipación.</div>
         </details>
-        <details class="faq-item" data-reveal>
-          <summary>¿Es adecuado para negocios pequeños?</summary>
-          <div class="faq-body">Lo es siempre que exista facturación. No se requiere un volumen determinado, pero sí un producto o servicio que el mercado ya adquiera. Si la empresa se encuentra en etapa de validación, se comunicará en la respuesta a la solicitud, con las recomendaciones que correspondan.</div>
+        <details class="faq-item">
+          <summary>¿Trabajan con negocios fuera de la Argentina? ¿Cómo se paga?</summary>
+          <div class="faq-body">Sí. El trabajo es remoto y en español, con negocios de Latinoamérica y España, y los horarios se coordinan según tu zona horaria. El pago se hace por PayPal, Stripe u otras plataformas de pago internacionales. En Argentina también se puede pagar por transferencia en pesos, a la cotización del dólar del día.</div>
         </details>
-        <details class="faq-item" data-reveal>
-          <summary>¿Se trabaja con empresas fuera de la Argentina?</summary>
-          <div class="faq-body">Sí. El programa se desarrolla íntegramente de forma remota y en español, con empresas de toda Latinoamérica y España. Los horarios de las sesiones se coordinan según la zona horaria del cliente.</div>
-        </details>
-        <details class="faq-item" data-reveal>
-          <summary>¿Qué ocurre si no hay cupos disponibles al momento de escribir?</summary>
-          <div class="faq-body">Se comunica de inmediato y la solicitud queda incorporada a la lista de espera, con prioridad para el primer cupo que se libere. No se ofrecen vacantes que no se encuentren efectivamente disponibles.</div>
+        <details class="faq-item">
+          <summary>¿Por qué hay cupos?</summary>
+          <div class="faq-body">Porque Mariano participa de forma directa en cada acompañamiento, así que trabajamos con cuatro negocios por período. Además, no tomamos cualquier negocio: solo los que cumplen los <a href="#para-quien">requisitos</a>. Si al momento de tu solicitud no hay lugar, te lo decimos y la solicitud queda en lista de espera.</div>
         </details>
       </div>
     </div>
   </section>
 
   <!-- ========================================================
-       FRASE DE AUTORIDAD
+       8. SOLICITUD — recorrido: solicitud → revisión → llamada
+       Formulario Netlify "epibrands-studio" (mismo nombre, mismo
+       honeypot, misma página de éxito). Con JS se envía por fetch
+       y solo pasa a gracias.html si Netlify confirma el envío; sin
+       JS funciona como POST nativo.
        ======================================================== -->
-  <section class="epi-quote-band epi-quote-band--deep" data-reveal>
-    <div class="wrap">
-      <blockquote>No buscamos más marketing. <span>Buscamos mejor crecimiento.</span></blockquote>
-      <cite>EPIBRANDS · Growth Partner</cite>
-    </div>
-  </section>
-
-  <!-- ========================================================
-       CIERRE — agendar una llamada
-       Formulario Netlify en 3 pasos. La submission exitosa
-       redirige a /epibrands/gracias.html, que dispara el evento
-       Lead (browser + CAPI) al cargar.
-       ======================================================== -->
-  <section class="epi-apply-section" id="aplicar">
-    <div class="epi-apply-panel" data-reveal>
+  <section class="epi-apply-section" id="aplicar" aria-labelledby="aplicar-title">
+    <div class="epi-apply-panel">
 
       <div class="epi-apply-grid">
         <div class="epi-apply-aside">
-          <p class="epi-eyebrow">Próximo paso</p>
-          <h2>Construyamos un sistema de crecimiento rentable.</h2>
-          <p>Si tu negocio necesita ordenar su adquisición, mejorar la calidad de sus oportunidades comerciales y crecer con más foco, EPIBRANDS puede integrarse como socio estratégico de crecimiento. Completá el formulario y agendamos una llamada: cada solicitud la revisa personalmente Mariano Calandra, con respuesta dentro de las 24 horas hábiles.</p>
-
-          <!-- Editá data-cupos-tomados cuando se ocupe un lugar. -->
-          <div class="epi-cupos epi-cupos--invert" data-cupos data-cupos-total="4" data-cupos-tomados="2">
+          <p class="epi-eyebrow">Solicitud</p>
+          <h2 id="aplicar-title">Contanos qué querés mejorar de tu negocio.</h2>
+          <p class="epi-apply-intro">Mariano revisa cada solicitud y responde dentro de las 24 horas hábiles. Solo tomamos los negocios que cumplen los requisitos. La llamada inicial dura 30 minutos, es sin costo y sirve para conocer tu situación y evaluar si podemos ayudarte.</p>
+          <p class="epi-cupos epi-cupos--invert" data-cupos>
             <span class="epi-cupos-dots" aria-hidden="true"></span>
-            <span class="epi-cupos-text"><b>2 de 4 cupos</b> disponibles</span>
-          </div>
-
-          <ol class="epi-next">
-            <li><span><b>Revisamos tu negocio.</b> Analizamos la información enviada antes de responder.</span></li>
-            <li><span><b>Llamada de 30 minutos, sin costo</b>, para entender la situación comercial y ver si hay encaje.</span></li>
-            <li><span><b>Arranque del partnership</b>, con el plan de crecimiento documentado en la primera semana.</span></li>
+            <span class="epi-cupos-text"><b>Cupos limitados</b> · cuatro negocios por período</span>
+          </p>
+          <ol class="epi-flow" aria-label="Cómo sigue">
+            <li>Solicitud</li>
+            <li>Revisión de Mariano</li>
+            <li>Llamada de 30 minutos</li>
           </ol>
-
-          <!-- Agenda: se reutiliza el link de Google Calendar que ya usa el
-               resto del sitio (/servicios/*). Si en algún momento se abre una
-               agenda propia de EPIBRANDS, se cambia solo acá. -->
-          <div class="epi-apply-links">
-            <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0ia82BAbDyGthqzolde_NV2XPid5bfoAH0WuXI1NgmCFZyf5DvB7wPZBZAt2nrZRumUXYQJATZ?gv=true" target="_blank" rel="noopener">Agendar directo en el calendario ↗</a>
-            <a href="#servicios">Conocer servicios</a>
-          </div>
         </div>
 
         <div class="epi-form-card">
           <form id="epiApplyForm" name="epibrands-studio" method="POST"
-                action="/epibrands/gracias.html" data-netlify="true" netlify-honeypot="bot-field">
+                action="/epibrands/gracias.html" data-netlify="true" netlify-honeypot="bot-field"
+                aria-labelledby="epiFormTitle">
             <input type="hidden" name="form-name" value="epibrands-studio">
             <p hidden><label>No completar: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
 
-            <div class="epi-form-top">
-              <h3 id="epiFormTitle">Datos de contacto</h3>
-              <span class="epi-form-count" id="epiFormCount">Paso 1 de 3</span>
-            </div>
-            <div class="epi-progress" aria-hidden="true"><span id="epiFormBar"></span></div>
+            <h3 class="epi-form-title" id="epiFormTitle">Solicitud de llamada</h3>
+            <p class="epi-form-req">Los campos marcados con <span class="req" aria-hidden="true">*</span><span class="sr-only">asterisco</span> son obligatorios.</p>
 
-            <!-- PASO 1 -->
-            <div class="epi-step-panel is-active" data-step="1" data-title="Datos de contacto">
-              <div class="epi-field">
-                <label for="f-nombre">Nombre y apellido <span class="req">*</span></label>
-                <input id="f-nombre" type="text" name="nombre" placeholder="Nombre completo" required autocomplete="name">
-              </div>
-              <div class="epi-field">
-                <label for="f-email">Correo electrónico <span class="req">*</span></label>
-                <input id="f-email" type="email" name="email" placeholder="nombre@empresa.com" required autocomplete="email">
-              </div>
-              <div class="epi-field">
-                <label for="f-whatsapp">WhatsApp <span class="req">*</span></label>
-                <input id="f-whatsapp" type="tel" name="whatsapp" placeholder="+54 9 341 000 0000" required autocomplete="tel">
-                <span class="epi-field-hint">Se utiliza únicamente para coordinar la entrevista.</span>
-              </div>
+            <div class="epi-form-summary" id="epiFormSummary" role="alert" tabindex="-1" hidden>
+              <p class="epi-form-summary-title">Revisá estos campos:</p>
+              <ul></ul>
             </div>
 
-            <!-- PASO 2 -->
-            <div class="epi-step-panel" data-step="2" data-title="Datos de la empresa">
-              <div class="epi-field">
-                <label for="f-empresa">Empresa o marca <span class="req">*</span></label>
-                <input id="f-empresa" type="text" name="empresa" placeholder="Razón social o nombre comercial" required autocomplete="organization">
-              </div>
+            <div class="epi-form-fields">
               <div class="epi-field-row">
                 <div class="epi-field">
-                  <label for="f-web">Sitio web o Instagram</label>
-                  <input id="f-web" type="text" name="web" placeholder="empresa.com o @empresa" autocomplete="url">
+                  <label for="f-nombre">Nombre y apellido <span class="req" aria-hidden="true">*</span></label>
+                  <input id="f-nombre" type="text" name="nombre" required autocomplete="name" aria-describedby="e-nombre">
+                  <p class="epi-field-error" id="e-nombre" hidden></p>
                 </div>
                 <div class="epi-field">
-                  <label for="f-rubro">Rubro <span class="req">*</span></label>
-                  <input id="f-rubro" type="text" name="rubro" placeholder="Software, salud, retail" required>
+                  <label for="f-email">Email <span class="req" aria-hidden="true">*</span></label>
+                  <input id="f-email" type="email" name="email" required autocomplete="email" inputmode="email" spellcheck="false" placeholder="nombre@empresa.com" aria-describedby="e-email">
+                  <p class="epi-field-error" id="e-email" hidden></p>
                 </div>
               </div>
-              <div class="epi-field">
-                <label for="f-facturacion">Facturación mensual aproximada <span class="req">*</span></label>
-                <select id="f-facturacion" name="facturacion" required>
-                  <option value="" disabled selected>Seleccione una opción</option>
-                  <option>Sin facturación constante</option>
-                  <option>Menos de USD 5.000 mensuales</option>
-                  <option>Entre USD 5.000 y USD 15.000 mensuales</option>
-                  <option>Entre USD 15.000 y USD 50.000 mensuales</option>
-                  <option>Entre USD 50.000 y USD 150.000 mensuales</option>
-                  <option>Más de USD 150.000 mensuales</option>
-                </select>
-                <span class="epi-field-hint">Un valor aproximado es suficiente. Permite determinar el punto de partida del trabajo.</span>
-              </div>
-            </div>
 
-            <!-- PASO 3 -->
-            <div class="epi-step-panel" data-step="3" data-title="Objetivos">
-              <div class="epi-field">
-                <label for="f-objetivo">¿Qué objetivos busca alcanzar en los próximos seis meses? <span class="req">*</span></label>
-                <textarea id="f-objetivo" name="objetivo" rows="4" required
-                  placeholder="Describa la situación actual de la empresa, los objetivos previstos y los principales obstáculos identificados."></textarea>
-              </div>
-              <div class="epi-field">
-                <label>Respecto de la inversión de USD 990 mensuales <span class="req">*</span></label>
-                <div class="epi-choices">
-                  <label class="epi-choice">
-                    <input type="radio" name="inversion" value="La empresa puede afrontarla desde el inicio" required>
-                    <span>La empresa puede afrontarla desde el inicio</span>
-                  </label>
-                  <label class="epi-choice">
-                    <input type="radio" name="inversion" value="Puede afrontarla, sujeto al análisis previo del retorno">
-                    <span>Puede afrontarla, sujeto al análisis previo del retorno</span>
-                  </label>
-                  <label class="epi-choice">
-                    <input type="radio" name="inversion" value="No se encuentra dentro de las posibilidades actuales">
-                    <span>No se encuentra dentro de las posibilidades actuales</span>
-                  </label>
+              <div class="epi-field-row">
+                <div class="epi-field">
+                  <label for="f-empresa">Marca o negocio <span class="req" aria-hidden="true">*</span></label>
+                  <input id="f-empresa" type="text" name="empresa" required autocomplete="organization" aria-describedby="e-empresa">
+                  <p class="epi-field-error" id="e-empresa" hidden></p>
+                </div>
+                <div class="epi-field">
+                  <label for="f-web">Sitio web o Instagram <span class="opt">(opcional)</span></label>
+                  <input id="f-web" type="text" name="web" autocomplete="url" spellcheck="false" placeholder="empresa.com o @empresa">
                 </div>
               </div>
+
               <div class="epi-field">
-                <label for="f-inicio">¿En qué plazo prevé iniciar? <span class="req">*</span></label>
-                <select id="f-inicio" name="inicio" required>
-                  <option value="" disabled selected>Seleccione una opción</option>
-                  <option>De inmediato</option>
-                  <option>Dentro del mes en curso</option>
-                  <option>En dos o tres meses</option>
-                  <option>Aún en evaluación</option>
-                </select>
+                <label for="f-objetivo">¿Qué te gustaría mejorar? <span class="req" aria-hidden="true">*</span></label>
+                <textarea id="f-objetivo" name="objetivo" rows="4" required aria-describedby="h-objetivo e-objetivo"
+                  placeholder="Por ejemplo: recibimos consultas por Instagram, pero pocas terminan en ventas."></textarea>
+                <div class="epi-field-meta">
+                  <span class="epi-field-hint" id="h-objetivo">Unas líneas alcanzan. Máximo 600 caracteres.</span>
+                  <span class="epi-field-count" id="c-objetivo" aria-hidden="true" hidden>0 / 600</span>
+                </div>
+                <p class="epi-field-error" id="e-objetivo" hidden></p>
+              </div>
+
+              <div class="epi-field">
+                <label for="f-whatsapp">WhatsApp <span class="opt">(opcional)</span></label>
+                <input id="f-whatsapp" type="tel" name="whatsapp" autocomplete="tel" inputmode="tel" placeholder="+54 9 341 000 0000" aria-describedby="h-whatsapp e-whatsapp">
+                <span class="epi-field-hint" id="h-whatsapp">Solo para coordinar la llamada.</span>
+                <p class="epi-field-error" id="e-whatsapp" hidden></p>
               </div>
             </div>
 
-            <div class="epi-form-nav" id="epiFormNav">
-              <button type="button" class="epi-form-btn epi-form-btn--ghost" id="epiFormBack" hidden>Volver</button>
-              <button type="button" class="epi-form-btn epi-form-btn--full" id="epiFormNext" hidden>
-                Continuar <span aria-hidden="true">→</span>
-              </button>
-              <button type="submit" class="epi-form-btn epi-form-btn--full" id="epiFormSubmit">
-                Agendar una llamada <span aria-hidden="true">→</span>
-              </button>
+            <div class="epi-form-submit">
+              <p class="epi-form-price">Partnership: <b>USD 990/mes</b>. Publicidad aparte.</p>
+              <button type="submit" class="epi-form-btn" id="epiFormSubmit">Enviar solicitud</button>
+              <div class="epi-form-alert" id="epiFormAlert" role="alert" hidden>
+                No pudimos enviar la solicitud. Intentá nuevamente o <a href="https://wa.me/5493416397137?text=Buenos%20d%C3%ADas.%20Escribo%20desde%20el%20sitio%20web%20para%20consultar%20por%20el%20Growth%20Partnership%20de%20EPIBRANDS." target="_blank" rel="noopener" data-wa-location="error-formulario">escribinos por WhatsApp</a>.
+              </div>
             </div>
 
-            <p class="epi-form-foot">La información suministrada es confidencial y no se comparte con terceros.</p>
+            <p class="epi-form-foot">Usamos tus datos solo para responder tu solicitud; no los vendemos ni los cedemos. <a href="/privacidad.html">Política de privacidad</a>.</p>
           </form>
         </div>
       </div>
 
       <div class="epi-contact-alt">
-        <span class="epi-contact-or">¿Preferís preguntar antes?</span>
+        <span class="epi-contact-or">¿Preferís consultar antes?</span>
         <a class="epi-whatsapp-button"
            href="https://wa.me/5493416397137?text=Buenos%20d%C3%ADas.%20Escribo%20desde%20el%20sitio%20web%20para%20consultar%20por%20el%20Growth%20Partnership%20de%20EPIBRANDS."
-           target="_blank" rel="noopener"
-           onclick="if(window.mcTrack)window.mcTrack('Lead',{content_name:'EPIBRANDS Growth Partner',content_category:'whatsapp'});">
+           target="_blank" rel="noopener" data-wa-location="aplicar">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.7 8.7 0 0 1-3.6-.8L3 20.5l1.4-5.1a8.4 8.4 0 0 1-.9-3.9 8.4 8.4 0 0 1 8.5-8.4 8.4 8.4 0 0 1 9 8.4z"/></svg>
           Consultar por WhatsApp
         </a>
@@ -1977,26 +1386,27 @@ input, select, textarea, button{ font-family:inherit; }
      ============================================================ -->
 <footer>
   <div class="wrap foot-wrap">
-    <a href="#top" class="brand" aria-label="EPIBRANDS">
+    <a href="#top" class="brand" aria-label="EPIBRANDS — volver arriba">
       <img class="brand-logo" src="assets/epibrands-logo.png" alt="EPIBRANDS" width="621" height="124">
     </a>
-    <div class="foot-links">
+    <nav class="foot-links" aria-label="Pie de página">
       <a href="../index.html">Inicio</a>
-      <a href="#concepto">Sistema</a>
-      <a href="#servicios">Servicios</a>
+      <a href="#servicios">Qué incluye</a>
       <a href="#precio">Inversión</a>
-      <a href="#aplicar">Agendar una llamada</a>
+      <a href="#faq">Preguntas</a>
+      <a href="#aplicar" data-cta="footer">Solicitar una llamada</a>
       <a href="mailto:info@marianocalandra.com">info@marianocalandra.com</a>
-    </div>
-    <p class="foot-copy">© <span id="year"></span> Mariano Calandra · EPIBRANDS. Growth Partner: performance para medir, negocios para decidir, liderazgo para sostener.</p>
+      <a href="/privacidad.html">Privacidad</a>
+    </nav>
+    <p class="foot-copy">© <span id="year">2026</span> Mariano Calandra · EPIBRANDS · Growth Partner.</p>
   </div>
 </footer>
 
 <!-- ============================================================
-     SCRIPT — externo (CSP: script-src 'self'). Toda la lógica
-     interactiva vive en studio.js
+     SCRIPT — externo (CSP). Toda la lógica interactiva vive en
+     studio.js y es mejora progresiva.
      ============================================================ -->
-<script src="studio.js" defer></script>
+<script src="studio.js?v=__BUST__" defer></script>
 
 </body>
 </html>

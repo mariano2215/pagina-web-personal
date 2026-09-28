@@ -3,6 +3,8 @@
 /index.html.bak2   /  404!
 /index.html.bak3   /  404!
 /*.bak             /  404!
+# Documentación interna del repo (pendientes comerciales, medición): no se publica
+/docs/*            /404.html  404!
 
 # Legacy: Recursos → Contenido (página unificada)
 /recursos.html     /contenido.html  301
