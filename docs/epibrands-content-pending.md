@@ -9,7 +9,8 @@ Fecha: 2026-09-28. Rama: `epibrands-studio-conversion`.
 
 | Tema | Qué dice la página |
 | --- | --- |
-| Qué incluye | Los 10 ítems de la lista original: growth meeting semanal de 60 min, diagnóstico, plan documentado a seis meses, Meta/Google/TikTok Ads, GA4 + GTM, calidad de leads y proceso comercial, propuesta de valor/pricing/margen, automatización de seguimiento/WhatsApp/CRM, tablero y canal directo. |
+| Precio | USD 1.390/mes + inversión publicitaria (subió de USD 990 el 2026-10-13, al sumar diseño gráfico y community management). |
+| Qué incluye | 11 ítems: growth meeting semanal de 60 min, diagnóstico, plan documentado a seis meses, Meta/Google/TikTok Ads, diseño gráfico y community management de las redes (desde 2026-10-13), GA4 + GTM, calidad de leads y proceso comercial, propuesta de valor/pricing/margen, automatización de seguimiento/WhatsApp/CRM, tablero y canal directo. |
 | CRM y automatización | Si el cliente no los tiene, EPIBRANDS acompaña la creación y la implementación. Las licencias las paga el cliente. |
 | Permanencia | Mínimo tres meses. |
 | Cancelación | Por escrito, con 7 días de anticipación. |
