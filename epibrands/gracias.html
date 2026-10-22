@@ -88,7 +88,9 @@ height="0" width="0" class="gtm-noscript" style="display:none;visibility:hidden"
      envío; acá se consume una única vez. Así una recarga o una visita
      directa a esta página no cuentan como lead.
      - Meta: Lead (browser + CAPI, deduplicado por event_id).
-     - dataLayer: generate_lead, sin datos personales. -->
+     - dataLayer: lead_captured (como el resto del sitio), sin datos personales.
+       No usar generate_lead: el contenedor GTM-WF2DG4B7 lo convierte en un
+       Lead de Meta y se contaría dos veces junto con el de meta-pixel.js. -->
 <script>
 document.addEventListener("DOMContentLoaded", function(){
   var origen = null;
@@ -102,7 +104,7 @@ document.addEventListener("DOMContentLoaded", function(){
   if (origen === null) return;
   if (window.mcTrack) window.mcTrack("Lead", { content_name: "EPIBRANDS Growth Partner", content_category: "form" });
   window.dataLayer = window.dataLayer || [];
-  window.dataLayer.push({ event: "generate_lead", form_name: "epibrands-studio", lead_source: origen, page_path: location.pathname });
+  window.dataLayer.push({ event: "lead_captured", form_name: "epibrands-studio", lead_source: origen, page_path: location.pathname });
 });
 </script>
 </body>

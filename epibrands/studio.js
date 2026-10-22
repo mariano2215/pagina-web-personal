@@ -391,7 +391,7 @@
     }).then(function (res) {
       if (timer) clearTimeout(timer);
       if (!res.ok) { fail("servidor_" + res.status); return; }
-      // Aceptada por Netlify: gracias.html dispara Lead + generate_lead
+      // Aceptada por Netlify: gracias.html dispara Lead + lead_captured
       // una sola vez gracias a esta marca (una recarga no lo repite).
       try { sessionStorage.setItem("epi_lead_ok", lastCtaLocation()); } catch (err) { /* sin storage */ }
       if (submitBtn) submitBtn.textContent = "Solicitud enviada";
