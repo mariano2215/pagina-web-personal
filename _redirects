@@ -19,3 +19,9 @@
 #    necesario porque el archivo físico studio.html existe y si no, gana el archivo.
 /epibrands/studio.html    /epibrands/studio        301!
 /epibrands/studio/        /epibrands/studio        301!
+
+# EPIBRANDS: la landing vigente es /epibrands/studio. La página anterior (/epibrands/) redirige ahí.
+# El "!" es necesario porque epibrands/index.html existe. /epibrands/gracias y los assets no se tocan.
+/epibrands                /epibrands/studio        301!
+/epibrands/               /epibrands/studio        301!
+/epibrands/index.html     /epibrands/studio        301!

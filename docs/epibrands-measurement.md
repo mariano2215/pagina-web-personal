@@ -7,14 +7,14 @@
 | Sistema | En `/epibrands/studio` | Notas |
 | --- | --- | --- |
 | Meta Pixel + CAPI (`meta-pixel.js`, pixel `1460516722431287`, function `meta-capi`) | Sí | PageView automático, Contact en clicks a WhatsApp. |
-| Google Tag Manager (`gtm.js`, `GTM-WF2DG4B7`) | **No** | Se usa en otras páginas del sitio. |
-| GA4 | **No** (llegaría vía GTM) | |
+| Google Tag Manager (`gtm.js`, `GTM-WF2DG4B7`) | **Sí** (desde el 22/10/2026, también en `gracias.html`) | Mismo contenedor que el resto del sitio, por decisión de Mariano. |
+| GA4 | Vía GTM (`G-5YP65LHQXB`) | Los eventos de la tabla llegan si el contenedor tiene triggers para ellos. |
 | Microsoft Clarity | No | |
 | Banner de consentimiento | No existe en el sitio | No se agregó ningún tracker nuevo. |
 
 ## Eventos
 
-Los eventos se empujan a `window.dataLayer` con la convención GA4. **Hoy no llegan a ninguna herramienta** porque esta página no carga GTM: quedan listos para conectar.
+Los eventos se empujan a `window.dataLayer` con la convención GA4. Desde el 22/10/2026 la página carga GTM: llegan a GA4 en la medida en que el contenedor tenga un trigger de Evento personalizado para cada uno.
 
 | Evento | Cuándo | Parámetros | Dónde se genera |
 | --- | --- | --- | --- |
@@ -38,7 +38,11 @@ Nunca se envían nombre, email, teléfono, texto libre, URLs ingresadas ni el me
 
 Si alguna campaña optimiza por `Lead`, el volumen va a bajar: a partir de ahora solo cuenta solicitudes reales. Revisar las conversiones personalizadas y los objetivos de las campañas.
 
-## Para activar GA4 (pendiente, decisión de Mariano)
+## GA4 vía GTM (activado el 22/10/2026)
+
+> El contenedor `GTM-WF2DG4B7` incluye una configuración de Meta con el mismo píxel (`1460516722431287`), igual que en el resto del sitio, donde también conviven `meta-pixel.js` y GTM. Verificar en Meta Events Manager → Probar eventos que `PageView` y `Lead` no lleguen duplicados desde `/epibrands/studio`.
+
+Pasos originales:
 
 1. Agregar `<script src="/gtm.js?v=__BUST__" defer></script>` en `epibrands/studio.html` y `epibrands/gracias.html` (la CSP ya permite GTM y GA).
 2. Antes, revisar que el contenedor no dispare otro Meta Pixel: duplicaría `PageView` y `Lead`.

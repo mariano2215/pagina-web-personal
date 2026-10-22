@@ -44,7 +44,7 @@ O usar Live Server / cualquier preview.
 | Instagram URL | `index.html` → buscar `aria-label="Instagram (configurar)"` | Pendiente |
 | LinkedIn URL | `index.html` → buscar `aria-label="LinkedIn (configurar)"` | Pendiente |
 | Política de privacidad | `index.html` → último link del footer | Pendiente |
-| ID de GTM | `index.html` → reemplazar `GTM-XXXXXXX` (aparece 2 veces). Mientras sea el ID de ejemplo, GTM no se carga. | Pendiente |
+| GTM | `/epibrands/studio` y su `gracias.html` cargan el contenedor del sitio (`GTM-WF2DG4B7`). `/epibrands/` redirige a `/epibrands/studio` desde el 22/10/2026. | Hecho |
 | Guardado de solicitudes | Netlify Forms (`epibrands-diagnostico`) → CRM Comercial de Notion (`netlify/functions/submission-created.js`) | Hecho (22/10/2026) |
 
 ## 4. Modificar precios y textos
