@@ -3,7 +3,7 @@
    - Navegación mobile
    - Captura de UTMs
    - Validación del formulario
-   - Envío a Google Sheets (Apps Script Web App)
+   - Envío a Netlify Forms (de ahí al CRM Comercial vía n8n)
    - Apertura de WhatsApp con mensaje precargado
    - Eventos dataLayer para GTM (sin PII)
    ========================================================= */
@@ -12,10 +12,6 @@
   "use strict";
 
   /* ---------- Config ---------- */
-  // PLACEHOLDER: pegar la URL del Web App publicado de Apps Script.
-  // Ejemplo: "https://script.google.com/macros/s/AKfycb.../exec"
-  var SHEETS_ENDPOINT = "";
-
   var WHATSAPP_NUMBER = "5493416397137";
   var WHATSAPP_BASE = "https://wa.me/" + WHATSAPP_NUMBER;
 
@@ -87,7 +83,7 @@
     });
   });
 
-  /* ---------- Captura de UTMs (almacenadas solo localmente para envío a Sheets) ---------- */
+  /* ---------- Captura de UTMs (se envían con el formulario) ---------- */
   function getUtms() {
     var params = new URLSearchParams(window.location.search);
     return {
@@ -187,27 +183,24 @@
     ].join("\n");
   }
 
-  /* ---------- Envío a Google Sheets (Apps Script) ---------- */
-  function sendToSheets(data) {
-    if (!SHEETS_ENDPOINT) {
-      console.warn("[EPIBRANDS] SHEETS_ENDPOINT vacío. Configurar en script.js antes de publicar.");
-      return Promise.resolve({ ok: false, reason: "endpoint-missing" });
-    }
-    var payload = Object.assign({}, data, UTMS, {
-      fuente: "Landing EPIBRANDS",
-      url: window.location.href
+  /* ---------- Envío a Netlify Forms ---------- */
+  // Netlify guarda la solicitud y la reenvía al CRM (netlify/functions/submission-created.js).
+  // keepalive: el envío termina aunque la pestaña pase a WhatsApp enseguida.
+  function sendToNetlify() {
+    Object.keys(UTMS).forEach(function (k) {
+      if (form.elements[k]) form.elements[k].value = UTMS[k];
     });
-    // mode: "no-cors" para Apps Script web app desplegado como "anyone".
-    // No podremos leer la respuesta, pero el lead se guarda igual.
-    return fetch(SHEETS_ENDPOINT, {
+    if (form.elements.pagina) form.elements.pagina.value = window.location.href;
+    var body = new URLSearchParams(new FormData(form)).toString();
+    return fetch(form.getAttribute("action") || "/", {
       method: "POST",
-      mode: "no-cors",
-      headers: { "Content-Type": "text/plain;charset=utf-8" },
-      body: JSON.stringify(payload)
-    }).then(function () {
-      return { ok: true };
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: body,
+      keepalive: true
+    }).then(function (res) {
+      return { ok: res.ok, reason: res.ok ? null : "http-" + res.status };
     }).catch(function (err) {
-      console.warn("[EPIBRANDS] Error al enviar a Sheets:", err);
+      console.warn("[EPIBRANDS] Error al enviar a Netlify Forms:", err);
       return { ok: false, reason: "fetch-failed" };
     });
   }
@@ -257,8 +250,13 @@
       business_type: data.tipoNegocio || "otro"
     });
 
-    sendToSheets(data).then(function (res) {
-      // Independientemente del resultado de Sheets, abrimos WhatsApp.
+    // Se guarda en Netlify Forms y, sin esperar la respuesta, se abre WhatsApp
+    // (esperar puede hacer que el navegador bloquee la ventana nueva).
+    sendToNetlify().then(function (res) {
+      if (!res.ok) console.warn("[EPIBRANDS] La solicitud no se guardó en Netlify Forms (" + res.reason + "). WhatsApp sigue funcionando.");
+    });
+
+    (function () {
       var msg = buildWhatsAppMessage(data);
       var url = WHATSAPP_BASE + "?text=" + encodeURIComponent(msg);
 
@@ -280,11 +278,7 @@
 
       submitBtn.disabled = false;
       submitBtn.textContent = originalLabel;
-
-      if (!res.ok && res.reason === "endpoint-missing") {
-        console.info("[EPIBRANDS] Lead no guardado en Sheets (endpoint sin configurar). WhatsApp sigue funcionando.");
-      }
-    });
+    })();
   });
 
 })();

@@ -14,6 +14,9 @@
 <!-- Meta Pixel + CAPI (mismo pixel y function que el resto del sitio) -->
 <script src="/meta-pixel.js?v=__BUST__" defer></script>
 
+<!-- Google Tag Manager (container GTM-WF2DG4B7, el mismo del resto del sitio) -->
+<script src="/gtm.js?v=__BUST__" defer></script>
+
 <style>
 :root{
   --bg:#EDEDE8; --ink:#1A1A18; --ink-soft:#5C5C57; --ink-faint:#6A6A63;
@@ -61,6 +64,10 @@ a.btn{ text-decoration:none; }
 </head>
 <body>
 
+<!-- Google Tag Manager (noscript fallback) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WF2DG4B7"
+height="0" width="0" class="gtm-noscript" style="display:none;visibility:hidden"></iframe></noscript>
+
 <!-- Meta Pixel noscript (fallback sin JS) -->
 <noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=1460516722431287&ev=PageView&noscript=1"/></noscript>
 
@@ -81,7 +88,9 @@ a.btn{ text-decoration:none; }
      envío; acá se consume una única vez. Así una recarga o una visita
      directa a esta página no cuentan como lead.
      - Meta: Lead (browser + CAPI, deduplicado por event_id).
-     - dataLayer: generate_lead, sin datos personales. -->
+     - dataLayer: lead_captured (como el resto del sitio), sin datos personales.
+       No usar generate_lead: el contenedor GTM-WF2DG4B7 lo convierte en un
+       Lead de Meta y se contaría dos veces junto con el de meta-pixel.js. -->
 <script>
 document.addEventListener("DOMContentLoaded", function(){
   var origen = null;
@@ -95,7 +104,7 @@ document.addEventListener("DOMContentLoaded", function(){
   if (origen === null) return;
   if (window.mcTrack) window.mcTrack("Lead", { content_name: "EPIBRANDS Growth Partner", content_category: "form" });
   window.dataLayer = window.dataLayer || [];
-  window.dataLayer.push({ event: "generate_lead", form_name: "epibrands-studio", lead_source: origen, page_path: location.pathname });
+  window.dataLayer.push({ event: "lead_captured", form_name: "epibrands-studio", lead_source: origen, page_path: location.pathname });
 });
 </script>
 </body>
