@@ -67,9 +67,10 @@ No se midieron Core Web Vitals. Datos de laboratorio de este cambio:
 - El hero no espera JS ni animaciones para mostrarse (antes el subtítulo y los CTA arrancaban en `opacity:0`). Se eliminaron la marquesina y las animaciones continuas.
 - Foto de Mariano: WebP 480/900 px con `srcset`, `width`/`height` y `lazy` (está lejos del primer viewport).
 
-## Pendiente: PageView duplicado en Meta (todo el sitio)
+## PageView duplicado en Meta: resuelto (22/10/2026)
 
-En todas las páginas conviven dos emisores del mismo píxel: `meta-pixel.js` (Pixel + function `meta-capi`, dedup por `event_id` propio) y la etiqueta de Meta Pixel de GTM (+ CAPI por el server-side). Cada uno manda su `PageView` con su propio `event_id`, así que Meta cuenta dos. Opciones:
+En todas las páginas convivían dos emisores del mismo píxel: `meta-pixel.js` (Pixel + function `meta-capi`) y la etiqueta de Meta Pixel de GTM (+ CAPI por el server-side de GTM). Cada uno mandaba su `PageView` con su propio `event_id`, así que Meta contaba dos.
 
-1. **En GTM, que la etiqueta de Meta Pixel no mande eventos estándar que ya cubre `meta-pixel.js`** (`PageView`, `Lead`, `Contact`): excepción en el trigger o tabla de mapeo sin esas filas. No toca el código del sitio. Recomendada.
-2. Sacar `meta-pixel.js` del sitio y dejar todo en GTM + server-side. Más prolijo a largo plazo, pero hay que migrar `mcTrack` (Lead, Contact, descargas) a eventos del dataLayer y validar la deduplicación en Events Manager.
+Arreglo: `meta-pixel.js` ya no manda `PageView` en las páginas que cargan `gtm.js`; ahí lo manda solo GTM. En las páginas sin GTM (por ejemplo `recursos.html`) lo sigue mandando `meta-pixel.js`. `Lead`, `Contact`, `Schedule` y `Subscribe` siguen saliendo solo de `meta-pixel.js`: GTM no los duplica, porque el sitio usa `lead_captured` y `whatsapp_click`, que el contenedor no traduce a eventos estándar de Meta.
+
+Regla para cambios futuros: no empujar al dataLayer eventos que el contenedor traduce a eventos estándar de Meta (`generate_lead`, `purchase`, `add_to_cart`, `begin_checkout`, `page_view`, etc.) en páginas que ya disparan ese evento con `mcTrack`.

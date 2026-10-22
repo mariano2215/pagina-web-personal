@@ -6,7 +6,8 @@
 //   <script src="/meta-pixel.js?v=__BUST__"></script>
 //   <script>window.mcTrack('Lead', { content_name: 'guia-paid-media' });</script>
 //
-// El PageView se dispara automaticamente al cargar.
+// El PageView se dispara automaticamente al cargar, salvo en las paginas que cargan
+// el GTM del sitio: ahi lo manda GTM (ver mas abajo).
 
 (function () {
   var PIXEL_ID = '1460516722431287';
@@ -81,8 +82,13 @@
     return eventId;
   };
 
-  // PageView automatico en cada carga
-  window.mcTrack('PageView');
+  // PageView automatico en cada carga, salvo que la pagina cargue el GTM del sitio
+  // (GTM-WF2DG4B7). Su etiqueta de Meta ya manda PageView a este mismo pixel
+  // (navegador + CAPI por el server-side de GTM, deduplicados entre si). Si tambien
+  // lo mandaba este archivo, con otro event_id, Meta contaba dos PageView por visita.
+  // Lead, Contact, Schedule y Subscribe siguen saliendo solo desde aca.
+  var gtmSendsPageView = !!document.querySelector('script[src*="gtm.js"]');
+  if (!gtmSendsPageView) window.mcTrack('PageView');
 
   // ---------- Auto-tracking de eventos comunes ----------
   // Cubre todas las paginas con un solo bloque (delegacion en document).
