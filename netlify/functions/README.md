@@ -59,3 +59,20 @@ netlify dev
 ```
 
 `netlify dev` ejecuta las Functions localmente. El `python3 -m http.server` que usás para preview rápido no ejecuta Functions (verás 501 en `POST /.netlify/functions/meta-capi`, lo cual es normal local — en prod va a funcionar).
+
+---
+
+# Leads → CRM Comercial (`submission-created.js`)
+
+Netlify ejecuta `submission-created.js` sola con cada envío válido de **Netlify Forms** (el nombre del archivo es el evento; no se configura nada en el panel). Reenvía el lead a n8n (EPIGROUP WF20), que lo carga o actualiza en la base **CRM Comercial** de Notion sin duplicar.
+
+| Key | Value | Scopes | Secret |
+|-----|-------|--------|--------|
+| `EPIGROUP_LEADS_WEBHOOK_SECRET` | la clave del webhook (la misma que la credencial «EPIGROUP Leads · webhook» de n8n) | Functions | **Sí** |
+| `EPIGROUP_LEADS_WEBHOOK_URL` | opcional; por defecto `https://marianocalandra.app.n8n.cloud/webhook/epigroup-leads` | Functions | No |
+
+- Sin `EPIGROUP_LEADS_WEBHOOK_SECRET` la función no reenvía nada: el lead queda solo en Netlify Forms.
+- Formularios que van al CRM: `contacto`, `consultoria`, los tres `lead-*` y `epibrands-studio` / `epibrands-diagnostico`. Las newsletters no se reenvían.
+- No manda IP, navegador ni el campo antispam. En los logs solo aparece el nombre del formulario.
+- Si n8n o Notion fallan, el envío sigue en Netlify Forms y el error se ve en las ejecuciones de WF20.
+- Después de cargar la variable, **redeploy** para que la tome.
