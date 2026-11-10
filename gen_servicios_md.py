@@ -11,7 +11,7 @@ qué contiene, para quién es, cómo contratarlo, comparativo sin/con y CTA fina
 NO lo corre Netlify (el build solo ejecuta bust.py). Es una herramienta local:
     python3 gen_servicios_md.py
 Edita la copy acá y regenerá los HTML. Mantiene la identidad real del sitio
-(acento teal #35d4ae, tokens de styles.css), no la paleta del brief.
+(acento azul claro #4fa8ff, tokens de styles.css), no la paleta del brief.
 """
 
 import os
@@ -405,8 +405,8 @@ CSS = """
 }
 .sd-btn-primary { background: var(--accent); color: #111111; }
 .sd-btn-primary:hover {
-  background: #3de0bb; transform: translateY(-2px); opacity: 1;
-  box-shadow: 0 10px 28px rgba(53, 212, 174, 0.28);
+  background: #6ab5ff; transform: translateY(-2px); opacity: 1;
+  box-shadow: 0 10px 28px rgba(79, 168, 255, 0.28);
 }
 .sd-btn-secondary {
   background: transparent; color: var(--text-gray);
@@ -478,7 +478,7 @@ CSS = """
 .sd-compare-card.sd-neg h3 { color: #ff7a7a; }
 .sd-compare-card.sd-pos {
   border-color: var(--accent-border);
-  background: linear-gradient(150deg, rgba(53,212,174,0.08) 0%, rgba(53,212,174,0.02) 60%, var(--bg-secondary) 100%);
+  background: linear-gradient(150deg, rgba(79,168,255,0.08) 0%, rgba(79,168,255,0.02) 60%, var(--bg-secondary) 100%);
 }
 .sd-compare-card.sd-pos h3 { color: var(--accent); }
 .sd-compare-card ul { list-style: none; padding: 0; margin: 0; }
@@ -495,7 +495,7 @@ CSS = """
 /* CTA final */
 .sd-final {
   text-align: center; padding: 80px 24px;
-  background: linear-gradient(160deg, rgba(53,212,174,0.10) 0%, rgba(53,212,174,0.02) 45%, var(--bg-secondary) 100%);
+  background: linear-gradient(160deg, rgba(79,168,255,0.10) 0%, rgba(79,168,255,0.02) 45%, var(--bg-secondary) 100%);
   border: 1px solid var(--accent-border); border-radius: var(--radius-card);
   margin: 72px 0 100px;
 }
@@ -552,8 +552,8 @@ TEMPLATE = """<!DOCTYPE html>
 <!-- Microsoft Clarity -->
 <script src="/clarity.js?v=__BUST__"></script>
 
-<link rel="icon" type="image/png" href="/img/favicon-nuevo.png">
-<link rel="apple-touch-icon" href="/img/favicon-nuevo.png">
+<link rel="icon" type="image/png" href="/img/favicon-nuevo.png?v=2">
+<link rel="apple-touch-icon" href="/img/favicon-nuevo.png?v=2">
 <meta name="theme-color" content="#0B0B0B">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -609,7 +609,7 @@ TEMPLATE = """<!DOCTYPE html>
   <div class="container">
     <div class="header-inner">
       <a href="/" class="logo" aria-label="Mariano Calandra — Inicio">
-        <img src="/img/favicon-nuevo.png" alt="MC monograma" width="28" height="28">
+        <img src="/img/favicon-nuevo.png?v=2" alt="MC monograma" width="28" height="28">
         <span class="logo-text">Mariano <span>Calandra</span></span>
       </a>
       <nav aria-label="Navegación principal">
@@ -729,7 +729,7 @@ TEMPLATE = """<!DOCTYPE html>
 <footer style="background:var(--bg-secondary);border-top:1px solid rgba(255,255,255,0.06);padding:32px 0;">
   <div class="container" style="display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;">
     <a href="/" class="logo" aria-label="Inicio">
-      <img src="/img/favicon-nuevo.png" alt="MC" width="20" height="20">
+      <img src="/img/favicon-nuevo.png?v=2" alt="MC" width="20" height="20">
       <span class="logo-text" style="font-size:0.9rem;">Mariano <span>Calandra</span></span>
     </a>
     <nav aria-label="Footer" style="display:flex;gap:20px;flex-wrap:wrap;">

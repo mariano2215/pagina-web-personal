@@ -10,9 +10,9 @@
 :root {
   --bg-primary: #242424;
   --bg-secondary: #111111;
-  --accent: #35d4ae;
-  --accent-soft: rgba(53, 212, 174, 0.08);
-  --accent-border: rgba(53, 212, 174, 0.35);
+  --accent: #4fa8ff;
+  --accent-soft: rgba(79, 168, 255, 0.08);
+  --accent-border: rgba(79, 168, 255, 0.35);
   --text-white: #FFFFFF;
   --text-gray: #CFCFCF;
   --text-muted: #8a8a8a;
@@ -223,7 +223,7 @@ img {
 .epi-pulse-line {
   flex: 1;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(53, 212, 174, 0.15), var(--accent), rgba(53, 212, 174, 0.15), transparent);
+  background: linear-gradient(90deg, transparent, rgba(79, 168, 255, 0.15), var(--accent), rgba(79, 168, 255, 0.15), transparent);
   animation: epi-linepulse 3s ease-in-out infinite;
 }
 @keyframes epi-linepulse {
@@ -248,8 +248,8 @@ img {
   height: 20px;
 }
 @keyframes epi-iconpulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(53, 212, 174, 0.35); }
-  50%       { box-shadow: 0 0 0 14px rgba(53, 212, 174, 0); }
+  0%, 100% { box-shadow: 0 0 0 0 rgba(79, 168, 255, 0.35); }
+  50%       { box-shadow: 0 0 0 14px rgba(79, 168, 255, 0); }
 }
 @media (prefers-reduced-motion: reduce) {
   .epi-pulse-line, .epi-pulse-icon { animation: none; }
@@ -318,7 +318,7 @@ img {
 }
 
 .btn-primary:hover {
-  box-shadow: 0 0 30px rgba(53, 212, 174, 0.4);
+  box-shadow: 0 0 30px rgba(79, 168, 255, 0.4);
   transform: translateY(-2px);
   opacity: 1;
 }
@@ -450,7 +450,7 @@ img {
 .lang-option.active {
   border-color: var(--accent);
   background: var(--accent-soft);
-  box-shadow: 0 0 12px rgba(53, 212, 174, 0.3);
+  box-shadow: 0 0 12px rgba(79, 168, 255, 0.3);
 }
 
 .menu-toggle {
@@ -557,7 +557,7 @@ button:focus-visible,
   right: -200px;
   width: 600px;
   height: 600px;
-  background: radial-gradient(circle, rgba(53, 212, 174, 0.12) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(79, 168, 255, 0.12) 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -771,13 +771,13 @@ button:focus-visible,
   justify-content: center;
   margin-bottom: 28px;
   color: var(--accent);
-  box-shadow: 0 0 24px rgba(53, 212, 174, 0.15);
+  box-shadow: 0 0 24px rgba(79, 168, 255, 0.15);
   transition: var(--transition);
 }
 
 .card:hover .card-icon {
-  background: rgba(53, 212, 174, 0.16);
-  box-shadow: 0 0 32px rgba(53, 212, 174, 0.3);
+  background: rgba(79, 168, 255, 0.16);
+  box-shadow: 0 0 32px rgba(79, 168, 255, 0.3);
   transform: scale(1.05);
 }
 
@@ -909,9 +909,9 @@ button:focus-visible,
   right: 8%;
   height: 2px;
   background: linear-gradient(90deg,
-    rgba(53, 212, 174, 0.15) 0%,
+    rgba(79, 168, 255, 0.15) 0%,
     var(--accent) 50%,
-    rgba(53, 212, 174, 0.15) 100%);
+    rgba(79, 168, 255, 0.15) 100%);
   z-index: 0;
 }
 
@@ -939,7 +939,7 @@ button:focus-visible,
   box-shadow:
     0 0 0 3px var(--bg-secondary),
     0 0 0 4px var(--accent),
-    0 0 12px rgba(53, 212, 174, 0.5);
+    0 0 12px rgba(79, 168, 255, 0.5);
   position: relative;
   z-index: 1;
   margin-bottom: 18px;
@@ -951,7 +951,7 @@ button:focus-visible,
   box-shadow:
     0 0 0 3px var(--bg-secondary),
     0 0 0 4px var(--accent),
-    0 0 18px rgba(53, 212, 174, 0.8);
+    0 0 18px rgba(79, 168, 255, 0.8);
 }
 
 .timeline-year {
@@ -989,9 +989,9 @@ button:focus-visible,
     width: 2px;
     height: auto;
     background: linear-gradient(180deg,
-      rgba(53, 212, 174, 0.15) 0%,
+      rgba(79, 168, 255, 0.15) 0%,
       var(--accent) 50%,
-      rgba(53, 212, 174, 0.15) 100%);
+      rgba(79, 168, 255, 0.15) 100%);
   }
   .timeline-item {
     flex: none;
@@ -1075,7 +1075,7 @@ button:focus-visible,
   line-height: 1;
   letter-spacing: -0.02em;
   margin-bottom: 20px;
-  background: linear-gradient(180deg, var(--accent) 0%, rgba(53, 212, 174, 0.6) 100%);
+  background: linear-gradient(180deg, var(--accent) 0%, rgba(79, 168, 255, 0.6) 100%);
   -webkit-background-clip: text;
           background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -1181,7 +1181,7 @@ button:focus-visible,
   border-color: var(--accent);
   color: var(--bg-primary);
   font-weight: 600;
-  box-shadow: 0 0 18px rgba(53, 212, 174, 0.25);
+  box-shadow: 0 0 18px rgba(79, 168, 255, 0.25);
 }
 
 .chip.chip-primary::before {
@@ -1191,7 +1191,7 @@ button:focus-visible,
 .chip.chip-primary:hover {
   background: var(--accent);
   color: var(--bg-primary);
-  box-shadow: 0 0 24px rgba(53, 212, 174, 0.45);
+  box-shadow: 0 0 24px rgba(79, 168, 255, 0.45);
 }
 
 .business-types {
@@ -1308,7 +1308,7 @@ button:focus-visible,
 
 .project-meaning {
   padding: 20px 24px;
-  background: rgba(53, 212, 174, 0.06);
+  background: rgba(79, 168, 255, 0.06);
   border-left: 3px solid var(--accent);
   border-radius: 12px;
   margin-bottom: 28px;
@@ -1378,7 +1378,7 @@ button:focus-visible,
 }
 
 .epigroup-card--featured {
-  border-color: rgba(53, 212, 174, 0.5);
+  border-color: rgba(79, 168, 255, 0.5);
 }
 
 .epigroup-img {
@@ -1426,9 +1426,9 @@ button:focus-visible,
 .epigroup-badge {
   display: inline-block;
   align-self: flex-start;
-  background: rgba(53, 212, 174, 0.08);
+  background: rgba(79, 168, 255, 0.08);
   color: var(--accent);
-  border: 1px solid rgba(53, 212, 174, 0.25);
+  border: 1px solid rgba(79, 168, 255, 0.25);
   border-radius: var(--radius-pill);
   padding: 7px 18px;
   font-size: 13px;
@@ -1542,7 +1542,7 @@ button:focus-visible,
   color: var(--accent);
   line-height: 1;
   letter-spacing: -0.03em;
-  text-shadow: 0 0 40px rgba(53, 212, 174, 0.25);
+  text-shadow: 0 0 40px rgba(79, 168, 255, 0.25);
 }
 
 .metric-unit {
@@ -1809,7 +1809,7 @@ button:focus-visible,
 .form-textarea:focus {
   outline: none;
   border-color: var(--accent);
-  background: rgba(53, 212, 174, 0.03);
+  background: rgba(79, 168, 255, 0.03);
 }
 
 .form-input::placeholder,
@@ -1826,7 +1826,7 @@ button:focus-visible,
 .form-select {
   appearance: none;
   -webkit-appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%2335d4ae' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%234fa8ff' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 18px center;
   padding-right: 44px;
@@ -1933,7 +1933,7 @@ button:focus-visible,
 }
 
 .footer-newsletter {
-  background: linear-gradient(135deg, rgba(53,212,174,0.06) 0%, rgba(53,212,174,0.015) 100%);
+  background: linear-gradient(135deg, rgba(79,168,255,0.06) 0%, rgba(79,168,255,0.015) 100%);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: var(--radius-card);
   padding: 24px;
@@ -1992,7 +1992,7 @@ button:focus-visible,
 }
 
 .footer-nl-form button:hover {
-  box-shadow: 0 0 24px rgba(53,212,174,0.4);
+  box-shadow: 0 0 24px rgba(79,168,255,0.4);
   transform: translateY(-1px);
 }
 
@@ -2167,7 +2167,7 @@ html.js-ready .fade-up.visible {
   left: -10%;
   width: 60%;
   height: 80%;
-  background: radial-gradient(circle at center, rgba(53, 212, 174, 0.07) 0%, transparent 60%);
+  background: radial-gradient(circle at center, rgba(79, 168, 255, 0.07) 0%, transparent 60%);
   filter: blur(60px);
   pointer-events: none;
   z-index: 0;
@@ -2182,7 +2182,7 @@ html.js-ready .fade-up.visible {
   right: -10%;
   width: 50%;
   height: 60%;
-  background: radial-gradient(circle at center, rgba(53, 212, 174, 0.05) 0%, transparent 60%);
+  background: radial-gradient(circle at center, rgba(79, 168, 255, 0.05) 0%, transparent 60%);
   filter: blur(80px);
   pointer-events: none;
   z-index: 0;
@@ -2563,7 +2563,7 @@ html.js-ready .fade-up.visible {
   right: -200px;
   width: 600px;
   height: 600px;
-  background: radial-gradient(circle, rgba(53, 212, 174, 0.12) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(79, 168, 255, 0.12) 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -2934,7 +2934,7 @@ html.js-ready .fade-up.visible {
   align-items: center;
   gap: 10px;
   background: var(--accent);
-  color: #07120f;
+  color: #06101c;
   font-family: 'Montserrat', sans-serif;
   font-weight: 800;
   font-size: 15px;
@@ -2953,10 +2953,10 @@ html.js-ready .fade-up.visible {
   justify-content: center;
   width: 44px;
   flex-shrink: 0;
-  background: #2bbf9d;
-  color: #07120f;
+  background: #4797e6;
+  color: #06101c;
   border: none;
-  border-left: 1px solid rgba(7, 18, 15, 0.18);
+  border-left: 1px solid rgba(6, 16, 28, 0.18);
   border-radius: 0 var(--radius-pill) var(--radius-pill) 0;
   font-size: 14px;
   cursor: pointer;

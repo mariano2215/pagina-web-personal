@@ -65,7 +65,7 @@ function errorPage(msg) {
     + '<title>Descarga no disponible</title><style>'
     + 'body{font-family:system-ui,Segoe UI,Roboto,sans-serif;background:#0B0B0B;color:#E8E8E8;'
     + 'display:flex;min-height:100vh;align-items:center;justify-content:center;margin:0;padding:24px;text-align:center}'
-    + '.box{max-width:520px}a{color:#35D4AE;font-weight:600}h1{font-size:22px;margin-bottom:12px}p{line-height:1.6;color:#B8B8B8}'
+    + '.box{max-width:520px}a{color:#4fa8ff;font-weight:600}h1{font-size:22px;margin-bottom:12px}p{line-height:1.6;color:#B8B8B8}'
     + '</style></head><body><div class="box"><h1>No pudimos validar tu descarga</h1>'
     + '<p>' + msg + '</p><p>Escribime por <a href="https://wa.me/5493416397137?text='
     + 'Hola%20Mariano%2C%20pagu%C3%A9%20un%20contenido%20premium%20y%20no%20puedo%20descargarlo">WhatsApp</a>'

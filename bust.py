@@ -41,7 +41,14 @@ def to_base36(n: int) -> str:
 def main() -> int:
     bust = to_base36(int(time.time() * 1000))
 
-    html_files = [f for f in os.listdir(".") if f.endswith(".html") and os.path.isfile(f)]
+    # Recorre también las subcarpetas (blog/, servicios/, portfolio/, …):
+    # antes solo miraba la raíz y en las subpáginas quedaba el literal
+    # `?v=__BUST__`, que nunca cambia y con el cache immutable no se refrescaba.
+    skip_dirs = {".git", "node_modules", "netlify"}
+    html_files = []
+    for root, dirs, files in os.walk("."):
+        dirs[:] = [d for d in dirs if d not in skip_dirs]
+        html_files += [os.path.join(root, f) for f in files if f.endswith(".html")]
     if not html_files:
         print("[bust] No se encontraron archivos .html en el directorio actual.", file=sys.stderr)
         return 0
