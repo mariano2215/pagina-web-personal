@@ -37,10 +37,37 @@ body{
   padding:8px 16px; border:1px solid var(--line); border-radius:999px;
   font-size:12px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:var(--accent);
 }
-.badge::before{
-  content:"✓"; width:20px; height:20px; border-radius:50%;
-  background:var(--accent); color:var(--bg); display:inline-flex;
-  align-items:center; justify-content:center; font-size:12px; font-weight:800;
+/* Check animado (mismo efecto que el pago aprobado de Epicademy, sin
+   confeti): el círculo entra con rebote y el tilde se dibuja. */
+.check{ display:block; width:64px; height:64px; margin:0 auto 22px; }
+.check circle{
+  fill:var(--accent); transform-box:fill-box; transform-origin:center;
+  animation:check-pop .55s cubic-bezier(.34,1.56,.64,1) .1s both;
+}
+.check path{
+  fill:none; stroke:var(--bg); stroke-width:2.4; stroke-linecap:round; stroke-linejoin:round;
+  stroke-dasharray:16; stroke-dashoffset:16;
+  animation:check-draw .45s ease-out .55s forwards;
+}
+@keyframes check-pop{ from{ transform:scale(0); } to{ transform:scale(1); } }
+@keyframes check-draw{ to{ stroke-dashoffset:0; } }
+.thanks > *:not(.check){ animation:rise .6s var(--ease) both; }
+.thanks > .badge{ animation-delay:.35s; }
+.thanks > h1{ animation-delay:.45s; }
+.thanks > p{ animation-delay:.55s; }
+.thanks > .actions{ animation-delay:.65s; }
+.thanks > .micro{ animation-delay:.75s; }
+@keyframes rise{ from{ opacity:0; transform:translateY(12px); } to{ opacity:1; transform:none; } }
+
+/* Fundido al volver a la landing (las dos páginas lo declaran). */
+@media (prefers-reduced-motion:no-preference){
+  @view-transition{ navigation:auto; }
+}
+::view-transition-old(root), ::view-transition-new(root){ animation-duration:.32s; }
+
+@media (prefers-reduced-motion:reduce){
+  .check circle, .check path, .thanks > *{ animation:none; }
+  .check path{ stroke-dashoffset:0; }
 }
 .thanks h1{
   font-size:clamp(2rem,5.4vw,3.4rem); line-height:1.05; font-weight:600;
@@ -72,6 +99,7 @@ height="0" width="0" class="gtm-noscript" style="display:none;visibility:hidden"
 <noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=1460516722431287&ev=PageView&noscript=1"/></noscript>
 
 <main class="thanks">
+  <svg class="check" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="12"/><path d="M7 12.4l3.3 3.3L17 9"/></svg>
   <span class="badge">Solicitud enviada</span>
   <h1>Recibimos tu solicitud.</h1>
   <p>Mariano va a contactarte dentro de las 24 horas hábiles para coordinar los próximos pasos.</p>

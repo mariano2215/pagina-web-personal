@@ -167,7 +167,8 @@
       dots.textContent = "";
       for (var i = 0; i < total; i++) {
         var dot = document.createElement("span");
-        dot.className = "epi-cupos-dot" + (i < taken ? " is-taken" : "");
+        // El próximo cupo libre late (CSS .is-next).
+        dot.className = "epi-cupos-dot" + (i < taken ? " is-taken" : i === taken ? " is-next" : "");
         dots.appendChild(dot);
       }
     }
@@ -184,31 +185,341 @@
   });
 
   /* ------------------------------------------------------------
-     CONTADORES (reutilizable, hoy sin uso en la página)
-     El valor final ya viene escrito en el HTML; la animación es un
-     extra que respeta movimiento reducido. Markup listo para pegar
-     en docs/epibrands-content-pending.md.
+     CONTADORES — cuentan desde 0 cuando entran en pantalla, una vez.
+     El valor final ya viene escrito en el HTML (se lee sin JS).
+     data-counter="13.9" data-decimals="1" data-suffix="x" → 13,9x
      ------------------------------------------------------------ */
+  // Formato argentino propio: toLocaleString("es-AR") no agrupa los
+  // números de cuatro cifras en todos los navegadores (2448 vs 2.448).
+  function formatAR(n, decimals) {
+    var parts = n.toFixed(decimals).split(".");
+    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    return parts.join(",");
+  }
+
   var counters = document.querySelectorAll("[data-counter]");
   if (counters.length && !reduceMotion && "IntersectionObserver" in window) {
-    var formatCounter = function (n) { return Math.round(n).toLocaleString("es-AR"); };
     var counterObserver = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (!entry.isIntersecting) return;
         counterObserver.unobserve(entry.target);
         var el = entry.target;
         var target = Number(el.getAttribute("data-counter"));
-        if (!isFinite(target)) return;
+        var decimals = parseInt(el.getAttribute("data-decimals") || "0", 10) || 0;
+        var suffix = el.getAttribute("data-suffix") || "";
         var start = performance.now();
         var tick = function (now) {
           var p = Math.min((now - start) / 1400, 1);
-          el.textContent = formatCounter(target * (1 - Math.pow(1 - p, 3)));
+          el.textContent = formatAR(target * (1 - Math.pow(1 - p, 3)), decimals) + suffix;
           if (p < 1) requestAnimationFrame(tick);
         };
         requestAnimationFrame(tick);
       });
     }, { threshold: 0.5 });
-    counters.forEach(function (c) { counterObserver.observe(c); });
+
+    counters.forEach(function (el) {
+      if (!isFinite(Number(el.getAttribute("data-counter")))) return;
+      // Se reserva el ancho del valor final para que el texto de al lado
+      // no se corra mientras cuenta.
+      if (getComputedStyle(el).display === "inline") el.style.display = "inline-block";
+      el.style.minWidth = Math.ceil(el.getBoundingClientRect().width) + "px";
+      // Si está fuera de pantalla arranca en 0 (así no se ve el final antes).
+      if (el.getBoundingClientRect().top > window.innerHeight) {
+        var decimals = parseInt(el.getAttribute("data-decimals") || "0", 10) || 0;
+        el.textContent = formatAR(0, decimals) + (el.getAttribute("data-suffix") || "");
+      }
+      counterObserver.observe(el);
+    });
+  }
+
+  /* ============================================================
+     MOTION DE LANDING — los efectos de Epicademy (nov 2026) con los
+     datos de EPIBRANDS. Todo es decorativo y se apaga con "reducir
+     movimiento"; si algo falla, la página se lee igual.
+     ============================================================ */
+  var hasIO = "IntersectionObserver" in window;
+
+  // Observa una lista de elementos y llama a fn una sola vez por cada
+  // uno cuando entra en pantalla (o enseguida si no hay IO).
+  function onceVisible(els, fn, options) {
+    els = Array.prototype.slice.call(els);
+    if (!els.length) return;
+    if (!hasIO) { els.forEach(fn); return; }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        io.unobserve(entry.target);
+        fn(entry.target);
+      });
+    }, options || { threshold: 0.4 });
+    els.forEach(function (el) { io.observe(el); });
+  }
+
+  /* --- Hero: máquina de escribir --------------------------------
+     Escribe y borra las frases de data-typewriter en loop. La primera
+     es la del título: arranca escrita y se queda más tiempo. Se pausa
+     cuando el hero no está a la vista o la pestaña está oculta. */
+  var typeEl = document.querySelector("[data-typewriter]");
+  if (typeEl && !reduceMotion) {
+    var phrases = typeEl.getAttribute("data-typewriter").split("|")
+      .map(function (s) { return s.trim(); })
+      .filter(Boolean);
+    if (phrases.length > 1) {
+      var make = function (cls, text) {
+        var s = document.createElement("span");
+        s.className = cls;
+        if (text) s.textContent = text;
+        return s;
+      };
+      var box = make("hero-type-box");
+      box.setAttribute("aria-hidden", "true");
+      // Fantasmas: reservan el alto de la frase más larga (con cursor).
+      phrases.forEach(function (p) {
+        var ghost = make("hero-type-ghost", p);
+        ghost.appendChild(make("type-caret"));
+        box.appendChild(ghost);
+      });
+      var live = make("hero-type-live");
+      var liveText = document.createTextNode(phrases[0]);
+      live.appendChild(liveText);
+      live.appendChild(make("type-caret"));
+      box.appendChild(live);
+
+      typeEl.textContent = "";
+      typeEl.appendChild(make("sr-only", phrases[0]));
+      typeEl.appendChild(box);
+      typeEl.classList.add("is-typing");
+
+      var idx = 0, text = phrases[0], deleting = false;
+      var timer = null, heroInView = true;
+      var schedule = function (ms) { timer = setTimeout(tick, ms); };
+      var tick = function () {
+        timer = null;
+        var full = phrases[idx];
+        if (!deleting && text === full) deleting = true;
+        if (deleting) {
+          if (text) {
+            text = text.slice(0, -1);
+            liveText.nodeValue = text;
+            schedule(text ? 35 : 320);
+            return;
+          }
+          deleting = false;
+          idx = (idx + 1) % phrases.length;
+          full = phrases[idx];
+        }
+        text = full.slice(0, text.length + 1);
+        liveText.nodeValue = text;
+        schedule(text === full ? (idx === 0 ? 3600 : 1800) : 65);
+      };
+      var sync = function () {
+        var run = heroInView && !document.hidden;
+        if (run && !timer) schedule(text === phrases[idx] ? (idx === 0 ? 3600 : 1800) : 65);
+        if (!run && timer) { clearTimeout(timer); timer = null; }
+      };
+      if (hasIO) {
+        new IntersectionObserver(function (entries) {
+          heroInView = entries[0].isIntersecting;
+          sync();
+        }).observe(typeEl);
+      }
+      document.addEventListener("visibilitychange", sync);
+      sync();
+    }
+  }
+
+  /* --- Franja que se desliza: se duplica la lista para un loop sin salto --- */
+  document.querySelectorAll(".epi-marquee").forEach(function (strip) {
+    var track = strip.querySelector(".epi-marquee-track");
+    var list = track && track.querySelector("ul");
+    if (!list || reduceMotion) return;
+    track.appendChild(list.cloneNode(true));
+    strip.classList.add("is-ready");
+  });
+
+  /* --- Flip cards ------------------------------------------------
+     Con mouse giran solas al pasar por encima (CSS). Los botones son
+     para pantallas táctiles y teclado: "true" fuerza el dorso y
+     "false" fuerza el frente; al sacar el mouse se vuelve al modo
+     automático. El botón de la cara oculta no recibe foco. */
+  document.querySelectorAll(".epi-flip").forEach(function (card) {
+    var openBtn = card.querySelector('[data-flip="open"]');
+    var closeBtn = card.querySelector('[data-flip="close"]');
+    if (!openBtn || !closeBtn) return;
+    var setFlipped = function (flipped, moveFocus) {
+      card.setAttribute("data-flipped", flipped ? "true" : "false");
+      openBtn.tabIndex = flipped ? -1 : 0;
+      closeBtn.tabIndex = flipped ? 0 : -1;
+      if (moveFocus) (flipped ? closeBtn : openBtn).focus({ preventScroll: true });
+    };
+    openBtn.addEventListener("click", function () { setFlipped(true, true); });
+    closeBtn.addEventListener("click", function () { setFlipped(false, true); });
+    card.addEventListener("mouseleave", function () {
+      if (card.getAttribute("data-flipped") === "false") card.removeAttribute("data-flipped");
+    });
+  });
+
+  /* --- Línea de tiempo de los primeros 30 días -------------------
+     --t0/--tlen ubican la línea entre el primer y el último punto;
+     --fill (0 a 1) es cuánto se llenó según el scroll. */
+  var timeline = document.querySelector(".epi-timeline");
+  if (timeline) {
+    var stages = Array.prototype.slice.call(timeline.querySelectorAll(".epi-stage"));
+    var wide = window.matchMedia("(min-width: 1080px)");
+    var NODE = 7;      // radio del punto
+    var NODE_TOP = 28; // top del punto en la vista vertical (igual que el CSS)
+    var nodes = [];
+
+    var measure = function () {
+      nodes = stages.map(function (li) {
+        return wide.matches
+          ? li.offsetLeft + parseFloat(getComputedStyle(li).paddingLeft) + NODE
+          : li.offsetTop + NODE_TOP + NODE;
+      });
+      var t0 = nodes[0], tlen = Math.max(nodes[nodes.length - 1] - t0, 1);
+      timeline.style.setProperty("--t0", t0 + "px");
+      timeline.style.setProperty("--tlen", tlen + "px");
+      nodes = nodes.map(function (n) { return (n - t0) / tlen; });
+    };
+
+    var paint = function () {
+      var p = 1;
+      if (!reduceMotion) {
+        var r = timeline.getBoundingClientRect();
+        var vh = window.innerHeight;
+        if (wide.matches) {
+          // se llena entre que la grilla asoma (80 % de la pantalla) y
+          // queda en el tercio superior
+          p = (vh * 0.8 - r.top) / (vh * 0.45);
+        } else {
+          // la punta de la línea sigue una "línea de lectura" al 65 %
+          var t0 = parseFloat(timeline.style.getPropertyValue("--t0")) || 0;
+          var tlen = parseFloat(timeline.style.getPropertyValue("--tlen")) || 1;
+          p = (vh * 0.65 - (r.top + t0)) / tlen;
+        }
+        p = Math.max(0, Math.min(1, p));
+      }
+      timeline.style.setProperty("--fill", p.toFixed(4));
+      var current = -1;
+      stages.forEach(function (li, i) {
+        var reached = p >= nodes[i] - 0.001;
+        li.classList.toggle("is-reached", reached);
+        if (reached) current = i;
+      });
+      stages.forEach(function (li, i) { li.classList.toggle("is-current", i === current && !reduceMotion); });
+    };
+
+    var rafId = null;
+    var request = function () {
+      if (rafId) return;
+      rafId = requestAnimationFrame(function () { rafId = null; paint(); });
+    };
+    measure();
+    paint();
+    window.addEventListener("scroll", request, { passive: true });
+    window.addEventListener("resize", function () { measure(); request(); });
+    window.addEventListener("load", function () { measure(); request(); });
+  }
+
+  /* --- Etiquetas de sección: la línea se dibuja al aparecer --- */
+  onceVisible(document.querySelectorAll(".eyebrow"), function (el) {
+    el.classList.add("is-drawn");
+  }, { threshold: 0.6 });
+
+  /* --- Lo que incluye: los ítems aparecen de a uno --- */
+  document.querySelectorAll("[data-stagger]").forEach(function (list) {
+    Array.prototype.forEach.call(list.children, function (li, i) { li.style.setProperty("--i", i); });
+  });
+  onceVisible(document.querySelectorAll("[data-stagger]"), function (el) {
+    el.classList.add("is-visible");
+  }, { threshold: 0.15 });
+
+  /* --- Brillo único en los botones de solicitud al aparecer --- */
+  if (!reduceMotion) {
+    onceVisible(document.querySelectorAll(".epi-shine"), function (el) {
+      el.classList.add("is-shining");
+    }, { threshold: 0.8 });
+  }
+
+  /* --- FAQ: abre y cierra con el alto animado --------------------
+     Mientras anima se ignoran clics nuevos. Sin la API de animaciones
+     queda el <details> nativo. */
+  if (!reduceMotion && Element.prototype.animate) {
+    document.querySelectorAll(".faq-item").forEach(function (item) {
+      var summary = item.querySelector("summary");
+      var body = item.querySelector(".faq-body");
+      if (!summary) return;
+      var busy = false;
+      summary.addEventListener("click", function (e) {
+        e.preventDefault();
+        if (busy) return;
+        busy = true;
+        var borders = item.offsetHeight - item.clientHeight;
+        var from = item.offsetHeight;
+        var opening = !item.open;
+        if (opening) item.open = true;
+        var to = opening ? item.offsetHeight : summary.offsetHeight + borders;
+        var duration = opening ? 340 : 260;
+        var anim = item.animate(
+          { height: [from + "px", to + "px"] },
+          { duration: duration, easing: "cubic-bezier(.2,.7,.2,1)" }
+        );
+        if (opening && body) {
+          body.animate(
+            { opacity: [0, 1], transform: ["translateY(-6px)", "none"] },
+            { duration: duration, easing: "ease-out" }
+          );
+        }
+        var finished = false;
+        var done = function () {
+          if (finished) return;
+          finished = true;
+          if (!opening) item.open = false;
+          busy = false;
+        };
+        anim.onfinish = done;
+        anim.oncancel = done;
+        // Respaldo: con la pestaña en segundo plano el evento puede demorarse.
+        setTimeout(done, duration + 80);
+      });
+    });
+  }
+
+  /* --- Botón flotante con los cupos ------------------------------
+     Visible solo cuando no hay a la vista ningún elemento con
+     data-float-guard (botones del hero y del precio, la solicitud y
+     el pie). Oculto queda inert, así no recibe foco. */
+  var floatBox = document.getElementById("epiFloat");
+  var guards = document.querySelectorAll("[data-float-guard]");
+  if (floatBox && guards.length && hasIO) {
+    var floatText = document.getElementById("epiFloatText");
+    var fTotal = parseInt(body.getAttribute("data-cupos-total"), 10);
+    var fTaken = parseInt(body.getAttribute("data-cupos-tomados"), 10) || 0;
+    if (floatText && fTotal > 0) {
+      var fLeft = Math.max(fTotal - Math.min(fTaken, fTotal), 0);
+      var strong = document.createElement("b");
+      strong.textContent = fLeft === 0 ? "Lista de espera" : fLeft + " de " + fTotal;
+      floatText.textContent = "";
+      floatText.appendChild(strong);
+      if (fLeft > 0) floatText.appendChild(document.createTextNode(fLeft === 1 ? " cupo libre" : " cupos libres"));
+    }
+
+    var visibleGuards = new Set();
+    var setFloat = function (show) {
+      floatBox.classList.toggle("is-shown", show);
+      if (show) floatBox.removeAttribute("inert");
+      else floatBox.setAttribute("inert", "");
+    };
+    floatBox.setAttribute("inert", "");
+    floatBox.hidden = false;
+    var guardObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) visibleGuards.add(entry.target);
+        else visibleGuards.delete(entry.target);
+      });
+      setFloat(visibleGuards.size === 0);
+    });
+    guards.forEach(function (g) { guardObserver.observe(g); });
   }
 })();
 

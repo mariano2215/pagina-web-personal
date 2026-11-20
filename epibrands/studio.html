@@ -252,29 +252,31 @@ img{ max-width:100%; }
 .hero-price{ font-size:.86rem; color:var(--ink-faint); }
 .hero-price b{ color:var(--ink); font-weight:700; }
 
-/* Etiquetas decorativas: máximo tres, solo en escritorio y en su propia
-   columna, así nunca se superponen al texto ni capturan clics. */
+/* Datos reales que flotan junto al título: máximo tres, solo en
+   escritorio y en su propia columna, así nunca se superponen al texto
+   ni capturan clics. Repiten datos de #casos y de #incluye. */
 .hero-aside{ display:none; }
-.hero-chip{
+.hero-stat{
   position:relative; z-index:1;
-  display:inline-flex; align-items:center; gap:.65rem; width:fit-content;
-  padding:.7rem 1.05rem .7rem .85rem; border:1px solid var(--line); border-radius:999px;
-  background:var(--bg); color:var(--ink-soft);
-  font-size:.86rem; font-weight:600; letter-spacing:-0.01em;
+  display:grid; gap:.15rem; width:fit-content; max-width:100%;
+  padding:.8rem 1.1rem .85rem 2.1rem; border:1px solid var(--line); border-radius:18px;
+  background:var(--bg);
   box-shadow:0 12px 40px rgba(26,26,24,0.06);
 }
-.hero-chip::before{ content:""; width:8px; height:8px; border-radius:50%; background:var(--accent); flex:0 0 auto; }
+.hero-stat::before{ content:""; position:absolute; left:.95rem; top:1.15rem; width:8px; height:8px; border-radius:50%; background:var(--accent); }
+.hero-stat-num{ font-size:1.4rem; font-weight:600; letter-spacing:-0.045em; line-height:1.1; color:var(--ink); font-variant-numeric:tabular-nums; }
+.hero-stat-label{ font-size:.8rem; line-height:1.35; color:var(--ink-soft); }
 @media (min-width:1080px){
-  .hero-grid{ grid-template-columns:minmax(0,1fr) 260px; gap:56px; }
+  .hero-grid{ grid-template-columns:minmax(0,1fr) 280px; gap:56px; }
   .hero-aside{
     position:relative; display:grid; gap:26px; padding-block:8px;
     pointer-events:none; user-select:none;
   }
   .hero-aside::before{
-    content:""; position:absolute; left:calc(.85rem + 4px); top:28px; bottom:28px; width:1px;
+    content:""; position:absolute; left:calc(.95rem + 4px); top:28px; bottom:28px; width:1px;
     background:var(--accent-line);
   }
-  .hero-chip:nth-child(2){ margin-left:22px; }
+  .hero-stat:nth-child(2){ margin-left:22px; }
 }
 
 .btn{
@@ -373,16 +375,24 @@ img{ max-width:100%; }
    QUÉ INCLUYE — tres frentes + qué obtiene el cliente
    ============================================================ */
 .epi-pillars3{ display:grid; grid-template-columns:minmax(0,1fr); gap:clamp(14px,1.6vw,20px); }
-.epi-pillar3{
+/* Cada frente es una flip card (ver MOTION DE LANDING): el frente muestra
+   el trabajo y el dorso, el resultado. La tarjeta visible es cada cara. */
+.epi-flip-face{
   display:flex; flex-direction:column; gap:.85rem;
-  padding:clamp(22px,2.4vw,32px);
-  background:var(--glass); border:1px solid var(--line); border-radius:24px;
-  transition:transform .45s var(--ease), border-color .45s var(--ease), box-shadow .45s var(--ease);
+  padding:clamp(22px,2.4vw,32px); border-radius:24px;
 }
-.epi-pillar3:hover{
-  transform:translateY(-4px); border-color:var(--accent-line);
-  box-shadow:0 18px 44px -22px rgba(26,26,24,0.4);
+.epi-flip-front{ background:var(--glass); border:1px solid var(--line); }
+.epi-flip-back{
+  margin-top:clamp(14px,1.6vw,20px);
+  background:
+    radial-gradient(circle at 85% 0%, rgba(110,124,106,0.38), transparent 55%),
+    var(--invert-bg);
+  border:1px solid rgba(237,237,232,0.10); color:var(--invert-ink);
 }
+.epi-flip-back .epi-pillar3-num{ color:#B4BEAF; }
+.epi-flip-back .epi-out-label{ color:rgba(237,237,232,0.62); }
+.epi-flip-out{ margin-top:auto; font-size:clamp(1.12rem,1.5vw,1.32rem); font-weight:600; letter-spacing:-0.025em; line-height:1.3; }
+.epi-flip-back .epi-flip-btn{ margin-top:0; }
 .epi-pillar3-num{ font-size:10.5px; font-weight:700; letter-spacing:.2em; text-transform:uppercase; color:var(--accent-ink); }
 .epi-pillar3-title{ font-size:clamp(1.15rem,2vw,1.4rem); font-weight:600; letter-spacing:-0.03em; line-height:1.2; }
 .epi-pillar3-desc{ font-size:.96rem; color:var(--ink-soft); line-height:1.55; }
@@ -417,11 +427,14 @@ img{ max-width:100%; }
    MARIANO — presentación personal
    ============================================================ */
 .epi-about{ display:grid; grid-template-columns:minmax(0,1fr); gap:clamp(28px,4vw,64px); align-items:center; }
+/* La foto lleva un borde de 3 px que gira (MOTION DE LANDING). */
 .epi-about-photo{
   width:100%; max-width:340px; aspect-ratio:4 / 5; overflow:hidden;
-  border:1px solid var(--line); border-radius:24px; background:#F1F1EF;
+  padding:3px; border-radius:24px;
+  background:conic-gradient(from var(--ring-angle), var(--accent), #C9D1C4, var(--ink), #9DAA98, var(--accent));
+  animation:epi-ring-spin 6s linear infinite;
 }
-.epi-about-photo img{ display:block; width:100%; height:100%; object-fit:cover; object-position:50% 14%; }
+.epi-about-photo img{ display:block; width:100%; height:100%; object-fit:cover; object-position:50% 14%; border-radius:21px; background:#F1F1EF; }
 .epi-about-body{ display:grid; gap:18px; justify-items:start; }
 .epi-about-body h2{
   font-size:clamp(1.75rem, 1.2rem + 2.4vw, 3rem); font-weight:500;
@@ -697,11 +710,13 @@ img{ max-width:100%; }
 .epi-cupos--invert .epi-cupos-dot.is-taken{ background:rgba(237,237,232,0.9); opacity:.22; }
 
 /* ============================================================
-   CONTADORES — reutilizable, hoy sin uso: faltan datos con
-   contexto (HTML listo en docs/epibrands-content-pending.md).
+   CONTADORES — cuentan desde 0 al entrar en pantalla. Hoy muestran
+   datos del formato (#servicios) y las métricas de #casos. Los de
+   resultados que se sacaron siguen en docs/epibrands-content-pending.md.
    ============================================================ */
 
-.epi-counters{ display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:1rem; }
+.epi-counters{ display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:1rem; list-style:none; }
+#servicios .epi-counters{ margin-top:clamp(20px,2.4vw,28px); }
 .epi-counter{ padding:1.4rem; border:1px solid var(--line); border-radius:20px; background:var(--glass); }
 .epi-counter-num{
   display:block; margin-bottom:.6rem; font-size:clamp(2.1rem,4.4vw,3.2rem); line-height:.95;
@@ -753,6 +768,255 @@ img{ max-width:100%; }
 .epi-motion-card:hover::after{ opacity:1; }
 
 /* ============================================================
+   MOTION DE LANDING — los mismos efectos que Epicademy (nov 2026)
+   con la paleta y los datos de EPIBRANDS. Lo que depende de JS va
+   bajo .js; todo se apaga con "reducir movimiento" (al final).
+   ============================================================ */
+
+/* Fundido al pasar entre páginas que lo declaran (studio ↔ gracias).
+   La primera carga entra sin fundido. */
+@media (prefers-reduced-motion:no-preference){
+  @view-transition{ navigation:auto; }
+}
+::view-transition-old(root), ::view-transition-new(root){ animation-duration:.32s; }
+
+/* --- Hero: cuadrícula tenue de fondo --- */
+.hero-grid-bg{
+  position:absolute; inset:0; z-index:0; pointer-events:none;
+  background-image:
+    linear-gradient(rgba(26,26,24,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(26,26,24,0.06) 1px, transparent 1px);
+  background-size:56px 56px; background-position:center top;
+  -webkit-mask-image:radial-gradient(ellipse 75% 65% at 50% 38%, #000 22%, transparent 78%);
+  mask-image:radial-gradient(ellipse 75% 65% at 50% 38%, #000 22%, transparent 78%);
+}
+.hero > .wrap{ position:relative; z-index:1; }
+
+/* --- Hero: máquina de escribir en el final del título ---
+   Las frases fantasma (invisibles) reservan el alto de la más larga,
+   así el título no empuja el resto de la página al cambiar. */
+.hero-type.is-typing{ display:block; }
+.hero-type-box{ display:grid; text-wrap:wrap; }
+.hero-type-box > span{ grid-area:1 / 1; }
+.hero-type-ghost{ visibility:hidden; }
+.type-caret{
+  display:inline-block; width:.07em; height:.86em; margin-left:.07em; vertical-align:-.05em;
+  background:var(--accent); animation:epi-blink 1s steps(1) infinite;
+}
+@keyframes epi-blink{ 50%{ opacity:0; } }
+
+/* --- Hero: datos que flotan y línea que se dibuja --- */
+.hero-stat{ animation:epi-float 5s ease-in-out infinite; }
+.hero-stat:nth-child(2){ animation-delay:-1.7s; }
+.hero-stat:nth-child(3){ animation-delay:-3.4s; }
+@keyframes epi-float{ 0%, 100%{ transform:translateY(0); } 50%{ transform:translateY(-10px); } }
+.js .hero-aside::before{ transform:scaleY(0); transform-origin:top; animation:epi-draw-y 1.4s var(--ease) .35s forwards; }
+@keyframes epi-draw-y{ to{ transform:scaleY(1); } }
+
+/* --- Hero: indicador para bajar --- */
+.hero-scroll{
+  position:absolute; left:50%; bottom:18px; z-index:1; translate:-50% 0;
+  display:none; place-items:center; width:44px; height:52px;
+}
+.hero-scroll-mouse{
+  position:relative; width:24px; height:38px; border-radius:999px;
+  border:1.5px solid rgba(26,26,24,0.34); transition:border-color .3s var(--ease);
+}
+.hero-scroll:hover .hero-scroll-mouse{ border-color:var(--ink); }
+.hero-scroll-dot{
+  position:absolute; left:50%; top:7px; width:4px; height:8px; margin-left:-2px;
+  border-radius:2px; background:var(--accent); animation:epi-scroll-dot 1.6s ease-in-out infinite;
+}
+@keyframes epi-scroll-dot{
+  0%{ transform:translateY(0); opacity:1; }
+  70%{ transform:translateY(14px); opacity:0; }
+  100%{ transform:translateY(0); opacity:0; }
+}
+@media (min-width:760px) and (min-height:640px){
+  .hero{ padding-bottom:calc(clamp(56px,8vh,96px) + 48px); }
+  .hero-scroll{ display:grid; }
+}
+
+/* --- Punto que late: el próximo cupo libre --- */
+.epi-cupos-dot.is-next{ animation:epi-ping 2s ease-out infinite; }
+.epi-cupos--invert .epi-cupos-dot.is-next{ animation-name:epi-ping-light; }
+@keyframes epi-ping{
+  0%{ box-shadow:0 0 0 0 rgba(110,124,106,0.6); }
+  75%, 100%{ box-shadow:0 0 0 7px rgba(110,124,106,0); }
+}
+@keyframes epi-ping-light{
+  0%{ box-shadow:0 0 0 0 rgba(157,170,152,0.7); }
+  75%, 100%{ box-shadow:0 0 0 7px rgba(157,170,152,0); }
+}
+
+/* --- Franja de servicios que se desliza sin parar --- */
+.epi-marquee{ border-block:1px solid var(--line-soft); background:var(--bg); }
+.epi-marquee-mask{
+  overflow:hidden; padding-block:18px;
+  -webkit-mask-image:linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  mask-image:linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+.epi-marquee-track{ display:flex; width:max-content; }
+.epi-marquee ul{ display:flex; flex-shrink:0; align-items:center; list-style:none; }
+.epi-marquee li{
+  display:flex; align-items:center; white-space:nowrap;
+  font-size:clamp(.95rem,.88rem + .3vw,1.12rem); font-weight:600; letter-spacing:-0.02em; color:var(--ink-soft);
+}
+.epi-marquee li::after{
+  content:""; width:6px; height:6px; border-radius:50%; background:var(--accent);
+  margin-inline:clamp(18px,2.4vw,30px);
+}
+.js .epi-marquee.is-ready .epi-marquee-track{ animation:epi-marquee 45s linear infinite; }
+.epi-marquee:hover .epi-marquee-track{ animation-play-state:paused; }
+@keyframes epi-marquee{ to{ transform:translateX(-50%); } }
+
+/* --- Flip cards de los cuatro frentes ---
+   Giran al pasar el mouse (con una pausa corta, para que no giren al
+   cruzar la grilla) o con el botón en pantallas táctiles y teclado.
+   Sin JS, el dorso queda debajo del frente como otra tarjeta. */
+.js .epi-flip{ perspective:1400px; }
+.js .epi-flip-inner{
+  display:grid; height:100%; transform-style:preserve-3d;
+  transition:transform .7s var(--ease);
+}
+.js .epi-flip-face{
+  grid-area:1 / 1; margin:0;
+  -webkit-backface-visibility:hidden; backface-visibility:hidden;
+}
+.js .epi-flip-front{ transform:rotateY(0deg); }
+.js .epi-flip-back{ transform:rotateY(180deg); }
+.js .epi-flip[data-flipped="true"] .epi-flip-inner{ transform:rotateY(180deg); }
+@media (hover:hover){
+  .js .epi-flip:not([data-flipped="false"]):hover .epi-flip-inner{ transform:rotateY(180deg); transition-delay:.15s; }
+}
+.epi-flip-btn{
+  display:none; align-self:flex-start; margin-top:auto; align-items:center; gap:.45rem;
+  min-height:44px; padding:0; background:none; border:0; cursor:pointer;
+  font-size:.86rem; font-weight:600; color:var(--accent-ink);
+  text-decoration:underline; text-decoration-color:var(--accent-line); text-underline-offset:4px;
+}
+.epi-flip-back .epi-flip-btn{ color:rgba(237,237,232,0.82); text-decoration-color:rgba(237,237,232,0.35); }
+.epi-flip-back .epi-flip-btn:focus-visible{ outline-color:var(--invert-ink); }
+.js .epi-flip-btn{ display:inline-flex; }
+/* Con mouse el botón sobra: queda solo para teclado. */
+@media (hover:hover){
+  .js .epi-flip-btn:not(:focus-visible){
+    position:absolute; width:1px; height:1px; min-height:0; margin:-1px; padding:0;
+    overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;
+  }
+}
+
+/* --- Línea de tiempo de los primeros 30 días ---
+   Se llena a medida que se baja (--fill la pone studio.js) y cada etapa
+   se marca al alcanzarla; la última alcanzada late. Vertical hasta
+   1079 px, horizontal en escritorio. */
+.epi-timeline{ position:relative; padding-left:34px; }
+.epi-timeline::before, .epi-timeline::after{
+  content:""; position:absolute; pointer-events:none; border-radius:2px;
+  left:11px; width:2px; top:var(--t0,35px); height:var(--tlen,calc(100% - 70px));
+}
+.epi-timeline::before{ background:var(--line); }
+.epi-timeline::after{
+  background:linear-gradient(180deg, var(--ink), var(--accent));
+  box-shadow:0 0 10px rgba(110,124,106,0.45);
+  transform:scaleY(var(--fill,0)); transform-origin:top;
+}
+.epi-timeline .epi-stage{ overflow:visible; }
+.epi-timeline .epi-stage::after{ border-radius:inherit; }
+.epi-timeline .epi-stage::before{
+  content:""; position:absolute; z-index:2; left:-29px; top:28px;
+  width:14px; height:14px; border-radius:50%;
+  background:var(--bg); border:2px solid rgba(26,26,24,0.28);
+  transition:background .35s var(--ease), border-color .35s var(--ease), transform .35s var(--ease);
+}
+.epi-timeline .epi-stage.is-reached::before{ background:var(--accent); border-color:var(--accent); transform:scale(1.15); }
+.epi-timeline .epi-stage.is-current::before{ animation:epi-ping 2s ease-out infinite; }
+.js .epi-timeline .epi-stage-num{
+  background:transparent; color:var(--ink); box-shadow:inset 0 0 0 1px var(--line);
+  transition:background .35s var(--ease), color .35s var(--ease), box-shadow .35s var(--ease);
+}
+.js .epi-timeline .epi-stage.is-reached .epi-stage-num{ background:var(--ink); color:var(--bg); box-shadow:none; }
+@media (min-width:1080px){
+  .epi-timeline{ padding-left:0; padding-top:34px; }
+  .epi-timeline::before, .epi-timeline::after{
+    top:12px; height:2px; left:var(--t0,33px); width:var(--tlen,75%);
+  }
+  .epi-timeline::after{
+    background:linear-gradient(90deg, var(--ink), var(--accent));
+    transform:scaleX(var(--fill,0)); transform-origin:left;
+  }
+  .epi-timeline .epi-stage::before{ top:-28px; left:clamp(20px,2.2vw,26px); }
+}
+
+/* --- Línea de las etiquetas de sección: se dibuja al aparecer --- */
+.js .eyebrow::before{ transform:scaleX(0); transform-origin:left; transition:transform .8s var(--ease) .1s; }
+.js .eyebrow.is-drawn::before{ transform:none; }
+
+/* --- Borde que gira alrededor de la foto de Mariano --- */
+@property --ring-angle{ syntax:"<angle>"; initial-value:0deg; inherits:false; }
+@keyframes epi-ring-spin{ to{ --ring-angle:360deg; } }
+
+/* --- Lo que incluye: los ítems aparecen de a uno --- */
+.js .epi-price-list[data-stagger] li{
+  opacity:0; transform:translateY(8px);
+  transition:opacity .45s var(--ease), transform .45s var(--ease);
+  transition-delay:calc(var(--i,0) * 55ms);
+}
+.js .epi-price-list[data-stagger].is-visible li{ opacity:1; transform:none; }
+
+/* --- Botones de solicitud: brillo que pasa una sola vez y pulso --- */
+.epi-shine{ position:relative; overflow:hidden; isolation:isolate; }
+.epi-shine::after{
+  content:""; position:absolute; inset:0; z-index:2; pointer-events:none;
+  background:linear-gradient(110deg, transparent 25%, rgba(255,255,255,0.5) 50%, transparent 75%);
+  transform:translateX(-130%);
+}
+.epi-shine.is-shining::after{ animation:epi-shine 1.2s ease-out .25s 1 both; }
+@keyframes epi-shine{ to{ transform:translateX(130%); } }
+.epi-cta-pulse{ animation:epi-cta-pulse 2.2s ease-out infinite; }
+@keyframes epi-cta-pulse{
+  0%{ box-shadow:0 0 0 0 rgba(110,124,106,0.55); }
+  70%, 100%{ box-shadow:0 0 0 18px rgba(110,124,106,0); }
+}
+
+/* --- Botón flotante "Solicitar una llamada" con los cupos ---
+   Aparece cuando no hay ningún otro botón de solicitud a la vista. */
+.epi-float{
+  position:fixed; left:50%; bottom:max(16px, env(safe-area-inset-bottom)); z-index:80;
+  display:flex; align-items:center; gap:14px;
+  width:max-content; max-width:calc(100% - 32px);
+  padding:7px 7px 7px 18px; border-radius:999px;
+  background:rgba(22,22,10,0.94); color:var(--invert-ink);
+  border:1px solid rgba(237,237,232,0.12);
+  box-shadow:0 18px 50px rgba(26,26,24,0.28);
+  -webkit-backdrop-filter:blur(12px); backdrop-filter:blur(12px);
+  transform:translate(-50%, calc(100% + 32px)); opacity:0; visibility:hidden;
+  transition:transform .5s var(--ease), opacity .4s var(--ease), visibility 0s linear .5s;
+}
+.epi-float.is-shown{
+  transform:translate(-50%, 0); opacity:1; visibility:visible;
+  transition:transform .5s var(--ease), opacity .4s var(--ease), visibility 0s;
+}
+body.nav-open .epi-float{ visibility:hidden; opacity:0; }
+.epi-float-cupos{ display:flex; align-items:center; gap:8px; font-size:.84rem; color:rgba(237,237,232,0.8); white-space:nowrap; }
+.epi-float-cupos b{ color:var(--invert-ink); font-weight:700; }
+.epi-float-dot{ width:8px; height:8px; border-radius:50%; background:#9DAA98; flex:0 0 auto; animation:epi-ping-light 2s ease-out infinite; }
+.epi-float-btn{
+  display:inline-flex; align-items:center; min-height:44px; padding:0 20px; border-radius:999px;
+  background:var(--invert-ink); color:var(--ink); font-size:.9rem; font-weight:600; white-space:nowrap;
+  transition:background .3s var(--ease);
+}
+.epi-float-btn:hover{ background:#fff; }
+.epi-float :focus-visible{ outline-color:var(--invert-ink); }
+@media (max-width:420px){
+  .epi-float{ gap:10px; padding-left:14px; }
+  .epi-float-cupos{ font-size:.78rem; }
+  .epi-float-btn{ padding:0 16px; font-size:.86rem; }
+}
+
+/* La FAQ abre y cierra con el alto animado desde studio.js. */
+
+/* ============================================================
    RESPONSIVE
    ============================================================ */
 @media (min-width:560px){
@@ -760,7 +1024,7 @@ img{ max-width:100%; }
 }
 @media (min-width:640px){
   .epi-problems{ grid-template-columns:repeat(2,minmax(0,1fr)); }
-  .epi-stages{ grid-template-columns:repeat(2,minmax(0,1fr)); }
+  /* .epi-stages queda en una columna hasta 1080 px: es una línea de tiempo vertical. */
   .epi-pillars3{ grid-template-columns:repeat(2,minmax(0,1fr)); }
   .epi-scope-grid{ grid-template-columns:repeat(2,minmax(0,1fr)); }
 }
@@ -804,7 +1068,22 @@ img{ max-width:100%; }
     z-index:90;
   }
   .nav-links.open{ transform:none; visibility:visible; transition:transform .5s var(--ease), visibility 0s; }
-  .nav-links a{ font-size:28px; font-weight:500; letter-spacing:-0.02em; color:var(--ink); padding-block:4px; }
+  /* El backdrop-filter del header scrolleado vuelve al header el bloque
+     contenedor del overlay fixed: sin esto, con la página bajada, el
+     menú queda encerrado en los 72 px de la barra. */
+  body.nav-open .header{ -webkit-backdrop-filter:none; backdrop-filter:none; }
+  .nav-links a{
+    font-size:28px; font-weight:500; letter-spacing:-0.02em; color:var(--ink); padding-block:4px;
+    /* los links entran de a uno cuando se abre el menú */
+    opacity:0; transform:translateY(14px);
+    transition:opacity .4s var(--ease), transform .45s var(--ease), color .3s var(--ease), background .35s var(--ease);
+  }
+  .nav-links.open a{ opacity:1; transform:none; }
+  .nav-links.open a:nth-child(1){ transition-delay:.14s; }
+  .nav-links.open a:nth-child(2){ transition-delay:.2s; }
+  .nav-links.open a:nth-child(3){ transition-delay:.26s; }
+  .nav-links.open a:nth-child(4){ transition-delay:.32s; }
+  .nav-links.open a:nth-child(5){ transition-delay:.4s; }
   .nav-links a::after{ display:none; }
   .nav-links .nav-cta{ font-size:17px; margin-top:20px; padding:14px 24px; }
   .nav-toggle{ display:block; z-index:95; }
@@ -820,11 +1099,16 @@ img{ max-width:100%; }
 @media (prefers-reduced-motion:reduce){
   *, *::before, *::after{ transition-duration:.01ms !important; animation:none !important; }
   .js [data-reveal]{ opacity:1 !important; transform:none !important; }
-  .epi-pillar3:hover, .btn:hover .dot, .epi-form-btn:hover, .epi-whatsapp-button:hover{ transform:none; }
+  .btn:hover .dot, .epi-form-btn:hover, .epi-whatsapp-button:hover{ transform:none; }
+  /* lo que arranca oculto y depende de una animación queda a la vista */
+  .js .hero-aside::before, .js .eyebrow::before{ transform:none !important; }
+  .js .epi-price-list[data-stagger] li{ opacity:1 !important; transform:none !important; }
+  .nav-links a{ opacity:1; transform:none; }
+  .epi-shine::after{ display:none; }
 }
 @media print{
-  .js [data-reveal]{ opacity:1; transform:none; }
-  .header, .epi-scroll-progress{ display:none; }
+  .js [data-reveal], .js .epi-price-list[data-stagger] li{ opacity:1; transform:none; }
+  .header, .epi-scroll-progress, .epi-float, .epi-marquee, .hero-scroll{ display:none; }
 }
 </style>
 </head>
@@ -870,13 +1154,17 @@ height="0" width="0" class="gtm-noscript" style="display:none;visibility:hidden"
        1. HERO — beneficio, destinatario y siguiente paso
        ======================================================== -->
   <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-grid-bg" aria-hidden="true"></div>
     <div class="wrap hero-grid">
       <div class="hero-copy">
         <p class="epi-eyebrow">EPIBRANDS · Growth Partner</p>
-        <h1 id="hero-title">Publicidad y gestión comercial para <em>convertir más consultas en ventas.</em></h1>
+        <!-- Máquina de escribir: la primera frase es la del título (la que
+             leen buscadores y lectores de pantalla); las demás se escriben
+             y se borran en loop. Frases separadas por "|". -->
+        <h1 id="hero-title">Publicidad y gestión comercial para <em class="hero-type" data-typewriter="convertir más consultas en ventas.|saber qué termina en ventas.|que las consultas no se enfríen.|decidir qué mejorar primero.">convertir más consultas en ventas.</em></h1>
         <p class="hero-sub">Para negocios que ya venden y quieren mejorar el retorno de su publicidad. Trabajamos sobre tus campañas, tus redes sociales, la medición y el seguimiento comercial para detectar qué frena las ventas y priorizar las próximas mejoras.</p>
-        <div class="hero-actions">
-          <a href="#aplicar" class="btn btn-solid" data-cta="hero"><span class="dot" aria-hidden="true"></span> Solicitar una llamada</a>
+        <div class="hero-actions" data-float-guard>
+          <a href="#aplicar" class="btn btn-solid epi-shine" data-cta="hero"><span class="dot" aria-hidden="true"></span> Solicitar una llamada</a>
           <a href="#servicios" class="btn btn-ghost">Ver cómo trabajamos</a>
         </div>
         <p class="hero-micro">Llamada inicial de 30 minutos, sin costo. Atención directa de Mariano Calandra.</p>
@@ -889,14 +1177,41 @@ height="0" width="0" class="gtm-noscript" style="display:none;visibility:hidden"
         </div>
       </div>
 
-      <!-- Decorativo: los tres frentes del trabajo (solo escritorio). -->
+      <!-- Decorativo (solo escritorio): datos reales que flotan. Repiten
+           los casos de #casos y la reunión semanal de #incluye. -->
       <div class="hero-aside" aria-hidden="true">
-        <span class="hero-chip">Campañas y medición</span>
-        <span class="hero-chip">Oferta y seguimiento</span>
-        <span class="hero-chip">Prioridades semanales</span>
+        <span class="hero-stat"><span class="hero-stat-num">13,9x</span><span class="hero-stat-label">ROAS en Google Ads · caso mar–jun 2026</span></span>
+        <span class="hero-stat"><span class="hero-stat-num">2.448</span><span class="hero-stat-label">conversaciones por WhatsApp · caso Meta Ads</span></span>
+        <span class="hero-stat"><span class="hero-stat-num">60 min</span><span class="hero-stat-label">de growth meeting con Mariano, cada semana</span></span>
       </div>
     </div>
+
+    <a class="hero-scroll" href="#casos"><span class="sr-only">Bajar a los casos</span><span class="hero-scroll-mouse" aria-hidden="true"><span class="hero-scroll-dot"></span></span></a>
   </section>
+
+  <!-- Franja que se desliza: servicios y herramientas de #incluye.
+       Decorativa (todo está en la lista de Inversión); studio.js
+       duplica la lista para que el loop no salte. -->
+  <div class="epi-marquee" aria-hidden="true">
+    <div class="epi-marquee-mask">
+      <div class="epi-marquee-track">
+        <ul>
+          <li>Meta Ads</li>
+          <li>Google Ads</li>
+          <li>TikTok Ads</li>
+          <li>Diseño gráfico</li>
+          <li>Community management</li>
+          <li>GA4</li>
+          <li>Google Tag Manager</li>
+          <li>CRM</li>
+          <li>Automatización de WhatsApp</li>
+          <li>Tablero de indicadores</li>
+          <li>Propuesta de valor</li>
+          <li>Pricing y margen</li>
+        </ul>
+      </div>
+    </div>
+  </div>
 
   <!-- ========================================================
        2. EVIDENCIA — casos ya publicados en /portfolio/, con
@@ -919,7 +1234,7 @@ height="0" width="0" class="gtm-noscript" style="display:none;visibility:hidden"
             <li>Google Ads</li>
             <li>Mar–jun 2026</li>
           </ul>
-          <p class="epi-case-metric" id="caso-1"><span class="epi-case-num">13,9x</span> <span class="epi-case-unit">ROAS en cuatro meses</span></p>
+          <p class="epi-case-metric" id="caso-1"><span class="epi-case-num" data-counter="13.9" data-decimals="1" data-suffix="x">13,9x</span> <span class="epi-case-unit">ROAS en cuatro meses</span></p>
           <dl class="epi-case-facts">
             <div>
               <dt>Situación inicial</dt>
@@ -946,7 +1261,7 @@ height="0" width="0" class="gtm-noscript" style="display:none;visibility:hidden"
             <li>Meta Ads</li>
             <li>Mar–jun 2026</li>
           </ul>
-          <p class="epi-case-metric" id="caso-2"><span class="epi-case-num">2.448</span> <span class="epi-case-unit">conversaciones por WhatsApp</span></p>
+          <p class="epi-case-metric" id="caso-2"><span class="epi-case-num" data-counter="2448">2.448</span> <span class="epi-case-unit">conversaciones por WhatsApp</span></p>
           <dl class="epi-case-facts">
             <div>
               <dt>Situación inicial</dt>
@@ -1033,32 +1348,91 @@ height="0" width="0" class="gtm-noscript" style="display:none;visibility:hidden"
         </div>
       </div>
 
+      <!-- Flip cards: frente = el trabajo, dorso = el resultado. Las dos
+           caras están en el HTML, así que un lector de pantalla lee todo. -->
       <div class="epi-pillars3" id="pilares">
-        <article class="epi-pillar3 epi-motion-card" data-reveal>
-          <span class="epi-pillar3-num">01</span>
-          <h3 class="epi-pillar3-title">Campañas y medición</h3>
-          <p class="epi-pillar3-desc">Gestión de la adquisición, revisión de las conversiones y lectura de los indicadores.</p>
-          <p class="epi-out"><span class="epi-out-label">Resultado del trabajo</span>Campañas gestionadas y conversiones revisadas en cada ciclo.</p>
+        <article class="epi-pillar3 epi-flip" data-reveal>
+          <div class="epi-flip-inner">
+            <div class="epi-flip-face epi-flip-front">
+              <span class="epi-pillar3-num">01</span>
+              <h3 class="epi-pillar3-title">Campañas y medición</h3>
+              <p class="epi-pillar3-desc">Gestión de la adquisición, revisión de las conversiones y lectura de los indicadores.</p>
+              <button class="epi-flip-btn" type="button" data-flip="open">Ver el resultado <span aria-hidden="true">↻</span></button>
+            </div>
+            <div class="epi-flip-face epi-flip-back">
+              <span class="epi-pillar3-num">01 · Campañas y medición</span>
+              <p class="epi-flip-out"><span class="epi-out-label">Resultado del trabajo</span>Campañas gestionadas y conversiones revisadas en cada ciclo.</p>
+              <button class="epi-flip-btn" type="button" data-flip="close" tabindex="-1"><span aria-hidden="true">↺</span> Volver</button>
+            </div>
+          </div>
         </article>
-        <article class="epi-pillar3 epi-motion-card" data-reveal data-reveal-delay="1">
-          <span class="epi-pillar3-num">02</span>
-          <h3 class="epi-pillar3-title">Diseño y redes sociales</h3>
-          <p class="epi-pillar3-desc">Diseño gráfico de las piezas y community management de tus redes sociales.</p>
-          <p class="epi-out"><span class="epi-out-label">Resultado del trabajo</span>Piezas diseñadas y redes gestionadas, en línea con las campañas.</p>
+        <article class="epi-pillar3 epi-flip" data-reveal data-reveal-delay="1">
+          <div class="epi-flip-inner">
+            <div class="epi-flip-face epi-flip-front">
+              <span class="epi-pillar3-num">02</span>
+              <h3 class="epi-pillar3-title">Diseño y redes sociales</h3>
+              <p class="epi-pillar3-desc">Diseño gráfico de las piezas y community management de tus redes sociales.</p>
+              <button class="epi-flip-btn" type="button" data-flip="open">Ver el resultado <span aria-hidden="true">↻</span></button>
+            </div>
+            <div class="epi-flip-face epi-flip-back">
+              <span class="epi-pillar3-num">02 · Diseño y redes sociales</span>
+              <p class="epi-flip-out"><span class="epi-out-label">Resultado del trabajo</span>Piezas diseñadas y redes gestionadas, en línea con las campañas.</p>
+              <button class="epi-flip-btn" type="button" data-flip="close" tabindex="-1"><span aria-hidden="true">↺</span> Volver</button>
+            </div>
+          </div>
         </article>
-        <article class="epi-pillar3 epi-motion-card" data-reveal data-reveal-delay="2">
-          <span class="epi-pillar3-num">03</span>
-          <h3 class="epi-pillar3-title">Oferta y seguimiento comercial</h3>
-          <p class="epi-pillar3-desc">Revisión de la propuesta, la calidad de las consultas, las objeciones y el seguimiento.</p>
-          <p class="epi-out"><span class="epi-out-label">Resultado del trabajo</span>Ajustes concretos para la oferta y para la respuesta a las consultas.</p>
+        <article class="epi-pillar3 epi-flip" data-reveal data-reveal-delay="2">
+          <div class="epi-flip-inner">
+            <div class="epi-flip-face epi-flip-front">
+              <span class="epi-pillar3-num">03</span>
+              <h3 class="epi-pillar3-title">Oferta y seguimiento comercial</h3>
+              <p class="epi-pillar3-desc">Revisión de la propuesta, la calidad de las consultas, las objeciones y el seguimiento.</p>
+              <button class="epi-flip-btn" type="button" data-flip="open">Ver el resultado <span aria-hidden="true">↻</span></button>
+            </div>
+            <div class="epi-flip-face epi-flip-back">
+              <span class="epi-pillar3-num">03 · Oferta y seguimiento</span>
+              <p class="epi-flip-out"><span class="epi-out-label">Resultado del trabajo</span>Ajustes concretos para la oferta y para la respuesta a las consultas.</p>
+              <button class="epi-flip-btn" type="button" data-flip="close" tabindex="-1"><span aria-hidden="true">↺</span> Volver</button>
+            </div>
+          </div>
         </article>
-        <article class="epi-pillar3 epi-motion-card" data-reveal data-reveal-delay="3">
-          <span class="epi-pillar3-num">04</span>
-          <h3 class="epi-pillar3-title">Prioridades y ejecución</h3>
-          <p class="epi-pillar3-desc">Reunión semanal, responsables, próximos pasos y tablero de seguimiento.</p>
-          <p class="epi-out"><span class="epi-out-label">Resultado del trabajo</span>Prioridades documentadas, con responsables y fechas.</p>
+        <article class="epi-pillar3 epi-flip" data-reveal data-reveal-delay="3">
+          <div class="epi-flip-inner">
+            <div class="epi-flip-face epi-flip-front">
+              <span class="epi-pillar3-num">04</span>
+              <h3 class="epi-pillar3-title">Prioridades y ejecución</h3>
+              <p class="epi-pillar3-desc">Reunión semanal, responsables, próximos pasos y tablero de seguimiento.</p>
+              <button class="epi-flip-btn" type="button" data-flip="open">Ver el resultado <span aria-hidden="true">↻</span></button>
+            </div>
+            <div class="epi-flip-face epi-flip-back">
+              <span class="epi-pillar3-num">04 · Prioridades y ejecución</span>
+              <p class="epi-flip-out"><span class="epi-out-label">Resultado del trabajo</span>Prioridades documentadas, con responsables y fechas.</p>
+              <button class="epi-flip-btn" type="button" data-flip="close" tabindex="-1"><span aria-hidden="true">↺</span> Volver</button>
+            </div>
+          </div>
         </article>
       </div>
+
+      <!-- Números del formato: cuentan desde 0 al aparecer. El valor final
+           ya está escrito, así se lee igual sin JS. -->
+      <ul class="epi-counters" aria-label="El partnership en números">
+        <li class="epi-counter" data-reveal>
+          <span class="epi-counter-num" data-counter="60">60</span>
+          <span class="epi-counter-label">minutos de growth meeting con Mariano, cada semana</span>
+        </li>
+        <li class="epi-counter" data-reveal data-reveal-delay="1">
+          <span class="epi-counter-num" data-counter="3">3</span>
+          <span class="epi-counter-label">plataformas publicitarias: Meta, Google y TikTok Ads</span>
+        </li>
+        <li class="epi-counter" data-reveal data-reveal-delay="2">
+          <span class="epi-counter-num" data-counter="6">6</span>
+          <span class="epi-counter-label">meses de horizonte para implementar, medir y ajustar</span>
+        </li>
+        <li class="epi-counter" data-reveal data-reveal-delay="3">
+          <span class="epi-counter-num" data-counter="4">4</span>
+          <span class="epi-counter-label">negocios por período, para que Mariano participe en cada uno</span>
+        </li>
+      </ul>
     </div>
   </section>
 
@@ -1075,7 +1449,7 @@ height="0" width="0" class="gtm-noscript" style="display:none;visibility:hidden"
         </div>
       </div>
 
-      <ol class="epi-stages">
+      <ol class="epi-stages epi-timeline">
         <li class="epi-stage epi-motion-card" data-reveal>
           <span class="epi-stage-num">Etapa 1</span>
           <h3 class="epi-stage-title">Diagnóstico</h3>
@@ -1158,12 +1532,12 @@ height="0" width="0" class="gtm-noscript" style="display:none;visibility:hidden"
             <span class="epi-cupos-dots" aria-hidden="true"></span>
             <span class="epi-cupos-text"><b>Cupos limitados</b> · cuatro negocios por período</span>
           </p>
-          <a href="#aplicar" class="btn btn-solid" data-cta="precio"><span class="dot" aria-hidden="true"></span> Solicitar una llamada</a>
+          <a href="#aplicar" class="btn btn-solid epi-shine epi-cta-pulse" data-cta="precio" data-float-guard><span class="dot" aria-hidden="true"></span> Solicitar una llamada</a>
         </div>
 
         <div class="epi-price-format" id="incluye">
           <h3 class="epi-price-format-title">Incluye</h3>
-          <ul class="epi-price-list">
+          <ul class="epi-price-list" data-stagger>
             <li>Growth meeting semanal de 60 minutos con Mariano Calandra</li>
             <li>Diagnóstico inicial del negocio, la oferta y el embudo</li>
             <li>Plan de crecimiento documentado a seis meses</li>
@@ -1291,7 +1665,7 @@ height="0" width="0" class="gtm-noscript" style="display:none;visibility:hidden"
        y solo pasa a gracias.html si Netlify confirma el envío; sin
        JS funciona como POST nativo.
        ======================================================== -->
-  <section class="epi-apply-section" id="aplicar" aria-labelledby="aplicar-title">
+  <section class="epi-apply-section" id="aplicar" aria-labelledby="aplicar-title" data-float-guard>
     <div class="epi-apply-panel">
 
       <div class="epi-apply-grid">
@@ -1372,7 +1746,7 @@ height="0" width="0" class="gtm-noscript" style="display:none;visibility:hidden"
 
             <div class="epi-form-submit">
               <p class="epi-form-price">Partnership: <b>USD 1.390/mes</b>. Publicidad aparte.</p>
-              <button type="submit" class="epi-form-btn" id="epiFormSubmit">Enviar solicitud</button>
+              <button type="submit" class="epi-form-btn epi-shine" id="epiFormSubmit">Enviar solicitud</button>
               <div class="epi-form-alert" id="epiFormAlert" role="alert" hidden>
                 No pudimos enviar la solicitud. Intentá nuevamente o <a href="https://wa.me/5493416397137?text=Buenos%20d%C3%ADas.%20Escribo%20desde%20el%20sitio%20web%20para%20consultar%20por%20el%20Growth%20Partnership%20de%20EPIBRANDS." target="_blank" rel="noopener" data-wa-location="error-formulario">escribinos por WhatsApp</a>.
               </div>
@@ -1400,7 +1774,7 @@ height="0" width="0" class="gtm-noscript" style="display:none;visibility:hidden"
 <!-- ============================================================
      FOOTER
      ============================================================ -->
-<footer>
+<footer data-float-guard>
   <div class="wrap foot-wrap">
     <a href="#top" class="brand" aria-label="EPIBRANDS — volver arriba">
       <img class="brand-logo" src="assets/epibrands-logo.png" alt="EPIBRANDS" width="621" height="124">
@@ -1417,6 +1791,14 @@ height="0" width="0" class="gtm-noscript" style="display:none;visibility:hidden"
     <p class="foot-copy">© <span id="year">2026</span> Mariano Calandra · EPIBRANDS · Growth Partner.</p>
   </div>
 </footer>
+
+<!-- Botón flotante: aparece cuando no hay a la vista ningún otro botón
+     de solicitud (elementos con data-float-guard). Lleva los cupos de
+     <body>. Sin JS queda oculto. -->
+<div class="epi-float" id="epiFloat" hidden>
+  <p class="epi-float-cupos"><span class="epi-float-dot" aria-hidden="true"></span><span id="epiFloatText"><b>Cupos limitados</b></span></p>
+  <a href="#aplicar" class="epi-float-btn epi-shine" data-cta="flotante">Solicitar una llamada</a>
+</div>
 
 <!-- ============================================================
      SCRIPT — externo (CSP). Toda la lógica interactiva vive en
